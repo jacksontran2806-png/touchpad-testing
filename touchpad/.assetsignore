@@ -4,6 +4,5 @@
 .vercel
 .wrangler
 wrangler.jsonc
-vercel.json
 README.md
 DEPLOYMENT.md

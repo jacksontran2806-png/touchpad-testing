@@ -17,8 +17,8 @@ touchpad/
   robots.txt
   sitemap.xml
   wrangler.jsonc                      Cloudflare Workers config — clean URLs, 404 handling
+  _headers                            cache + security headers
   .assetsignore                       files in this folder that must not be served
-  vercel.json                         unused by Cloudflare — kept for the parked Vercel project
   ads.txt                             placeholder — needs your real AdSense pub ID
   DEPLOYMENT.md                       how to deploy, and the custom-domain setup
 ```

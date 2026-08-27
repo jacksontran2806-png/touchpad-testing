@@ -1,80 +1,102 @@
 # Deploying this site
 
-The site runs on **Cloudflare Workers** (static assets), deployed automatically
-by **Workers Builds** on every push to `main`. The domain `hardwaretesthub.net`
-is registered in the same Cloudflare account, so DNS and hosting live together.
+Live at **https://hardwaretesthub.net**, running on **Cloudflare Workers**
+(static assets) as the Worker `hardwaretesthub-site`, in the
+`jacksontran2806@gmail.com` account.
 
-- Live domain: `https://hardwaretesthub.net`
-- Worker: `hardwaretesthub-site`
+> Not Cloudflare Pages. Pages was the original plan, but a Git-connected Pages
+> project needs Cloudflare's GitHub App installed on the account, and the API
+> rejected it (`code 8000011`). Workers static assets is what Cloudflare now
+> recommends for static sites anyway, and Workers Builds gives the same
+> push-to-deploy.
 
 ## Deploying
 
-Push to `main`. Workers Builds checks out the repo and runs the deploy command.
+**Push to `main`.** Workers Builds checks out the repo and deploys. Nothing else
+to do.
 
-To deploy by hand from this folder:
+By hand, from this folder:
 
 ```
 npx wrangler deploy
 ```
 
-Branch pushes other than `main` run `npx wrangler versions upload`, which
-publishes a preview URL without touching production.
+A push to any other branch runs `npx wrangler versions upload`, which publishes a
+preview URL without touching production.
 
-First-time setup on a new machine: `npm i -g wrangler` then `wrangler login`.
+New machine: `npm i -g wrangler`, then `wrangler login`.
 
-## Dashboard build settings
+## Setup — already done, listed for reference
 
-These are set on the Worker under **Settings → Builds**. Defaults are wrong for
-this repo — all three matter:
+Both of these are complete. Nothing here needs doing again unless the project is
+rebuilt from scratch.
+
+- **Repo connected.** The Worker builds from
+  `jacksontran2806-png/touchpad-testing` on push to `main`.
+- **Custom domain attached.** `hardwaretesthub.net` is bound to the Worker.
+  Because the domain is registered in the same Cloudflare account, Cloudflare
+  created the DNS record and the certificate itself — there are no external DNS
+  records to add anywhere.
+
+### Build settings
+
+Under the Worker → **Settings → Builds**. Defaults are wrong for this repo:
 
 | Setting | Value | Why |
 | --- | --- | --- |
-| Build command | *(empty)* | No build step |
+| Build command | *(empty)* | Plain HTML/CSS/JS, no build step |
 | Deploy command | `npx wrangler deploy` | Default |
 | Non-production deploy command | `npx wrangler versions upload` | Default |
-| Path / root directory | `touchpad` | The site is in a subfolder, not the repo root |
+| Path / root directory | `touchpad` | The site is in a subfolder, **not** the repo root |
+| API token | *(none)* | Workers Builds uses the connected account |
 
-No API token needs to be supplied — Workers Builds authenticates with the
-connected account.
+`Path` is the one that silently breaks things — if it's left at `/`, the deploy
+either fails or ships the wrong folder.
 
 ## Routing
 
-`wrangler.jsonc` handles it, no redirect rules needed:
+`wrangler.jsonc` handles it. No redirect rules needed:
 
 - `html_handling: "drop-trailing-slash"` — `/blog/keyboard-not-working` serves
   `blog/keyboard-not-working.html`. Both `/blog/keyboard-not-working.html` and
   `/blog/keyboard-not-working/` redirect to the clean URL, so old inbound links
-  still land correctly. Note these are **307** (temporary) redirects — that is
-  Cloudflare's behaviour and isn't configurable; the `<link rel="canonical">`
-  tags are what tell search engines which URL is authoritative.
-- `not_found_handling: "404-page"` — an unknown path serves `404.html` with a
-  real 404 status. Without this, unknown paths return the homepage with a 200,
-  which search engines index as duplicate homepages.
+  still land. These are **307** (temporary) redirects — Cloudflare's behaviour,
+  not configurable. The `<link rel="canonical">` tags are what tell search
+  engines which URL is authoritative.
+- `not_found_handling: "404-page"` — unknown paths serve `404.html` with a real
+  404 status. Without it they'd return the homepage at 200, which search engines
+  index as duplicate homepages.
 
-`.assetsignore` keeps this file, the README, `wrangler.jsonc`, `vercel.json` and
-the local `.vercel`/`.wrangler` folders from being served — they sit in the same
+## Headers
+
+`_headers` (same format Pages uses; Cloudflare supports it for Workers static
+assets too, and does not serve the file itself — verified).
+
+- Security headers on every response: `X-Content-Type-Options: nosniff`,
+  `X-Frame-Options: DENY`, `Referrer-Policy: strict-origin-when-cross-origin`,
+  and a `Permissions-Policy` denying geolocation/mic/camera.
+- HTML revalidates on every request, so a deploy is visible immediately.
+- CSS/JS cache for a day, then serve stale for a week while revalidating.
+
+**Why CSS/JS aren't cached for a year:** `style.css` and `app.js` have no
+content hash in their filenames. `immutable` with a long max-age would leave
+visitors running old JS against new HTML until the cache expired. If a build
+step is ever added that emits hashed filenames (`app.a1b2c3.js`), switch those
+two rules to `public, max-age=31536000, immutable` — that's the only safe way to
+get a year-long cache here.
+
+`X-Frame-Options: DENY` blocks embedding the tools in an iframe. If embeddable
+widgets ever ship, this becomes `SAMEORIGIN` plus a `frame-ancestors` CSP.
+
+## What isn't served
+
+`.assetsignore` keeps `wrangler.jsonc`, the two markdown docs, and the local
+`.vercel`/`.wrangler` folders out of the deployment — they sit in the same
 folder as the site. Verified: those paths return 404. Anything added to this
 folder that shouldn't be public needs a line there.
 
-## Custom domain
+## The old Vercel project
 
-Add under the Worker → **Settings → Domains & Routes → Add → Custom domain** →
-`hardwaretesthub.net`. Because the zone is in the same Cloudflare account, the
-DNS record and certificate are created automatically.
-
-The domain is written into `robots.txt`, `sitemap.xml`, `privacy-policy.html`,
-and the `<link rel="canonical">` tag on all five pages — if the domain ever
-changes, all four need updating.
-
-## The old projects
-
-Two earlier deployments still exist and can be deleted once this one is live on
-the domain:
-
-- **Cloudflare Pages project `hardwaretesthub`** — direct-upload, superseded by
-  this Worker. Its custom domain entry for `hardwaretesthub.net` never finished
-  provisioning and must be removed before the domain can attach here.
-- **Vercel project `touchpad`** — never promoted to production. `vercel.json` is
-  kept in the repo only for it. To revive: `vercel --prod`, then
-  **Settings → Deployment Protection** → **Vercel Authentication** →
-  **Only Preview Deployments**, or visitors hit a Vercel login wall.
+The Vercel project `touchpad` still exists but is dead — never promoted to
+production, no domain pointing at it, and `vercel.json` has been removed from
+the repo. Delete it in the Vercel dashboard whenever you like.

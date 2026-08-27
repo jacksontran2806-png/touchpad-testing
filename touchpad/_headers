@@ -1,0 +1,31 @@
+# Security headers on everything.
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), interest-cohort=()
+
+# HTML: always revalidate, so a deploy is visible immediately.
+/
+  Cache-Control: public, max-age=0, must-revalidate
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+/blog/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+# CSS/JS: cached for a day, then served stale for a week while revalidating in
+# the background. NOT `immutable` — these filenames carry no content hash, so a
+# long immutable cache would strand visitors on old JS after a deploy. See
+# DEPLOYMENT.md if you ever add a build step that hashes filenames.
+/css/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+/js/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+# Crawler files: short cache so edits are picked up quickly.
+/robots.txt
+  Cache-Control: public, max-age=3600
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+/ads.txt
+  Cache-Control: public, max-age=3600
