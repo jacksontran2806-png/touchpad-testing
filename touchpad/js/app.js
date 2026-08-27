@@ -29,21 +29,6 @@
     osBanner.hidden = false;
   }
 
-  /* ---------- Device tab switcher ---------- */
-  const tabs = document.querySelectorAll(".device-tab");
-  tabs.forEach(function (tab) {
-    tab.addEventListener("click", function () {
-      const target = tab.getAttribute("data-panel");
-      tabs.forEach(function (t) {
-        t.classList.toggle("active", t === tab);
-        t.setAttribute("aria-selected", t === tab ? "true" : "false");
-      });
-      document.querySelectorAll(".test-panel").forEach(function (panel) {
-        panel.classList.toggle("active", panel.id === "panel-" + target);
-      });
-    });
-  });
-
   /* ============================================================
      TOUCHPAD TEST
      ============================================================ */
@@ -83,7 +68,7 @@
     function markDetected(key) {
       if (state[key]) return;
       state[key] = true;
-      const item = document.querySelector('#panel-touchpad [data-check="' + key + '"]');
+      const item = document.querySelector('[data-check="' + key + '"]');
       if (item) {
         item.classList.add("detected");
         const status = item.querySelector(".status");
@@ -199,7 +184,7 @@
     if (resetBtn) {
       resetBtn.addEventListener("click", function () {
         Object.keys(state).forEach(function (k) { state[k] = false; });
-        document.querySelectorAll("#panel-touchpad .check-item.detected").forEach(function (el) {
+        document.querySelectorAll(".check-item.detected").forEach(function (el) {
           el.classList.remove("detected");
           const status = el.querySelector(".status");
           if (status) status.textContent = "Waiting";
@@ -214,12 +199,10 @@
   })();
 
   /* ============================================================
-     KEYBOARD TEST
+     KEYBOARD LAYOUT BUILDERS — shared by the keyboard test and the
+     ghosting/NKRO test, so the on-screen board isn't built twice.
      ============================================================ */
-  (function keyboardTest() {
-    const board = document.getElementById("keyboard");
-    if (!board) return;
-
+  const KB = (function keyboardBuilders() {
     const BASE_LABELS = {
       KeyQ: "Q", KeyW: "W", KeyE: "E", KeyR: "R", KeyT: "T", KeyY: "Y", KeyU: "U", KeyI: "I", KeyO: "O", KeyP: "P",
       KeyA: "A", KeyS: "S", KeyD: "D", KeyF: "F", KeyG: "G", KeyH: "H", KeyJ: "J", KeyK: "K", KeyL: "L", Semicolon: ";", Quote: "'",
@@ -409,46 +392,80 @@
       return el;
     }
 
-    const panel = document.getElementById("panel-keyboard");
-    const wrap = document.querySelector(".keyboard-wrap");
-    const osSelect = document.getElementById("kb-os");
-    const sizeSelect = document.getElementById("kb-size");
-    const layoutSelect = document.getElementById("layout-select");
-
-    /* How wide each mode is in key units, so the board can be scaled to fit
+    /* How wide each mode is in key units, so a board can be scaled to fit
        whatever space it actually has. Full size adds the nav cluster (3u) and
        numpad (4u) beside the main block (15u), plus the two 18px section gaps.
-       Below `min` we stop shrinking and let .keyboard-wrap scroll instead. */
-    const KB_METRICS = {
+       Below `min` we stop shrinking and let the wrap scroll instead. */
+    const METRICS = {
       compact: { max: 44, min: 24, gap: 6, units: 15, gaps: 14, extra: 0 },
       full: { max: 36, min: 20, gap: 5, units: 22, gaps: 19, extra: 36 }
     };
 
-    let fittedTo = "";
-
-    function fitBoard() {
-      if (!wrap) return;
-      if (wrap.clientWidth <= 0) return; // panel is hidden — the observer refits when it shows
-      const m = KB_METRICS[sizeSelect ? sizeSelect.value : "full"] || KB_METRICS.full;
-      const style = window.getComputedStyle(wrap);
-      const padding = parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
-      const avail = wrap.clientWidth - padding - 2; // 2px keeps sub-pixel rounding from overflowing
-      const raw = (avail - m.extra - m.gaps * m.gap) / m.units;
-      const size = Math.max(m.min, Math.min(m.max, Math.floor(raw)));
-      const next = size + "/" + m.gap;
-      if (next === fittedTo) return; // no-op writes would just churn the observer
-      fittedTo = next;
-      board.style.setProperty("--key-size", size + "px");
-      board.style.setProperty("--key-gap", m.gap + "px");
+    // Watches `wrapEl` and rewrites `boardEl`'s --key-size/--key-gap to fit it.
+    // `getMetrics` is called fresh on every fit so callers whose layout can
+    // change at runtime (switching compact/full) stay correct; a caller with
+    // one fixed layout can just return the same METRICS entry every time.
+    function attachFit(boardEl, wrapEl, getMetrics) {
+      let fittedTo = "";
+      function fit() {
+        if (!wrapEl) return;
+        if (wrapEl.clientWidth <= 0) return; // hidden — refits once it's shown
+        const m = getMetrics();
+        const style = window.getComputedStyle(wrapEl);
+        const padding = parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
+        const avail = wrapEl.clientWidth - padding - 2; // keeps sub-pixel rounding from overflowing
+        const raw = (avail - m.extra - m.gaps * m.gap) / m.units;
+        const size = Math.max(m.min, Math.min(m.max, Math.floor(raw)));
+        const next = size + "/" + m.gap;
+        if (next === fittedTo) return; // no-op writes would just churn the observer
+        fittedTo = next;
+        boardEl.style.setProperty("--key-size", size + "px");
+        boardEl.style.setProperty("--key-gap", m.gap + "px");
+      }
+      if (wrapEl && typeof ResizeObserver === "function") {
+        new ResizeObserver(fit).observe(wrapEl);
+      } else {
+        window.addEventListener("resize", fit);
+      }
+      return fit;
     }
 
-    // Refits on window resize, on tab switch (hidden -> visible), and when the
-    // sidebar appears/disappears as the layout flips between full and compact.
-    if (wrap && typeof ResizeObserver === "function") {
-      new ResizeObserver(fitBoard).observe(wrap);
-    } else {
-      window.addEventListener("resize", fitBoard);
-    }
+    return {
+      ALPHA_CODES: ALPHA_CODES,
+      labelFor: labelFor,
+      buildMainRows: buildMainRows,
+      buildNavRows: buildNavRows,
+      buildNumpadCells: buildNumpadCells,
+      makeKey: makeKey,
+      renderRows: renderRows,
+      section: section,
+      METRICS: METRICS,
+      attachFit: attachFit
+    };
+  })();
+
+  /* ============================================================
+     KEYBOARD TEST
+     ============================================================ */
+  (function keyboardTest() {
+    const board = document.getElementById("keyboard");
+    if (!board) return;
+
+    const ALPHA_CODES = KB.ALPHA_CODES, labelFor = KB.labelFor, buildMainRows = KB.buildMainRows,
+      buildNavRows = KB.buildNavRows, buildNumpadCells = KB.buildNumpadCells, makeKey = KB.makeKey,
+      renderRows = KB.renderRows, section = KB.section;
+
+    const wrap = document.querySelector(".keyboard-wrap");
+    const testWrap = board.closest(".test-wrap");
+    const osSelect = document.getElementById("kb-os");
+    const sizeSelect = document.getElementById("kb-size");
+    const layoutSelect = document.getElementById("layout-select");
+
+    // Refits on window resize, on first layout, and when the sidebar appears/
+    // disappears as the layout flips between full and compact.
+    const fitBoard = KB.attachFit(board, wrap, function () {
+      return KB.METRICS[sizeSelect ? sizeSelect.value : "full"] || KB.METRICS.full;
+    });
 
     // Every code pressed since the last reset. Kept outside the DOM so the green
     // stays put when the board is rebuilt (OS / size / layout change).
@@ -467,7 +484,7 @@
 
       board.textContent = "";
       board.className = "keyboard size-" + size;
-      if (panel) panel.classList.toggle("kb-full", size === "full");
+      if (testWrap) testWrap.classList.toggle("kb-full", size === "full");
 
       const main = section("kb-main");
       renderRows(main, buildMainRows(osKind, size));
@@ -546,11 +563,6 @@
     const lastCodeEl = document.getElementById("kb-lastcode");
     const mods = document.querySelectorAll(".mod-pill");
 
-    function isKeyboardPanelActive() {
-      const panel = document.getElementById("panel-keyboard");
-      return panel && panel.classList.contains("active");
-    }
-
     // F5/F11/F12 are left alone on purpose — reload, fullscreen, and devtools
     // still fire keydown first, so the key lights up either way, and swallowing
     // them would be more annoying than useful.
@@ -562,7 +574,6 @@
     ]);
 
     window.addEventListener("keydown", function (e) {
-      if (!isKeyboardPanelActive()) return;
       if (PREVENT_DEFAULT_CODES.has(e.code)) e.preventDefault();
       recordTyped(e);
 
@@ -621,7 +632,7 @@
     function markDetected(key) {
       if (state[key]) return;
       state[key] = true;
-      const item = document.querySelector('#panel-mouse [data-check="' + key + '"]');
+      const item = document.querySelector('[data-check="' + key + '"]');
       if (item) {
         item.classList.add("detected");
         const status = item.querySelector(".status");
@@ -689,7 +700,7 @@
     if (resetBtn) {
       resetBtn.addEventListener("click", function () {
         Object.keys(state).forEach(function (k) { state[k] = false; });
-        document.querySelectorAll("#panel-mouse .check-item.detected").forEach(function (el) {
+        document.querySelectorAll(".check-item.detected").forEach(function (el) {
           el.classList.remove("detected");
           const status = el.querySelector(".status");
           if (status) status.textContent = "Waiting";
@@ -699,5 +710,424 @@
         setReadout("mo-wheel", "–");
       });
     }
+  })();
+
+  /* ============================================================
+     MOUSE DOUBLE-CLICK TEST
+     A worn switch fires two "click" events for one physical press.
+     Two genuine human clicks are essentially never under ~100ms apart,
+     so a gap shorter than the chosen threshold is flagged as a misfire.
+     ============================================================ */
+  (function doubleClickTest() {
+    const zone = document.getElementById("dc-zone");
+    if (!zone) return;
+
+    const thresholdSelect = document.getElementById("dc-threshold");
+    const totalEl = document.getElementById("dc-total");
+    const misfireEl = document.getElementById("dc-misfires");
+    const logEl = document.getElementById("dc-log");
+    const resetBtn = document.getElementById("reset-dblclick");
+
+    let lastClickTime = 0;
+    let total = 0;
+    let misfires = 0;
+    const LOG_MAX = 8;
+
+    function addLogEntry(gapMs, isMisfire) {
+      if (!logEl) return;
+      const row = document.createElement("div");
+      row.className = "click-log-row" + (isMisfire ? " is-misfire" : "");
+      row.textContent = isMisfire
+        ? "Misfire — " + gapMs.toFixed(1) + "ms after the previous click"
+        : "Click — " + (lastClickTime === 0 ? "first click" : gapMs.toFixed(1) + "ms gap");
+      logEl.prepend(row);
+      while (logEl.children.length > LOG_MAX) logEl.removeChild(logEl.lastChild);
+    }
+
+    zone.addEventListener("click", function () {
+      const now = performance.now();
+      const threshold = thresholdSelect ? Number(thresholdSelect.value) : 50;
+      const gap = now - lastClickTime;
+      const isFirst = lastClickTime === 0;
+      const isMisfire = !isFirst && gap < threshold;
+
+      total += 1;
+      if (totalEl) totalEl.textContent = String(total);
+
+      if (isMisfire) {
+        misfires += 1;
+        if (misfireEl) misfireEl.textContent = String(misfires);
+        zone.classList.add("flash-bad");
+        setTimeout(function () { zone.classList.remove("flash-bad"); }, 250);
+      } else {
+        zone.classList.add("flash-ok");
+        setTimeout(function () { zone.classList.remove("flash-ok"); }, 150);
+      }
+      addLogEntry(gap, isMisfire);
+      lastClickTime = now;
+    });
+
+    if (resetBtn) {
+      resetBtn.addEventListener("click", function () {
+        total = 0;
+        misfires = 0;
+        lastClickTime = 0;
+        if (totalEl) totalEl.textContent = "0";
+        if (misfireEl) misfireEl.textContent = "0";
+        if (logEl) logEl.textContent = "";
+      });
+    }
+  })();
+
+  /* ============================================================
+     CLICKS-PER-SECOND (CPS) TEST
+     ============================================================ */
+  (function cpsTest() {
+    const button = document.getElementById("cps-button");
+    if (!button) return;
+
+    const durationSelect = document.getElementById("cps-duration");
+    const timerEl = document.getElementById("cps-timer");
+    const liveCountEl = document.getElementById("cps-count");
+    const labelEl = document.getElementById("cps-label");
+    const resultPanel = document.getElementById("cps-result");
+    const scoreEl = document.getElementById("cps-score");
+    const tierEl = document.getElementById("cps-tier");
+    const copyBtn = document.getElementById("cps-copy");
+    const againBtn = document.getElementById("cps-again");
+
+    const TIERS = [
+      { max: 4, label: "Below average — most people land higher with practice." },
+      { max: 6, label: "Average — right around where most visitors score." },
+      { max: 9, label: "Fast — solidly above average clicking speed." },
+      { max: 12, label: "Very fast — competitive-gaming territory." },
+      { max: Infinity, label: "Exceptional — verify it's really a finger, not a macro." }
+    ];
+    function tierFor(cps) {
+      return TIERS.find(function (t) { return cps <= t.max; }).label;
+    }
+
+    let running = false;
+    let clicks = 0;
+    let endAt = 0;
+    let rafId = null;
+    let lastResult = null;
+
+    function tick() {
+      const remaining = Math.max(0, endAt - performance.now());
+      if (timerEl) timerEl.textContent = (remaining / 1000).toFixed(1) + "s";
+      if (remaining <= 0) {
+        finish();
+        return;
+      }
+      rafId = requestAnimationFrame(tick);
+    }
+
+    function start() {
+      running = true;
+      clicks = 0;
+      const duration = durationSelect ? Number(durationSelect.value) : 5;
+      endAt = performance.now() + duration * 1000;
+      if (liveCountEl) liveCountEl.textContent = "0 clicks";
+      if (resultPanel) resultPanel.hidden = true;
+      if (labelEl) labelEl.textContent = "Click as fast as you can!";
+      button.classList.add("is-running");
+      rafId = requestAnimationFrame(tick);
+    }
+
+    function finish() {
+      running = false;
+      cancelAnimationFrame(rafId);
+      const duration = durationSelect ? Number(durationSelect.value) : 5;
+      const cps = clicks / duration;
+      lastResult = cps;
+      if (labelEl) labelEl.textContent = "Click to try again";
+      button.classList.remove("is-running");
+      if (timerEl) timerEl.textContent = "0.0s";
+      if (resultPanel) resultPanel.hidden = false;
+      if (scoreEl) scoreEl.textContent = cps.toFixed(2);
+      if (tierEl) tierEl.textContent = tierFor(cps);
+    }
+
+    button.addEventListener("click", function () {
+      if (!running) {
+        start();
+        return;
+      }
+      clicks += 1;
+      if (liveCountEl) liveCountEl.textContent = clicks + " clicks";
+    });
+
+    if (againBtn) {
+      againBtn.addEventListener("click", function () {
+        if (resultPanel) resultPanel.hidden = true;
+        if (labelEl) labelEl.textContent = "Click to start";
+      });
+    }
+
+    if (copyBtn) {
+      copyBtn.addEventListener("click", function () {
+        if (lastResult === null) return;
+        const duration = durationSelect ? Number(durationSelect.value) : 5;
+        const text = "I scored " + lastResult.toFixed(2) + " CPS on the " + duration + "-second Click Speed Test! Test yours: " + location.href;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function () {
+            const original = copyBtn.textContent;
+            copyBtn.textContent = "Copied!";
+            setTimeout(function () { copyBtn.textContent = original; }, 1500);
+          });
+        }
+      });
+    }
+  })();
+
+  /* ============================================================
+     KEYBOARD GHOSTING / N-KEY ROLLOVER TEST
+     A browser can't detect a keypress that never sends an event, so this
+     doesn't diagnose ghosting automatically — it shows exactly how many
+     simultaneous keys register, so you can compare against how many
+     fingers you're actually holding down.
+     ============================================================ */
+  (function ghostingTest() {
+    const board = document.getElementById("ghost-keyboard");
+    if (!board) return;
+
+    const main = KB.section("kb-main");
+    KB.renderRows(main, KB.buildMainRows("windows", "compact"));
+    board.appendChild(main);
+    KB.ALPHA_CODES.forEach(function (code) {
+      const el = board.querySelector('[data-code="' + code + '"]');
+      if (el) el.textContent = KB.labelFor("qwerty", code);
+    });
+
+    const fitBoard = KB.attachFit(board, document.querySelector(".keyboard-wrap"), function () {
+      return KB.METRICS.compact;
+    });
+    fitBoard();
+
+    const held = new Set();
+    let maxSeen = 0;
+
+    const currentEl = document.getElementById("ghost-current");
+    const maxEl = document.getElementById("ghost-max");
+    const resetBtn = document.getElementById("reset-ghosting");
+
+    window.addEventListener("keydown", function (e) {
+      if (["Tab", "Space"].indexOf(e.code) !== -1) e.preventDefault();
+      const keyEl = board.querySelector('[data-code="' + e.code + '"]');
+      if (keyEl) keyEl.classList.add("pressed");
+      if (!held.has(e.code)) {
+        held.add(e.code);
+        if (currentEl) currentEl.textContent = String(held.size);
+        if (held.size > maxSeen) {
+          maxSeen = held.size;
+          if (maxEl) maxEl.textContent = String(maxSeen);
+        }
+      }
+    });
+
+    window.addEventListener("keyup", function (e) {
+      const keyEl = board.querySelector('[data-code="' + e.code + '"]');
+      if (keyEl) keyEl.classList.remove("pressed");
+      held.delete(e.code);
+      if (currentEl) currentEl.textContent = String(held.size);
+    });
+
+    window.addEventListener("blur", function () {
+      held.forEach(function (code) {
+        const keyEl = board.querySelector('[data-code="' + code + '"]');
+        if (keyEl) keyEl.classList.remove("pressed");
+      });
+      held.clear();
+      if (currentEl) currentEl.textContent = "0";
+    });
+
+    if (resetBtn) {
+      resetBtn.addEventListener("click", function () {
+        maxSeen = 0;
+        if (maxEl) maxEl.textContent = "0";
+      });
+    }
+  })();
+
+  /* ============================================================
+     MOUSE SCROLL TEST
+     ============================================================ */
+  (function scrollTest() {
+    const zone = document.getElementById("scroll-zone");
+    if (!zone) return;
+
+    const totalEl = document.getElementById("scroll-total");
+    const lastDyEl = document.getElementById("scroll-last-dy");
+    const lastDxEl = document.getElementById("scroll-last-dx");
+    const indicator = document.getElementById("scroll-indicator");
+    const track = document.getElementById("scroll-track");
+    const logEl = document.getElementById("scroll-log");
+    const resetBtn = document.getElementById("reset-scroll");
+
+    let total = 0;
+    let pos = 0.5; // 0 = top of track, 1 = bottom
+    const LOG_MAX = 8;
+
+    zone.addEventListener("wheel", function (e) {
+      e.preventDefault();
+      total += 1;
+      if (totalEl) totalEl.textContent = String(total);
+      if (lastDyEl) lastDyEl.textContent = e.deltaY.toFixed(1);
+      if (lastDxEl) lastDxEl.textContent = e.deltaX.toFixed(1);
+
+      if (indicator && track) {
+        const trackHeight = track.clientHeight - indicator.clientHeight;
+        pos = Math.min(1, Math.max(0, pos + e.deltaY / 4000));
+        indicator.style.top = (pos * trackHeight) + "px";
+      }
+
+      if (logEl) {
+        const row = document.createElement("div");
+        row.className = "scroll-log-row";
+        const big = Math.abs(e.deltaY) > 150 || Math.abs(e.deltaX) > 150;
+        if (big) row.classList.add("is-flagged");
+        row.textContent = "dy " + e.deltaY.toFixed(1) + " / dx " + e.deltaX.toFixed(1) + (big ? "  — large jump" : "");
+        logEl.prepend(row);
+        while (logEl.children.length > LOG_MAX) logEl.removeChild(logEl.lastChild);
+      }
+    }, { passive: false });
+
+    if (resetBtn) {
+      resetBtn.addEventListener("click", function () {
+        total = 0;
+        pos = 0.5;
+        if (totalEl) totalEl.textContent = "0";
+        if (lastDyEl) lastDyEl.textContent = "–";
+        if (lastDxEl) lastDxEl.textContent = "–";
+        if (logEl) logEl.textContent = "";
+        if (indicator && track) {
+          indicator.style.top = (pos * (track.clientHeight - indicator.clientHeight)) + "px";
+        }
+      });
+    }
+  })();
+
+  /* ============================================================
+     REACTION TIME TEST
+     ============================================================ */
+  (function reactionTimeTest() {
+    const box = document.getElementById("reaction-box");
+    if (!box) return;
+
+    const statusEl = document.getElementById("reaction-status");
+    const roundEl = document.getElementById("reaction-round");
+    const resultPanel = document.getElementById("reaction-result");
+    const avgEl = document.getElementById("reaction-avg");
+    const bestEl = document.getElementById("reaction-best");
+    const listEl = document.getElementById("reaction-list");
+    const copyBtn = document.getElementById("reaction-copy");
+    const againBtn = document.getElementById("reaction-again");
+
+    const TOTAL_ROUNDS = 5;
+    // `phase` drives what a click does next; the CSS class (set separately
+    // via setVisual) only controls how the box looks — they don't always
+    // match 1:1 ("early" and "between-rounds" both look idle/neutral but
+    // need different click handling).
+    let phase = "idle"; // idle | waiting | ready | early | between
+    let round = 0;
+    let times = [];
+    let readyAt = 0;
+    let waitTimer = null;
+
+    function setVisual(cssState, text) {
+      box.className = "reaction-box state-" + cssState;
+      if (statusEl) statusEl.textContent = text;
+    }
+
+    function startRound() {
+      phase = "waiting";
+      if (roundEl) roundEl.textContent = "Round " + (round + 1) + " of " + TOTAL_ROUNDS;
+      setVisual("waiting", "Wait for green…");
+      const delay = 1500 + Math.random() * 3000;
+      waitTimer = setTimeout(function () {
+        phase = "ready";
+        readyAt = performance.now();
+        setVisual("ready", "Click now!");
+      }, delay);
+    }
+
+    function finishAll() {
+      phase = "idle";
+      const avg = times.reduce(function (a, b) { return a + b; }, 0) / times.length;
+      const best = Math.min.apply(null, times);
+      setVisual("idle", "Click to test again");
+      if (roundEl) roundEl.textContent = "";
+      if (resultPanel) resultPanel.hidden = false;
+      if (avgEl) avgEl.textContent = Math.round(avg) + "ms";
+      if (bestEl) bestEl.textContent = Math.round(best) + "ms";
+    }
+
+    box.addEventListener("click", function () {
+      if (phase === "idle") {
+        round = 0;
+        times = [];
+        if (resultPanel) resultPanel.hidden = true;
+        if (listEl) listEl.textContent = "";
+        startRound();
+        return;
+      }
+      if (phase === "waiting") {
+        clearTimeout(waitTimer);
+        phase = "early";
+        setVisual("early", "Too soon! Click to try this round again");
+        return;
+      }
+      if (phase === "early") {
+        startRound();
+        return;
+      }
+      if (phase === "ready") {
+        const ms = performance.now() - readyAt;
+        times.push(ms);
+        if (listEl) {
+          const row = document.createElement("div");
+          row.className = "reaction-round-row";
+          row.textContent = "Round " + (round + 1) + ": " + Math.round(ms) + "ms";
+          listEl.appendChild(row);
+        }
+        round += 1;
+        if (round >= TOTAL_ROUNDS) {
+          finishAll();
+        } else {
+          phase = "between";
+          setVisual("idle", "Nice — click for the next round");
+        }
+        return;
+      }
+      if (phase === "between") {
+        startRound();
+      }
+    });
+
+    if (againBtn) {
+      againBtn.addEventListener("click", function () {
+        phase = "idle";
+        if (resultPanel) resultPanel.hidden = true;
+        setVisual("idle", "Click to start");
+      });
+    }
+
+    if (copyBtn) {
+      copyBtn.addEventListener("click", function () {
+        if (!times.length) return;
+        const avg = times.reduce(function (a, b) { return a + b; }, 0) / times.length;
+        const text = "My reaction time: " + Math.round(avg) + "ms average over " + TOTAL_ROUNDS + " rounds. Test yours: " + location.href;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function () {
+            const original = copyBtn.textContent;
+            copyBtn.textContent = "Copied!";
+            setTimeout(function () { copyBtn.textContent = original; }, 1500);
+          });
+        }
+      });
+    }
+
+    setVisual("idle", "Click to start");
   })();
 })();

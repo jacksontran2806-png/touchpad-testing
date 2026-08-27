@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Mouse Scroll Wheel Test — Check Direction & Consistency | Hardware Test Hub</title>
+<meta name="description" content="Test your mouse scroll wheel — check direction, step size, and whether it skips or jumps. Free online scroll test, no download needed.">
+<link rel="canonical" href="https://hardwaretesthub.net/mouse-scroll-test">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hardwaretesthub.net/mouse-scroll-test">
+<meta property="og:title" content="Mouse Scroll Wheel Test — Check Direction & Consistency">
+<meta property="og:description" content="Test your mouse scroll wheel — check direction, step size, and whether it skips or jumps. Free online scroll test, no download needed.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/#mouse">Mouse</a>
+      <a href="/#keyboard-tools">Keyboard</a>
+      <a href="/#gaming">Gaming</a>
+      <a href="/#guides">Guides</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <div class="tool-head">
+    <div class="kicker">Mouse &amp; Trackpad</div>
+    <h1>Mouse Scroll Test</h1>
+    <p>Scroll up and down in the box below. The indicator moves with your scroll direction, and every raw wheel event is logged so you can see step size and spot skips for yourself.</p>
+  </div>
+
+  <div class="tool-wrap">
+    <div class="test-wrap">
+      <div class="canvas-card">
+        <div class="canvas-toolbar">
+          <h2>Test area</h2>
+          <button class="reset-btn" id="reset-scroll">Reset</button>
+        </div>
+        <div class="scroll-zone" id="scroll-zone">
+          <div class="scroll-track" id="scroll-track">
+            <div class="scroll-indicator" id="scroll-indicator"></div>
+          </div>
+          <p class="scroll-hint">Scroll with the wheel or two-finger swipe. The dot moves up when you scroll up, down when you scroll down.</p>
+        </div>
+        <div class="hint-bar">
+          A consistent wheel produces evenly-sized steps. Wildly uneven numbers or sudden large jumps below can indicate a dirty or failing encoder.
+        </div>
+      </div>
+
+      <aside class="results-panel">
+        <h2>Live readout</h2>
+        <div class="keyboard-readout">
+          <div class="kv"><span class="k">Scroll events</span><span class="v" id="scroll-total">0</span></div>
+          <div class="kv"><span class="k">Last deltaY</span><span class="v" id="scroll-last-dy">–</span></div>
+          <div class="kv"><span class="k">Last deltaX</span><span class="v" id="scroll-last-dx">–</span></div>
+        </div>
+        <div class="live-readout">
+          <div style="margin-bottom:8px;">Event log</div>
+          <div class="scroll-log" id="scroll-log"></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="article">
+    <h2>What this actually tests</h2>
+    <p>Scrolling reaches the browser as <code>wheel</code> events carrying a <code>deltaY</code> (vertical) and <code>deltaX</code> (horizontal) value per notch or swipe. A healthy wheel produces roughly consistent deltas for a consistent scroll motion; a wheel with a worn encoder tends to produce erratic values, skipped steps, or occasional large unexpected jumps — all visible in the raw log above.</p>
+
+    <h2>If scrolling feels wrong</h2>
+    <ol>
+      <li>Check the deltaY sign: scrolling up should be consistently negative (or consistently positive — direction convention varies by OS, but it should be consistent one way).</li>
+      <li>Look for large, isolated jumps in the log — that's the classic symptom of a wheel encoder starting to fail.</li>
+      <li>Clean around the wheel with compressed air; dust is a common cause of skipping.</li>
+      <li>Check your OS mouse settings for "reverse scroll direction," which is sometimes toggled by accident.</li>
+    </ol>
+
+    <div class="cta-box">
+      <p>Scroll wheel not responding at all?</p>
+      <a class="btn" href="/blog/mouse-scroll-not-working">Read the fix guide</a>
+    </div>
+  </div>
+
+  <section class="help-section">
+    <h2>Related tools</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/mouse-test">
+        <h3>Mouse Test</h3>
+        <p>Check every button too.</p>
+      </a>
+      <a class="help-card" href="/trackpad-test">
+        <h3>Trackpad Test</h3>
+        <p>Includes two-finger scroll and pinch zoom.</p>
+      </a>
+      <a class="help-card" href="/blog/mouse-scroll-not-working">
+        <h3>Mouse scroll not working</h3>
+        <p>Jumping, stuttering, and reversed scroll — fixed.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/#mouse">Mouse</a>
+    <a href="/#keyboard-tools">Keyboard</a>
+    <a href="/#gaming">Gaming</a>
+    <a href="/#guides">Guides</a>
+    <a href="/about">About</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Mouse Double Click Test — Is Your Mouse Double Clicking? | Hardware Test Hub</title>
+<meta name="description" content="Test whether your mouse is misfiring — clicking twice when you click once. Free online double-click test, no download needed.">
+<link rel="canonical" href="https://hardwaretesthub.net/mouse-double-click-test">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hardwaretesthub.net/mouse-double-click-test">
+<meta property="og:title" content="Mouse Double Click Test — Is Your Mouse Double Clicking?">
+<meta property="og:description" content="Test whether your mouse is misfiring — clicking twice when you click once. Free online double-click test, no download needed.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/#mouse">Mouse</a>
+      <a href="/#keyboard-tools">Keyboard</a>
+      <a href="/#gaming">Gaming</a>
+      <a href="/#guides">Guides</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <div class="tool-head">
+    <div class="kicker">Mouse &amp; Trackpad</div>
+    <h1>Mouse Double-Click Test</h1>
+    <p>Click the box below once at a time, at a normal pace. A worn switch fires a second click event for a single physical press — this catches it and shows exactly how many milliseconds apart the two clicks landed.</p>
+  </div>
+
+  <div class="tool-wrap">
+    <div class="test-wrap">
+      <div class="canvas-card">
+        <div class="canvas-toolbar">
+          <h2>Test area</h2>
+          <div class="toolbar-controls">
+            <select class="layout-select" id="dc-threshold" aria-label="Misfire threshold">
+              <option value="30">Sensitivity: 30ms</option>
+              <option value="50" selected>Sensitivity: 50ms (default)</option>
+              <option value="80">Sensitivity: 80ms</option>
+              <option value="120">Sensitivity: 120ms</option>
+            </select>
+            <button class="reset-btn" id="reset-dblclick">Reset</button>
+          </div>
+        </div>
+        <button type="button" class="click-zone" id="dc-zone">Click here, once at a time</button>
+        <div class="hint-bar">
+          Click at a normal, deliberate pace — not fast. Two clicks under the threshold apart almost certainly means the switch fired twice on its own.
+        </div>
+      </div>
+
+      <aside class="results-panel">
+        <h2>Results</h2>
+        <div class="keyboard-readout">
+          <div class="kv"><span class="k">Total clicks</span><span class="v" id="dc-total">0</span></div>
+          <div class="kv"><span class="k">Misfires</span><span class="v" id="dc-misfires">0</span></div>
+        </div>
+        <div class="live-readout">
+          <div style="margin-bottom:8px;">Click log</div>
+          <div class="click-log" id="dc-log"></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="article">
+    <h2>What this actually tests</h2>
+    <p>A human physically cannot release and press a mouse button again in under about 30-50ms — that's faster than the fastest competitive clickers. So when two "click" events arrive that close together from what was one press, the cause is almost always a worn or dirty microswitch inside the mouse making brief, unwanted contact ("switch bounce" or "chatter") rather than anything you did.</p>
+
+    <h2>If you're seeing misfires</h2>
+    <ol>
+      <li>Try the default 50ms sensitivity first — it's a safe margin above any real human click gap.</li>
+      <li>Clean around the switch with compressed air; dust can occasionally cause intermittent contact.</li>
+      <li>Check for a manufacturer firmware update — some mice add debounce-time adjustment.</li>
+      <li>If misfires are frequent and consistent, the switch itself has likely worn out — this is normal after 1-5 years of heavy use and usually means a repair or replacement.</li>
+    </ol>
+
+    <div class="cta-box">
+      <p>Want the full repair-vs-replace breakdown?</p>
+      <a class="btn" href="/blog/mouse-double-clicking-fix">Read the fix guide</a>
+    </div>
+  </div>
+
+  <section class="help-section">
+    <h2>Related tools</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/mouse-test">
+        <h3>Mouse Test</h3>
+        <p>Check every button, not just clicking.</p>
+      </a>
+      <a class="help-card" href="/cps-test">
+        <h3>CPS Test</h3>
+        <p>Time your clicks-per-second.</p>
+      </a>
+      <a class="help-card" href="/blog/mouse-double-clicking-fix">
+        <h3>Mouse double-clicking on one click</h3>
+        <p>Why switches wear out, and what actually fixes it.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/#mouse">Mouse</a>
+    <a href="/#keyboard-tools">Keyboard</a>
+    <a href="/#gaming">Gaming</a>
+    <a href="/#guides">Guides</a>
+    <a href="/about">About</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

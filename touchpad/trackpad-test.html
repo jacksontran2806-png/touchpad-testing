@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Trackpad Test — Check Clicks, Scroll & Gestures Online</title>
+<meta name="description" content="Free online trackpad tester. Check clicks, right-click, two-finger scroll, and pinch-to-zoom instantly in your browser — no download needed.">
+<link rel="canonical" href="https://hardwaretesthub.net/trackpad-test">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hardwaretesthub.net/trackpad-test">
+<meta property="og:title" content="Trackpad Test — Check Clicks, Scroll & Gestures Online">
+<meta property="og:description" content="Free online trackpad tester. Check clicks, right-click, two-finger scroll, and pinch-to-zoom instantly in your browser — no download needed.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/#mouse">Mouse</a>
+      <a href="/#keyboard-tools">Keyboard</a>
+      <a href="/#gaming">Gaming</a>
+      <a href="/#guides">Guides</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <div class="tool-head">
+    <div class="kicker">Mouse &amp; Trackpad</div>
+    <h1>Trackpad Test</h1>
+    <p>Move, click, scroll, and pinch on your trackpad. Every gesture lights up below the instant the browser receives it, so you can tell a real hardware fault from a settings problem.</p>
+  </div>
+
+  <div class="tool-wrap">
+    <div class="test-wrap">
+      <div class="canvas-card">
+        <div class="canvas-toolbar">
+          <h2>Test area</h2>
+          <button class="reset-btn" id="reset-touchpad">Reset</button>
+        </div>
+        <div class="canvas-stage">
+          <canvas id="test-canvas" aria-label="Trackpad test surface"></canvas>
+          <div class="canvas-empty-state" id="canvas-empty-state">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M12 2c-2.5 0-4 1.8-4 4v7a5 5 0 0 0 10 0V9"></path><path d="M12 12v3"></path></svg>
+            <p>Move your cursor or touch here to begin</p>
+          </div>
+        </div>
+        <div class="hint-bar">
+          Try: move the cursor · single click · right-click (two-finger tap on Mac) · double-click · click-and-drag · two-finger scroll · pinch to zoom
+        </div>
+      </div>
+
+      <aside class="results-panel">
+        <h2>Detected so far</h2>
+        <div class="check-list">
+          <div class="check-item" data-check="move">
+            <span class="label"><span class="check-icon"></span>Cursor movement</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="click">
+            <span class="label"><span class="check-icon"></span>Click</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="rightClick">
+            <span class="label"><span class="check-icon"></span>Right-click</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="doubleClick">
+            <span class="label"><span class="check-icon"></span>Double-click</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="drag">
+            <span class="label"><span class="check-icon"></span>Click &amp; drag</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="scrollV">
+            <span class="label"><span class="check-icon"></span>Vertical scroll</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="scrollH">
+            <span class="label"><span class="check-icon"></span>Horizontal scroll</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="pinch">
+            <span class="label"><span class="check-icon"></span>Pinch to zoom</span>
+            <span class="status">Waiting</span>
+          </div>
+        </div>
+
+        <div class="live-readout">
+          <div>Position: <code id="ro-coords">–</code></div>
+          <div>Pointer type: <code id="ro-pointertype">–</code></div>
+          <div>Active points: <code id="ro-active">0</code></div>
+          <div>Wheel: <code id="ro-wheel">–</code></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="article">
+    <h2>What this actually tests</h2>
+    <p>Your trackpad doesn't send "gestures" to the browser — it sends cursor movement plus wheel-scroll events, the same as a mouse. Two-finger scroll and pinch-to-zoom are the OS translating multi-touch input into those same signals before the browser ever sees raw touch data. This tool shows exactly what arrives at that level, so a gesture that never lights up here has failed before it reached the browser at all.</p>
+
+    <h2>If something doesn't register</h2>
+    <ol>
+      <li>Confirm the trackpad is enabled and not disabled by an external mouse setting.</li>
+      <li>Update or reinstall the trackpad driver (Windows) or reset trackpad settings (Mac).</li>
+      <li>Check that gestures like pinch-to-zoom are actually turned on in system settings — many are off by default on Windows.</li>
+      <li>Test on another computer if possible, to rule out a hardware fault versus a software/driver issue.</li>
+    </ol>
+
+    <div class="cta-box">
+      <p>Need the full walkthrough for your OS?</p>
+      <a class="btn" href="/blog/mac-trackpad-not-working">Mac fixes</a>
+    </div>
+  </div>
+
+  <section class="help-section">
+    <h2>Related tools</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/mouse-test">
+        <h3>Mouse Test</h3>
+        <p>Check every mouse button, including side buttons.</p>
+      </a>
+      <a class="help-card" href="/keyboard-test">
+        <h3>Keyboard Test</h3>
+        <p>See every keypress light up, labeled for your layout.</p>
+      </a>
+      <a class="help-card" href="/blog/mac-trackpad-not-working">
+        <h3>Mac trackpad not working</h3>
+        <p>8 fixes for clicking, scrolling, or a dead Mac trackpad.</p>
+      </a>
+      <a class="help-card" href="/blog/windows-touchpad-not-working">
+        <h3>Windows touchpad not working</h3>
+        <p>Driver, BIOS, and settings fixes for Precision touchpads.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/#mouse">Mouse</a>
+    <a href="/#keyboard-tools">Keyboard</a>
+    <a href="/#gaming">Gaming</a>
+    <a href="/#guides">Guides</a>
+    <a href="/about">About</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

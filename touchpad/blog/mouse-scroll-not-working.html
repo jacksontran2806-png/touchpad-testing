@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Mouse Scroll Not Working? Jumping, Stuttering & Reversed Fixes</title>
+<meta name="description" content="Mouse wheel not scrolling, jumping, stuttering, or scrolling backwards? Step-by-step fixes covering settings, drivers, and a worn encoder.">
+<link rel="canonical" href="https://hardwaretesthub.net/blog/mouse-scroll-not-working">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hardwaretesthub.net/blog/mouse-scroll-not-working">
+<meta property="og:title" content="Mouse Scroll Not Working? Jumping, Stuttering & Reversed Fixes">
+<meta property="og:description" content="Mouse wheel not scrolling, jumping, stuttering, or scrolling backwards? Step-by-step fixes covering settings, drivers, and a worn encoder.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/#mouse">Mouse</a>
+      <a href="/#keyboard-tools">Keyboard</a>
+      <a href="/#gaming">Gaming</a>
+      <a href="/#guides">Guides</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <article class="article">
+    <div class="kicker">Troubleshooting</div>
+    <h1>Mouse Scroll Not Working? Here's How to Fix It</h1>
+    <div class="meta">Updated August 2026 · 5 min read</div>
+
+    <p>Scroll problems fall into a few distinct patterns — dead, reversed, jumpy, or skipping — and each points to a different cause. Identify yours below, then work through the matching fixes.</p>
+
+    <div class="cta-box">
+      <p>First, see exactly what your wheel is sending.</p>
+      <a class="btn" href="/mouse-scroll-test">Run the scroll test →</a>
+    </div>
+
+    <h2>1. Scrolling does nothing at all</h2>
+    <p>Check Device Manager (Windows) or System Settings → Mouse (Mac) to confirm the mouse is recognized at all — a completely dead wheel alongside working buttons usually means a connection issue at the wheel's encoder inside the mouse, not a driver problem. Try the mouse on another computer to rule out a software conflict before assuming hardware failure.</p>
+
+    <h2>2. Scroll direction is reversed</h2>
+    <p>This is almost always a setting, not a fault. On Windows, check <strong>Settings → Bluetooth &amp; devices → Mouse → additional mouse settings</strong> for a "reverse scrolling direction" option. On Mac, check <strong>System Settings → Trackpad/Mouse → Scroll direction: Natural</strong> — toggling this affects mice too. If the test above shows a consistent deltaY sign that's simply "backwards" from what you expect, this setting is the fix, not a hardware problem.</p>
+
+    <h2>3. Scrolling is jumpy or skips lines</h2>
+    <p>Run the scroll test above and watch the event log. Evenly-sized deltaY values that occasionally jump much larger than the rest point to a wheel encoder that's starting to fail — the mechanical detents inside the wheel are what produce those even steps, and wear makes them inconsistent. Clean around the wheel with compressed air first; if the erratic jumps continue, it's usually a hardware wear issue rather than something a driver update fixes.</p>
+
+    <h2>4. Scrolling is fine but "too fast" or "too slow"</h2>
+    <p>This is a sensitivity setting, not a fault: Windows' "lines to scroll" setting (<strong>Settings → Bluetooth &amp; devices → Mouse</strong>) and most vendor software (Logitech Options+, Razer Synapse) let you adjust how many lines or pixels each notch scrolls.</p>
+
+    <h2>5. Update or reinstall the mouse driver</h2>
+    <p>For a generic HID mouse, Windows and macOS both include built-in scroll support with no separate driver needed — if scrolling misbehaves, the fix is almost always in settings, not a driver reinstall. For mice with dedicated software (gaming mice, ergonomic mice with extra buttons), reinstalling that vendor software can resolve a corrupted configuration that's affecting scroll behavior specifically.</p>
+
+    <h2>6. Rule out the wheel encoder itself</h2>
+    <p>If cleaning and settings don't help and the scroll test consistently shows erratic, inconsistent deltas even during slow, deliberate scrolling, the mechanical encoder inside the wheel has likely worn out. Unlike click switches, wheel encoders are less commonly a simple solder-in swap — for most mice, this means it's time to replace the mouse.</p>
+
+    <div class="cta-box">
+      <p>Made a change? Confirm scrolling is smooth and correct.</p>
+      <a class="btn" href="/mouse-scroll-test">Re-run the scroll test →</a>
+    </div>
+
+  </article>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/#mouse">Mouse</a>
+    <a href="/#keyboard-tools">Keyboard</a>
+    <a href="/#gaming">Gaming</a>
+    <a href="/#guides">Guides</a>
+    <a href="/about">About</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

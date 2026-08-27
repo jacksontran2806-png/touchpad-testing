@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Keyboard Ghosting Test — N-Key Rollover (NKRO) Test | Hardware Test Hub</title>
+<meta name="description" content="Test how many keys your keyboard can register at once. Free online ghosting and N-key rollover (NKRO) test — hold down keys and watch what registers.">
+<link rel="canonical" href="https://hardwaretesthub.net/keyboard-ghosting-test">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hardwaretesthub.net/keyboard-ghosting-test">
+<meta property="og:title" content="Keyboard Ghosting Test — N-Key Rollover (NKRO) Test">
+<meta property="og:description" content="Test how many keys your keyboard can register at once. Free online ghosting and N-key rollover (NKRO) test — hold down keys and watch what registers.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/#mouse">Mouse</a>
+      <a href="/#keyboard-tools">Keyboard</a>
+      <a href="/#gaming">Gaming</a>
+      <a href="/#guides">Guides</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <div class="tool-head">
+    <div class="kicker">Keyboard</div>
+    <h1>Keyboard Ghosting / N-Key Rollover Test</h1>
+    <p>Press and hold as many keys as you can at once and watch the counter below. If it stops climbing while you're still adding fingers, you've found your keyboard's simultaneous-key limit.</p>
+  </div>
+
+  <div class="tool-wrap">
+    <div class="test-wrap">
+      <div class="canvas-card">
+        <div class="canvas-toolbar">
+          <h2>Test area</h2>
+          <button class="reset-btn" id="reset-ghosting">Reset max</button>
+        </div>
+        <div class="ghost-readout">
+          <div class="ghost-stat">
+            <span class="k">Keys held right now</span>
+            <span class="v" id="ghost-current">0</span>
+          </div>
+          <div class="ghost-stat">
+            <span class="k">Highest simultaneous keys seen</span>
+            <span class="v" id="ghost-max">0</span>
+          </div>
+        </div>
+        <div class="keyboard-wrap">
+          <div class="keyboard" id="ghost-keyboard" aria-label="Keyboard rollover test"></div>
+        </div>
+        <div class="hint-bar">
+          Try WASD + Shift + Space first, then add more fingers. Most keyboards top out somewhere between 2 and 6 keys unless they're specifically built for full N-key rollover.
+        </div>
+      </div>
+
+      <aside class="results-panel">
+        <h2>Why this can't be fully automatic</h2>
+        <div class="live-readout" style="margin-top:0; padding-top:0; border-top:none;">
+          A browser only ever finds out about a keypress when the keyboard <em>sends</em> one. If a key is silently dropped, no event fires — there's nothing to detect. So this tool shows you the truth honestly: how many of the keys you're physically holding actually register. You judge the gap.
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="article">
+    <h2>What "ghosting" actually means</h2>
+    <p>Most keyboards wire keys in a grid so a handful of wires can cover a hundred-plus keys. Press three keys that happen to share the same rows and columns, and the electronics can't tell them apart from a fourth key that was never pressed — that phantom fourth press is a "ghost key." Cheaper boards prevent this with a small blocklist of known-bad combos (key <strong>blocking</strong>): safer, but it means a key you're genuinely pressing just doesn't register. Full <strong>N-key rollover (NKRO)</strong> keyboards wire around the problem entirely, usually via USB with a different reporting protocol.</p>
+
+    <h2>What to do with your result</h2>
+    <ol>
+      <li>2-6 key rollover is normal for a standard membrane keyboard — fine for typing, limiting for gaming.</li>
+      <li>If WASD + a couple of modifiers doesn't reliably register together, check for an "NKRO mode" toggle — many mechanical keyboards ship in 6-key mode by default.</li>
+      <li>For full rollover, look specifically for "NKRO" in the keyboard's spec sheet — it's not universal even on mechanical boards.</li>
+    </ol>
+  </div>
+
+  <section class="help-section">
+    <h2>Related tools</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/keyboard-test">
+        <h3>Keyboard Test</h3>
+        <p>Check every individual key.</p>
+      </a>
+      <a class="help-card" href="/reaction-time-test">
+        <h3>Reaction Time Test</h3>
+        <p>Click the instant you see the color change.</p>
+      </a>
+      <a class="help-card" href="/blog/keyboard-key-not-working">
+        <h3>One key not working</h3>
+        <p>Debris, membrane wear, and switch swaps.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/#mouse">Mouse</a>
+    <a href="/#keyboard-tools">Keyboard</a>
+    <a href="/#gaming">Gaming</a>
+    <a href="/#guides">Guides</a>
+    <a href="/about">About</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

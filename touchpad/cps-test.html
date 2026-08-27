@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>CPS Test — Clicks Per Second Speed Test | Hardware Test Hub</title>
+<meta name="description" content="Time your clicking speed over 5 or 10 seconds and see your clicks-per-second score, free and instant, right in your browser.">
+<link rel="canonical" href="https://hardwaretesthub.net/cps-test">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hardwaretesthub.net/cps-test">
+<meta property="og:title" content="CPS Test — Clicks Per Second Speed Test">
+<meta property="og:description" content="Time your clicking speed over 5 or 10 seconds and see your clicks-per-second score, free and instant, right in your browser.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/#mouse">Mouse</a>
+      <a href="/#keyboard-tools">Keyboard</a>
+      <a href="/#gaming">Gaming</a>
+      <a href="/#guides">Guides</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <div class="tool-head">
+    <div class="kicker">Gaming</div>
+    <h1>CPS Test — Clicks Per Second</h1>
+    <p>Click the box as fast as you can for the full duration. Your score is clicks divided by seconds, timed precisely in the browser.</p>
+  </div>
+
+  <div class="tool-wrap">
+    <div class="test-wrap">
+      <div class="canvas-card">
+        <div class="canvas-toolbar">
+          <h2>Test area</h2>
+          <div class="toolbar-controls">
+            <select class="layout-select" id="cps-duration" aria-label="Test duration">
+              <option value="5" selected>5 seconds</option>
+              <option value="10">10 seconds</option>
+            </select>
+          </div>
+        </div>
+        <button type="button" class="cps-button" id="cps-button">
+          <span class="cps-timer" id="cps-timer">5.0s</span>
+          <span class="cps-live-count" id="cps-count">0 clicks</span>
+          <span id="cps-label">Click to start</span>
+        </button>
+        <div class="cps-result" id="cps-result" hidden>
+          <div>
+            <div class="cps-result-score" id="cps-score">0.00</div>
+            <div class="cps-result-tier" id="cps-tier"></div>
+          </div>
+          <div class="cps-result-actions">
+            <button class="btn btn-secondary" id="cps-copy">Copy result</button>
+            <button class="btn" id="cps-again">Try again</button>
+          </div>
+        </div>
+        <div class="hint-bar">
+          The timer only starts once you click the box — take your time getting ready.
+        </div>
+      </div>
+
+      <aside class="results-panel">
+        <h2>How the tiers work</h2>
+        <div class="live-readout" style="margin-top:0; padding-top:0; border-top:none;">
+          <div>Under 4 CPS: below average</div>
+          <div>4–6 CPS: average</div>
+          <div>6–9 CPS: fast</div>
+          <div>9–12 CPS: very fast</div>
+          <div>12+ CPS: exceptional</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="article">
+    <h2>What this actually tests</h2>
+    <p>This measures raw click throughput over a fixed window — how many "click" events your browser receives divided by the seconds elapsed. It's a decent proxy for mouse responsiveness and clicking technique (jitter-clicking vs. butterfly-clicking vs. normal), but it can't distinguish a fast human from software that automates clicks — a suspiciously high, perfectly even score is usually the tell.</p>
+
+    <h2>Getting a more accurate score</h2>
+    <ol>
+      <li>Use your normal grip and clicking technique — jitter-clicking will score much higher than a standard click.</li>
+      <li>Run it 3-4 times; the first attempt is often lower while you find your rhythm.</li>
+      <li>A wired mouse and a browser without heavy background tabs open will read slightly more accurately than a laggy setup.</li>
+    </ol>
+  </div>
+
+  <section class="help-section">
+    <h2>Related tools</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/mouse-double-click-test">
+        <h3>Double-Click Test</h3>
+        <p>Check for unwanted double-firing.</p>
+      </a>
+      <a class="help-card" href="/reaction-time-test">
+        <h3>Reaction Time Test</h3>
+        <p>Click the instant you see the color change.</p>
+      </a>
+      <a class="help-card" href="/mouse-test">
+        <h3>Mouse Test</h3>
+        <p>Check every button and the scroll wheel.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/#mouse">Mouse</a>
+    <a href="/#keyboard-tools">Keyboard</a>
+    <a href="/#gaming">Gaming</a>
+    <a href="/#guides">Guides</a>
+    <a href="/about">About</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

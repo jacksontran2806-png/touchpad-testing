@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>About — Hardware Test Hub</title>
+<meta name="description" content="What Hardware Test Hub is, how the tools work, and why everything runs locally in your browser with nothing sent to a server.">
+<link rel="canonical" href="https://hardwaretesthub.net/about">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hardwaretesthub.net/about">
+<meta property="og:title" content="About — Hardware Test Hub">
+<meta property="og:description" content="What Hardware Test Hub is, how the tools work, and why everything runs locally in your browser with nothing sent to a server.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/#mouse">Mouse</a>
+      <a href="/#keyboard-tools">Keyboard</a>
+      <a href="/#gaming">Gaming</a>
+      <a href="/#guides">Guides</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <div class="article">
+    <h1>About Hardware Test Hub</h1>
+    <p class="meta">A free, no-install way to check your input devices</p>
+
+    <p>Hardware Test Hub is a set of small, focused tools for checking whether your mouse, keyboard, or trackpad is actually working the way it should — every click, keypress, and scroll shown live, the instant it reaches the browser.</p>
+
+    <h2>Why this exists</h2>
+    <p>"Is my mouse broken, or is this just a game/app being weird?" is a surprisingly hard question to answer without a dedicated tool. Operating systems and applications add their own layers of interpretation on top of raw input, so a click that "does nothing" could be a dead switch, a driver issue, a disabled setting, or software eating the input entirely. These tools sit as close to the raw signal as a browser can get, so you can tell those apart quickly.</p>
+
+    <h2>How it works</h2>
+    <p>Every tool runs entirely in JavaScript, in your browser, using standard web APIs — Pointer Events for clicks and movement, the Wheel event for scrolling, and the Keyboard Events API for keys. Nothing about your inputs is sent anywhere or stored; when you close the tab, the results are gone. There's no account, no install, and no app to keep updated.</p>
+
+    <h2>What's here</h2>
+    <p>Mouse, keyboard, and trackpad testers for the basics — clicks, keys, and gestures — plus more specific tools for double-click misfires, scroll consistency, keyboard rollover, click speed, and reaction time. Each tool page also explains what it's actually measuring and what to do if something looks wrong, and the guides section covers the most common fixes in depth.</p>
+
+    <h2>Site and ads</h2>
+    <p>Hardware Test Hub is free to use and supported by advertising. See the <a href="/privacy-policy">Privacy Policy</a> for details on cookies and third-party ads.</p>
+
+    <h2>Feedback</h2>
+    <p>Found a bug, or a device behavior these tools don't explain well? Details are in the <a href="/privacy-policy">Privacy Policy</a> for how to reach us.</p>
+  </div>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/#mouse">Mouse</a>
+    <a href="/#keyboard-tools">Keyboard</a>
+    <a href="/#gaming">Gaming</a>
+    <a href="/#guides">Guides</a>
+    <a href="/about">About</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

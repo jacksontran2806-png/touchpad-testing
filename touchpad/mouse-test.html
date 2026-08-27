@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Mouse Test — Check Left, Right, Middle & Side Buttons</title>
+<meta name="description" content="Free online mouse tester. Check left, right, and middle click, side buttons, scroll wheel, and drag — instantly in your browser, no download needed.">
+<link rel="canonical" href="https://hardwaretesthub.net/mouse-test">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hardwaretesthub.net/mouse-test">
+<meta property="og:title" content="Mouse Test — Check Left, Right, Middle & Side Buttons">
+<meta property="og:description" content="Free online mouse tester. Check left, right, and middle click, side buttons, scroll wheel, and drag — instantly in your browser, no download needed.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/#mouse">Mouse</a>
+      <a href="/#keyboard-tools">Keyboard</a>
+      <a href="/#gaming">Gaming</a>
+      <a href="/#guides">Guides</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <div class="tool-head">
+    <div class="kicker">Mouse &amp; Trackpad</div>
+    <h1>Mouse Test</h1>
+    <p>Click every button on your mouse. Each one lights up below the instant the browser receives it — if a button never lights up, the signal isn't reaching the browser at all.</p>
+  </div>
+
+  <div class="tool-wrap">
+    <div class="test-wrap">
+      <div class="canvas-card">
+        <div class="canvas-toolbar">
+          <h2>Test area</h2>
+          <button class="reset-btn" id="reset-mouse">Reset</button>
+        </div>
+        <div class="mouse-surface" id="mouse-surface">
+          <div class="mouse-diagram">
+            <div class="mouse-body"></div>
+            <div class="mouse-divider"></div>
+            <div class="mouse-zone zone-left" data-zone="left">L</div>
+            <div class="mouse-zone zone-right" data-zone="right">R</div>
+            <div class="mouse-zone zone-wheel" data-zone="middle">●</div>
+            <div class="mouse-zone zone-side zone-back" data-zone="back">Back</div>
+            <div class="mouse-zone zone-side zone-forward" data-zone="forward">Fwd</div>
+          </div>
+          <p class="mouse-hint">Click anywhere in this area with left, right, and middle buttons, scroll the wheel, drag, and — if your mouse has them — press the thumb side buttons.</p>
+        </div>
+        <div class="hint-bar">
+          Side buttons only work on mice that have them (common on gaming and productivity mice).
+        </div>
+      </div>
+
+      <aside class="results-panel">
+        <h2>Detected so far</h2>
+        <div class="check-list">
+          <div class="check-item" data-check="m-move">
+            <span class="label"><span class="check-icon"></span>Movement</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="m-left">
+            <span class="label"><span class="check-icon"></span>Left click</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="m-right">
+            <span class="label"><span class="check-icon"></span>Right click</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="m-middle">
+            <span class="label"><span class="check-icon"></span>Middle click (wheel)</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="m-double">
+            <span class="label"><span class="check-icon"></span>Double-click</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="m-drag">
+            <span class="label"><span class="check-icon"></span>Click &amp; drag</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="m-scroll">
+            <span class="label"><span class="check-icon"></span>Scroll wheel</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="m-back">
+            <span class="label"><span class="check-icon"></span>Back side button</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="m-forward">
+            <span class="label"><span class="check-icon"></span>Forward side button</span>
+            <span class="status">Waiting</span>
+          </div>
+        </div>
+
+        <div class="live-readout">
+          <div>Position: <code id="mo-coords">–</code></div>
+          <div>Last button: <code id="mo-button">–</code></div>
+          <div>Scroll delta: <code id="mo-wheel">–</code></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="article">
+    <h2>What this actually tests</h2>
+    <p>The browser sees mouse buttons as numbered inputs, not physical parts — button 0 is left, 2 is right, 1 is the wheel, and 3/4 are the thumb buttons. This page reports what actually arrives at that level, so a button that never registers here has failed somewhere between the switch and the driver, not in your software.</p>
+
+    <h2>If a button doesn't respond</h2>
+    <ol>
+      <li>Try a different USB port, and a different cable if it has one.</li>
+      <li>Test on another computer — that separates the mouse from the driver.</li>
+      <li>Check the vendor software. Side buttons are often remapped to nothing by default.</li>
+      <li>Reinstall the driver, then re-run this test before buying a replacement.</li>
+    </ol>
+
+    <div class="cta-box">
+      <p>Clicking twice when you click once?</p>
+      <a class="btn" href="/mouse-double-click-test">Double-click test</a>
+    </div>
+  </div>
+
+  <section class="help-section">
+    <h2>Related tools</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/mouse-double-click-test">
+        <h3>Double-Click Test</h3>
+        <p>Catch a worn switch firing twice on one click.</p>
+      </a>
+      <a class="help-card" href="/mouse-scroll-test">
+        <h3>Scroll Test</h3>
+        <p>Check wheel direction and consistency.</p>
+      </a>
+      <a class="help-card" href="/cps-test">
+        <h3>CPS Test</h3>
+        <p>Time your clicks-per-second.</p>
+      </a>
+      <a class="help-card" href="/blog/mouse-double-clicking-fix">
+        <h3>Mouse double-clicking on one click</h3>
+        <p>Why switches wear out, and what actually fixes it.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/#mouse">Mouse</a>
+    <a href="/#keyboard-tools">Keyboard</a>
+    <a href="/#gaming">Gaming</a>
+    <a href="/#guides">Guides</a>
+    <a href="/about">About</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

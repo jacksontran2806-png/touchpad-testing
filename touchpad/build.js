@@ -14,14 +14,21 @@ for (const file of fs.readdirSync(PARTIALS_DIR)) {
   PARTIALS[name] = fs.readFileSync(path.join(PARTIALS_DIR, file), "utf8").trim();
 }
 
-const TARGET_GLOBS = [
-  "index.html",
-  "404.html",
-  "privacy-policy.html",
-  "blog/mac-trackpad-not-working.html",
-  "blog/windows-touchpad-not-working.html",
-  "blog/keyboard-not-working.html",
-];
+// Every .html file in the site, at the root and one level deep (blog/) —
+// any file carrying marker comments gets synced, so a new page just needs
+// the markers pasted in, never an entry added here.
+const SKIP_DIRS = new Set(["node_modules", ".git", "partials"]);
+const TARGET_GLOBS = [];
+for (const entry of fs.readdirSync(ROOT, { withFileTypes: true })) {
+  if (entry.isFile() && entry.name.endsWith(".html")) {
+    TARGET_GLOBS.push(entry.name);
+  } else if (entry.isDirectory() && !SKIP_DIRS.has(entry.name)) {
+    const sub = path.join(ROOT, entry.name);
+    for (const f of fs.readdirSync(sub)) {
+      if (f.endsWith(".html")) TARGET_GLOBS.push(path.join(entry.name, f));
+    }
+  }
+}
 
 let changedCount = 0;
 

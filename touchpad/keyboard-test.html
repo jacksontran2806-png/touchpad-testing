@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Keyboard Test — Check Every Key, Any Layout</title>
+<meta name="description" content="Free online keyboard tester for Windows and Mac. See every keypress light up live, in QWERTY, QWERTZ, AZERTY, or Dvorak — plus a full-size layout with numpad.">
+<link rel="canonical" href="https://hardwaretesthub.net/keyboard-test">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hardwaretesthub.net/keyboard-test">
+<meta property="og:title" content="Keyboard Test — Check Every Key, Any Layout">
+<meta property="og:description" content="Free online keyboard tester for Windows and Mac. See every keypress light up live, in QWERTY, QWERTZ, AZERTY, or Dvorak — plus a full-size layout with numpad.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/#mouse">Mouse</a>
+      <a href="/#keyboard-tools">Keyboard</a>
+      <a href="/#gaming">Gaming</a>
+      <a href="/#guides">Guides</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <div class="tool-head">
+    <div class="kicker">Keyboard</div>
+    <h1>Keyboard Test</h1>
+    <p>Press any key on your physical keyboard — it lights up here labeled for the layout you picked, so you can confirm the right character reaches the browser. Keys stay green once tested, so you can see what's left to check.</p>
+  </div>
+
+  <div class="tool-wrap">
+    <div class="test-wrap">
+      <div class="canvas-card">
+        <div class="canvas-toolbar">
+          <h2>Test area</h2>
+          <div class="toolbar-controls">
+            <select class="layout-select" id="kb-os" aria-label="Keyboard type">
+              <option value="windows">Windows</option>
+              <option value="mac">macOS</option>
+            </select>
+            <select class="layout-select" id="kb-size" aria-label="Keyboard size">
+              <option value="full">Full size — with numpad</option>
+              <option value="compact">Compact — no numpad</option>
+            </select>
+            <select class="layout-select" id="layout-select" aria-label="Character layout">
+              <option value="qwerty">QWERTY (US)</option>
+              <option value="qwertz">QWERTZ (DE)</option>
+              <option value="azerty">AZERTY (FR)</option>
+              <option value="dvorak">Dvorak</option>
+            </select>
+            <button class="reset-btn" id="reset-keyboard">Reset</button>
+          </div>
+        </div>
+        <div class="keyboard-wrap">
+          <div class="keyboard" id="keyboard" aria-label="On-screen keyboard"></div>
+        </div>
+        <div class="type-output">
+          <div class="type-output-head">
+            <span>What you've typed</span>
+            <button class="reset-btn" id="clear-typed">Clear</button>
+          </div>
+          <div class="typed-text is-empty" id="typed-text" aria-live="polite"></div>
+        </div>
+        <div class="hint-bar">
+          The <strong>fn</strong> key is dimmed because macOS and most laptop firmware handle it before the browser ever sees it.
+        </div>
+      </div>
+
+      <aside class="results-panel">
+        <h2>Live readout</h2>
+        <div class="keyboard-readout">
+          <div class="kv"><span class="k">Keys pressed</span><span class="v" id="kb-count">0</span></div>
+          <div class="kv"><span class="k">Last key</span><span class="v" id="kb-lastkey">–</span></div>
+          <div class="kv"><span class="k">event.code</span><span class="v" id="kb-lastcode">–</span></div>
+        </div>
+        <div class="mod-row" id="kb-mods">
+          <span class="mod-pill" data-mod="Shift">Shift</span>
+          <span class="mod-pill" data-mod="Control">Ctrl</span>
+          <span class="mod-pill" data-mod="Alt">Alt</span>
+          <span class="mod-pill" data-mod="Meta">Meta</span>
+        </div>
+        <div class="live-readout">
+          Physical key position is what lights up. Letters are relabeled per layout; number/punctuation keys stay in their US position for reference.
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="article">
+    <h2>What this actually tests</h2>
+    <p>Every key sends a physical position (<code>event.code</code>, like <code>KeyQ</code>) and, separately, the character your OS layout maps it to (<code>event.key</code>). This tool lights up the physical position and relabels it for the layout you pick — so you can tell a genuinely dead key apart from a layout mismatch, which is the single most common reason "half my keyboard" seems broken.</p>
+
+    <h2>If a key doesn't respond</h2>
+    <ol>
+      <li>Confirm your OS keyboard layout matches your physical keyboard — a mismatch, not a dead key, is the most common cause.</li>
+      <li>Check for debris under the keycap; compressed air clears most of it.</li>
+      <li>Test on another computer or via a USB keyboard to rule out the port or driver.</li>
+      <li>For a mechanical board with custom firmware, reset to factory defaults before assuming hardware failure.</li>
+    </ol>
+
+    <div class="cta-box">
+      <p>Want to know your keyboard's rollover limit?</p>
+      <a class="btn" href="/keyboard-ghosting-test">Ghosting / NKRO test</a>
+    </div>
+  </div>
+
+  <section class="help-section">
+    <h2>Related tools</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/keyboard-ghosting-test">
+        <h3>Ghosting / NKRO Test</h3>
+        <p>How many keys register at once.</p>
+      </a>
+      <a class="help-card" href="/reaction-time-test">
+        <h3>Reaction Time Test</h3>
+        <p>Click the instant you see the color change.</p>
+      </a>
+      <a class="help-card" href="/blog/keyboard-not-working">
+        <h3>Keyboard not working</h3>
+        <p>Quick checks for dead keys or a stuck modifier.</p>
+      </a>
+      <a class="help-card" href="/blog/keyboard-key-not-working">
+        <h3>One key not working</h3>
+        <p>Debris, membrane wear, and switch swaps, in order of effort.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/#mouse">Mouse</a>
+    <a href="/#keyboard-tools">Keyboard</a>
+    <a href="/#gaming">Gaming</a>
+    <a href="/#guides">Guides</a>
+    <a href="/about">About</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

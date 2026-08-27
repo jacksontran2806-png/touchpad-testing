@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Reaction Time Test — How Fast Are Your Reflexes? | Hardware Test Hub</title>
+<meta name="description" content="Test your reaction time in milliseconds. Click the instant the box turns green, five rounds, free and instant in your browser.">
+<link rel="canonical" href="https://hardwaretesthub.net/reaction-time-test">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hardwaretesthub.net/reaction-time-test">
+<meta property="og:title" content="Reaction Time Test — How Fast Are Your Reflexes?">
+<meta property="og:description" content="Test your reaction time in milliseconds. Click the instant the box turns green, five rounds, free and instant in your browser.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/#mouse">Mouse</a>
+      <a href="/#keyboard-tools">Keyboard</a>
+      <a href="/#gaming">Gaming</a>
+      <a href="/#guides">Guides</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <div class="tool-head">
+    <div class="kicker">Gaming</div>
+    <h1>Reaction Time Test</h1>
+    <p>Click the box, wait for it to turn green, then click again as fast as you can. Five rounds, timed to the millisecond.</p>
+  </div>
+
+  <div class="tool-wrap">
+    <div class="test-wrap" style="grid-template-columns: 1fr;">
+      <div class="canvas-card">
+        <div class="canvas-toolbar">
+          <h2>Test area</h2>
+          <span id="reaction-round" style="font-size:0.85rem;color:var(--text-dim);font-family:var(--font-mono);"></span>
+        </div>
+        <button type="button" class="reaction-box state-idle" id="reaction-box">
+          <span id="reaction-status">Click to start</span>
+        </button>
+        <div class="reaction-result" id="reaction-result" hidden>
+          <div class="reaction-result-stats">
+            <div>
+              <div class="k">Average</div>
+              <div class="v" id="reaction-avg">–</div>
+            </div>
+            <div>
+              <div class="k">Best</div>
+              <div class="v" id="reaction-best">–</div>
+            </div>
+          </div>
+          <div class="reaction-result-actions">
+            <button class="btn btn-secondary" id="reaction-copy">Copy result</button>
+            <button class="btn" id="reaction-again">Try again</button>
+          </div>
+        </div>
+        <div class="hint-bar">
+          Clicking while the box is still red/yellow counts as too soon and restarts that round — it doesn't count against your average.
+        </div>
+      </div>
+      <div id="reaction-list" style="padding: 4px 4px 0;"></div>
+    </div>
+  </div>
+
+  <div class="article">
+    <h2>What this actually tests</h2>
+    <p>This measures the time between a visual change (the box turning green) and your click reaching the browser — a rough proxy for simple visual reaction time. Typical human reaction time to a visual stimulus is around 200-250ms; competitive gamers often land in the 150-200ms range. Display lag, input lag from a wireless mouse, and browser performance all add a small amount of overhead on top of your actual reflexes, so treat this as a consistent comparison tool rather than a lab-grade measurement.</p>
+
+    <h2>Getting a fair reading</h2>
+    <ol>
+      <li>Rest your hand on the mouse before starting — the first round often measures "getting ready," not reflexes.</li>
+      <li>Run it a few times; reaction time naturally varies round to round.</li>
+      <li>A wired mouse and a wired or low-latency display will read faster than a laggy wireless setup, independent of your actual reflexes.</li>
+    </ol>
+  </div>
+
+  <section class="help-section">
+    <h2>Related tools</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/cps-test">
+        <h3>CPS Test</h3>
+        <p>Time your clicks-per-second.</p>
+      </a>
+      <a class="help-card" href="/keyboard-ghosting-test">
+        <h3>Ghosting / NKRO Test</h3>
+        <p>How many keys register at once.</p>
+      </a>
+      <a class="help-card" href="/keyboard-test">
+        <h3>Keyboard Test</h3>
+        <p>Check every individual key.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/#mouse">Mouse</a>
+    <a href="/#keyboard-tools">Keyboard</a>
+    <a href="/#gaming">Gaming</a>
+    <a href="/#guides">Guides</a>
+    <a href="/about">About</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

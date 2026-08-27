@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>One Keyboard Key Not Working? Fixes in Order of Effort</title>
+<meta name="description" content="A single key on your keyboard dead or unresponsive? Work through these fixes from easiest to most involved — debris, membrane wear, and switch swaps.">
+<link rel="canonical" href="https://hardwaretesthub.net/blog/keyboard-key-not-working">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hardwaretesthub.net/blog/keyboard-key-not-working">
+<meta property="og:title" content="One Keyboard Key Not Working? Fixes in Order of Effort">
+<meta property="og:description" content="A single key on your keyboard dead or unresponsive? Work through these fixes from easiest to most involved — debris, membrane wear, and switch swaps.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/#mouse">Mouse</a>
+      <a href="/#keyboard-tools">Keyboard</a>
+      <a href="/#gaming">Gaming</a>
+      <a href="/#guides">Guides</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <article class="article">
+    <div class="kicker">Troubleshooting</div>
+    <h1>One Keyboard Key Not Working? Fixes in Order of Effort</h1>
+    <div class="meta">Updated August 2026 · 4 min read</div>
+
+    <p>When it's one specific key — not a cluster, not the whole board — the cause is almost always local to that key. Work through these in order; most people find the fix in the first two steps.</p>
+
+    <div class="cta-box">
+      <p>First, confirm exactly which key and whether it's truly dead.</p>
+      <a class="btn" href="/keyboard-test">Run the keyboard test →</a>
+    </div>
+
+    <h2>1. Rule out a layout mismatch</h2>
+    <p>If the "dead" key actually produces a <em>different</em> character than expected rather than nothing at all, it's not dead — your OS keyboard layout doesn't match your physical keyboard. This is especially common with Y/Z, punctuation keys, and anything near Enter. Check the live readout on the keyboard test above: it shows the raw physical position (<code>event.code</code>) separately from the character produced, so you can tell the two apart immediately.</p>
+
+    <h2>2. Clean under the keycap</h2>
+    <p>A single dead or sticky key is very often debris — a crumb, a hair, or dust — sitting under the keycap and blocking full travel. Compressed air, held at an angle and sprayed under the keycap without removing it, clears most of this. If it doesn't help, most keycaps on membrane and mechanical keyboards alike pop off with a flathead screwdriver or a keycap puller for a closer look and clean.</p>
+
+    <h2>3. Check for a stuck modifier elsewhere</h2>
+    <p>If the affected key types the wrong thing (a symbol instead of a letter, or nothing) rather than being completely dead, a nearby modifier key (Shift, Ctrl, Alt, or Fn) may be physically stuck down, silently changing what every other key does. Press each modifier individually and watch for one that doesn't visually "release" — on a laptop this can also be a stuck Fn lock.</p>
+
+    <h2>4. Test on membrane wear (laptop and membrane keyboards)</h2>
+    <p>On membrane keyboards (most laptops and budget keyboards), a single dead key after months or years of use is often localized wear in the rubber dome or the membrane layer beneath that one key — usually from a spill, or just from being the most-used key on your layout (E, Space, and Enter wear first). This isn't something compressed air fixes; it typically means a keyboard replacement (laptops) or a full keyboard swap (external).</p>
+
+    <h2>5. Replace the switch (mechanical keyboards)</h2>
+    <p>If you have a mechanical keyboard with hot-swappable sockets, a single dead switch is a five-minute fix: pull the old switch with a switch puller and push in a replacement of the same type. Even on a soldered (non-hot-swap) board, replacing one switch is a straightforward soldering job if you're comfortable with it — far cheaper than replacing the whole keyboard.</p>
+
+    <h2>6. Check firmware, for programmable keyboards</h2>
+    <p>Keyboards with custom firmware (QMK, VIA, or similar) can end up with a corrupted keymap layer where one key got silently remapped to nothing. Reflash to a known-good layout or reset to factory defaults before assuming a hardware fault — this is a common false alarm on programmable boards.</p>
+
+    <div class="cta-box">
+      <p>Made a change? Confirm the key registers correctly.</p>
+      <a class="btn" href="/keyboard-test">Re-run the keyboard test →</a>
+    </div>
+
+  </article>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/#mouse">Mouse</a>
+    <a href="/#keyboard-tools">Keyboard</a>
+    <a href="/#gaming">Gaming</a>
+    <a href="/#guides">Guides</a>
+    <a href="/about">About</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
