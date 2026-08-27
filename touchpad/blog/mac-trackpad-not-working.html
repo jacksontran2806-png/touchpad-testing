@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Isn't My Mac Trackpad Working? 8 Fixes That Actually Work</title>
+<meta name="description" content="Mac trackpad not clicking, scrolling, or responding at all? Walk through 8 fixes, from a stuck settings toggle to a hardware-level reset, in order of likelihood.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%233860ff%22/><circle cx=%2250%22 cy=%2250%22 r=%2216%22 fill=%22white%22/></svg>">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="../index.html"><span class="dot"></span>Touchpad Test</a>
+    <nav class="site-nav">
+      <a href="mac-trackpad-not-working.html">Mac Fixes</a>
+      <a href="windows-touchpad-not-working.html">Windows Fixes</a>
+      <a href="../privacy-policy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <article class="article">
+    <div class="kicker">Troubleshooting</div>
+    <h1>Why Isn't My Mac Trackpad Working? 8 Fixes That Actually Work</h1>
+    <div class="meta">Updated August 2026 · 7 min read</div>
+
+    <p>A Mac trackpad that won't click, won't scroll, or has gone completely dead is almost always a software or settings problem, not a broken part. Apple's trackpads are solid-state — there's no physical click mechanism to wear out — so before you assume the worst, work through the fixes below in order. They're listed from most to least likely to be the culprit.</p>
+
+    <div class="cta-box">
+      <p>First, confirm what's actually broken.</p>
+      <a class="btn" href="../index.html">Run the touchpad test →</a>
+    </div>
+
+    <h2>1. Check for a stuck or misbehaving external mouse</h2>
+    <p>If a Bluetooth or USB mouse is connected — even a dead one still paired — macOS can get confused about which pointing device has priority, and the trackpad can appear unresponsive. Unpair or physically disconnect any other pointing device, then test the trackpad again.</p>
+
+    <h2>2. Look for actual debris under the trackpad</h2>
+    <p>Crumbs, sand, or a stray hair caught at the very edge of the trackpad — especially near the top, where it hinges — can stop physical clicks from registering, even though the tracking surface itself responds fine. Shut down the Mac, tilt it at an angle, and gently tap the case to dislodge anything trapped under the edge.</p>
+
+    <h2>3. Restart — it fixes more than it should</h2>
+    <p>Trackpad drivers occasionally hang after sleep/wake cycles, particularly after a macOS update. A full restart (not just sleep) clears the input stack and resolves a surprising share of "trackpad just stopped working" reports.</p>
+
+    <h2>4. Check System Settings → Trackpad</h2>
+    <p>Open <strong>System Settings → Trackpad</strong> and confirm:</p>
+    <ul>
+      <li><strong>Tracking speed</strong> isn't dragged all the way down — this can make movement so slow it looks broken.</li>
+      <li><strong>Force Click and haptic feedback</strong> is enabled if you rely on force clicks.</li>
+      <li><strong>Scroll direction</strong> ("natural" scrolling) matches what you expect — many users mistake reversed scrolling for a broken trackpad.</li>
+      <li>Under <strong>Point & Click</strong>, confirm "Tap to click" is set the way you actually use the trackpad — if it's off, only physical presses register, not taps.</li>
+    </ul>
+
+    <h2>5. Check accessibility settings</h2>
+    <p>Go to <strong>System Settings → Accessibility → Pointer Control → Trackpad Options</strong>. If "Ignore built-in trackpad when mouse or wireless trackpad is present" is checked, and any other pointing device has ever been paired (even briefly), macOS will ignore the built-in trackpad entirely. Uncheck it.</p>
+
+    <h2>6. Reset the SMC (System Management Controller)</h2>
+    <p>The SMC governs low-level hardware behavior, including some input handling. On Apple Silicon Macs, this just means shutting down completely, waiting ~20 seconds, and powering back on. On older Intel Macs, the reset combination varies by model — check your specific model's shutdown-and-hold sequence if a plain restart doesn't help.</p>
+
+    <h2>7. Reinstall or update macOS</h2>
+    <p>If the trackpad stopped working right after a macOS update, driver corruption during the update is a real possibility. Go to <strong>System Settings → General → Software Update</strong> and check for a follow-up patch — Apple frequently ships quick fixes for input regressions within a week or two of a major release. Reinstalling macOS from Recovery (which preserves your files) is a reasonable next step if updates don't help.</p>
+
+    <h2>8. Rule out hardware — battery swelling and physical damage</h2>
+    <p>A trackpad that feels physically higher on one side, doesn't click evenly across its surface, or has a visible gap is a symptom of a swollen internal battery pushing against it — common on Macs several years old. This is the one scenario on this list that needs a repair shop, not a settings change. Stop using the machine on a table where it could tip, and get the battery checked. In every other case above, the fix is software.</p>
+
+    <div class="cta-box">
+      <p>Made a change? Confirm it worked.</p>
+      <a class="btn" href="../index.html">Re-run the touchpad test →</a>
+    </div>
+
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div>
+    <a href="../index.html">Home</a>
+    <a href="mac-trackpad-not-working.html">Mac Fixes</a>
+    <a href="windows-touchpad-not-working.html">Windows Fixes</a>
+    <a href="../privacy-policy.html">Privacy Policy</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Touchpad Test</div>
+</footer>
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

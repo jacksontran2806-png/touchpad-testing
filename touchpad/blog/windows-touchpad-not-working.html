@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Windows Touchpad Not Working? Here's How to Fix It</title>
+<meta name="description" content="Windows laptop touchpad frozen, unresponsive, or scrolling the wrong way? Step-by-step fixes covering settings, drivers, BIOS, and Precision Touchpad issues.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%233860ff%22/><circle cx=%2250%22 cy=%2250%22 r=%2216%22 fill=%22white%22/></svg>">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="../index.html"><span class="dot"></span>Touchpad Test</a>
+    <nav class="site-nav">
+      <a href="mac-trackpad-not-working.html">Mac Fixes</a>
+      <a href="windows-touchpad-not-working.html">Windows Fixes</a>
+      <a href="../privacy-policy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <article class="article">
+    <div class="kicker">Troubleshooting</div>
+    <h1>Windows Touchpad Not Working? Here's How to Fix It</h1>
+    <div class="meta">Updated August 2026 · 8 min read</div>
+
+    <p>Windows laptops route touchpad input through a driver layer that Macs don't have, which means there are more places for things to go wrong — but also more settings you can fix without any tools. Work through these in order; most people find their issue in the first four steps.</p>
+
+    <div class="cta-box">
+      <p>First, confirm what's actually broken.</p>
+      <a class="btn" href="../index.html">Run the touchpad test →</a>
+    </div>
+
+    <h2>1. Check the physical disable switch or hotkey</h2>
+    <p>Most Windows laptops can disable the touchpad with a function-key combo (often <strong>Fn + F5</strong>, <strong>Fn + F9</strong>, or a dedicated key with a touchpad icon), and this gets pressed by accident more often than you'd think — especially in a bag. Try the combo for your model, and check the notification area for an on-screen confirmation when you press it.</p>
+
+    <h2>2. Confirm it's enabled in Settings</h2>
+    <p>Go to <strong>Settings → Bluetooth & devices → Touchpad</strong>. Confirm the top toggle is on. Note the line just below it: <em>"Leave touchpad on when a mouse is connected"</em> — if that's off and a mouse is or was plugged in, the touchpad will be disabled automatically. Turn that on if you want both to work at once.</p>
+
+    <h2>3. Update or reinstall the touchpad driver</h2>
+    <p>Open <strong>Device Manager → Mice and other pointing devices</strong>. Look for your touchpad (often listed as a Synaptics, Elan, or "HID-compliant" device, or "Precision Touchpad" if it supports Windows' native driver). Right-click it and choose <strong>Update driver</strong>. If that finds nothing, try <strong>Uninstall device</strong>, then restart — Windows will reinstall a default driver automatically on boot.</p>
+    <p>If your laptop maker (Dell, HP, Lenovo, Asus, etc.) has its own touchpad utility, check their support site for a dedicated driver download — manufacturer drivers often expose features the generic Windows driver doesn't.</p>
+
+    <h2>4. Check Device Manager for a disabled or errored device</h2>
+    <p>Still in Device Manager, look for a small down-arrow icon (disabled) or yellow warning triangle (driver error) next to the touchpad entry. Right-click and choose <strong>Enable device</strong> if it's disabled. A yellow triangle usually means step 3's driver reinstall is the fix.</p>
+
+    <h2>5. Run the Windows hardware troubleshooter</h2>
+    <p>Go to <strong>Settings → System → Troubleshoot → Other troubleshooters</strong>, and run <strong>Hardware and Devices</strong> if it's listed (on newer builds, search "troubleshoot" from the Start menu instead). It won't catch everything, but it correctly identifies a genuinely disabled device or a service that failed to start.</p>
+
+    <h2>6. Check Windows Update</h2>
+    <p>Precision Touchpad support is partly delivered through Windows Update, not just device drivers. Go to <strong>Settings → Windows Update</strong> and install anything pending, including optional driver updates under "Advanced options → Optional updates."</p>
+
+    <h2>7. Check the BIOS/UEFI setting</h2>
+    <p>On some laptops, the internal pointing device can be disabled at the firmware level — separate from anything Windows controls. Restart, enter BIOS/UEFI setup (commonly Del, F2, or F10 at boot — check your manufacturer's key), and look under a menu like "Internal Pointing Device" or similar for a setting that might be toggled off.</p>
+
+    <h2>8. Rule out a loose ribbon cable</h2>
+    <p>If the touchpad worked, then died suddenly after the laptop was dropped, flexed, or opened for a battery/RAM swap, the internal ribbon cable connecting it to the motherboard may have come loose. This is a hardware issue and means opening the case (or having a repair shop do it) to reseat the connector — but it's worth knowing this is a real, common, and usually cheap fix, not a full board replacement.</p>
+
+    <div class="cta-box">
+      <p>Made a change? Confirm it worked.</p>
+      <a class="btn" href="../index.html">Re-run the touchpad test →</a>
+    </div>
+
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div>
+    <a href="../index.html">Home</a>
+    <a href="mac-trackpad-not-working.html">Mac Fixes</a>
+    <a href="windows-touchpad-not-working.html">Windows Fixes</a>
+    <a href="../privacy-policy.html">Privacy Policy</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Touchpad Test</div>
+</footer>
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
