@@ -3,119 +3,251 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Touchpad Test — Check If Your Trackpad Is Working</title>
-<meta name="description" content="Free online touchpad tester. Check clicks, drag, scroll, and pinch-zoom on your trackpad instantly in the browser — no download needed.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%233860ff%22/><circle cx=%2250%22 cy=%2250%22 r=%2216%22 fill=%22white%22/></svg>">
+<title>Touchpad, Keyboard &amp; Mouse Test — Check Your Input Devices</title>
+<meta name="description" content="Free online device tester. Check your trackpad, keyboard (any layout), and mouse — including side buttons — instantly in the browser. No download needed.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%232f6fed%22/><circle cx=%2250%22 cy=%2250%22 r=%2216%22 fill=%22white%22/></svg>">
+<link rel="canonical" href="https://hardwaretesthub.net/">
 <link rel="stylesheet" href="css/style.css">
-
-<!--
-  AdSense: once your site is approved, uncomment and add your publisher ID
-  (replace ca-pub-XXXXXXXXXXXXXXXX) to enable Auto ads site-wide.
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
--->
 </head>
 <body>
 
 <header class="site-header">
   <div class="container">
-    <a class="brand" href="index.html"><span class="dot"></span>Touchpad Test</a>
+    <a class="brand" href="/"><span class="dot"></span>Touchpad Test</a>
     <nav class="site-nav">
-      <a href="blog/mac-trackpad-not-working.html">Mac Fixes</a>
-      <a href="blog/windows-touchpad-not-working.html">Windows Fixes</a>
-      <a href="privacy-policy.html">Privacy</a>
+      <a href="/blog/mac-trackpad-not-working">Mac Fixes</a>
+      <a href="/blog/windows-touchpad-not-working">Windows Fixes</a>
+      <a href="/blog/keyboard-not-working">Keyboard Fixes</a>
     </nav>
   </div>
 </header>
 
 <main>
   <section class="hero">
-    <h1>Test Your Touchpad or Trackpad</h1>
-    <p>Move, click, drag, scroll, and pinch on your trackpad below. Each gesture lights up live so you can see exactly what your hardware is (and isn't) sending to the browser.</p>
+    <h1>Test Your Touchpad, Keyboard &amp; Mouse</h1>
+    <p>Pick a device below. Every keypress, click, scroll, and gesture lights up live so you can see exactly what your hardware is (and isn't) sending to the browser.</p>
     <span class="os-banner" id="os-banner" hidden></span>
   </section>
 
-  <div class="ad-slot">
-    <!-- Ad unit: top banner, outside the test area -->
-    <div class="ad-inner">Ad space</div>
-  </div>
-
-  <div class="test-wrap">
-    <div class="canvas-card">
-      <div class="canvas-toolbar">
-        <h2>Test area</h2>
-        <button class="reset-btn" id="reset-btn">Reset</button>
-      </div>
-      <canvas id="test-canvas" aria-label="Touchpad test surface"></canvas>
-      <div class="hint-bar">
-        Try: move the cursor · single click · right-click (two-finger tap on Mac) · double-click · click-and-drag · two-finger scroll · pinch to zoom
-      </div>
+  <div class="device-tabs">
+    <div class="tab-track" role="tablist">
+      <button class="device-tab active" data-panel="touchpad" role="tab" aria-selected="true">Touchpad</button>
+      <button class="device-tab" data-panel="keyboard" role="tab" aria-selected="false">Keyboard</button>
+      <button class="device-tab" data-panel="mouse" role="tab" aria-selected="false">Mouse</button>
     </div>
-
-    <aside class="results-panel">
-      <h2>Detected so far</h2>
-      <div class="check-list">
-        <div class="check-item" data-check="move">
-          <span class="label"><span class="check-icon"></span>Cursor movement</span>
-          <span class="status">Waiting</span>
-        </div>
-        <div class="check-item" data-check="click">
-          <span class="label"><span class="check-icon"></span>Click</span>
-          <span class="status">Waiting</span>
-        </div>
-        <div class="check-item" data-check="rightClick">
-          <span class="label"><span class="check-icon"></span>Right-click</span>
-          <span class="status">Waiting</span>
-        </div>
-        <div class="check-item" data-check="doubleClick">
-          <span class="label"><span class="check-icon"></span>Double-click</span>
-          <span class="status">Waiting</span>
-        </div>
-        <div class="check-item" data-check="drag">
-          <span class="label"><span class="check-icon"></span>Click &amp; drag</span>
-          <span class="status">Waiting</span>
-        </div>
-        <div class="check-item" data-check="scrollV">
-          <span class="label"><span class="check-icon"></span>Vertical scroll</span>
-          <span class="status">Waiting</span>
-        </div>
-        <div class="check-item" data-check="scrollH">
-          <span class="label"><span class="check-icon"></span>Horizontal scroll</span>
-          <span class="status">Waiting</span>
-        </div>
-        <div class="check-item" data-check="pinch">
-          <span class="label"><span class="check-icon"></span>Pinch to zoom</span>
-          <span class="status">Waiting</span>
-        </div>
-        <div class="check-item" data-check="multiTouch">
-          <span class="label"><span class="check-icon"></span>Multi-touch</span>
-          <span class="status">Waiting</span>
-        </div>
-      </div>
-
-      <div class="live-readout">
-        <div>Position: <code id="ro-coords">–</code></div>
-        <div>Pointer type: <code id="ro-pointertype">–</code></div>
-        <div>Active points: <code id="ro-active">0</code></div>
-        <div>Wheel: <code id="ro-wheel">–</code></div>
-      </div>
-    </aside>
   </div>
 
-  <div class="ad-slot">
-    <!-- Ad unit: bottom banner, outside the test area -->
-    <div class="ad-inner">Ad space</div>
+  <div class="ad-slot"></div>
+
+  <!-- ===== Touchpad panel ===== -->
+  <div class="test-panel active" id="panel-touchpad">
+    <div class="test-wrap">
+      <div class="canvas-card">
+        <div class="canvas-toolbar">
+          <h2>Test area</h2>
+          <button class="reset-btn" id="reset-touchpad">Reset</button>
+        </div>
+        <canvas id="test-canvas" aria-label="Touchpad test surface"></canvas>
+        <div class="hint-bar">
+          Try: move the cursor · single click · right-click (two-finger tap on Mac) · double-click · click-and-drag · two-finger scroll · pinch to zoom
+        </div>
+      </div>
+
+      <aside class="results-panel">
+        <h2>Detected so far</h2>
+        <div class="check-list">
+          <div class="check-item" data-check="move">
+            <span class="label"><span class="check-icon"></span>Cursor movement</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="click">
+            <span class="label"><span class="check-icon"></span>Click</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="rightClick">
+            <span class="label"><span class="check-icon"></span>Right-click</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="doubleClick">
+            <span class="label"><span class="check-icon"></span>Double-click</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="drag">
+            <span class="label"><span class="check-icon"></span>Click &amp; drag</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="scrollV">
+            <span class="label"><span class="check-icon"></span>Vertical scroll</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="scrollH">
+            <span class="label"><span class="check-icon"></span>Horizontal scroll</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="pinch">
+            <span class="label"><span class="check-icon"></span>Pinch to zoom</span>
+            <span class="status">Waiting</span>
+          </div>
+        </div>
+
+        <div class="live-readout">
+          <div>Position: <code id="ro-coords">–</code></div>
+          <div>Pointer type: <code id="ro-pointertype">–</code></div>
+          <div>Active points: <code id="ro-active">0</code></div>
+          <div>Wheel: <code id="ro-wheel">–</code></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- ===== Keyboard panel ===== -->
+  <div class="test-panel" id="panel-keyboard">
+    <div class="test-wrap">
+      <div class="canvas-card">
+        <div class="canvas-toolbar">
+          <h2>Test area</h2>
+          <div class="toolbar-controls">
+            <select class="layout-select" id="kb-os" aria-label="Keyboard type">
+              <option value="windows">Windows</option>
+              <option value="mac">macOS</option>
+            </select>
+            <select class="layout-select" id="kb-size" aria-label="Keyboard size">
+              <option value="full">Full size — with numpad</option>
+              <option value="compact">Compact — no numpad</option>
+            </select>
+            <select class="layout-select" id="layout-select" aria-label="Character layout">
+              <option value="qwerty">QWERTY (US)</option>
+              <option value="qwertz">QWERTZ (DE)</option>
+              <option value="azerty">AZERTY (FR)</option>
+              <option value="dvorak">Dvorak</option>
+            </select>
+            <button class="reset-btn" id="reset-keyboard">Reset</button>
+          </div>
+        </div>
+        <div class="keyboard-wrap">
+          <div class="keyboard" id="keyboard" aria-label="On-screen keyboard"></div>
+        </div>
+        <div class="type-output">
+          <div class="type-output-head">
+            <span>What you've typed</span>
+            <button class="reset-btn" id="clear-typed">Clear</button>
+          </div>
+          <div class="typed-text is-empty" id="typed-text" aria-live="polite"></div>
+        </div>
+        <div class="hint-bar">
+          Press any key on your physical keyboard — it lights up here labeled for the layout you picked, so you can confirm the right character reaches the browser. Keys you've already pressed stay green so you can see what's left to check; press them again any time. The <strong>fn</strong> key is dimmed because macOS and most laptop firmware handle it before the browser ever sees it.
+        </div>
+      </div>
+
+      <aside class="results-panel">
+        <h2>Live readout</h2>
+        <div class="keyboard-readout">
+          <div class="kv"><span class="k">Keys pressed</span><span class="v" id="kb-count">0</span></div>
+          <div class="kv"><span class="k">Last key</span><span class="v" id="kb-lastkey">–</span></div>
+          <div class="kv"><span class="k">event.code</span><span class="v" id="kb-lastcode">–</span></div>
+        </div>
+        <div class="mod-row" id="kb-mods">
+          <span class="mod-pill" data-mod="Shift">Shift</span>
+          <span class="mod-pill" data-mod="Control">Ctrl</span>
+          <span class="mod-pill" data-mod="Alt">Alt</span>
+          <span class="mod-pill" data-mod="Meta">Meta</span>
+        </div>
+        <div class="live-readout">
+          Physical key position is what lights up. Letters are relabeled per layout; number/punctuation keys stay in their US position for reference.
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- ===== Mouse panel ===== -->
+  <div class="test-panel" id="panel-mouse">
+    <div class="test-wrap">
+      <div class="canvas-card">
+        <div class="canvas-toolbar">
+          <h2>Test area</h2>
+          <button class="reset-btn" id="reset-mouse">Reset</button>
+        </div>
+        <div class="mouse-surface" id="mouse-surface">
+          <div class="mouse-diagram">
+            <div class="mouse-body"></div>
+            <div class="mouse-divider"></div>
+            <div class="mouse-zone zone-left" data-zone="left">L</div>
+            <div class="mouse-zone zone-right" data-zone="right">R</div>
+            <div class="mouse-zone zone-wheel" data-zone="middle">●</div>
+            <div class="mouse-zone zone-side zone-back" data-zone="back">Back</div>
+            <div class="mouse-zone zone-side zone-forward" data-zone="forward">Fwd</div>
+          </div>
+          <p class="mouse-hint">Click anywhere in this area with left, right, and middle buttons, scroll the wheel, drag, and — if your mouse has them — press the thumb side buttons.</p>
+        </div>
+        <div class="hint-bar">
+          Side buttons only work on mice that have them (common on gaming and productivity mice).
+        </div>
+      </div>
+
+      <aside class="results-panel">
+        <h2>Detected so far</h2>
+        <div class="check-list">
+          <div class="check-item" data-check="m-move">
+            <span class="label"><span class="check-icon"></span>Movement</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="m-left">
+            <span class="label"><span class="check-icon"></span>Left click</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="m-right">
+            <span class="label"><span class="check-icon"></span>Right click</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="m-middle">
+            <span class="label"><span class="check-icon"></span>Middle click (wheel)</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="m-double">
+            <span class="label"><span class="check-icon"></span>Double-click</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="m-drag">
+            <span class="label"><span class="check-icon"></span>Click &amp; drag</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="m-scroll">
+            <span class="label"><span class="check-icon"></span>Scroll wheel</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="m-back">
+            <span class="label"><span class="check-icon"></span>Back side button</span>
+            <span class="status">Waiting</span>
+          </div>
+          <div class="check-item" data-check="m-forward">
+            <span class="label"><span class="check-icon"></span>Forward side button</span>
+            <span class="status">Waiting</span>
+          </div>
+        </div>
+
+        <div class="live-readout">
+          <div>Position: <code id="mo-coords">–</code></div>
+          <div>Last button: <code id="mo-button">–</code></div>
+          <div>Scroll delta: <code id="mo-wheel">–</code></div>
+        </div>
+      </aside>
+    </div>
   </div>
 
   <section class="help-section">
     <h2>Still not working?</h2>
     <div class="help-cards">
-      <a class="help-card" href="blog/mac-trackpad-not-working.html">
+      <a class="help-card" href="/blog/mac-trackpad-not-working">
         <h3>Mac trackpad not working</h3>
         <p>8 fixes for clicking, scrolling, or a completely unresponsive Mac trackpad.</p>
       </a>
-      <a class="help-card" href="blog/windows-touchpad-not-working.html">
+      <a class="help-card" href="/blog/windows-touchpad-not-working">
         <h3>Windows touchpad not working</h3>
         <p>Driver, BIOS, and settings fixes for Precision and standard touchpads.</p>
+      </a>
+      <a class="help-card" href="/blog/keyboard-not-working">
+        <h3>Keyboard not working</h3>
+        <p>Quick checks for dead keys, a stuck modifier, or a keyboard the OS won't see.</p>
       </a>
     </div>
   </section>
@@ -123,10 +255,11 @@
 
 <footer class="site-footer">
   <div>
-    <a href="index.html">Home</a>
-    <a href="blog/mac-trackpad-not-working.html">Mac Fixes</a>
-    <a href="blog/windows-touchpad-not-working.html">Windows Fixes</a>
-    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="/">Home</a>
+    <a href="/blog/mac-trackpad-not-working">Mac Fixes</a>
+    <a href="/blog/windows-touchpad-not-working">Windows Fixes</a>
+    <a href="/blog/keyboard-not-working">Keyboard Fixes</a>
+    <a href="/privacy-policy">Privacy Policy</a>
   </div>
   <div style="margin-top:8px;">&copy; <span id="year"></span> Touchpad Test</div>
 </footer>

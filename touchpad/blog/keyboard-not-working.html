@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Isn't My Keyboard Working? Quick Fixes</title>
+<meta name="description" content="Keyboard not typing, a few keys dead, or the whole thing unresponsive? Quick checks to find out why before you replace it.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%232f6fed%22/><circle cx=%2250%22 cy=%2250%22 r=%2216%22 fill=%22white%22/></svg>">
+<link rel="canonical" href="https://hardwaretesthub.net/blog/keyboard-not-working">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Touchpad Test</a>
+    <nav class="site-nav">
+      <a href="/blog/mac-trackpad-not-working">Mac Fixes</a>
+      <a href="/blog/windows-touchpad-not-working">Windows Fixes</a>
+      <a href="/blog/keyboard-not-working">Keyboard Fixes</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <article class="article">
+    <div class="kicker">Troubleshooting</div>
+    <h1>Why Isn't My Keyboard Working?</h1>
+    <div class="meta">Updated August 2026 · 3 min read</div>
+
+    <p>A keyboard that types nothing, types the wrong characters, or has a handful of dead keys is usually one of a few things. Work through these in order.</p>
+
+    <div class="cta-box">
+      <p>First, confirm exactly which keys are affected.</p>
+      <a class="btn" href="/">Run the keyboard test →</a>
+    </div>
+
+    <h2>1. Wrong layout selected, not a broken key</h2>
+    <p>If certain keys produce the wrong letter — especially Y/Z, Q/A, or M — the OS keyboard layout probably doesn't match your physical keyboard. On Windows, check <strong>Settings → Time &amp; Language → Language &amp; region → keyboard layout</strong>. On Mac, check <strong>System Settings → Keyboard → Input Sources</strong>. This is the single most common cause of "half my keyboard is broken."</p>
+
+    <h2>2. Check the connection</h2>
+    <p>For USB keyboards, try a different port — some ports lose power under load. For Bluetooth or a wireless dongle, re-pair it and swap the battery. A keyboard that connects but reports nothing is almost always a connection issue, not a dead board.</p>
+
+    <h2>3. Sticky keys, filter keys, or a stuck modifier</h2>
+    <p>If normal typing produces odd repeated characters or nothing at all, an accessibility feature may have been toggled on by accident (holding Shift 5 times enables Sticky Keys on both Windows and Mac). Turn off Sticky Keys / Filter Keys in accessibility settings, and check that no key is physically stuck down — a stuck modifier key silently changes what every other key does.</p>
+
+    <h2>4. Debris under specific keys</h2>
+    <p>A handful of dead keys clustered together (not layout-explainable) is usually crumbs or dust under those keycaps. Compressed air, held at an angle, clears most of it without popping caps off.</p>
+
+    <h2>5. Driver or firmware, for specialty keyboards</h2>
+    <p>Mechanical keyboards with custom firmware (QMK/VIA) or programmable macro keys can end up with a corrupted layer or remap. Reflash to a known-good layout, or reset to factory defaults, before assuming a hardware fault.</p>
+
+    <div class="cta-box">
+      <p>Made a change? Confirm every key registers.</p>
+      <a class="btn" href="/">Re-run the keyboard test →</a>
+    </div>
+
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/blog/mac-trackpad-not-working">Mac Fixes</a>
+    <a href="/blog/windows-touchpad-not-working">Windows Fixes</a>
+    <a href="/blog/keyboard-not-working">Keyboard Fixes</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Touchpad Test</div>
+</footer>
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
