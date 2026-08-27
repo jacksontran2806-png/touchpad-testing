@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
 
+# repo docs ship in the same folder as the site — keep them out of the index
+Disallow: /README.md
+Disallow: /DEPLOYMENT.md
+Disallow: /vercel.json
+
 Sitemap: https://hardwaretesthub.net/sitemap.xml

@@ -1,6 +1,6 @@
 # Touchpad Test
 
-A free browser-based tester for trackpad, keyboard, and mouse, with a Mac and Windows troubleshooting blog. Deployed on Vercel. Plain HTML/CSS/JS — no build step, no framework.
+A free browser-based tester for trackpad, keyboard, and mouse, with a Mac and Windows troubleshooting blog. Live at [hardwaretesthub.net](https://hardwaretesthub.net), hosted on Cloudflare Pages. Plain HTML/CSS/JS — no build step, no framework.
 
 ## Structure
 
@@ -13,18 +13,19 @@ touchpad/
   blog/windows-touchpad-not-working.html
   blog/keyboard-not-working.html
   privacy-policy.html
+  404.html
   robots.txt
   sitemap.xml
-  vercel.json                         clean URLs (no .html suffix), no trailing slash
+  vercel.json                         unused by Cloudflare — kept for the parked Vercel project
   ads.txt                             placeholder — needs your real AdSense pub ID
-  DEPLOYMENT.md                       manual Vercel dashboard steps
+  DEPLOYMENT.md                       how to deploy, and the custom-domain setup
 ```
 
 There is no separate homepage: `/` **is** the tool, and the tab switcher at the top of the page moves between the trackpad, keyboard, and mouse tests.
 
 ## Routes
 
-`vercel.json` sets `cleanUrls`, so pages serve without their `.html` suffix (and `.html` URLs redirect to the clean form):
+Cloudflare Pages serves pages without their `.html` suffix by default, and 308-redirects the `.html` form to the clean one. No routing config needed:
 
 | URL | File |
 | --- | --- |
@@ -33,6 +34,7 @@ There is no separate homepage: `/` **is** the tool, and the tab switcher at the 
 | `/blog/windows-touchpad-not-working` | `blog/windows-touchpad-not-working.html` |
 | `/blog/keyboard-not-working` | `blog/keyboard-not-working.html` |
 | `/privacy-policy` | `privacy-policy.html` |
+| anything else | `404.html`, served with a 404 status |
 
 All internal links use these root-relative clean paths.
 
@@ -42,7 +44,13 @@ It uses the Pointer Events API (covers mouse, touch, and pen through one interfa
 
 ## Deploying
 
-See [DEPLOYMENT.md](DEPLOYMENT.md) for promoting to Production, turning off Deployment Protection, and adding a custom domain. From this folder, `vercel --prod` deploys straight to production.
+From this folder:
+
+```
+wrangler pages deploy . --project-name hardwaretesthub --branch main
+```
+
+That goes straight to production at [hardwaretesthub.net](https://hardwaretesthub.net). See [DEPLOYMENT.md](DEPLOYMENT.md) for first-time setup, previews, the custom domain, and the parked Vercel project.
 
 ## Before applying to Google AdSense
 
