@@ -63,6 +63,14 @@
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
+    const emptyState = document.getElementById("canvas-empty-state");
+    let emptyStateHidden = false;
+    function hideEmptyState() {
+      if (emptyStateHidden || !emptyState) return;
+      emptyStateHidden = true;
+      emptyState.classList.add("is-hidden");
+    }
+
     const COLORS = ["#2f6fed", "#e0546b", "#17a673", "#d98c12", "#8b5cf6", "#0891b2"];
     function colorForId(id) {
       const n = typeof id === "number" ? id : Array.from(String(id)).reduce((a, c) => a + c.charCodeAt(0), 0);
@@ -89,6 +97,7 @@
     }
 
     canvas.addEventListener("pointerdown", function (e) {
+      hideEmptyState();
       canvas.setPointerCapture(e.pointerId);
       pointers.set(e.pointerId, {
         downX: e.offsetX, downY: e.offsetY,
@@ -104,6 +113,7 @@
     });
 
     canvas.addEventListener("pointermove", function (e) {
+      hideEmptyState();
       const p = pointers.get(e.pointerId);
       setReadout("ro-coords", Math.round(e.offsetX) + ", " + Math.round(e.offsetY));
       markDetected("move");
@@ -197,6 +207,8 @@
         pointers.clear();
         const rect = canvas.getBoundingClientRect();
         ctx.clearRect(0, 0, rect.width, rect.height);
+        emptyStateHidden = false;
+        if (emptyState) emptyState.classList.remove("is-hidden");
       });
     }
   })();

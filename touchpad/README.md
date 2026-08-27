@@ -1,6 +1,6 @@
 # Touchpad Test
 
-A free browser-based tester for trackpad, keyboard, and mouse, with a Mac and Windows troubleshooting blog. Live at [hardwaretesthub.net](https://hardwaretesthub.net), hosted on Cloudflare Workers. Plain HTML/CSS/JS — no build step, no framework.
+A free browser-based tester for trackpad, keyboard, and mouse, with a Mac and Windows troubleshooting blog. Live at [hardwaretesthub.net](https://hardwaretesthub.net), hosted on Cloudflare Workers. Plain HTML/CSS/JS, no framework — the only build step is `node build.js`, and it's optional to run (see below).
 
 ## Structure
 
@@ -14,6 +14,9 @@ touchpad/
   blog/keyboard-not-working.html
   privacy-policy.html
   404.html
+  partials/                           shared header/footer/head source — see below
+  build.js                            syncs partials/ into every page that has the markers
+  favicon.png / icon-512.png / apple-touch-icon.png / og-image.png
   robots.txt
   sitemap.xml
   wrangler.jsonc                      Cloudflare Workers config — clean URLs, 404 handling
@@ -24,6 +27,20 @@ touchpad/
 ```
 
 There is no separate homepage: `/` **is** the tool, and the tab switcher at the top of the page moves between the trackpad, keyboard, and mouse tests.
+
+## Shared header/footer
+
+Every page carries its header, footer, and common `<head>` tags (favicons, font `<link>`, stylesheet) inline — Cloudflare serves plain files, there's no server-side templating. To keep them from drifting out of sync across pages, those blocks are wrapped in marker comments (`<!-- HEADER:START -->` … `<!-- HEADER:END -->`, and the same for `HEAD_COMMON`, `FOOTER`, `ADSENSE`) and `build.js` re-injects the current version of `partials/header.html` etc. into every marked file.
+
+To change the nav, footer, or shared `<head>` tags: edit the matching file in `partials/`, then run:
+
+```
+node build.js
+```
+
+It reports which files it changed (or `already in sync`) and is safe to re-run any time — commit the regenerated pages along with your partial edit. `ADSENSE` is deliberately not in every page's markers: `404.html` has no `ADSENSE:START/END` block, so the ad script never lands on the error page.
+
+Per-page fields — `<title>`, meta description, canonical URL, and Open Graph tags — live outside the markers in each file and aren't touched by the build.
 
 ## Routes
 
@@ -71,7 +88,7 @@ The ad slot in `index.html` sits between the device tabs and the test area — n
 
 ## Local preview
 
-No build step needed — just open `index.html` in a browser, or serve the folder locally:
+Stylesheet, script, and icon paths are root-absolute (`/css/style.css`, `/favicon.png`, …), so opening `index.html` directly (`file://`) won't resolve them — serve the folder instead:
 
 ```
 python3 -m http.server 8000

@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
+/* Font <link> now lives in partials/head-common.html — a real <link> loads in
+   parallel with this stylesheet; @import here would have serialized them. */
 
 :root {
   --bg: #eef1f6;
@@ -15,6 +16,17 @@
   --warn-bg: #fbeed8;
   --radius: 14px;
   --max-width: 880px;
+  /* New spacing scale — applies to new components (tool/guide pages); not
+     retrofitted onto the values below to avoid an unreviewable visual diff
+     across the whole stylesheet. */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
   --font-display: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -91,6 +103,53 @@ nav.site-nav a {
 }
 
 nav.site-nav a:hover { color: var(--text); }
+
+/* Mobile nav — checkbox-driven disclosure, no JS. Hidden entirely above the
+   breakpoint, where nav.site-nav shows inline as before. */
+.nav-toggle-input { display: none; }
+
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin: -8px -8px -8px 0;
+  border-radius: 8px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.nav-toggle:hover { background: var(--surface-2); }
+
+@media (max-width: 640px) {
+  .nav-toggle { display: flex; }
+
+  nav.site-nav {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px 20px 16px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 8px 16px rgba(16, 19, 26, 0.08);
+  }
+
+  .nav-toggle-input:checked ~ nav.site-nav { display: flex; }
+
+  nav.site-nav a {
+    margin-left: 0;
+    padding: 10px 4px;
+    font-size: 0.95rem;
+    border-radius: 8px;
+  }
+
+  nav.site-nav a:hover { background: var(--surface-2); }
+}
 
 main { flex: 1; }
 
@@ -244,6 +303,8 @@ button.reset-btn {
 
 button.reset-btn:hover { background: var(--border); }
 
+.canvas-stage { position: relative; }
+
 #test-canvas {
   display: block;
   width: 100%;
@@ -255,6 +316,27 @@ button.reset-btn:hover { background: var(--border); }
     linear-gradient(90deg, var(--surface-2) 1px, transparent 1px) 0 0 / 24px 24px,
     var(--surface);
 }
+
+@media (max-width: 480px) {
+  #test-canvas { height: 300px; }
+}
+
+.canvas-empty-state {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--text-dim);
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.canvas-empty-state p { margin: 0; font-size: 0.88rem; }
+
+.canvas-empty-state.is-hidden { opacity: 0; }
 
 .hint-bar {
   padding: 10px 16px;
