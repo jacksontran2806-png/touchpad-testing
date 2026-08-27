@@ -1,4 +1,1 @@
-# Replace pub-XXXXXXXXXXXXXXXX with your real AdSense publisher ID
-# once your account is approved. Get the exact line from:
-# AdSense → Sites → (your site) → "View ads.txt snippet"
-google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+google.com, pub-1082746041497676, DIRECT, f08c47fec0942fa0

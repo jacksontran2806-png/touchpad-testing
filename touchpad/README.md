@@ -54,17 +54,18 @@ npx wrangler deploy
 
 See [DEPLOYMENT.md](DEPLOYMENT.md) for the build settings, previews, the custom domain, and the parked Vercel project.
 
-## Before applying to Google AdSense
+## Google AdSense
 
-AdSense requires your site to be live with real, indexable content — this repo ships with three full blog posts to satisfy that, but you still need to:
+Publisher ID `pub-1082746041497676` is wired in:
 
-1. **Wait for the site to be live for a bit** and let Google index it (submit the URL in [Search Console](https://search.google.com/search-console) to speed this up).
-2. **Add your AdSense publisher ID** once you're approved:
-   - `ads.txt` — replace `pub-XXXXXXXXXXXXXXXX` with your real ID (get the exact line from AdSense → Sites → your site → "View ads.txt snippet")
-   - `index.html` — add the `adsbygoogle.js` `<script>` tag to `<head>` with your publisher ID
-   - Fill the empty `<div class="ad-slot">` with a real `<ins class="adsbygoogle">` unit, or leave Auto ads on and drop the div entirely
-3. **Confirm the contact email** in `privacy-policy.html` is one you want public.
-4. Apply at [google.com/adsense](https://www.google.com/adsense/).
+- The `adsbygoogle.js` script tag is in `<head>` on every real page (index, privacy policy, all three blog posts) — not on `404.html`, which is `noindex` and shows no ad slot.
+- `ads.txt` carries the matching `DIRECT` line.
+
+Still open:
+
+- **Fill the empty `<div class="ad-slot">`** in `index.html` with a real `<ins class="adsbygoogle">` unit once a placement is chosen, or leave Auto ads on and drop the div entirely.
+- **Confirm the contact email** in `privacy-policy.html` is one you want public.
+- **Wait for the site to be indexed** (submit the URL in [Search Console](https://search.google.com/search-console) to speed this up) before applying at [google.com/adsense](https://www.google.com/adsense/).
 
 The ad slot in `index.html` sits between the device tabs and the test area — never inside or overlapping the tool itself, matching AdSense's policy against ads that obstruct core page functionality.
 
