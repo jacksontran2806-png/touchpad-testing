@@ -1,71 +1,80 @@
 # Deploying this site
 
-The site is hosted on **Cloudflare Pages**, project `hardwaretesthub`, in the
-`jacksontran2806@gmail.com` account. The domain `hardwaretesthub.net` is
-registered in the same Cloudflare account, so DNS and hosting live together.
+The site runs on **Cloudflare Workers** (static assets), deployed automatically
+by **Workers Builds** on every push to `main`. The domain `hardwaretesthub.net`
+is registered in the same Cloudflare account, so DNS and hosting live together.
 
 - Live domain: `https://hardwaretesthub.net`
-- Pages URL: `https://hardwaretesthub.pages.dev`
+- Worker: `hardwaretesthub-site`
 
-## Deploying a new version
+## Deploying
 
-From this folder:
+Push to `main`. Workers Builds checks out the repo and runs the deploy command.
+
+To deploy by hand from this folder:
 
 ```
-wrangler pages deploy . --project-name hardwaretesthub --branch main
+npx wrangler deploy
 ```
 
-That publishes straight to production. Every deploy also gets its own
-immutable preview URL (`https://<hash>.hardwaretesthub.pages.dev`) if you want
-to check something before it goes live — deploy to a different `--branch` name
-to get a preview without touching production.
-
-This is a **direct-upload** project, so it does not auto-deploy when you push to
-GitHub. If you'd rather have push-to-deploy, connect the repo in the dashboard
-under **Workers & Pages → Create → Pages → Connect to Git** (build command
-empty, output directory `touchpad`). Cloudflare can't convert an existing
-direct-upload project to a Git-connected one — you'd create a second project and
-move the custom domain over to it.
+Branch pushes other than `main` run `npx wrangler versions upload`, which
+publishes a preview URL without touching production.
 
 First-time setup on a new machine: `npm i -g wrangler` then `wrangler login`.
 
+## Dashboard build settings
+
+These are set on the Worker under **Settings → Builds**. Defaults are wrong for
+this repo — all three matter:
+
+| Setting | Value | Why |
+| --- | --- | --- |
+| Build command | *(empty)* | No build step |
+| Deploy command | `npx wrangler deploy` | Default |
+| Non-production deploy command | `npx wrangler versions upload` | Default |
+| Path / root directory | `touchpad` | The site is in a subfolder, not the repo root |
+
+No API token needs to be supplied — Workers Builds authenticates with the
+connected account.
+
+## Routing
+
+`wrangler.jsonc` handles it, no redirect rules needed:
+
+- `html_handling: "drop-trailing-slash"` — `/blog/keyboard-not-working` serves
+  `blog/keyboard-not-working.html`. Both `/blog/keyboard-not-working.html` and
+  `/blog/keyboard-not-working/` redirect to the clean URL, so old inbound links
+  still land correctly. Note these are **307** (temporary) redirects — that is
+  Cloudflare's behaviour and isn't configurable; the `<link rel="canonical">`
+  tags are what tell search engines which URL is authoritative.
+- `not_found_handling: "404-page"` — an unknown path serves `404.html` with a
+  real 404 status. Without this, unknown paths return the homepage with a 200,
+  which search engines index as duplicate homepages.
+
+`.assetsignore` keeps this file, the README, `wrangler.jsonc`, `vercel.json` and
+the local `.vercel`/`.wrangler` folders from being served — they sit in the same
+folder as the site. Verified: those paths return 404. Anything added to this
+folder that shouldn't be public needs a line there.
+
 ## Custom domain
 
-The domain is attached to the Pages project. Because the zone is in the same
-Cloudflare account, Cloudflare manages the DNS record itself — there is nothing
-to add at a registrar.
-
-To check its state:
-
-```
-wrangler pages project list
-```
-
-or in the dashboard: **Workers & Pages → hardwaretesthub → Custom domains**.
+Add under the Worker → **Settings → Domains & Routes → Add → Custom domain** →
+`hardwaretesthub.net`. Because the zone is in the same Cloudflare account, the
+DNS record and certificate are created automatically.
 
 The domain is written into `robots.txt`, `sitemap.xml`, `privacy-policy.html`,
 and the `<link rel="canonical">` tag on all five pages — if the domain ever
 changes, all four need updating.
 
-## Routing behaviour
+## The old projects
 
-There is no config file for routing. Cloudflare Pages does it by default:
+Two earlier deployments still exist and can be deleted once this one is live on
+the domain:
 
-- `/blog/keyboard-not-working` serves `blog/keyboard-not-working.html`
-- `/blog/keyboard-not-working.html` **308-redirects** to the clean form, so any
-  old inbound links to `.html` URLs still land correctly
-- an unknown path serves `404.html` with a real 404 status
-
-`vercel.json` is left in the repo only as a fallback for the parked Vercel
-project; Cloudflare ignores it.
-
-## The old Vercel project
-
-The project also exists on Vercel (`touchpad`) as a fallback. It was never
-promoted to production and the domain no longer points at it. To use it again:
-
-1. `vercel --prod` from this folder.
-2. **Settings → Deployment Protection** → set **Vercel Authentication** to
-   **Only Preview Deployments**, and turn off **Password Protection** — otherwise
-   the production URL shows a Vercel login wall to visitors.
-3. **Settings → Domains** → add the domain, then repoint DNS at Vercel.
+- **Cloudflare Pages project `hardwaretesthub`** — direct-upload, superseded by
+  this Worker. Its custom domain entry for `hardwaretesthub.net` never finished
+  provisioning and must be removed before the domain can attach here.
+- **Vercel project `touchpad`** — never promoted to production. `vercel.json` is
+  kept in the repo only for it. To revive: `vercel --prod`, then
+  **Settings → Deployment Protection** → **Vercel Authentication** →
+  **Only Preview Deployments**, or visitors hit a Vercel login wall.

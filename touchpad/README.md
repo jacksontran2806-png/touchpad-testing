@@ -1,6 +1,6 @@
 # Touchpad Test
 
-A free browser-based tester for trackpad, keyboard, and mouse, with a Mac and Windows troubleshooting blog. Live at [hardwaretesthub.net](https://hardwaretesthub.net), hosted on Cloudflare Pages. Plain HTML/CSS/JS — no build step, no framework.
+A free browser-based tester for trackpad, keyboard, and mouse, with a Mac and Windows troubleshooting blog. Live at [hardwaretesthub.net](https://hardwaretesthub.net), hosted on Cloudflare Workers. Plain HTML/CSS/JS — no build step, no framework.
 
 ## Structure
 
@@ -16,6 +16,8 @@ touchpad/
   404.html
   robots.txt
   sitemap.xml
+  wrangler.jsonc                      Cloudflare Workers config — clean URLs, 404 handling
+  .assetsignore                       files in this folder that must not be served
   vercel.json                         unused by Cloudflare — kept for the parked Vercel project
   ads.txt                             placeholder — needs your real AdSense pub ID
   DEPLOYMENT.md                       how to deploy, and the custom-domain setup
@@ -25,7 +27,7 @@ There is no separate homepage: `/` **is** the tool, and the tab switcher at the 
 
 ## Routes
 
-Cloudflare Pages serves pages without their `.html` suffix by default, and 308-redirects the `.html` form to the clean one. No routing config needed:
+`wrangler.jsonc` sets `html_handling: "drop-trailing-slash"`, so pages serve without their `.html` suffix, and both the `.html` form and a trailing-slash form redirect to the clean URL:
 
 | URL | File |
 | --- | --- |
@@ -34,7 +36,7 @@ Cloudflare Pages serves pages without their `.html` suffix by default, and 308-r
 | `/blog/windows-touchpad-not-working` | `blog/windows-touchpad-not-working.html` |
 | `/blog/keyboard-not-working` | `blog/keyboard-not-working.html` |
 | `/privacy-policy` | `privacy-policy.html` |
-| anything else | `404.html`, served with a 404 status |
+| anything else | `404.html`, served with a 404 status (`not_found_handling`) |
 
 All internal links use these root-relative clean paths.
 
@@ -44,13 +46,13 @@ It uses the Pointer Events API (covers mouse, touch, and pen through one interfa
 
 ## Deploying
 
-From this folder:
+Push to `main` — Cloudflare Workers Builds deploys automatically. Or from this folder:
 
 ```
-wrangler pages deploy . --project-name hardwaretesthub --branch main
+npx wrangler deploy
 ```
 
-That goes straight to production at [hardwaretesthub.net](https://hardwaretesthub.net). See [DEPLOYMENT.md](DEPLOYMENT.md) for first-time setup, previews, the custom domain, and the parked Vercel project.
+See [DEPLOYMENT.md](DEPLOYMENT.md) for the build settings, previews, the custom domain, and the parked Vercel project.
 
 ## Before applying to Google AdSense
 

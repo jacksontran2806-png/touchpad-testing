@@ -1,0 +1,19 @@
+{
+  // Static site — no Worker script, just assets. Cloudflare Workers Builds runs
+  // `npx wrangler deploy` from this folder (set "Path" to `touchpad` in the
+  // dashboard), with no build command.
+  "name": "hardwaretesthub-site",
+  "compatibility_date": "2026-08-27",
+  "assets": {
+    "directory": "./",
+
+    // Serve 404.html with a real 404 status for unmatched paths. Without this,
+    // unknown URLs return the homepage with a 200 and Google indexes them as
+    // duplicates of the homepage.
+    "not_found_handling": "404-page",
+
+    // Clean URLs with no trailing slash, matching the canonical tags:
+    // /blog/keyboard-not-working serves blog/keyboard-not-working.html
+    "html_handling": "drop-trailing-slash"
+  }
+}

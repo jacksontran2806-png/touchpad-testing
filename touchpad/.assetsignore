@@ -1,0 +1,9 @@
+# Files that live in this folder but must not be served publicly.
+.assetsignore
+.gitignore
+.vercel
+.wrangler
+wrangler.jsonc
+vercel.json
+README.md
+DEPLOYMENT.md
