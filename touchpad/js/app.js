@@ -795,6 +795,8 @@
     const tierEl = document.getElementById("cps-tier");
     const copyBtn = document.getElementById("cps-copy");
     const againBtn = document.getElementById("cps-again");
+    const historyWrap = document.getElementById("cps-history-wrap");
+    const historyEl = document.getElementById("cps-history");
 
     const TIERS = [
       { max: 4, label: "Below average — most people land higher with practice." },
@@ -807,11 +809,12 @@
       return TIERS.find(function (t) { return cps <= t.max; }).label;
     }
 
-    let running = false;
+    let state = "idle"; // idle | running | finished — box clicks only start a run from idle
     let clicks = 0;
     let endAt = 0;
     let rafId = null;
     let lastResult = null;
+    const history = [];
 
     function tick() {
       const remaining = Math.max(0, endAt - performance.now());
@@ -823,8 +826,20 @@
       rafId = requestAnimationFrame(tick);
     }
 
+    function renderHistory() {
+      if (!historyEl) return;
+      historyEl.innerHTML = "";
+      for (let i = history.length - 1; i >= 0; i--) {
+        const row = document.createElement("div");
+        row.className = "click-log-row";
+        row.textContent = history[i].cps.toFixed(2) + " CPS — " + history[i].duration + "s run";
+        historyEl.appendChild(row);
+      }
+      if (historyWrap) historyWrap.hidden = history.length === 0;
+    }
+
     function start() {
-      running = true;
+      state = "running";
       clicks = 0;
       const duration = durationSelect ? Number(durationSelect.value) : 5;
       endAt = performance.now() + duration * 1000;
@@ -836,12 +851,14 @@
     }
 
     function finish() {
-      running = false;
+      state = "finished";
       cancelAnimationFrame(rafId);
       const duration = durationSelect ? Number(durationSelect.value) : 5;
       const cps = clicks / duration;
       lastResult = cps;
-      if (labelEl) labelEl.textContent = "Click to try again";
+      history.push({ cps: cps, duration: duration });
+      renderHistory();
+      if (labelEl) labelEl.textContent = "Press “Try again” to retry";
       button.classList.remove("is-running");
       if (timerEl) timerEl.textContent = "0.0s";
       if (resultPanel) resultPanel.hidden = false;
@@ -850,7 +867,8 @@
     }
 
     button.addEventListener("click", function () {
-      if (!running) {
+      if (state === "finished") return;
+      if (state === "idle") {
         start();
         return;
       }
@@ -860,6 +878,7 @@
 
     if (againBtn) {
       againBtn.addEventListener("click", function () {
+        state = "idle";
         if (resultPanel) resultPanel.hidden = true;
         if (labelEl) labelEl.textContent = "Click to start";
       });

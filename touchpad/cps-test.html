@@ -62,6 +62,8 @@
             <select class="layout-select" id="cps-duration" aria-label="Test duration">
               <option value="5" selected>5 seconds</option>
               <option value="10">10 seconds</option>
+              <option value="20">20 seconds</option>
+              <option value="60">1 minute</option>
             </select>
           </div>
         </div>
@@ -93,6 +95,10 @@
           <div>6–9 CPS: fast</div>
           <div>9–12 CPS: very fast</div>
           <div>12+ CPS: exceptional</div>
+        </div>
+        <div id="cps-history-wrap" hidden style="margin-top:16px; padding-top:16px; border-top:1px solid var(--border);">
+          <h2>This session</h2>
+          <div class="click-log" id="cps-history"></div>
         </div>
       </aside>
     </div>
