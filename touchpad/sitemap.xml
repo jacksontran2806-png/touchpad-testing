@@ -2,74 +2,92 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hardwaretesthub.net/</loc>
+    <lastmod>2026-08-27</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://hardwaretesthub.net/mouse-test</loc>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://hardwaretesthub.net/mouse-double-click-test</loc>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://hardwaretesthub.net/mouse-scroll-test</loc>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://hardwaretesthub.net/trackpad-test</loc>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://hardwaretesthub.net/keyboard-test</loc>
+    <loc>https://hardwaretesthub.net/cps-test</loc>
+    <lastmod>2026-08-27</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://hardwaretesthub.net/keyboard-ghosting-test</loc>
+    <lastmod>2026-08-27</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://hardwaretesthub.net/cps-test</loc>
+    <loc>https://hardwaretesthub.net/keyboard-test</loc>
+    <lastmod>2026-08-27</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/mouse-double-click-test</loc>
+    <lastmod>2026-08-27</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/mouse-scroll-test</loc>
+    <lastmod>2026-08-27</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/mouse-test</loc>
+    <lastmod>2026-08-27</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://hardwaretesthub.net/reaction-time-test</loc>
+    <lastmod>2026-08-27</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://hardwaretesthub.net/blog/mac-trackpad-not-working</loc>
-    <priority>0.8</priority>
+    <loc>https://hardwaretesthub.net/trackpad-test</loc>
+    <lastmod>2026-08-27</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://hardwaretesthub.net/blog/windows-touchpad-not-working</loc>
+    <loc>https://hardwaretesthub.net/blog/keyboard-key-not-working</loc>
+    <lastmod>2026-08-27</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hardwaretesthub.net/blog/keyboard-not-working</loc>
+    <lastmod>2026-08-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/blog/mac-trackpad-not-working</loc>
+    <lastmod>2026-08-27</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hardwaretesthub.net/blog/mouse-double-clicking-fix</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://hardwaretesthub.net/blog/keyboard-key-not-working</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://hardwaretesthub.net/blog/mouse-scroll-not-working</loc>
+    <lastmod>2026-08-27</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hardwaretesthub.net/blog/mouse-not-working</loc>
+    <lastmod>2026-08-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/blog/mouse-scroll-not-working</loc>
+    <lastmod>2026-08-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/blog/windows-touchpad-not-working</loc>
+    <lastmod>2026-08-27</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hardwaretesthub.net/about</loc>
+    <lastmod>2026-08-27</lastmod>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://hardwaretesthub.net/privacy-policy</loc>
+    <lastmod>2026-08-27</lastmod>
     <priority>0.3</priority>
   </url>
 </urlset>
