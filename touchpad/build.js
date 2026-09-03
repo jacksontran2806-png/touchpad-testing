@@ -15,21 +15,22 @@ for (const file of fs.readdirSync(PARTIALS_DIR)) {
   PARTIALS[name] = fs.readFileSync(path.join(PARTIALS_DIR, file), "utf8").trim();
 }
 
-// Every .html file in the site, at the root and one level deep (blog/) —
-// any file carrying marker comments gets synced, so a new page just needs
-// the markers pasted in, never an entry added here.
+// Every .html file in the site, at any depth (root, blog/, and blog's topic
+// subfolders like blog/mouse/) — any file carrying marker comments gets
+// synced, so a new page just needs the markers pasted in, never an entry
+// added here.
 const SKIP_DIRS = new Set(["node_modules", ".git", "partials"]);
 const TARGET_GLOBS = [];
-for (const entry of fs.readdirSync(ROOT, { withFileTypes: true })) {
-  if (entry.isFile() && entry.name.endsWith(".html")) {
-    TARGET_GLOBS.push(entry.name);
-  } else if (entry.isDirectory() && !SKIP_DIRS.has(entry.name)) {
-    const sub = path.join(ROOT, entry.name);
-    for (const f of fs.readdirSync(sub)) {
-      if (f.endsWith(".html")) TARGET_GLOBS.push(path.join(entry.name, f));
+function walk(dir) {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (entry.isFile() && entry.name.endsWith(".html")) {
+      TARGET_GLOBS.push(path.relative(ROOT, path.join(dir, entry.name)));
+    } else if (entry.isDirectory() && !SKIP_DIRS.has(entry.name)) {
+      walk(path.join(dir, entry.name));
     }
   }
 }
+walk(ROOT);
 
 let changedCount = 0;
 

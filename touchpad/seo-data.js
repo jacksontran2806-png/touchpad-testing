@@ -12,7 +12,11 @@ module.exports = {
   // for a page when you meaningfully rewrite it — dateModified is a ranking
   // input for guides, and lying about it is worse than leaving it stale.
   defaultDate: "2026-08-27",
-  dates: {},
+  dates: {
+    "blog/mouse/mouse-double-clicking-single-click.html": "2026-09-03",
+    "blog/mouse/mouse-scrolling-wrong-direction.html": "2026-09-03",
+    "blog/mouse/mouse-light-on-cursor-not-moving.html": "2026-09-03",
+  },
 
   // Interactive tools -> WebApplication. `section` drives the breadcrumb.
   tools: {

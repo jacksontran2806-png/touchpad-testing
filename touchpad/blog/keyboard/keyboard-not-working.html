@@ -20,13 +20,13 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/css/style.css">
 <!-- HEAD_COMMON:END -->
-<title>One Keyboard Key Not Working? Fixes in Order of Effort</title>
-<meta name="description" content="A single key on your keyboard dead or unresponsive? Work through these fixes from easiest to most involved — debris, membrane wear, and switch swaps.">
-<link rel="canonical" href="https://hardwaretesthub.net/blog/keyboard-key-not-working">
+<title>Why Isn't My Keyboard Working? Quick Fixes</title>
+<meta name="description" content="Keyboard not typing, a few keys dead, or the whole thing unresponsive? Quick checks to find out why before you replace it.">
+<link rel="canonical" href="https://hardwaretesthub.net/blog/keyboard/keyboard-not-working">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://hardwaretesthub.net/blog/keyboard-key-not-working">
-<meta property="og:title" content="One Keyboard Key Not Working? Fixes in Order of Effort">
-<meta property="og:description" content="A single key on your keyboard dead or unresponsive? Work through these fixes from easiest to most involved — debris, membrane wear, and switch swaps.">
+<meta property="og:url" content="https://hardwaretesthub.net/blog/keyboard/keyboard-not-working">
+<meta property="og:title" content="Why Isn't My Keyboard Working? Quick Fixes">
+<meta property="og:description" content="Keyboard not typing, a few keys dead, or the whole thing unresponsive? Quick checks to find out why before you replace it.">
 <meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <!-- ADSENSE:START -->
@@ -39,12 +39,12 @@
   "@graph": [
     {
       "@type": "BlogPosting",
-      "@id": "https://hardwaretesthub.net/blog/keyboard-key-not-working#article",
-      "headline": "One Keyboard Key Not Working? Fixes in Order of Effort",
-      "name": "One Keyboard Key Not Working? Fixes in Order of Effort",
-      "description": "A single key on your keyboard dead or unresponsive? Work through these fixes from easiest to most involved — debris, membrane wear, and switch swaps.",
-      "url": "https://hardwaretesthub.net/blog/keyboard-key-not-working",
-      "mainEntityOfPage": "https://hardwaretesthub.net/blog/keyboard-key-not-working",
+      "@id": "https://hardwaretesthub.net/blog/keyboard/keyboard-not-working#article",
+      "headline": "Why Isn't My Keyboard Working?",
+      "name": "Why Isn't My Keyboard Working? Quick Fixes",
+      "description": "Keyboard not typing, a few keys dead, or the whole thing unresponsive? Quick checks to find out why before you replace it.",
+      "url": "https://hardwaretesthub.net/blog/keyboard/keyboard-not-working",
+      "mainEntityOfPage": "https://hardwaretesthub.net/blog/keyboard/keyboard-not-working",
       "datePublished": "2026-08-27",
       "dateModified": "2026-08-27",
       "image": "https://hardwaretesthub.net/og-image.png",
@@ -77,8 +77,8 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "One Keyboard Key Not Working? Fixes in Order of Effort",
-          "item": "https://hardwaretesthub.net/blog/keyboard-key-not-working"
+          "name": "Why Isn't My Keyboard Working?",
+          "item": "https://hardwaretesthub.net/blog/keyboard/keyboard-not-working"
         }
       ]
     }
@@ -111,36 +111,33 @@
 <main>
   <article class="article">
     <div class="kicker">Troubleshooting</div>
-    <h1>One Keyboard Key Not Working? Fixes in Order of Effort</h1>
-    <div class="meta">Updated August 2026 · 4 min read</div>
+    <h1>Why Isn't My Keyboard Working?</h1>
+    <div class="meta">Updated August 2026 · 3 min read</div>
 
-    <p>When it's one specific key — not a cluster, not the whole board — the cause is almost always local to that key. Work through these in order; most people find the fix in the first two steps.</p>
+    <p>A keyboard that types nothing, types the wrong characters, or has a handful of dead keys is usually one of a few things. Work through these in order.</p>
 
     <div class="cta-box">
-      <p>First, confirm exactly which key and whether it's truly dead.</p>
+      <p>First, confirm exactly which keys are affected.</p>
       <a class="btn" href="/keyboard-test">Run the keyboard test →</a>
     </div>
 
-    <h2>1. Rule out a layout mismatch</h2>
-    <p>If the "dead" key actually produces a <em>different</em> character than expected rather than nothing at all, it's not dead — your OS keyboard layout doesn't match your physical keyboard. This is especially common with Y/Z, punctuation keys, and anything near Enter. Check the live readout on the keyboard test above: it shows the raw physical position (<code>event.code</code>) separately from the character produced, so you can tell the two apart immediately.</p>
+    <h2>1. Wrong layout selected, not a broken key</h2>
+    <p>If certain keys produce the wrong letter — especially Y/Z, Q/A, or M — the OS keyboard layout probably doesn't match your physical keyboard. On Windows, check <strong>Settings → Time &amp; Language → Language &amp; region → keyboard layout</strong>. On Mac, check <strong>System Settings → Keyboard → Input Sources</strong>. This is the single most common cause of "half my keyboard is broken."</p>
 
-    <h2>2. Clean under the keycap</h2>
-    <p>A single dead or sticky key is very often debris — a crumb, a hair, or dust — sitting under the keycap and blocking full travel. Compressed air, held at an angle and sprayed under the keycap without removing it, clears most of this. If it doesn't help, most keycaps on membrane and mechanical keyboards alike pop off with a flathead screwdriver or a keycap puller for a closer look and clean.</p>
+    <h2>2. Check the connection</h2>
+    <p>For USB keyboards, try a different port — some ports lose power under load. For Bluetooth or a wireless dongle, re-pair it and swap the battery. A keyboard that connects but reports nothing is almost always a connection issue, not a dead board.</p>
 
-    <h2>3. Check for a stuck modifier elsewhere</h2>
-    <p>If the affected key types the wrong thing (a symbol instead of a letter, or nothing) rather than being completely dead, a nearby modifier key (Shift, Ctrl, Alt, or Fn) may be physically stuck down, silently changing what every other key does. Press each modifier individually and watch for one that doesn't visually "release" — on a laptop this can also be a stuck Fn lock.</p>
+    <h2>3. Sticky keys, filter keys, or a stuck modifier</h2>
+    <p>If normal typing produces odd repeated characters or nothing at all, an accessibility feature may have been toggled on by accident (holding Shift 5 times enables Sticky Keys on both Windows and Mac). Turn off Sticky Keys / Filter Keys in accessibility settings, and check that no key is physically stuck down — a stuck modifier key silently changes what every other key does.</p>
 
-    <h2>4. Test on membrane wear (laptop and membrane keyboards)</h2>
-    <p>On membrane keyboards (most laptops and budget keyboards), a single dead key after months or years of use is often localized wear in the rubber dome or the membrane layer beneath that one key — usually from a spill, or just from being the most-used key on your layout (E, Space, and Enter wear first). This isn't something compressed air fixes; it typically means a keyboard replacement (laptops) or a full keyboard swap (external).</p>
+    <h2>4. Debris under specific keys</h2>
+    <p>A handful of dead keys clustered together (not layout-explainable) is usually crumbs or dust under those keycaps. Compressed air, held at an angle, clears most of it without popping caps off.</p>
 
-    <h2>5. Replace the switch (mechanical keyboards)</h2>
-    <p>If you have a mechanical keyboard with hot-swappable sockets, a single dead switch is a five-minute fix: pull the old switch with a switch puller and push in a replacement of the same type. Even on a soldered (non-hot-swap) board, replacing one switch is a straightforward soldering job if you're comfortable with it — far cheaper than replacing the whole keyboard.</p>
-
-    <h2>6. Check firmware, for programmable keyboards</h2>
-    <p>Keyboards with custom firmware (QMK, VIA, or similar) can end up with a corrupted keymap layer where one key got silently remapped to nothing. Reflash to a known-good layout or reset to factory defaults before assuming a hardware fault — this is a common false alarm on programmable boards.</p>
+    <h2>5. Driver or firmware, for specialty keyboards</h2>
+    <p>Mechanical keyboards with custom firmware (QMK/VIA) or programmable macro keys can end up with a corrupted layer or remap. Reflash to a known-good layout, or reset to factory defaults, before assuming a hardware fault.</p>
 
     <div class="cta-box">
-      <p>Made a change? Confirm the key registers correctly.</p>
+      <p>Made a change? Confirm every key registers.</p>
       <a class="btn" href="/keyboard-test">Re-run the keyboard test →</a>
     </div>
 
@@ -151,15 +148,15 @@
     <div class="help-cards">
       <a class="help-card" href="/keyboard-test">
         <h3>Keyboard Test</h3>
-        <p>Confirm exactly which key is dead.</p>
+        <p>See every key light up as you press it.</p>
       </a>
       <a class="help-card" href="/keyboard-ghosting-test">
         <h3>Ghosting / NKRO Test</h3>
         <p>How many keys register at once.</p>
       </a>
-      <a class="help-card" href="/blog/keyboard-not-working">
-        <h3>Keyboard not working</h3>
-        <p>Broader checks if it's not just one key.</p>
+      <a class="help-card" href="/blog/keyboard/keyboard-key-not-working">
+        <h3>One key not working</h3>
+        <p>Debris, membrane wear, and switch swaps.</p>
       </a>
     </div>
   </section>

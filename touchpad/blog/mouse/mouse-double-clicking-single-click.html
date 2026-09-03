@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="en_US">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Why Is My Mouse Double-Clicking on a Single Click? (How to Fix)</title>
+<meta name="description" content="A single click registering twice? Here's why it happens and four fixes that actually work, from a Windows setting to a debounce tweak in G HUB or Synapse.">
+<link rel="canonical" href="https://hardwaretesthub.net/blog/mouse/mouse-double-clicking-single-click">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hardwaretesthub.net/blog/mouse/mouse-double-clicking-single-click">
+<meta property="og:title" content="Why Is My Mouse Double-Clicking on a Single Click? (How to Fix)">
+<meta property="og:description" content="A single click registering twice? Here's why it happens and four fixes that actually work, from a Windows setting to a debounce tweak in G HUB or Synapse.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://hardwaretesthub.net/blog/mouse/mouse-double-clicking-single-click#article",
+      "headline": "Why Is My Mouse Double-Clicking on a Single Click?",
+      "name": "Why Is My Mouse Double-Clicking on a Single Click? (How to Fix)",
+      "description": "A single click registering twice? Here's why it happens and four fixes that actually work, from a Windows setting to a debounce tweak in G HUB or Synapse.",
+      "url": "https://hardwaretesthub.net/blog/mouse/mouse-double-clicking-single-click",
+      "mainEntityOfPage": "https://hardwaretesthub.net/blog/mouse/mouse-double-clicking-single-click",
+      "datePublished": "2026-09-03",
+      "dateModified": "2026-09-03",
+      "image": "https://hardwaretesthub.net/og-image.png",
+      "author": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "publisher": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://hardwaretesthub.net/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hardwaretesthub.net/#guides"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Why Is My Mouse Double-Clicking on a Single Click?",
+          "item": "https://hardwaretesthub.net/blog/mouse/mouse-double-clicking-single-click"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why does my mouse click twice when I click once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Almost always a worn microswitch: the metal contact inside the left or right click button bounces on contact and sends two electrical signals within milliseconds of each other. It's mechanical wear, not a software bug, though a debounce setting in your mouse's software can mask it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I stop my mouse from double clicking without buying a new one?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Increase the debounce time in your mouse's software (Logitech G HUB, Razer Synapse) to 8-12ms, or install a third-party tool like X-Mouse Button Control if your mouse has no vendor software. This filters out the second signal without needing to replace anything."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Windows' double-click speed setting fix a mouse that double-clicks on its own?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only partially. That setting controls how close together two intentional clicks need to be to count as one double-click — it doesn't stop the switch itself from misfiring. Moving the slider toward Fast can help in some cases, but a real debounce fix in your mouse software is more reliable."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/#mouse">Mouse</a>
+      <a href="/#keyboard-tools">Keyboard</a>
+      <a href="/#gaming">Gaming</a>
+      <a href="/#guides">Guides</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <article class="article">
+    <div class="kicker">Troubleshooting</div>
+    <h1>Why Is My Mouse Double-Clicking on a Single Click?</h1>
+    <div class="meta">Updated September 2026 · 4 min read</div>
+
+    <p>A single click registering twice is almost always caused by mechanical switch wear — commonly called <strong>key chatter</strong> — or an overly sensitive Windows double-click threshold. You can usually resolve it in a few minutes by adjusting software debounce, cleaning the switch, or tweaking a couple of settings, no new mouse required.</p>
+
+    <div class="cta-box">
+      <p>First, confirm it's actually happening and how often.</p>
+      <a class="btn" href="/mouse-double-click-test">Run the double-click test →</a>
+    </div>
+
+    <h2>1. Adjust the Windows double-click speed</h2>
+    <p>Go to <strong>Settings → Bluetooth &amp; devices → Mouse → Additional mouse settings</strong>. Under the <strong>Buttons</strong> tab, move the double-click speed slider slightly toward <strong>Fast</strong>. This narrows the window Windows uses to register two clicks as one double-click, which reduces (but doesn't eliminate) accidental double-triggers from a slightly worn switch.</p>
+
+    <h2>2. Increase the software debounce time</h2>
+    <p>If your mouse has vendor software — Logitech G HUB, Razer Synapse, SteelSeries GG, or a generic tool like X-Mouse Button Control — look for a <strong>Debounce Time</strong> setting and raise it to somewhere around <strong>8ms–12ms</strong>. This tells the mouse to ignore any second signal that arrives within that window, which is exactly the accidental double-trigger a worn switch produces. It's the single most effective software fix, and it's free.</p>
+
+    <h2>3. Blow out static or dust</h2>
+    <p>Unplug or power off the mouse. Use compressed air to blow under the left and right click buttons while repeatedly pressing them to help dislodge anything trapped inside the switch housing. Dust or static buildup around the contacts occasionally causes a switch to bounce even when it isn't significantly worn — this is a five-minute check worth ruling out before assuming the switch itself is dying.</p>
+
+    <h2>4. Update the mouse drivers</h2>
+    <p>Open <strong>Device Manager</strong>, expand <strong>Mice and other pointing devices</strong>, right-click your mouse, and select <strong>Update driver</strong>. A stale or corrupted HID driver rarely causes double-clicking on its own, but it's a quick check, especially if the double-clicking started right after a Windows update.</p>
+
+    <h2>Still double-clicking in a specific game or app?</h2>
+    <p>If it only shows up in <strong>Valorant</strong>, <strong>Minecraft</strong>, or another game, the underlying cause is the same worn switch — games just have tighter input timing, so a bounce that's invisible in everyday use fires a second shot, block placement, or menu selection. Setting the debounce time in step 2 usually clears it up in-game too, since the fix happens before the signal ever reaches the game.</p>
+
+    <div class="cta-box">
+      <p>Made a change? Confirm the fix actually worked.</p>
+      <a class="btn" href="/mouse-double-click-test">Re-run the double-click test →</a>
+    </div>
+
+    <h2>FAQ</h2>
+
+    <h3>Why does my mouse click twice when I click once?</h3>
+    <p>A worn microswitch bounces on contact and sends two electrical signals within milliseconds of one press. It's mechanical wear, not a software bug — though software debounce can mask it.</p>
+
+    <h3>How do I stop my mouse from double clicking without buying a new one?</h3>
+    <p>Raise the debounce time in your mouse's software to 8ms–12ms (or use X-Mouse Button Control if it has none). That filters the second signal out without replacing anything.</p>
+
+    <h3>Does the Windows double-click speed setting fix this?</h3>
+    <p>Only partially — it changes how close two intentional clicks need to be to count as one double-click, not whether the switch itself misfires. A real debounce setting in your mouse software is the more reliable fix.</p>
+
+  </article>
+
+  <section class="help-section">
+    <h2>Related tools</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/mouse-double-click-test">
+        <h3>Double-Click Test</h3>
+        <p>Confirm the misfire with an exact threshold.</p>
+      </a>
+      <a class="help-card" href="/mouse-test">
+        <h3>Mouse Test</h3>
+        <p>Check every other button too.</p>
+      </a>
+      <a class="help-card" href="/blog/mouse/mouse-double-clicking-fix">
+        <h3>The deeper fix guide</h3>
+        <p>Why switches wear out, and how to replace one yourself.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/#mouse">Mouse</a>
+    <a href="/#keyboard-tools">Keyboard</a>
+    <a href="/#gaming">Gaming</a>
+    <a href="/#guides">Guides</a>
+    <a href="/about">About</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

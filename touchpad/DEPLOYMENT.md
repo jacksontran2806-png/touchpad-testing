@@ -55,7 +55,7 @@ either fails or ships the wrong folder.
 
 ## Routing
 
-`wrangler.jsonc` handles it. No redirect rules needed:
+`wrangler.jsonc` handles most of it:
 
 - `html_handling: "drop-trailing-slash"` — `/blog/keyboard-not-working` serves
   `blog/keyboard-not-working.html`. Both `/blog/keyboard-not-working.html` and
@@ -66,6 +66,14 @@ either fails or ships the wrong folder.
 - `not_found_handling: "404-page"` — unknown paths serve `404.html` with a real
   404 status. Without it they'd return the homepage at 200, which search engines
   index as duplicate homepages.
+
+`_redirects` (same format Pages uses; not served itself, like `_headers`)
+handles the rest: **permanent 301s for any blog post that's been moved to a
+new URL.** The blog was reorganized into topic subfolders
+(`blog/mouse/`, `blog/keyboard/`, `blog/trackpad/`) on 2026-09-03 — every post
+that existed before that keeps a redirect from its old flat `/blog/<name>` URL.
+If you ever move or rename a post again, add a new rule rather than deleting
+the old ones — these are permanent, not cleanup.
 
 ## Headers
 

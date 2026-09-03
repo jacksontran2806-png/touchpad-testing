@@ -46,37 +46,52 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://hardwaretesthub.net/blog/keyboard-key-not-working</loc>
+    <loc>https://hardwaretesthub.net/blog/keyboard/keyboard-key-not-working</loc>
     <lastmod>2026-08-27</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hardwaretesthub.net/blog/keyboard-not-working</loc>
+    <loc>https://hardwaretesthub.net/blog/keyboard/keyboard-not-working</loc>
     <lastmod>2026-08-27</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hardwaretesthub.net/blog/mac-trackpad-not-working</loc>
+    <loc>https://hardwaretesthub.net/blog/mouse/mouse-double-clicking-fix</loc>
     <lastmod>2026-08-27</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hardwaretesthub.net/blog/mouse-double-clicking-fix</loc>
+    <loc>https://hardwaretesthub.net/blog/mouse/mouse-double-clicking-single-click</loc>
+    <lastmod>2026-09-03</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/blog/mouse/mouse-light-on-cursor-not-moving</loc>
+    <lastmod>2026-09-03</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/blog/mouse/mouse-not-working</loc>
     <lastmod>2026-08-27</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hardwaretesthub.net/blog/mouse-not-working</loc>
+    <loc>https://hardwaretesthub.net/blog/mouse/mouse-scroll-not-working</loc>
     <lastmod>2026-08-27</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hardwaretesthub.net/blog/mouse-scroll-not-working</loc>
+    <loc>https://hardwaretesthub.net/blog/mouse/mouse-scrolling-wrong-direction</loc>
+    <lastmod>2026-09-03</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/blog/trackpad/mac-trackpad-not-working</loc>
     <lastmod>2026-08-27</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://hardwaretesthub.net/blog/windows-touchpad-not-working</loc>
+    <loc>https://hardwaretesthub.net/blog/trackpad/windows-touchpad-not-working</loc>
     <lastmod>2026-08-27</lastmod>
     <priority>0.8</priority>
   </url>

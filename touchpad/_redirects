@@ -1,0 +1,11 @@
+# Blog posts moved into topic subfolders (mouse/keyboard/trackpad) on
+# 2026-09-03. These old URLs were indexed, so they permanently redirect
+# instead of 404ing. Keep entries here forever — never delete a blog post's
+# redirect once added, even if the post is later removed too.
+/blog/mouse-not-working /blog/mouse/mouse-not-working 301
+/blog/mouse-double-clicking-fix /blog/mouse/mouse-double-clicking-fix 301
+/blog/mouse-scroll-not-working /blog/mouse/mouse-scroll-not-working 301
+/blog/keyboard-not-working /blog/keyboard/keyboard-not-working 301
+/blog/keyboard-key-not-working /blog/keyboard/keyboard-key-not-working 301
+/blog/mac-trackpad-not-working /blog/trackpad/mac-trackpad-not-working 301
+/blog/windows-touchpad-not-working /blog/trackpad/windows-touchpad-not-working 301

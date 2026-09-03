@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="en_US">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Mouse Scrolling in the Wrong Direction? How to Fix It</title>
+<meta name="description" content="Scroll down and the page goes up? Here's how to reverse it on Windows 11 and 10, plus the hardware causes — a dirty encoder or an unpowered USB hub.">
+<link rel="canonical" href="https://hardwaretesthub.net/blog/mouse/mouse-scrolling-wrong-direction">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hardwaretesthub.net/blog/mouse/mouse-scrolling-wrong-direction">
+<meta property="og:title" content="Mouse Scrolling in the Wrong Direction? How to Fix It">
+<meta property="og:description" content="Scroll down and the page goes up? Here's how to reverse it on Windows 11 and 10, plus the hardware causes — a dirty encoder or an unpowered USB hub.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://hardwaretesthub.net/blog/mouse/mouse-scrolling-wrong-direction#article",
+      "headline": "Mouse Scrolling in the Wrong Direction? How to Fix It",
+      "name": "Mouse Scrolling in the Wrong Direction? How to Fix It",
+      "description": "Scroll down and the page goes up? Here's how to reverse it on Windows 11 and 10, plus the hardware causes — a dirty encoder or an unpowered USB hub.",
+      "url": "https://hardwaretesthub.net/blog/mouse/mouse-scrolling-wrong-direction",
+      "mainEntityOfPage": "https://hardwaretesthub.net/blog/mouse/mouse-scrolling-wrong-direction",
+      "datePublished": "2026-09-03",
+      "dateModified": "2026-09-03",
+      "image": "https://hardwaretesthub.net/og-image.png",
+      "author": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "publisher": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://hardwaretesthub.net/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hardwaretesthub.net/#guides"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Mouse Scrolling in the Wrong Direction? How to Fix It",
+          "item": "https://hardwaretesthub.net/blog/mouse/mouse-scrolling-wrong-direction"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I reverse scroll direction on Windows 11?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Open Settings (Win + I) → Bluetooth & devices → Mouse. Under the Scrolling section, change the Scrolling direction drop-down to \"Down motion scrolls down\"."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my Razer or Logitech mouse scroll backwards?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Check the scroll direction setting inside Razer Synapse or Logitech Options+ first — vendor software has its own scroll setting that can override or conflict with the Windows one. If both are set correctly and it still scrolls backwards, dust in the scroll wheel housing can cause an inverted or erratic signal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can dust cause my scroll wheel to scroll the wrong way?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Dust or hair inside the optical scroll encoder can produce erratic or inverted scroll signals, not just skipping or jumpy scrolling. A few sharp bursts of compressed air into the wheel housing while spinning it rapidly usually clears it."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/#mouse">Mouse</a>
+      <a href="/#keyboard-tools">Keyboard</a>
+      <a href="/#gaming">Gaming</a>
+      <a href="/#guides">Guides</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <article class="article">
+    <div class="kicker">Troubleshooting</div>
+    <h1>Mouse Scrolling in the Wrong Direction? How to Fix It</h1>
+    <div class="meta">Updated September 2026 · 4 min read</div>
+
+    <p>If rolling your scroll wheel down makes the page move up, your system's scroll direction setting has almost certainly been flipped — either by you, an update, or vendor software fighting with it. Occasionally dust in the optical scroll encoder is the real cause, producing a signal that reads as reversed.</p>
+
+    <div class="cta-box">
+      <p>First, see exactly which direction your wheel is sending.</p>
+      <a class="btn" href="/mouse-scroll-test">Run the scroll test →</a>
+    </div>
+
+    <h2>1. Reverse the Windows scroll setting</h2>
+    <p>Open <strong>Settings</strong> (<strong>Win + I</strong>) → <strong>Bluetooth &amp; devices → Mouse</strong>. Under the <strong>Scrolling</strong> section, change the <strong>Scrolling direction</strong> drop-down to <strong>"Down motion scrolls down."</strong> This is the fix for the vast majority of cases — it's a setting, not a hardware fault, and it takes effect immediately with no restart needed.</p>
+
+    <h2>2. Clean the scroll wheel sensor</h2>
+    <p>Dust and hair inside the wheel housing can produce erratic or genuinely inverted scrolling signals, not just skipping. Give the scroll wheel a few sharp bursts of compressed air while spinning it rapidly to clear out anything trapped around the encoder.</p>
+
+    <h2>3. Swap USB ports</h2>
+    <p>Plug the mouse directly into a USB port on your PC or motherboard instead of through an unpowered USB hub. A hub that can't supply consistent power sometimes causes a wired mouse's scroll signal to behave unpredictably, including reading as reversed.</p>
+
+    <h2>4. Disable Tablet Mode (Windows 10)</h2>
+    <p>Make sure <strong>Tablet Mode</strong> is turned off in the Windows Action Center. It can force touch-style scroll behavior — which follows the opposite convention from a traditional mouse wheel — across every app, even with a mouse plugged in.</p>
+
+    <h2>Using Razer, Logitech, or another vendor's software?</h2>
+    <p>Check the scroll direction setting inside <strong>Razer Synapse</strong> or <strong>Logitech Options+</strong> as well. Vendor software has its own scroll setting that can silently override or conflict with the Windows setting above — if you only change one of the two, the mouse can end up back where it started after a reboot.</p>
+
+    <div class="cta-box">
+      <p>Made a change? Verify the direction and check for skipped steps too.</p>
+      <a class="btn" href="/mouse-scroll-test">Re-run the scroll test →</a>
+    </div>
+
+    <h2>FAQ</h2>
+
+    <h3>How do I reverse scroll direction on Windows 11?</h3>
+    <p>Settings (Win + I) → Bluetooth &amp; devices → Mouse → Scrolling, then set the direction drop-down to "Down motion scrolls down."</p>
+
+    <h3>Why does my Razer or Logitech mouse scroll backwards?</h3>
+    <p>Check the scroll direction setting inside Synapse or Options+ — it can override or conflict with the Windows setting. If both are correct and it's still backwards, dust in the encoder is the likely cause.</p>
+
+    <h3>Can dust cause my scroll wheel to scroll the wrong way?</h3>
+    <p>Yes — dust or hair inside the optical encoder can produce an inverted signal, not just jumpy scrolling. Compressed air into the housing while spinning the wheel usually clears it.</p>
+
+  </article>
+
+  <section class="help-section">
+    <h2>Related tools</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/mouse-scroll-test">
+        <h3>Scroll Test</h3>
+        <p>See exactly where the deltas go wrong.</p>
+      </a>
+      <a class="help-card" href="/mouse-test">
+        <h3>Mouse Test</h3>
+        <p>Check every other button too.</p>
+      </a>
+      <a class="help-card" href="/blog/mouse/mouse-scroll-not-working">
+        <h3>Broader scroll troubleshooting</h3>
+        <p>Dead, jumpy, or skipping wheels — not just direction.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/#mouse">Mouse</a>
+    <a href="/#keyboard-tools">Keyboard</a>
+    <a href="/#gaming">Gaming</a>
+    <a href="/#guides">Guides</a>
+    <a href="/about">About</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

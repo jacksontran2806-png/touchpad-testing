@@ -773,6 +773,12 @@ footer.site-footer a {
   margin: 34px 0 10px;
 }
 
+.article h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  margin: 24px 0 8px;
+}
+
 .article p, .article li {
   line-height: 1.75;
   font-size: 1rem;

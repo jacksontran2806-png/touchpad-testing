@@ -20,19 +20,24 @@ touchpad/
   404.html
   css/style.css
   js/app.js                           one file, every tool — each IIFE no-ops if its DOM isn't on the page
-  blog/mac-trackpad-not-working.html
-  blog/windows-touchpad-not-working.html
-  blog/keyboard-not-working.html
-  blog/mouse-double-clicking-fix.html
-  blog/keyboard-key-not-working.html
-  blog/mouse-scroll-not-working.html
+  blog/mouse/mouse-not-working.html
+  blog/mouse/mouse-double-clicking-fix.html
+  blog/mouse/mouse-double-clicking-single-click.html
+  blog/mouse/mouse-scroll-not-working.html
+  blog/mouse/mouse-scrolling-wrong-direction.html
+  blog/mouse/mouse-light-on-cursor-not-moving.html
+  blog/keyboard/keyboard-not-working.html
+  blog/keyboard/keyboard-key-not-working.html
+  blog/trackpad/mac-trackpad-not-working.html
+  blog/trackpad/windows-touchpad-not-working.html
   partials/                           shared header/footer/head source — see below
-  build.js                            syncs partials/ into every page that has the markers
+  build.js                            syncs partials/ into every page that has the markers, at any depth
   favicon.png / icon-512.png / apple-touch-icon.png / og-image.png
   robots.txt
   sitemap.xml
   wrangler.jsonc                      Cloudflare Workers config — clean URLs, 404 handling
   _headers                            cache + security headers
+  _redirects                          301s for blog posts that moved into topic subfolders
   .assetsignore                       files in this folder that must not be served
   ads.txt                             AdSense publisher verification
   DEPLOYMENT.md                       how to deploy, and the custom-domain setup
@@ -52,7 +57,7 @@ To change the nav, footer, or shared `<head>` tags: edit the matching file in `p
 node build.js
 ```
 
-It auto-discovers every `.html` file at the root and one level deep (e.g. `blog/`) — a new page just needs the marker comments pasted in, nothing to register. It reports which files it changed (or `already in sync`) and is safe to re-run any time — commit the regenerated pages along with your partial edit. `ADSENSE` is deliberately not in every page's markers: `404.html` has no `ADSENSE:START/END` block, so the ad script never lands on the error page.
+It auto-discovers every `.html` file at any depth (root, `blog/`, and topic subfolders like `blog/mouse/`) — a new page just needs the marker comments pasted in, nothing to register. It reports which files it changed (or `already in sync`) and is safe to re-run any time — commit the regenerated pages along with your partial edit. `ADSENSE` is deliberately not in every page's markers: `404.html` has no `ADSENSE:START/END` block, so the ad script never lands on the error page.
 
 Per-page fields — `<title>`, meta description, canonical URL, and Open Graph tags — live outside the markers in each file and aren't touched by the build.
 
