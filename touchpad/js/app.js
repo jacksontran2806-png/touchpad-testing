@@ -1149,4 +1149,82 @@
 
     setVisual("idle", "Click to start");
   })();
+
+  /* ============================================================
+     FAQ ACCORDION — smooth open/close on <details class="faq-item">
+     Native <details> toggles instantly; this animates the height
+     with the Web Animations API while keeping the element itself
+     as the source of truth (so no-JS / reduced-motion still works).
+     ============================================================ */
+  (function faqAccordion() {
+    const items = document.querySelectorAll(".faq-item");
+    if (!items.length) return;
+
+    const prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    items.forEach(function (item) {
+      const summary = item.querySelector("summary");
+      const answer = item.querySelector(".faq-answer");
+      if (!summary || !answer) return;
+
+      let animation = null;
+      let isClosing = false;
+      let isExpanding = false;
+
+      summary.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (prefersReducedMotion) {
+          item.open = !item.open;
+          return;
+        }
+        item.style.overflow = "hidden";
+        if (isClosing || !item.open) {
+          openItem();
+        } else if (isExpanding || item.open) {
+          closeItem();
+        }
+      });
+
+      function openItem() {
+        item.style.height = item.offsetHeight + "px";
+        item.open = true;
+        window.requestAnimationFrame(function () { expand(); });
+      }
+
+      function expand() {
+        isExpanding = true;
+        const startHeight = item.offsetHeight + "px";
+        const endHeight = (summary.offsetHeight + answer.offsetHeight) + "px";
+        if (animation) animation.cancel();
+        animation = item.animate(
+          { height: [startHeight, endHeight] },
+          { duration: 220, easing: "cubic-bezier(0.2, 0.8, 0.2, 1)" }
+        );
+        animation.onfinish = function () { onFinish(true); };
+        animation.oncancel = function () { isExpanding = false; };
+      }
+
+      function closeItem() {
+        isClosing = true;
+        const startHeight = item.offsetHeight + "px";
+        const endHeight = summary.offsetHeight + "px";
+        if (animation) animation.cancel();
+        animation = item.animate(
+          { height: [startHeight, endHeight] },
+          { duration: 200, easing: "cubic-bezier(0.2, 0.8, 0.2, 1)" }
+        );
+        animation.onfinish = function () { onFinish(false); };
+        animation.oncancel = function () { isClosing = false; };
+      }
+
+      function onFinish(open) {
+        item.open = open;
+        animation = null;
+        isClosing = false;
+        isExpanding = false;
+        item.style.height = "";
+        item.style.overflow = "";
+      }
+    });
+  })();
 })();

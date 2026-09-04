@@ -830,13 +830,25 @@ footer.site-footer a {
   margin: 10px 0 32px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .faq-item {
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 16px;
   background: var(--surface);
+  box-shadow: 0 1px 2px rgba(16, 19, 26, 0.04);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.faq-item:hover {
+  box-shadow: 0 4px 14px rgba(16, 19, 26, 0.08);
+}
+
+.faq-item[open] {
+  border-color: #c3d3f9;
+  box-shadow: 0 6px 18px rgba(47, 111, 237, 0.1);
 }
 
 .faq-item + .faq-item { margin-top: 0; }
@@ -844,14 +856,13 @@ footer.site-footer a {
 .faq-item summary {
   list-style: none;
   cursor: pointer;
-  padding: 16px 46px 16px 18px;
+  padding: 18px 48px 18px 20px;
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 0.98rem;
   line-height: 1.4;
   color: var(--text);
   position: relative;
-  border-radius: 10px;
 }
 
 .faq-item summary::-webkit-details-marker { display: none; }
@@ -860,13 +871,13 @@ footer.site-footer a {
   content: "";
   position: absolute;
   top: 50%;
-  right: 18px;
+  right: 20px;
   width: 9px;
   height: 9px;
-  border-right: 2px solid var(--text-dim);
-  border-bottom: 2px solid var(--text-dim);
+  border-right: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
   transform: translate(0, -65%) rotate(45deg);
-  transition: transform 0.18s ease;
+  transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .faq-item[open] summary::after {
@@ -874,13 +885,21 @@ footer.site-footer a {
 }
 
 .faq-item summary:hover { background: var(--accent-dim); }
-.faq-item[open] summary { border-radius: 10px 10px 0 0; }
 
+/* JS drives the open/close height animation on .faq-item itself; the
+   opacity transition here keeps the answer text fading in rather than
+   just snapping into view once it's tall enough to show. */
 .faq-item .faq-answer {
-  padding: 0 18px 18px;
+  padding: 0 20px 20px;
+  padding-top: 14px;
   border-top: 1px solid var(--border);
   margin-top: -1px;
-  padding-top: 14px;
+  opacity: 0;
+  transition: opacity 0.18s ease 0.04s;
+}
+
+.faq-item[open] .faq-answer {
+  opacity: 1;
 }
 
 .faq-item .faq-answer p {
