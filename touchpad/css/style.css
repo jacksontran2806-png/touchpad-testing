@@ -825,6 +825,73 @@ footer.site-footer a {
 
 .btn.btn-secondary:hover { background: var(--border); }
 
+/* --- FAQ accordion (Google-style dropdown Q&A) --- */
+.faq-accordion {
+  margin: 10px 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+}
+
+.faq-item + .faq-item { margin-top: 0; }
+
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 16px 46px 16px 18px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.98rem;
+  line-height: 1.4;
+  color: var(--text);
+  position: relative;
+  border-radius: 10px;
+}
+
+.faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-item summary::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid var(--text-dim);
+  border-bottom: 2px solid var(--text-dim);
+  transform: translate(0, -65%) rotate(45deg);
+  transition: transform 0.18s ease;
+}
+
+.faq-item[open] summary::after {
+  transform: translate(0, -35%) rotate(-135deg);
+}
+
+.faq-item summary:hover { background: var(--accent-dim); }
+.faq-item[open] summary { border-radius: 10px 10px 0 0; }
+
+.faq-item .faq-answer {
+  padding: 0 18px 18px;
+  border-top: 1px solid var(--border);
+  margin-top: -1px;
+  padding-top: 14px;
+}
+
+.faq-item .faq-answer p {
+  margin: 0;
+  line-height: 1.7;
+  font-size: 0.96rem;
+  color: var(--text-dim);
+}
+
+.faq-item .faq-answer p + p { margin-top: 10px; }
+
 /* --- Homepage tool sections --- */
 .section-head {
   display: flex;

@@ -30,6 +30,7 @@
 <meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <!-- ADSENSE:START -->
+<meta name="google-adsense-account" content="ca-pub-1082746041497676">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
 <!-- ADSENSE:END -->
 <!-- SCHEMA:START -->
@@ -46,7 +47,7 @@
       "url": "https://hardwaretesthub.net/blog/trackpad/mac-trackpad-not-working",
       "mainEntityOfPage": "https://hardwaretesthub.net/blog/trackpad/mac-trackpad-not-working",
       "datePublished": "2026-08-27",
-      "dateModified": "2026-08-27",
+      "dateModified": "2026-09-04",
       "image": "https://hardwaretesthub.net/og-image.png",
       "author": {
         "@id": "https://hardwaretesthub.net/#organization"
@@ -86,6 +87,38 @@
 }
 </script>
 <!-- SCHEMA:END -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can a Mac trackpad just wear out?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not in the way a mouse switch does — Apple's trackpads are solid-state with no physical click mechanism, so there's nothing mechanical to wear out from normal use. Almost every \"broken\" Mac trackpad turns out to be a setting, driver hang, or a paired mouse taking priority."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my Mac trackpad stop working after connecting a mouse?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Check System Settings → Accessibility → Pointer Control → Trackpad Options for \"Ignore built-in trackpad when mouse or wireless trackpad is present.\" If that's checked, macOS disables the built-in trackpad any time another pointing device has ever been paired, even briefly — uncheck it to get it back."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does resetting the SMC fix trackpad problems?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sometimes, since the SMC governs some low-level input handling. On Apple Silicon Macs it's just a full shutdown, a ~20 second wait, and powering back on. Try the settings and restart fixes first — they resolve the majority of cases before an SMC reset is needed."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -112,7 +145,7 @@
   <article class="article">
     <div class="kicker">Troubleshooting</div>
     <h1>Why Isn't My Mac Trackpad Working? 8 Fixes That Actually Work</h1>
-    <div class="meta">Updated August 2026 · 7 min read</div>
+    <div class="meta">Updated September 2026 · 8 min read</div>
 
     <p>A Mac trackpad that won't click, won't scroll, or has gone completely dead is almost always a software or settings problem, not a broken part. Apple's trackpads are solid-state — there's no physical click mechanism to wear out — so before you assume the worst, work through the fixes below in order. They're listed from most to least likely to be the culprit.</p>
 
@@ -154,6 +187,29 @@
     <div class="cta-box">
       <p>Made a change? Confirm it worked.</p>
       <a class="btn" href="/trackpad-test">Re-run the touchpad test →</a>
+    </div>
+
+    <h2>FAQ</h2>
+
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>Can a Mac trackpad just wear out?</summary>
+        <div class="faq-answer">
+          <p>Not in the way a mouse switch does — Apple's trackpads are solid-state with no physical click mechanism, so there's nothing mechanical to wear out from normal use. Almost every "broken" Mac trackpad turns out to be a setting, driver hang, or a paired mouse taking priority.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Why does my Mac trackpad stop working after connecting a mouse?</summary>
+        <div class="faq-answer">
+          <p>Check <strong>System Settings → Accessibility → Pointer Control → Trackpad Options</strong> for "Ignore built-in trackpad when mouse or wireless trackpad is present." If that's checked, macOS disables the built-in trackpad any time another pointing device has ever been paired, even briefly — uncheck it to get it back.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Does resetting the SMC fix trackpad problems?</summary>
+        <div class="faq-answer">
+          <p>Sometimes, since the SMC governs some low-level input handling. On Apple Silicon Macs it's just a full shutdown, a ~20 second wait, and powering back on. Try the settings and restart fixes first — they resolve the majority of cases before an SMC reset is needed.</p>
+        </div>
+      </details>
     </div>
 
   </article>
