@@ -88,6 +88,38 @@
 }
 </script>
 <!-- SCHEMA:END -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What's an average human reaction time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Around 200-250 milliseconds to a simple visual stimulus like a color change. Trained competitive gamers often average 150-200ms, and going below roughly 150ms consistently usually means you anticipated the change rather than reacted to it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my score vary so much between rounds?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Reaction time naturally fluctuates with attention and fatigue even within the same test — a single round can swing 30-50ms from your average just by chance. That's why this tool runs five rounds and reports an average and best time rather than a single number."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a gaming mouse actually improve reaction time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A low-latency wired mouse and a high refresh-rate display remove a few milliseconds of input and display lag compared to a laggy wireless setup, but that overhead is small next to natural human variation. It shifts your measured score slightly; it doesn't change your actual reflexes."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -161,6 +193,28 @@
       <li>Run it a few times; reaction time naturally varies round to round.</li>
       <li>A wired mouse and a wired or low-latency display will read faster than a laggy wireless setup, independent of your actual reflexes.</li>
     </ol>
+
+    <h2>FAQ</h2>
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>What's an average human reaction time?</summary>
+        <div class="faq-answer">
+          <p>Around 200-250 milliseconds to a simple visual stimulus like a color change. Trained competitive gamers often average 150-200ms, and going below roughly 150ms consistently usually means you anticipated the change rather than reacted to it.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Why does my score vary so much between rounds?</summary>
+        <div class="faq-answer">
+          <p>Reaction time naturally fluctuates with attention and fatigue even within the same test — a single round can swing 30-50ms from your average just by chance. That's why this tool runs five rounds and reports an average and best time rather than a single number.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Does a gaming mouse actually improve reaction time?</summary>
+        <div class="faq-answer">
+          <p>A low-latency wired mouse and a high refresh-rate display remove a few milliseconds of input and display lag compared to a laggy wireless setup, but that overhead is small next to natural human variation. It shifts your measured score slightly; it doesn't change your actual reflexes.</p>
+        </div>
+      </details>
+    </div>
   </div>
 
   <section class="help-section">
@@ -191,6 +245,7 @@
     <a href="/#gaming">Gaming</a>
     <a href="/#guides">Guides</a>
     <a href="/about">About</a>
+    <a href="/contact">Contact</a>
     <a href="/privacy-policy">Privacy Policy</a>
   </div>
   <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>

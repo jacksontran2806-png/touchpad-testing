@@ -88,6 +88,38 @@
 }
 </script>
 <!-- SCHEMA:END -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What sensitivity threshold should I use for this test?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start with the default 50ms — it's well above the fastest any human can physically release and press a button again, so anything flagged at that threshold is almost certainly a real misfire. Lower it to 30ms only if you want to be extra conservative about false positives, or raise it to 80-120ms if you have unusually fast, deliberate clicks and want to rule those out first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can software fix a mouse that's double-clicking?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sometimes, temporarily. Some manufacturer software and third-party debounce utilities can filter out a second click that arrives within a set time window, which papers over a worn switch without fixing it. It's a reasonable stopgap, but the underlying switch typically keeps degrading and will eventually need a hardware fix."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long do mouse switches usually last before this happens?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most mechanical mouse switches are rated for somewhere around 10-50 million clicks depending on quality, which for typical daily use works out to roughly 1-5 years before chatter starts appearing. Heavy gaming use or a naturally lower-rated switch can bring that timeline forward considerably."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -168,6 +200,28 @@
       <p>Want the full repair-vs-replace breakdown?</p>
       <a class="btn" href="/blog/mouse/mouse-double-clicking-fix">Read the fix guide</a>
     </div>
+
+    <h2>FAQ</h2>
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>What sensitivity threshold should I use for this test?</summary>
+        <div class="faq-answer">
+          <p>Start with the default 50ms — it's well above the fastest any human can physically release and press a button again, so anything flagged at that threshold is almost certainly a real misfire. Lower it to 30ms only if you want to be extra conservative about false positives, or raise it to 80-120ms if you have unusually fast, deliberate clicks and want to rule those out first.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Can software fix a mouse that's double-clicking?</summary>
+        <div class="faq-answer">
+          <p>Sometimes, temporarily. Some manufacturer software and third-party debounce utilities can filter out a second click that arrives within a set time window, which papers over a worn switch without fixing it. It's a reasonable stopgap, but the underlying switch typically keeps degrading and will eventually need a hardware fix.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>How long do mouse switches usually last before this happens?</summary>
+        <div class="faq-answer">
+          <p>Most mechanical mouse switches are rated for somewhere around 10-50 million clicks depending on quality, which for typical daily use works out to roughly 1-5 years before chatter starts appearing. Heavy gaming use or a naturally lower-rated switch can bring that timeline forward considerably.</p>
+        </div>
+      </details>
+    </div>
   </div>
 
   <section class="help-section">
@@ -202,6 +256,7 @@
     <a href="/#gaming">Gaming</a>
     <a href="/#guides">Guides</a>
     <a href="/about">About</a>
+    <a href="/contact">Contact</a>
     <a href="/privacy-policy">Privacy Policy</a>
   </div>
   <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>

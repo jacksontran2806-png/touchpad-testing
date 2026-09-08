@@ -88,6 +88,38 @@
 }
 </script>
 <!-- SCHEMA:END -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What's a good CPS score?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "4-6 clicks per second with a normal grip is average, 6-9 is fast, and anything past 9-10 with a standard click technique is unusually quick. Scores above roughly 12-14 CPS almost always involve jitter-clicking, butterfly-clicking, or an auto-clicker rather than a single finger moving normally."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my score lower on a laptop trackpad than a mouse?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A trackpad tap has to travel further per click and often includes built-in debounce delay to avoid registering accidental taps, both of which cap how fast repeated clicks can register compared to a mouse's short, mechanical switch travel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can this test tell a human from an auto-clicker?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not with certainty, but a strong signal is timing consistency — a real hand's click intervals vary a little from click to click, while software-driven clicks land at near-identical intervals every time. A perfectly even, very high score is the classic tell, even though the test itself only reports the raw count."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -178,6 +210,28 @@
       <li>Run it 3-4 times; the first attempt is often lower while you find your rhythm.</li>
       <li>A wired mouse and a browser without heavy background tabs open will read slightly more accurately than a laggy setup.</li>
     </ol>
+
+    <h2>FAQ</h2>
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>What's a good CPS score?</summary>
+        <div class="faq-answer">
+          <p>4-6 clicks per second with a normal grip is average, 6-9 is fast, and anything past 9-10 with a standard click technique is unusually quick. Scores above roughly 12-14 CPS almost always involve jitter-clicking, butterfly-clicking, or an auto-clicker rather than a single finger moving normally.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Why is my score lower on a laptop trackpad than a mouse?</summary>
+        <div class="faq-answer">
+          <p>A trackpad tap has to travel further per click and often includes built-in debounce delay to avoid registering accidental taps, both of which cap how fast repeated clicks can register compared to a mouse's short, mechanical switch travel.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Can this test tell a human from an auto-clicker?</summary>
+        <div class="faq-answer">
+          <p>Not with certainty, but a strong signal is timing consistency — a real hand's click intervals vary a little from click to click, while software-driven clicks land at near-identical intervals every time. A perfectly even, very high score is the classic tell, even though the test itself only reports the raw count.</p>
+        </div>
+      </details>
+    </div>
   </div>
 
   <section class="help-section">
@@ -208,6 +262,7 @@
     <a href="/#gaming">Gaming</a>
     <a href="/#guides">Guides</a>
     <a href="/about">About</a>
+    <a href="/contact">Contact</a>
     <a href="/privacy-policy">Privacy Policy</a>
   </div>
   <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>

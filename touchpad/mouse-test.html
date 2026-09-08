@@ -88,6 +88,38 @@
 }
 </script>
 <!-- SCHEMA:END -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "My mouse works in some apps but buttons don't light up here — why?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Some launcher or macro software intercepts buttons before the browser sees them, remapping a click into a keyboard shortcut or an app action instead of a real click event. Close vendor software like Logitech Options or Razer Synapse and try again — if the button lights up with that software closed, the remap is the cause, not a hardware fault."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do side buttons work on every mouse?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — only mice that physically have thumb buttons will register anything on Back/Forward, and even then some budget mice wire them as keyboard shortcuts rather than real mouse buttons, so they won't show up here at all. That's normal for that hardware, not a defect."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can this test detect a failing sensor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Indirectly. If movement never registers regardless of surface, cable, or USB port, that points to the sensor or its connection rather than a setting. But a sensor that mostly works with occasional jumps or dropouts needs the surface and connection checks in the guide below before you write it off as hardware failure."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -207,6 +239,28 @@
       <p>Clicking twice when you click once?</p>
       <a class="btn" href="/mouse-double-click-test">Double-click test</a>
     </div>
+
+    <h2>FAQ</h2>
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>My mouse works in some apps but buttons don't light up here — why?</summary>
+        <div class="faq-answer">
+          <p>Some launcher or macro software intercepts buttons before the browser sees them, remapping a click into a keyboard shortcut or an app action instead of a real click event. Close vendor software like Logitech Options or Razer Synapse and try again — if the button lights up with that software closed, the remap is the cause, not a hardware fault.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Do side buttons work on every mouse?</summary>
+        <div class="faq-answer">
+          <p>No — only mice that physically have thumb buttons will register anything on Back/Forward, and even then some budget mice wire them as keyboard shortcuts rather than real mouse buttons, so they won't show up here at all. That's normal for that hardware, not a defect.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Can this test detect a failing sensor?</summary>
+        <div class="faq-answer">
+          <p>Indirectly. If movement never registers regardless of surface, cable, or USB port, that points to the sensor or its connection rather than a setting. But a sensor that mostly works with occasional jumps or dropouts needs the surface and connection checks in the guide above before you write it off as hardware failure.</p>
+        </div>
+      </details>
+    </div>
   </div>
 
   <section class="help-section">
@@ -249,6 +303,7 @@
     <a href="/#gaming">Gaming</a>
     <a href="/#guides">Guides</a>
     <a href="/about">About</a>
+    <a href="/contact">Contact</a>
     <a href="/privacy-policy">Privacy Policy</a>
   </div>
   <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
