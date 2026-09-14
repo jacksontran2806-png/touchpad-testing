@@ -1225,3 +1225,104 @@ a.tool-card:hover { border-color: var(--accent); transform: translateY(-1px); }
 @media (max-width: 560px) {
   .cps-result, .reaction-result { flex-direction: column; align-items: stretch; }
 }
+
+/* --- Inline code and symptom tables inside guide articles --- */
+.article code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 1px 5px;
+}
+
+/* Tables carry three columns of prose, which never fits a phone at a readable
+   size — the wrapper scrolls sideways so the page body itself never does. */
+.table-wrap {
+  overflow-x: auto;
+  margin: 18px 0 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.article table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 480px;
+}
+
+.article th,
+.article td {
+  text-align: left;
+  vertical-align: top;
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.article thead th {
+  background: var(--surface-2);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.article tbody tr:last-child td { border-bottom: none; }
+.article tbody td:first-child { font-weight: 600; }
+
+/* --- Cookie consent banner --- */
+/* Lives in the footer partial so every page carries it; hidden until app.js
+   confirms no stored choice, so a returning visitor never sees it flash. */
+.cookie-banner[hidden] { display: none; }
+
+.cookie-banner {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 60;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 16px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 30px rgba(16, 19, 26, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.cookie-banner p {
+  margin: 0;
+  flex: 1 1 300px;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-dim);
+}
+
+.cookie-banner a { color: var(--accent); }
+
+.cookie-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.cookie-actions .btn {
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+
+.cookie-actions .btn.btn-secondary { border: 1px solid var(--border); }
+
+@media (max-width: 560px) {
+  .cookie-banner { padding: 14px; }
+  .cookie-actions { width: 100%; }
+  .cookie-actions .btn { flex: 1; text-align: center; }
+}

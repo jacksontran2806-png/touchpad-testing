@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="en_US">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>WASD Swapped With Arrow Keys? How to Switch Them Back</title>
+<meta name="description" content="If W, A, S and D act like arrow keys, your keyboard's built-in swap layer is on. Here are the Fn shortcuts that undo it, plus fixes for games and layout mismatches.">
+<link rel="canonical" href="https://hardwaretesthub.net/blog/keyboard/wasd-arrow-keys-swapped">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hardwaretesthub.net/blog/keyboard/wasd-arrow-keys-swapped">
+<meta property="og:title" content="WASD Swapped With Arrow Keys? How to Switch Them Back">
+<meta property="og:description" content="If W, A, S and D act like arrow keys, your keyboard's built-in swap layer is on. Here are the Fn shortcuts that undo it, plus fixes for games and layout mismatches.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<meta name="google-adsense-account" content="ca-pub-1082746041497676">
+<!-- Google Consent Mode v2 defaults. Must run BEFORE the adsbygoogle tag
+     below, so ads and measurement start in the denied state and only move to
+     granted if the visitor accepts in the cookie banner (js/app.js). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500
+});
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why do gaming keyboards have a WASD and arrow key swap feature?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It exists for games that do not let you rebind movement controls, including many older and emulated titles that are hard-wired to the arrow keys. Swapping the two clusters in hardware lets a player use the WASD position their hands already know without touching the game's settings. Left-handed players who prefer the arrow cluster use the same feature in reverse."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know whether the swap is in the keyboard or in the game?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Open a text editor or a keyboard tester and press W. If it types the letter w, your keyboard is fine and the problem is that game's key bindings. If it moves the cursor up or registers as Arrow Up, the swap is in the keyboard hardware and affects every application."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can the WASD swap turn on by accident?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and it usually does. The toggle is a two-key Fn combination that sits under the same hand position used for common shortcuts, so it is easy to trigger while reaching for something else. Because most keyboards store the setting in onboard memory, it survives a reboot and follows the keyboard to another computer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the swap follow the keyboard to another computer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On most keyboards, yes. The swap is handled by the keyboard's own controller rather than by a driver, so the remapping is applied before the signal reaches the computer. Plugging the keyboard into a different machine and finding the same behaviour confirms the fault is in the keyboard, not in Windows or macOS."
+      }
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://hardwaretesthub.net/blog/keyboard/wasd-arrow-keys-swapped#article",
+      "headline": "WASD Swapped With Arrow Keys? How to Switch Them Back",
+      "name": "WASD Swapped With Arrow Keys? How to Switch Them Back",
+      "description": "If W, A, S and D act like arrow keys, your keyboard's built-in swap layer is on. Here are the Fn shortcuts that undo it, plus fixes for games and layout mismatches.",
+      "url": "https://hardwaretesthub.net/blog/keyboard/wasd-arrow-keys-swapped",
+      "mainEntityOfPage": "https://hardwaretesthub.net/blog/keyboard/wasd-arrow-keys-swapped",
+      "datePublished": "2026-09-14",
+      "dateModified": "2026-09-14",
+      "image": "https://hardwaretesthub.net/og-image.png",
+      "author": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "publisher": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://hardwaretesthub.net/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hardwaretesthub.net/#guides"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "WASD Swapped With Arrow Keys? How to Switch Them Back",
+          "item": "https://hardwaretesthub.net/blog/keyboard/wasd-arrow-keys-swapped"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/#mouse">Mouse</a>
+      <a href="/#keyboard-tools">Keyboard</a>
+      <a href="/#gaming">Gaming</a>
+      <a href="/#guides">Guides</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <article class="article">
+    <div class="kicker">Troubleshooting</div>
+    <h1>WASD Swapped With Arrow Keys? How to Switch Them Back</h1>
+    <div class="meta">Updated September 2026 · 6 min read</div>
+
+    <p>You press <strong>W</strong> and the cursor jumps up a line instead of typing a letter. You press the up arrow and a <em>w</em> appears. Nothing is broken: your keyboard has a built-in swap layer that exchanges the WASD cluster with the arrow keys, and it has been switched on — almost always by accident, with a two-key shortcut pressed while reaching for something else.</p>
+
+    <p>It takes seconds to undo once you know which shortcut your keyboard uses. The one genuinely useful step first is working out <em>where</em> the swap is happening, because a keyboard-level swap and a game-level rebinding look identical while you are inside the game.</p>
+
+    <div class="cta-box">
+      <p>Find out whether W is sending a letter or an arrow.</p>
+      <a class="btn" href="/keyboard-test">Run the keyboard test →</a>
+    </div>
+
+    <h2>Symptom check: which cause is yours?</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Symptom</th>
+            <th>Likely cause</th>
+            <th>Primary fix</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>WASD acts as arrow keys in every application</td>
+            <td>The keyboard's hardware swap layer is toggled on</td>
+            <td>Press the Fn shortcut for your board, usually Fn + W</td>
+          </tr>
+          <tr>
+            <td>Swap happens in one game only</td>
+            <td>Corrupted or altered in-game key bindings</td>
+            <td>Reset that game's controls to default</td>
+          </tr>
+          <tr>
+            <td>WASD types entirely different characters</td>
+            <td>Wrong OS keyboard layout (AZERTY, Dvorak, Colemak)</td>
+            <td>Set the input method back to your physical layout</td>
+          </tr>
+          <tr>
+            <td>Swap persists on a second computer</td>
+            <td>Onboard memory profile on the keyboard itself</td>
+            <td>Factory-reset the keyboard, or fix the profile in its software</td>
+          </tr>
+          <tr>
+            <td>Only some keys are swapped, not the full cluster</td>
+            <td>A remapping utility such as PowerToys or AutoHotkey</td>
+            <td>Close or clear the remapping tool's active rules</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>First: find out where the swap lives</h2>
+
+    <p>This takes ten seconds and decides everything that follows. Leave the game, open a text editor or the <a href="/keyboard-test">keyboard test</a>, and press <strong>W</strong>.</p>
+
+    <ul>
+      <li><strong>It types <em>w</em>:</strong> your keyboard is fine. The swap only exists inside that game, so skip to the in-game bindings section.</li>
+      <li><strong>It moves the cursor, or registers as Arrow Up:</strong> the swap is in the keyboard hardware and affects every application. Start with the Fn shortcut below.</li>
+      <li><strong>It types some other character entirely:</strong> this is not a swap at all, it is a keyboard layout mismatch. Jump to the layout section.</li>
+    </ul>
+
+    <p>The keyboard test is more informative than a text editor here because it shows the physical key position (<code>event.code</code>) separately from the character produced (<code>event.key</code>). With a hardware swap, pressing W lights up <code>ArrowUp</code> — the keyboard rewrote the signal before it left the device, so the computer genuinely believes you pressed the arrow key.</p>
+
+    <h2>1. Toggle the hardware swap off</h2>
+
+    <p>Most gaming keyboards — Redragon, Royal Kludge, Corsair, Akko, Ducky, Keychron, Razer, and much of the compact market — ship with a swap layer intended for games that cannot be rebound. The toggle is a two-key combination, and manufacturers have never agreed on which one. Try these in order, pressing each once and then testing W:</p>
+
+    <ul>
+      <li><strong>Fn + W</strong> — by far the most common, and the first thing to try.</li>
+      <li><strong>Fn + Windows key</strong> — also used for the Windows-key lock on some boards, so test W afterwards to see which one it did.</li>
+      <li><strong>Fn + Left Arrow</strong> or <strong>Fn + Up Arrow</strong> — the mirror-image shortcut, common on Royal Kludge and similar 60 and 75 percent boards.</li>
+      <li><strong>Fn + Esc</strong> held for three to five seconds — on many boards this is a factory reset, which clears the swap along with every other custom setting.</li>
+      <li><strong>Fn + Spacebar</strong> held for three seconds — the reset combination on some Redragon and Ajazz models.</li>
+    </ul>
+
+    <p>Press one combination, test, and only then try the next. Pressing several in a row makes it impossible to tell which one worked, and some of these shortcuts toggle other features — Windows-key lock, an LED profile, a Bluetooth channel — that you will then need to undo separately.</p>
+
+    <p>If none of them work, check the keyboard's manual or product page for "WASD swap", "arrow swap", or "gaming mode". It is worth spending two minutes on this: manufacturers reuse layouts across ranges, and the correct combination is always documented somewhere.</p>
+
+    <h2>2. Power-cycle the keyboard</h2>
+
+    <p>If the shortcut does not respond, the keyboard's controller may be holding a stuck modifier state — a stuck Fn is a common cause, and it makes every other key behave as though it is on a secondary layer.</p>
+
+    <p>Unplug the USB cable, or switch a wireless board off and remove its dongle. Wait ten to fifteen seconds so the controller fully loses power and its volatile state clears, then reconnect. On a board with a battery, also hold the power switch off for the full wait rather than tapping it. Then try the Fn shortcut again.</p>
+
+    <h2>3. Reset the onboard profile</h2>
+
+    <p>Keyboards with onboard memory store the swap in the keyboard itself, which is why it survives a reboot and follows the board to another computer. Two ways to clear it:</p>
+
+    <p><strong>Through the manufacturer's software</strong> — iCUE for Corsair, Synapse for Razer, the Keychron or VIA web configurator, and so on. Open the active profile, look at the key assignments for W, A, S, D and the arrow cluster, and reset them to default. If you have several onboard profiles, check whether the keyboard has simply switched profiles; there is usually a shortcut such as Fn + 1 through Fn + 4 to select one.</p>
+
+    <p><strong>Through a hardware factory reset</strong> — normally Fn + Esc held for several seconds, or a specific combination listed in the manual. This wipes lighting effects, macros, and custom bindings as well, so use it after the software route rather than before.</p>
+
+    <p>For QMK or VIA boards, open the configurator and inspect each layer. A swap is often a leftover keymap edit on a layer you forgot about rather than a built-in feature, and it will persist until that layer is corrected or the board is reflashed with a known-good keymap.</p>
+
+    <h2>4. Fix in-game bindings</h2>
+
+    <p>If W types <em>w</em> outside the game, the keyboard is innocent and the game's control configuration is the problem. This happens after a settings file gets corrupted, after a controller profile is applied, or when a game auto-detects a layout incorrectly.</p>
+
+    <p>Open the game's Controls or Key Bindings screen and use <strong>Reset to Default</strong> rather than rebinding keys individually — a partial rebind leaves conflicting assignments that cause stranger problems later. If resetting inside the game does not stick, delete or rename the game's settings file so it regenerates on the next launch; the location is usually documented in the game's support pages or its community wiki.</p>
+
+    <p>Also close any remapping utilities running in the background. Windows PowerToys Keyboard Manager, AutoHotkey scripts, Steam Input controller layouts, and some streaming or macro tools all apply their own remapping, and a rule left over from another game will silently follow you into this one.</p>
+
+    <h2>5. Check the operating system keyboard layout</h2>
+
+    <p>If WASD produces unrelated characters rather than arrow movement, nothing is swapped — your OS is interpreting the keyboard as a different physical layout. An accidental press of Win + Space (Windows) or Ctrl + Space (macOS) cycles input methods and is the usual trigger.</p>
+
+    <p><strong>Windows:</strong> go to <strong>Settings → Time &amp; Language → Language &amp; Region</strong>, open the language options, and confirm the correct keyboard is listed, for example <em>US QWERTY</em>. Remove layouts you never use so the cycle shortcut has nothing to switch to.</p>
+
+    <p><strong>macOS:</strong> go to <strong>System Settings → Keyboard → Input Sources</strong> and remove any source you did not add deliberately.</p>
+
+    <p>Layout problems are easy to confirm on the <a href="/keyboard-test">keyboard test</a>: the physical position stays correct while the produced character is wrong, which is exactly the signature of a layout mismatch rather than a hardware fault.</p>
+
+    <div class="cta-box">
+      <p>Undone the swap? Confirm W types a letter and the arrows still move.</p>
+      <a class="btn" href="/keyboard-test">Re-run the keyboard test →</a>
+    </div>
+
+    <h2>FAQ</h2>
+
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>Why do gaming keyboards have this swap feature at all?</summary>
+        <div class="faq-answer">
+          <p>It exists for games that do not let you rebind movement controls — a long tail of older titles, emulated games, and browser games hard-wired to the arrow keys.</p>
+          <p>Swapping the clusters in hardware lets a player keep the WASD hand position they already know without touching the game's settings. Left-handed players who prefer the arrow cluster use the same feature in the other direction.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>How do I tell whether the swap is in the keyboard or the game?</summary>
+        <div class="faq-answer">
+          <p>Leave the game, open a text editor or a keyboard tester, and press W. If it types <em>w</em>, the keyboard is fine and the game's key bindings are the problem. If it moves the cursor up or registers as Arrow Up, the swap is in the keyboard and applies to everything.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Can the swap turn on by accident?</summary>
+        <div class="faq-answer">
+          <p>Yes, and that is how it usually happens. The toggle is a two-key Fn combination sitting under the same hand position as common shortcuts, so it is easy to trigger while reaching for something else.</p>
+          <p>Because most keyboards store the setting in onboard memory, it survives a reboot and travels with the keyboard, which makes it feel like a much more serious fault than it is.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Does the swap follow the keyboard to another computer?</summary>
+        <div class="faq-answer">
+          <p>On most keyboards, yes. The swap is applied by the keyboard's own controller before the signal reaches the computer, so no driver is involved.</p>
+          <p>That also makes it a useful test: plug the keyboard into a different machine, and if the behaviour follows it, the cause is definitely the keyboard rather than your operating system.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>My keyboard has no Fn key. What now?</summary>
+        <div class="faq-answer">
+          <p>Full-size boards without an Fn key rarely have a hardware swap layer, so the cause is almost certainly software: a remapping utility, a game binding, or an onboard profile applied through the manufacturer's software.</p>
+          <p>Close any remapping tools, reset the game's controls, and check the keyboard's configuration software for a custom profile.</p>
+        </div>
+      </details>
+    </div>
+
+  </article>
+
+  <section class="help-section">
+    <h2>Related tools and guides</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/keyboard-test">
+        <h3>Keyboard Test</h3>
+        <p>See the physical key and the character it produces, side by side.</p>
+      </a>
+      <a class="help-card" href="/blog/keyboard/keyboard-typing-numbers-instead-of-letters">
+        <h3>Typing numbers instead of letters</h3>
+        <p>The other layer toggle that catches people out: Num Lock.</p>
+      </a>
+      <a class="help-card" href="/keyboard-ghosting-test">
+        <h3>Ghosting / NKRO Test</h3>
+        <p>Check how many movement keys register at once while gaming.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/#mouse">Mouse</a>
+    <a href="/#keyboard-tools">Keyboard</a>
+    <a href="/#gaming">Gaming</a>
+    <a href="/#guides">Guides</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/terms-and-conditions">Terms</a>
+    <a href="/disclaimer">Disclaimer</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/privacy-policy">Privacy Policy</a>.</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
+    <button type="button" class="btn" id="cookie-accept">Accept</button>
+  </div>
+</div>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

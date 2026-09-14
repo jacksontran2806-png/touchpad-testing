@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="en_US">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Keyboard Typing Numbers Instead of Letters? Turn Off Num Lock</title>
+<meta name="description" content="When J, K and L type 1, 2 and 3, a hidden numeric keypad is active over your letter keys. Here are the Fn shortcuts to turn it off on every major laptop brand.">
+<link rel="canonical" href="https://hardwaretesthub.net/blog/keyboard/keyboard-typing-numbers-instead-of-letters">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hardwaretesthub.net/blog/keyboard/keyboard-typing-numbers-instead-of-letters">
+<meta property="og:title" content="Keyboard Typing Numbers Instead of Letters? Turn Off Num Lock">
+<meta property="og:description" content="When J, K and L type 1, 2 and 3, a hidden numeric keypad is active over your letter keys. Here are the Fn shortcuts to turn it off on every major laptop brand.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<meta name="google-adsense-account" content="ca-pub-1082746041497676">
+<!-- Google Consent Mode v2 defaults. Must run BEFORE the adsbygoogle tag
+     below, so ads and measurement start in the denied state and only move to
+     granted if the visitor accepts in the cookie banner (js/app.js). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500
+});
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why does Num Lock turn itself on every time I start Windows?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Windows restores the Num Lock state at sign-in from a registry value, and some BIOS or UEFI firmware sets it on at boot as well. To change the Windows side, open the registry editor, go to HKEY_USERS\\.DEFAULT\\Control Panel\\Keyboard and set InitialKeyboardIndicators to 0 for off or 2 for on. If it still comes back, look for a Boot Up NumLock Status option in your BIOS or UEFI setup."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do laptops without a numeric keypad have Num Lock at all?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is a holdover from the era before laptops had wide screens and full-size decks. Manufacturers printed a small numeric keypad onto the right-hand letter keys — usually 7, 8, 9 on U, I, O and 4, 5, 6 on J, K, L — so that data entry was possible without an external keypad. Modern laptops still carry the feature in firmware even when the secondary numbers are no longer printed on the keycaps."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if my keyboard has no Num Lock key?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the Windows On-Screen Keyboard. Press Win + Ctrl + O, click Options, enable Turn on numeric key pad, then click the on-screen NumLock button to toggle the state. The on-screen keyboard sends the same signal as a physical key, so it clears a Num Lock state on any keyboard, including one that has no such key."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Macs have a Num Lock overlay?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. macOS has no Num Lock overlay for letter keys. If letter keys on a Mac are producing numbers or moving the pointer, the usual cause is Mouse Keys, an accessibility feature that turns part of the keyboard into pointer controls. Turn it off in System Settings, under Accessibility, then Pointer Control."
+      }
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://hardwaretesthub.net/blog/keyboard/keyboard-typing-numbers-instead-of-letters#article",
+      "headline": "Keyboard Typing Numbers Instead of Letters? Turn Off Num Lock",
+      "name": "Keyboard Typing Numbers Instead of Letters? Turn Off Num Lock",
+      "description": "When J, K and L type 1, 2 and 3, a hidden numeric keypad is active over your letter keys. Here are the Fn shortcuts to turn it off on every major laptop brand.",
+      "url": "https://hardwaretesthub.net/blog/keyboard/keyboard-typing-numbers-instead-of-letters",
+      "mainEntityOfPage": "https://hardwaretesthub.net/blog/keyboard/keyboard-typing-numbers-instead-of-letters",
+      "datePublished": "2026-09-14",
+      "dateModified": "2026-09-14",
+      "image": "https://hardwaretesthub.net/og-image.png",
+      "author": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "publisher": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://hardwaretesthub.net/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hardwaretesthub.net/#guides"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Keyboard Typing Numbers Instead of Letters? Turn Off Num Lock",
+          "item": "https://hardwaretesthub.net/blog/keyboard/keyboard-typing-numbers-instead-of-letters"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/#mouse">Mouse</a>
+      <a href="/#keyboard-tools">Keyboard</a>
+      <a href="/#gaming">Gaming</a>
+      <a href="/#guides">Guides</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <article class="article">
+    <div class="kicker">Troubleshooting</div>
+    <h1>Keyboard Typing Numbers Instead of Letters? Turn Off Num Lock</h1>
+    <div class="meta">Updated September 2026 · 6 min read</div>
+
+    <p>You type <em>milk</em> and get <em>6035</em>. The letters that misbehave are always on the right-hand side of the keyboard — U, I, O, P, J, K, L, and M — while the left half types perfectly. That pattern is the giveaway: a hidden numeric keypad is switched on over your letter keys.</p>
+
+    <p>This is <strong>Num Lock</strong>, and on a laptop without a physical number pad it is one of the easiest settings to enable by accident and one of the hardest to find. Nothing is broken, and the fix is a single key combination once you know your laptop's version of it.</p>
+
+    <div class="cta-box">
+      <p>Confirm which keys are producing numbers.</p>
+      <a class="btn" href="/keyboard-test">Run the keyboard test →</a>
+    </div>
+
+    <h2>Symptom check: which cause is yours?</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Symptom</th>
+            <th>Likely cause</th>
+            <th>Primary fix</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>J K L type 1 2 3 on a laptop</td>
+            <td>The embedded numeric keypad (Num Lock) is on</td>
+            <td>Press Fn + NumLock, or your brand's equivalent</td>
+          </tr>
+          <tr>
+            <td>The top number row types ! @ # instead of digits</td>
+            <td>A Shift key is stuck down, or Caps Lock is confusing matters</td>
+            <td>Press and release both Shift keys, then test again</td>
+          </tr>
+          <tr>
+            <td>Letter keys move the mouse pointer instead</td>
+            <td>Mouse Keys accessibility feature is enabled</td>
+            <td>Turn off Mouse Keys in Accessibility settings</td>
+          </tr>
+          <tr>
+            <td>Num Lock comes back on after every restart</td>
+            <td>Windows boot state, or a BIOS or UEFI setting</td>
+            <td>Change InitialKeyboardIndicators, or the BIOS boot option</td>
+          </tr>
+          <tr>
+            <td>Random keys type unrelated characters across the board</td>
+            <td>Wrong keyboard layout, or a corrupted driver</td>
+            <td>Check the input language, then reinstall the keyboard driver</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Why the overlay exists</h2>
+
+    <p>Before laptops had room for a full-size deck, manufacturers printed a compact numeric keypad onto the right-hand letter keys: 7, 8, 9 on U, I, O; 4, 5, 6 on J, K, L; 1, 2, 3 on M and the two keys beside it. Num Lock switched the block between letters and digits so accountants and data-entry users could work without carrying a separate keypad.</p>
+
+    <p>Wide screens made room for real number pads on larger laptops, but the feature never left the firmware. Many current 13- and 14-inch laptops still carry the overlay while no longer printing the secondary digits on the keycaps — which is why the behaviour looks like a hardware fault rather than a toggle. Compact mechanical keyboards, 60 and 65 percent boards in particular, have the same feature for the same reason.</p>
+
+    <p>You can confirm this in seconds on the <a href="/keyboard-test">keyboard test</a>. With the overlay active, pressing J lights up the <em>numpad 1</em> position rather than the J position: the keyboard is genuinely reporting a different key, not producing a wrong character from the right key. That distinction separates a Num Lock overlay from a layout mismatch, where the physical position stays correct and only the character is wrong.</p>
+
+    <h2>1. Toggle the overlay off with the Fn shortcut</h2>
+
+    <p>Look at your keyboard for a key labelled <strong>NumLk</strong>, <strong>Num Lock</strong>, or a small keypad icon. On laptops it is usually a secondary function printed in a different colour on F-row keys or near Backspace, Scroll Lock, or Insert. Hold <strong>Fn</strong> and press it.</p>
+
+    <p>If you cannot find it, the shortcut by brand is usually one of these:</p>
+
+    <ul>
+      <li><strong>HP, Acer, Asus:</strong> <code>Fn + NumLk</code>, often on F11; some Asus models use <code>Fn + Insert</code>.</li>
+      <li><strong>Dell:</strong> <code>Fn + F4</code> on recent models, or <code>Fn + Shift + NumLock</code> on older ones.</li>
+      <li><strong>Lenovo and ThinkPad:</strong> <code>Fn + F8</code>, or <code>Shift + NumLock</code>.</li>
+      <li><strong>Toshiba and Dynabook:</strong> <code>Fn + F11</code>.</li>
+      <li><strong>Compact mechanical keyboards:</strong> <code>Fn + NumLock</code>, or a dedicated combination in the manual — <code>Fn + Del</code> and <code>Fn + Home</code> are both common.</li>
+    </ul>
+
+    <p>Watch for a small indicator light, usually a padlock with a 1 inside it, on the key itself or along the edge of the deck. On laptops with no light, a notification may appear on screen instead. Press the combination once, then type a few right-hand letters to test — do not press it repeatedly, because you will simply toggle back and forth.</p>
+
+    <h2>2. Use the On-Screen Keyboard when there is no Num Lock key</h2>
+
+    <p>Some compact laptops and tenkeyless keyboards have no Num Lock key at all, which leaves an active overlay with no obvious way to switch it off. Windows can send the signal for you:</p>
+
+    <ol>
+      <li>Press <code>Win + Ctrl + O</code> to open the On-Screen Keyboard.</li>
+      <li>Click <strong>Options</strong>, in the lower right of the on-screen keyboard.</li>
+      <li>Tick <strong>Turn on numeric key pad</strong>, then click <strong>OK</strong>.</li>
+      <li>A keypad appears on the right of the on-screen keyboard. Click the <strong>NumLock</strong> button there; if it is highlighted, clicking turns the overlay off.</li>
+      <li>Type a few letters on your physical keyboard to confirm, then close the on-screen keyboard.</li>
+    </ol>
+
+    <p>The On-Screen Keyboard sends the same signal as a physical key, so this clears the state on any keyboard, including one that has no Num Lock key. It is also a useful fallback when the physical key exists but is itself broken.</p>
+
+    <h2>3. Stop Num Lock turning itself on at startup</h2>
+
+    <p>If the overlay returns after every restart, something is deliberately restoring it. There are two places to check, and it is worth doing both, because they act independently.</p>
+
+    <p><strong>Windows sign-in state.</strong> Windows restores the Num Lock state from a registry value at sign-in. Press <code>Win + R</code>, type <code>regedit</code>, and press Enter. Navigate to <code>HKEY_USERS\.DEFAULT\Control Panel\Keyboard</code> and open <code>InitialKeyboardIndicators</code>. Set it to <code>0</code> to start with Num Lock off, or <code>2</code> to start with it on, then restart. As with any registry edit, change only the value you came for.</p>
+
+    <p><strong>BIOS or UEFI.</strong> Firmware can set Num Lock on before Windows ever loads, which overrides the registry value. Restart, enter setup with the key shown on the startup screen — commonly F2, F10, or Del — and look for <em>Boot Up NumLock Status</em>, <em>NumLock State</em>, or similar under a Boot or Advanced tab. Set it to Off and save.</p>
+
+    <p>There is one more possibility worth ruling out on a laptop: an external USB keyboard or a docking station with its own Num Lock state can impose that state on the laptop's built-in keyboard. If the problem only occurs at your desk, unplug the external keyboard and test.</p>
+
+    <h2>4. Rule out Mouse Keys on macOS</h2>
+
+    <p>macOS has no Num Lock overlay for letter keys, so on a Mac the cause is different. The usual culprit is <strong>Mouse Keys</strong>, an accessibility feature that converts part of the keyboard into pointer controls — keys stop producing characters and start moving the cursor instead.</p>
+
+    <p>Open <strong>System Settings → Accessibility → Pointer Control</strong> and make sure Mouse Keys is off. Also check <strong>Keyboard → Input Sources</strong> for a layout you did not add, and look in the Keyboard settings for a modifier remapping that has redefined a key. On a Mac using a Windows keyboard over Bluetooth, a Num Lock state set on that keyboard can also carry across; toggle it on the keyboard itself.</p>
+
+    <h2>5. When it is not Num Lock</h2>
+
+    <p>If left-hand letter keys are affected too, or the characters are symbols rather than digits, the overlay is not your problem.</p>
+
+    <p><strong>A stuck Shift key</strong> makes the number row produce <code>! @ #</code> and can disturb other keys. Press and release both Shift keys firmly, then check the modifier indicators on the <a href="/keyboard-test">keyboard test</a> to confirm nothing is being held down.</p>
+
+    <p><strong>A wrong keyboard layout</strong> produces wrong characters across the whole board rather than in one cluster. On Windows, check <strong>Settings → Time &amp; Language → Language &amp; Region</strong>; on macOS, <strong>System Settings → Keyboard → Input Sources</strong>. An accidental Win + Space is the usual cause.</p>
+
+    <p><strong>A corrupted keyboard driver</strong> is the last thing to suspect, not the first. On Windows, open Device Manager, expand Keyboards, right-click the entry and choose Uninstall device, then restart — Windows reinstalls the standard driver automatically. Do this only after the layer and layout checks above, because it fixes far fewer cases than people expect.</p>
+
+    <div class="cta-box">
+      <p>Turned the overlay off? Check that every letter key types a letter.</p>
+      <a class="btn" href="/keyboard-test">Re-run the keyboard test →</a>
+    </div>
+
+    <h2>FAQ</h2>
+
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>Why does Num Lock turn itself on every time I start Windows?</summary>
+        <div class="faq-answer">
+          <p>Windows restores the Num Lock state at sign-in from a registry value, and some firmware sets it at boot as well.</p>
+          <p>For the Windows side, open <code>regedit</code>, go to <code>HKEY_USERS\.DEFAULT\Control Panel\Keyboard</code> and set <code>InitialKeyboardIndicators</code> to <code>0</code> for off or <code>2</code> for on. If it still returns, look for a "Boot Up NumLock Status" option in your BIOS or UEFI setup.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Why do laptops without a number pad have Num Lock at all?</summary>
+        <div class="faq-answer">
+          <p>It is a holdover from before laptops had room for a full-size deck. Manufacturers printed a compact keypad onto the right-hand letter keys — 7, 8, 9 on U, I, O and 4, 5, 6 on J, K, L — so data entry was possible without an external keypad.</p>
+          <p>Modern laptops still carry the feature in firmware even when the secondary digits are no longer printed on the keycaps, which is exactly why it surprises people when it switches on.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>What if my keyboard has no Num Lock key?</summary>
+        <div class="faq-answer">
+          <p>Use the Windows On-Screen Keyboard. Press <code>Win + Ctrl + O</code>, click Options, tick "Turn on numeric key pad", then click the on-screen NumLock button to toggle the state.</p>
+          <p>It sends the same signal as a physical key, so it clears the overlay on any keyboard — including one that never had a Num Lock key, or one where the key itself has failed.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Do Macs have a Num Lock overlay?</summary>
+        <div class="faq-answer">
+          <p>No. macOS has no Num Lock overlay for letter keys.</p>
+          <p>If letter keys on a Mac produce numbers or move the pointer, the usual cause is Mouse Keys, an accessibility feature that turns part of the keyboard into pointer controls. Turn it off under System Settings → Accessibility → Pointer Control.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Could this be a virus or malware?</summary>
+        <div class="faq-answer">
+          <p>Almost never. Letters becoming numbers in one specific cluster on the right-hand side is the exact signature of the embedded keypad, not of malware.</p>
+          <p>Work through the Num Lock toggle, the layout check, and the modifier check first — in practice one of those explains it every time.</p>
+        </div>
+      </details>
+    </div>
+
+  </article>
+
+  <section class="help-section">
+    <h2>Related tools and guides</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/keyboard-test">
+        <h3>Keyboard Test</h3>
+        <p>See which physical key your keyboard is actually reporting.</p>
+      </a>
+      <a class="help-card" href="/blog/keyboard/wasd-arrow-keys-swapped">
+        <h3>WASD swapped with arrow keys</h3>
+        <p>The other layer toggle that gets switched on by accident.</p>
+      </a>
+      <a class="help-card" href="/blog/keyboard/keyboard-not-working">
+        <h3>Keyboard not working</h3>
+        <p>Broader checks when more than one cluster misbehaves.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/#mouse">Mouse</a>
+    <a href="/#keyboard-tools">Keyboard</a>
+    <a href="/#gaming">Gaming</a>
+    <a href="/#guides">Guides</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/terms-and-conditions">Terms</a>
+    <a href="/disclaimer">Disclaimer</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/privacy-policy">Privacy Policy</a>.</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
+    <button type="button" class="btn" id="cookie-accept">Accept</button>
+  </div>
+</div>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

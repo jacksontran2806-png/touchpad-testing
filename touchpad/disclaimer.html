@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="en_US">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Disclaimer — Hardware Test Hub</title>
+<meta name="description" content="What the tests on Hardware Test Hub can and cannot tell you, the limits of browser-based diagnostics, and the risks of following a hardware repair guide.">
+<link rel="canonical" href="https://hardwaretesthub.net/disclaimer">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hardwaretesthub.net/disclaimer">
+<meta property="og:title" content="Disclaimer — Hardware Test Hub">
+<meta property="og:description" content="What the tests on Hardware Test Hub can and cannot tell you, the limits of browser-based diagnostics, and the risks of following a hardware repair guide.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<meta name="google-adsense-account" content="ca-pub-1082746041497676">
+<!-- Google Consent Mode v2 defaults. Must run BEFORE the adsbygoogle tag
+     below, so ads and measurement start in the denied state and only move to
+     granted if the visitor accepts in the cookie banner (js/app.js). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500
+});
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://hardwaretesthub.net/disclaimer#webpage",
+      "url": "https://hardwaretesthub.net/disclaimer",
+      "name": "Disclaimer — Hardware Test Hub",
+      "description": "What the tests on Hardware Test Hub can and cannot tell you, the limits of browser-based diagnostics, and the risks of following a hardware repair guide.",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://hardwaretesthub.net/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Disclaimer",
+          "item": "https://hardwaretesthub.net/disclaimer"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/#mouse">Mouse</a>
+      <a href="/#keyboard-tools">Keyboard</a>
+      <a href="/#gaming">Gaming</a>
+      <a href="/#guides">Guides</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <div class="article">
+    <h1>Disclaimer</h1>
+    <p class="meta">Last updated: September 14, 2026</p>
+
+    <p>Hardware Test Hub publishes free diagnostic tools and troubleshooting guides for input devices. This page explains, plainly, what those results mean, where they stop being reliable, and what you are taking on if you follow a repair step from one of our guides.</p>
+
+    <h2>The tests measure what your browser sees</h2>
+    <p>Every tool on this site runs inside your browser and reports the events your browser receives: pointer positions, button presses, wheel deltas, gestures, and key events. That is a genuinely useful signal — it is the same input your games and applications receive — but it is not a direct measurement of the hardware itself.</p>
+    <p>Several layers sit between the physical switch in your device and the event our page reads: device firmware, the USB or Bluetooth link, the operating system's input stack, any vendor driver or remapping utility, and finally the browser. A fault, a setting, or a translation anywhere in that chain shows up in our results looking exactly like a hardware problem. This is why our guides so often ask you to rule out drivers and OS settings before concluding that a device is broken.</p>
+    <p>Two limits are worth stating outright. Timing figures — click speed, reaction time, and polling-related readings — are affected by your monitor's refresh rate, your browser, and whatever else your computer is doing at that moment, so treat them as approximate rather than exact. And a browser cannot see input a lower layer has already swallowed, so "the test shows nothing" does not by itself prove the device is dead.</p>
+
+    <h2>A passing test is not a clean bill of health</h2>
+    <p>Intermittent faults are the reason. A mouse switch that double-clicks once an hour, a key that chatters only when the board is warm, or a cable that drops out when it flexes a certain way can all pass a thirty-second test and fail in normal use. If a test looks clean but your problem is real, the test has not disproved the fault — repeat it over a longer session, and under the conditions where the problem usually appears.</p>
+
+    <h2>Not professional advice</h2>
+    <p>The guides on this site are general information, written for a general audience. They are not a professional repair diagnosis for your specific device, and following them does not create any advisory or professional relationship. For hardware under warranty, for devices with liquid damage, and for anything involving a battery, the manufacturer or a qualified repair technician should be your first stop rather than this site.</p>
+
+    <h2>Repairs are at your own risk</h2>
+    <p>Some guides describe physical procedures: removing keycaps, cleaning switch contacts with isopropyl alcohol, re-seating hot-swappable switches, opening a mouse shell, or replacing a component. These can go wrong. You can bend a switch pin, snap a keycap stabilizer, damage a ribbon cable, or void your warranty.</p>
+    <p>If you choose to carry out any of these steps, you do so entirely at your own risk. Before you start: unplug the device, check whether it is still under warranty, and stop if a step requires more force or more confidence than you have. We accept no liability for damage to hardware, loss of data, or costs arising from a repair attempt. This is also set out in our <a href="/terms-and-conditions">Terms and Conditions</a>.</p>
+
+    <h2>Accuracy and currency of the guides</h2>
+    <p>We test the steps we publish and revise them when we find something wrong. Even so, operating systems, drivers, and manufacturer utilities change frequently, and a menu path that was correct at the time of writing may have moved in a later update. Where a guide names a specific settings screen, treat the described destination as the goal rather than the exact clicks. If you find a step that no longer matches reality, please <a href="/contact">tell us</a> — that feedback is how these pages stay accurate.</p>
+
+    <h2>Third-party products, links, and trademarks</h2>
+    <p>Guides mention manufacturers, models, operating systems, and third-party utilities to describe where a fix applies. We are not affiliated with, endorsed by, or sponsored by any of them, and all trademarks belong to their respective owners. External links are provided for convenience; we do not control those sites and are not responsible for their content or safety. Download drivers and utilities only from the manufacturer's own site.</p>
+
+    <h2>Advertising</h2>
+    <p>This site is supported by advertising served through Google AdSense. Ads are selected and served by Google, not chosen or reviewed by us, and their presence is not an endorsement of the advertised product. Our guides are written independently of what appears in an ad slot. How advertising cookies work here is covered in the <a href="/privacy-policy">Privacy Policy</a>.</p>
+
+    <h2>Contact</h2>
+    <p>Questions or corrections are welcome through our <a href="/contact">contact page</a> or at <a href="mailto:em.sun2019@gmail.com">em.sun2019@gmail.com</a>.</p>
+  </div>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/#mouse">Mouse</a>
+    <a href="/#keyboard-tools">Keyboard</a>
+    <a href="/#gaming">Gaming</a>
+    <a href="/#guides">Guides</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/terms-and-conditions">Terms</a>
+    <a href="/disclaimer">Disclaimer</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/privacy-policy">Privacy Policy</a>.</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
+    <button type="button" class="btn" id="cookie-accept">Accept</button>
+  </div>
+</div>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

@@ -16,7 +16,10 @@ touchpad/
   cps-test.html
   reaction-time-test.html
   about.html
+  contact.html
   privacy-policy.html
+  terms-and-conditions.html
+  disclaimer.html
   404.html
   css/style.css
   js/app.js                           one file, every tool — each IIFE no-ops if its DOM isn't on the page
@@ -28,10 +31,15 @@ touchpad/
   blog/mouse/mouse-light-on-cursor-not-moving.html
   blog/keyboard/keyboard-not-working.html
   blog/keyboard/keyboard-key-not-working.html
+  blog/keyboard/keyboard-typing-multiple-letters.html
+  blog/keyboard/keyboard-typing-numbers-instead-of-letters.html
+  blog/keyboard/wasd-arrow-keys-swapped.html
   blog/trackpad/mac-trackpad-not-working.html
   blog/trackpad/windows-touchpad-not-working.html
   partials/                           shared header/footer/head source — see below
   build.js                            syncs partials/ into every page that has the markers, at any depth
+  seo-build.js                        regenerates each page's JSON-LD and the sitemap, called from build.js
+  seo-data.js                         the page metadata that can't be read out of the HTML (dates, sections)
   favicon.png / icon-512.png / apple-touch-icon.png / og-image.png
   robots.txt
   sitemap.xml
@@ -60,6 +68,27 @@ node build.js
 It auto-discovers every `.html` file at any depth (root, `blog/`, and topic subfolders like `blog/mouse/`) — a new page just needs the marker comments pasted in, nothing to register. It reports which files it changed (or `already in sync`) and is safe to re-run any time — commit the regenerated pages along with your partial edit. `ADSENSE` is deliberately not in every page's markers: `404.html` has no `ADSENSE:START/END` block, so the ad script never lands on the error page.
 
 Per-page fields — `<title>`, meta description, canonical URL, and Open Graph tags — live outside the markers in each file and aren't touched by the build.
+
+## Cookie consent
+
+The consent banner is part of `partials/footer.html`, so `node build.js` puts it on every page that carries the `FOOTER` markers — there is no per-page markup to add. Three pieces work together:
+
+1. `partials/adsense.html` sets Google Consent Mode v2 defaults to **denied** for ad storage, ad personalization, ad user data, and analytics storage. This block must stay **above** the `adsbygoogle.js` tag in that file — consent defaults only apply to tags loaded after them.
+2. `partials/footer.html` carries the banner markup, hidden by default (`hidden` attribute).
+3. The cookie IIFE at the bottom of `js/app.js` reveals the banner when no choice is stored, and on Accept calls `gtag("consent", "update", …)` to move everything to granted.
+
+The choice is stored in `localStorage` under `hth-cookie-consent` (`accepted` / `declined`) — deliberately not a cookie of our own. Every storage access is wrapped in try/catch, because private windows and blocked-site-data settings throw on access rather than returning null.
+
+Because the banner lives in the footer, **every page needs `js/app.js`** — including the static and blog pages, which previously did not load it. If you add a page, include `<script src="/js/app.js"></script>` before `</body>` or the banner will render and never respond. The `gtag` call is guarded by a `typeof` check, so `404.html` (which carries no ad script) is safe.
+
+## Published vs modified dates
+
+`seo-data.js` keeps two maps, and they mean different things:
+
+- `published` — when a page first went live. Set once, then never touched. A page that claims a later publication date throws away the age signal it has already earned.
+- `dates` — `dateModified`, and the sitemap's `lastmod`. Bump this when you meaningfully rewrite a page.
+
+A page with no `published` entry falls back to `defaultDate`; a page with no `dates` entry falls back to its own published date. Both maps are keyed by path relative to this folder, with the `.html` extension.
 
 **Homepage anchor IDs matter**: the nav links to `/#mouse`, `/#keyboard-tools`, `/#gaming`, `/#guides` — those are section IDs on `index.html`. `#keyboard-tools` (not `#keyboard`) is deliberate: `js/app.js` looks up `document.getElementById("keyboard")` for the actual on-screen keyboard board, and an id collision there previously caused the homepage's Keyboard section to be silently wiped and replaced with a live keyboard test. If you rename a homepage section id, grep `js/app.js` for `getElementById` first.
 

@@ -31,6 +31,20 @@
 <meta name="twitter:card" content="summary_large_image">
 <!-- ADSENSE:START -->
 <meta name="google-adsense-account" content="ca-pub-1082746041497676">
+<!-- Google Consent Mode v2 defaults. Must run BEFORE the adsbygoogle tag
+     below, so ads and measurement start in the denied state and only move to
+     granted if the visitor accepts in the cookie banner (js/app.js). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500
+});
+</script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
 <!-- ADSENSE:END -->
 <!-- SCHEMA:START -->
@@ -95,7 +109,7 @@
 <main>
   <div class="article">
     <h1>Privacy Policy</h1>
-    <p class="meta">Last updated: August 27, 2026</p>
+    <p class="meta">Last updated: September 14, 2026</p>
 
     <p>This Privacy Policy explains how <strong>Hardware Test Hub</strong> ("this site", "we") handles information when you visit <strong>hardwaretesthub.net</strong>.</p>
 
@@ -107,6 +121,11 @@
     <p>This site may display advertisements served by Google AdSense. Google, as a third-party vendor, uses cookies (including the DoubleClick cookie) to serve ads based on your prior visits to this site and other sites on the internet. Google's use of advertising cookies enables it and its partners to serve ads based on your visit to this site and/or other sites.</p>
     <p>You may opt out of personalized advertising by visiting <a href="https://adssettings.google.com" target="_blank" rel="noopener">Google Ads Settings</a>. You can also opt out of a third-party vendor's use of cookies for personalized advertising by visiting <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener">www.aboutads.info</a>.</p>
 
+    <h2>Your cookie choices</h2>
+    <p>On your first visit, a banner asks whether you accept cookies for advertising and measurement. Until you accept, this site runs with Google Consent Mode set to denied for ad storage, ad personalization, ad user data, and analytics storage — so ads shown before a choice is made are non-personalized.</p>
+    <p>Your choice is remembered in your browser's local storage under the key <code>hth-cookie-consent</code>. It stays on your device and is never transmitted to us. To change or withdraw your choice, clear this site's data in your browser settings; the banner will appear again on your next visit.</p>
+    <p>Your browser's own cookie controls remain available regardless, and blocking cookies entirely does not stop the testing tools from working — they need no cookies at all.</p>
+
     <h2>Analytics</h2>
     <p>We may use a privacy-respecting analytics tool to understand aggregate traffic patterns (e.g. which pages are popular). This data is anonymized or aggregated and is not used to identify individual visitors.</p>
 
@@ -116,8 +135,11 @@
     <h2>Changes to this policy</h2>
     <p>We may update this policy from time to time. Changes will be posted on this page with an updated "Last updated" date.</p>
 
+    <h2>Related policies</h2>
+    <p>See also our <a href="/terms-and-conditions">Terms and Conditions</a>, which govern use of the site, and our <a href="/disclaimer">Disclaimer</a>, which explains the limits of what the diagnostic results mean.</p>
+
     <h2>Contact</h2>
-    <p>Questions about this policy can be sent to <a href="mailto:em.sun2019@gmail.com">em.sun2019@gmail.com</a>.</p>
+    <p>Questions about this policy can be sent through our <a href="/contact">contact page</a> or to <a href="mailto:em.sun2019@gmail.com">em.sun2019@gmail.com</a>.</p>
   </div>
 </main>
 
@@ -132,11 +154,22 @@
     <a href="/about">About</a>
     <a href="/contact">Contact</a>
     <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/terms-and-conditions">Terms</a>
+    <a href="/disclaimer">Disclaimer</a>
   </div>
   <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
 </footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/privacy-policy">Privacy Policy</a>.</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
+    <button type="button" class="btn" id="cookie-accept">Accept</button>
+  </div>
+</div>
 <!-- FOOTER:END -->
 
 <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
 </body>
 </html>

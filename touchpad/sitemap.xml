@@ -47,17 +47,32 @@
   </url>
   <url>
     <loc>https://hardwaretesthub.net/blog/keyboard/keyboard-key-not-working</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hardwaretesthub.net/blog/keyboard/keyboard-not-working</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-09-04</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/blog/keyboard/keyboard-typing-multiple-letters</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/blog/keyboard/keyboard-typing-numbers-instead-of-letters</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/blog/keyboard/wasd-arrow-keys-swapped</loc>
+    <lastmod>2026-09-14</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hardwaretesthub.net/blog/mouse/mouse-double-clicking-fix</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -72,12 +87,12 @@
   </url>
   <url>
     <loc>https://hardwaretesthub.net/blog/mouse/mouse-not-working</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hardwaretesthub.net/blog/mouse/mouse-scroll-not-working</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -87,12 +102,12 @@
   </url>
   <url>
     <loc>https://hardwaretesthub.net/blog/trackpad/mac-trackpad-not-working</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hardwaretesthub.net/blog/trackpad/windows-touchpad-not-working</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -106,8 +121,18 @@
     <priority>0.4</priority>
   </url>
   <url>
+    <loc>https://hardwaretesthub.net/disclaimer</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://hardwaretesthub.net/privacy-policy</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/terms-and-conditions</loc>
+    <lastmod>2026-09-14</lastmod>
     <priority>0.3</priority>
   </url>
 </urlset>

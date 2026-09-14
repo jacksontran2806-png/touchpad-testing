@@ -84,11 +84,22 @@
     <a href="/about">About</a>
     <a href="/contact">Contact</a>
     <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/terms-and-conditions">Terms</a>
+    <a href="/disclaimer">Disclaimer</a>
   </div>
   <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
 </footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/privacy-policy">Privacy Policy</a>.</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
+    <button type="button" class="btn" id="cookie-accept">Accept</button>
+  </div>
+</div>
 <!-- FOOTER:END -->
 
 <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
 </body>
 </html>

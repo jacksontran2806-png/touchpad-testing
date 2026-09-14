@@ -70,7 +70,11 @@ function schemaFor(rel, html) {
   if (!canonical) return null
 
   const home = { name: "Home", url: `${data.siteUrl}/` }
-  const date = data.dates[rel] || data.defaultDate
+  // Published is set once and frozen; modified moves when a page is rewritten.
+  // Falling back to published (not defaultDate) keeps a brand-new page from
+  // claiming it was modified before it existed.
+  const published = data.published[rel] || data.defaultDate
+  const modified = data.dates[rel] || published
   const graph = []
 
   if (rel === "index.html") {
@@ -109,8 +113,8 @@ function schemaFor(rel, html) {
       description,
       url: canonical,
       mainEntityOfPage: canonical,
-      datePublished: date,
-      dateModified: date,
+      datePublished: published,
+      dateModified: modified,
       image: `${data.siteUrl}${data.ogImage}`,
       author: { "@id": `${data.siteUrl}/#organization` },
       publisher: { "@id": `${data.siteUrl}/#organization` },
@@ -221,11 +225,16 @@ function buildSitemap(files) {
     else if (data.tools[norm]) priority = "0.9"
     else if (norm.startsWith("blog/")) priority = "0.8"
     else if (norm === "about.html") priority = "0.4"
-    else if (norm === "privacy-policy.html") priority = "0.3"
+    else if (
+      norm === "privacy-policy.html" ||
+      norm === "terms-and-conditions.html" ||
+      norm === "disclaimer.html"
+    )
+      priority = "0.3"
 
     entries.push({
       loc: canonical,
-      lastmod: data.dates[norm] || data.defaultDate,
+      lastmod: data.dates[norm] || data.published[norm] || data.defaultDate,
       priority,
       sort: Number(priority),
     })

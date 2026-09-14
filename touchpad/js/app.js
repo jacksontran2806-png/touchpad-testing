@@ -1227,4 +1227,57 @@
       }
     });
   })();
+
+  /* ---------- Cookie consent banner ---------- */
+  /* The banner markup ships in partials/footer.html, so it is on every page.
+     Google Consent Mode starts denied (partials/adsense.html); accepting here
+     is what flips it to granted. The choice is stored locally — no cookie of
+     our own is set to record it. */
+  (function () {
+    const banner = document.getElementById("cookie-banner");
+    if (!banner) return;
+
+    const KEY = "hth-cookie-consent";
+    const accept = document.getElementById("cookie-accept");
+    const decline = document.getElementById("cookie-decline");
+
+    // Private-mode and blocked-storage browsers throw on access; a visitor who
+    // can't be remembered still gets a working site, they just see the banner
+    // again next visit.
+    function read() {
+      try { return localStorage.getItem(KEY); } catch (e) { return null; }
+    }
+    function write(value) {
+      try { localStorage.setItem(KEY, value); } catch (e) { /* ignore */ }
+    }
+
+    function updateConsent(granted) {
+      if (typeof gtag !== "function") return; // 404.html carries no ad script
+      const state = granted ? "granted" : "denied";
+      gtag("consent", "update", {
+        ad_storage: state,
+        ad_user_data: state,
+        ad_personalization: state,
+        analytics_storage: state
+      });
+    }
+
+    const stored = read();
+    if (stored === "accepted") {
+      updateConsent(true);
+      return;
+    }
+    if (stored === "declined") return;
+
+    banner.hidden = false;
+
+    function choose(value) {
+      write(value);
+      updateConsent(value === "accepted");
+      banner.hidden = true;
+    }
+
+    if (accept) accept.addEventListener("click", function () { choose("accepted"); });
+    if (decline) decline.addEventListener("click", function () { choose("declined"); });
+  })();
 })();
