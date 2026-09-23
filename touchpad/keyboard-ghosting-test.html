@@ -97,43 +97,44 @@ gtag("consent", "default", {
           "item": "https://hardwaretesthub.net/keyboard-ghosting-test"
         }
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/keyboard-ghosting-test#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/keyboard-ghosting-test#app"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is ghosting a hardware defect I should return the keyboard for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No — it's an inherent limitation of how most keyboards wire their keys, not a manufacturing fault, and it affects the vast majority of budget and mid-range keyboards to some degree. It only becomes a real problem if your specific combination of keys (like WASD plus modifiers for gaming) hits a blocked or ghosted combo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do gaming keyboards specifically advertise NKRO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Gaming often requires holding several keys simultaneously — movement keys plus modifiers plus an ability key — where a dropped keypress mid-combo is a real, immediate problem. N-key rollover guarantees every key you're physically holding gets reported, which matters far less for typing, where you rarely press more than 2-3 keys at once."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does using USB instead of a wireless connection affect rollover?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It can. Full NKRO typically requires USB with a keyboard-specific reporting mode rather than the standard boot protocol, and Bluetooth or 2.4GHz wireless connections often can't carry that same protocol reliably, capping simultaneous keys lower than the same keyboard would support wired."
+          }
+        }
+      ]
     }
   ]
 }
 </script>
 <!-- SCHEMA:END -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Is ghosting a hardware defect I should return the keyboard for?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No — it's an inherent limitation of how most keyboards wire their keys, not a manufacturing fault, and it affects the vast majority of budget and mid-range keyboards to some degree. It only becomes a real problem if your specific combination of keys (like WASD plus modifiers for gaming) hits a blocked or ghosted combo."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why do gaming keyboards specifically advertise NKRO?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Gaming often requires holding several keys simultaneously — movement keys plus modifiers plus an ability key — where a dropped keypress mid-combo is a real, immediate problem. N-key rollover guarantees every key you're physically holding gets reported, which matters far less for typing, where you rarely press more than 2-3 keys at once."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does using USB instead of a wireless connection affect rollover?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "It can. Full NKRO typically requires USB with a keyboard-specific reporting mode rather than the standard boot protocol, and Bluetooth or 2.4GHz wireless connections often can't carry that same protocol reliably, capping simultaneous keys lower than the same keyboard would support wired."
-      }
-    }
-  ]
-}
-</script>
 </head>
 <body>
 
@@ -264,7 +265,9 @@ gtag("consent", "default", {
     <a href="/#guides">Guides</a>
     <a href="/about">About</a>
     <a href="/contact">Contact</a>
+    <a href="/sitemap">Sitemap</a>
     <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/cookies-policy">Cookies</a>
     <a href="/terms-and-conditions">Terms</a>
     <a href="/disclaimer">Disclaimer</a>
   </div>
@@ -272,7 +275,7 @@ gtag("consent", "default", {
 </footer>
 
 <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
-  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/privacy-policy">Privacy Policy</a>.</p>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/cookies-policy">Cookies Policy</a>.</p>
   <div class="cookie-actions">
     <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
     <button type="button" class="btn" id="cookie-accept">Accept</button>

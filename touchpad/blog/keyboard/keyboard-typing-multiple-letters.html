@@ -47,46 +47,6 @@ gtag("consent", "default", {
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
 <!-- ADSENSE:END -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Can software fix key chatter on a non-hotswap keyboard?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, in most cases. A chatter-filter utility ignores a second press of the same key that arrives within a set window, typically 30 to 50 milliseconds, which is far faster than any human can double-tap. On keyboards running QMK or VIA firmware you can raise the debounce time in the firmware itself, which is the cleaner fix because it happens on the keyboard rather than in the operating system."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What causes key chatter in the first place?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Mechanical switches close their contacts by physically touching two metal leaves together, and those leaves bounce microscopically on impact. Firmware normally ignores the bounce through a debounce window. Chatter appears when the bounce lasts longer than that window, which happens when contacts are dirty or oxidized, when the metal leaf has lost tension after millions of presses, or when a switch pin is not seated properly in its socket."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is key chatter covered by warranty?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Usually yes. Key chatter is a recognised switch defect rather than accidental damage, and most keyboard manufacturers will replace a board or send replacement switches under warranty. Record a short video of the chatter on a key tester page first, because that is the evidence support teams normally ask for."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Will cleaning a switch with isopropyl alcohol damage it?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "High-purity isopropyl alcohol, 99 percent or above, is safe for switch contacts and evaporates without residue. The risks are using a lower-purity product that contains water and additives, using too much so that it runs down onto the PCB, and plugging the keyboard back in before it has fully dried. Unplug the keyboard first, use one or two drops, and wait until it is completely dry."
-      }
-    }
-  ]
-}
-</script>
 <!-- SCHEMA:START -->
 <script type="application/ld+json">
 {
@@ -134,6 +94,55 @@ gtag("consent", "default", {
           "position": 3,
           "name": "Keyboard Typing Multiple Letters on One Press? Fix Key Chatter",
           "item": "https://hardwaretesthub.net/blog/keyboard/keyboard-typing-multiple-letters"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/blog/keyboard/keyboard-typing-multiple-letters#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/blog/keyboard/keyboard-typing-multiple-letters#article"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can software fix key chatter on a non-hotswap keyboard?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, in most cases. A chatter-filter utility ignores a second press of the same key that arrives within a set window, typically 30 to 50 milliseconds, which is far faster than any human can double-tap. On keyboards running QMK or VIA firmware you can raise the debounce time in the firmware itself. That is the cleaner fix, because the filtering happens on the keyboard rather than in the operating system, so it works everywhere — including in the BIOS and on another computer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What causes key chatter in the first place?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mechanical switches close their contacts by pressing two metal leaves together, and those leaves bounce microscopically on impact. Firmware normally hides this with a debounce window of a few milliseconds. Chatter appears when the real bounce outlasts that window — because contacts are dirty or oxidized, because the leaf spring has lost tension after millions of presses, or because a switch pin is not seated properly in its socket."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is key chatter covered by warranty?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usually, yes. Chatter is treated as a switch defect rather than accidental damage, and most manufacturers will replace the board or send replacement switches within the warranty period. Record a short video of the chatter on a key tester first — that is the evidence support teams normally ask for, and having it ready shortens the process considerably."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will isopropyl alcohol damage my switch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "High-purity isopropyl alcohol, 99 percent or above, is safe for switch contacts and evaporates without leaving residue. The risks come from using a lower-purity product that contains water and additives, using so much that it runs down onto the PCB, or reconnecting power before it has fully dried. Unplug the keyboard, use one or two drops, and wait until it is completely dry."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does only my most-used key chatter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because wear tracks use. Switches are rated for a number of actuations — commonly 50 to 100 million — and that budget is spent unevenly. On a typical layout, E, A, Space, Backspace, and the WASD cluster on a gaming board see many times more presses than the rest. A single chattering key on an otherwise healthy board is normal ageing, not a sign the whole keyboard is about to fail."
+          }
         }
       ]
     }
@@ -356,7 +365,9 @@ gtag("consent", "default", {
     <a href="/#guides">Guides</a>
     <a href="/about">About</a>
     <a href="/contact">Contact</a>
+    <a href="/sitemap">Sitemap</a>
     <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/cookies-policy">Cookies</a>
     <a href="/terms-and-conditions">Terms</a>
     <a href="/disclaimer">Disclaimer</a>
   </div>
@@ -364,7 +375,7 @@ gtag("consent", "default", {
 </footer>
 
 <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
-  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/privacy-policy">Privacy Policy</a>.</p>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/cookies-policy">Cookies Policy</a>.</p>
   <div class="cookie-actions">
     <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
     <button type="button" class="btn" id="cookie-accept">Accept</button>

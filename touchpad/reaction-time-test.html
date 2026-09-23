@@ -97,43 +97,44 @@ gtag("consent", "default", {
           "item": "https://hardwaretesthub.net/reaction-time-test"
         }
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/reaction-time-test#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/reaction-time-test#app"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What's an average human reaction time?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Around 200-250 milliseconds to a simple visual stimulus like a color change. Trained competitive gamers often average 150-200ms, and going below roughly 150ms consistently usually means you anticipated the change rather than reacted to it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does my score vary so much between rounds?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Reaction time naturally fluctuates with attention and fatigue even within the same test — a single round can swing 30-50ms from your average just by chance. That's why this tool runs five rounds and reports an average and best time rather than a single number."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a gaming mouse actually improve reaction time?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A low-latency wired mouse and a high refresh-rate display remove a few milliseconds of input and display lag compared to a laggy wireless setup, but that overhead is small next to natural human variation. It shifts your measured score slightly; it doesn't change your actual reflexes."
+          }
+        }
+      ]
     }
   ]
 }
 </script>
 <!-- SCHEMA:END -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What's an average human reaction time?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Around 200-250 milliseconds to a simple visual stimulus like a color change. Trained competitive gamers often average 150-200ms, and going below roughly 150ms consistently usually means you anticipated the change rather than reacted to it."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why does my score vary so much between rounds?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Reaction time naturally fluctuates with attention and fatigue even within the same test — a single round can swing 30-50ms from your average just by chance. That's why this tool runs five rounds and reports an average and best time rather than a single number."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does a gaming mouse actually improve reaction time?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A low-latency wired mouse and a high refresh-rate display remove a few milliseconds of input and display lag compared to a laggy wireless setup, but that overhead is small next to natural human variation. It shifts your measured score slightly; it doesn't change your actual reflexes."
-      }
-    }
-  ]
-}
-</script>
 </head>
 <body>
 
@@ -260,7 +261,9 @@ gtag("consent", "default", {
     <a href="/#guides">Guides</a>
     <a href="/about">About</a>
     <a href="/contact">Contact</a>
+    <a href="/sitemap">Sitemap</a>
     <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/cookies-policy">Cookies</a>
     <a href="/terms-and-conditions">Terms</a>
     <a href="/disclaimer">Disclaimer</a>
   </div>
@@ -268,7 +271,7 @@ gtag("consent", "default", {
 </footer>
 
 <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
-  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/privacy-policy">Privacy Policy</a>.</p>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/cookies-policy">Cookies Policy</a>.</p>
   <div class="cookie-actions">
     <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
     <button type="button" class="btn" id="cookie-accept">Accept</button>

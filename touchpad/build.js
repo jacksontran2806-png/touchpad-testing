@@ -4,7 +4,7 @@
 // then commit the regenerated pages: `node build.js`.
 const fs = require("fs");
 const path = require("path");
-const { applySchema, buildSitemap } = require("./seo-build.js");
+const { applySchema, buildSitemap, buildHtmlSitemap } = require("./seo-build.js");
 
 const ROOT = __dirname;
 const PARTIALS_DIR = path.join(ROOT, "partials");
@@ -65,3 +65,4 @@ const schemaCount = applySchema(TARGET_GLOBS);
 console.log(schemaCount ? `${schemaCount} file(s) got fresh JSON-LD.` : "JSON-LD already in sync.");
 
 console.log(buildSitemap(TARGET_GLOBS) ? "sitemap.xml regenerated." : "sitemap.xml already in sync.");
+console.log(buildHtmlSitemap(TARGET_GLOBS) ? "sitemap.html regenerated." : "sitemap.html already in sync.");

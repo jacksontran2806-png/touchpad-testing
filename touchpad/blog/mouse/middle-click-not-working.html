@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="en_US">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Middle Click (Scroll Wheel Click) Not Working in Chrome? Fix It</title>
+<meta name="description" content="Middle click opens links in new tabs — until it does not. How to tell a worn wheel switch from a software conflict, and why tilt-wheel mice fail this way most.">
+<link rel="canonical" href="https://hardwaretesthub.net/blog/mouse/middle-click-not-working">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hardwaretesthub.net/blog/mouse/middle-click-not-working">
+<meta property="og:title" content="Middle Click (Scroll Wheel Click) Not Working in Chrome? Fix It">
+<meta property="og:description" content="Middle click opens links in new tabs — until it does not. How to tell a worn wheel switch from a software conflict, and why tilt-wheel mice fail this way most.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<meta name="google-adsense-account" content="ca-pub-1082746041497676">
+<!-- Google Consent Mode v2 defaults. Must run BEFORE the adsbygoogle tag
+     below, so ads and measurement start in the denied state and only move to
+     granted if the visitor accepts in the cookie banner (js/app.js). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500
+});
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://hardwaretesthub.net/blog/mouse/middle-click-not-working#article",
+      "headline": "Middle Click Not Working in Chrome? Here Is Why",
+      "name": "Middle Click (Scroll Wheel Click) Not Working in Chrome? Fix It",
+      "description": "Middle click opens links in new tabs — until it does not. How to tell a worn wheel switch from a software conflict, and why tilt-wheel mice fail this way most.",
+      "url": "https://hardwaretesthub.net/blog/mouse/middle-click-not-working",
+      "mainEntityOfPage": "https://hardwaretesthub.net/blog/mouse/middle-click-not-working",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23",
+      "image": "https://hardwaretesthub.net/og-image.png",
+      "author": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "publisher": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://hardwaretesthub.net/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hardwaretesthub.net/#guides"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Middle Click Not Working in Chrome? Here Is Why",
+          "item": "https://hardwaretesthub.net/blog/mouse/middle-click-not-working"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/blog/mouse/middle-click-not-working#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/blog/mouse/middle-click-not-working#article"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why does middle click work on the desktop but not in Chrome?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Almost always a Chrome extension intercepting it — tab managers, gesture tools and link-modifying extensions all do this. Test in an incognito window, where extensions are disabled by default. If middle click works there, disable your extensions in batches to find the one responsible."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I remap another button to middle click?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, and it is the most practical fix for a worn wheel switch. Any vendor mouse utility will do it, and X-Mouse Button Control works for mice without their own software. A side button is the natural choice, since Forward and Back are used less often than middle click for most people."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do tilt-wheel mice lose middle click sooner?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because the wheel sits on a mechanism that must distinguish a downward press from a sideways tilt. As it wears, an off-centre press gets interpreted as a tilt, or as nothing at all. Pressing deliberately straight down often still works, which is the giveaway that the mechanism rather than the switch has worn."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is a dead middle click worth repairing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If you solder, yes — the switch costs pennies and the repair is straightforward once the mouse is open. If you do not, remapping a side button takes two minutes and costs nothing. Paying for a repair rarely makes sense against the price of a new mouse."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/#mouse">Mouse</a>
+      <a href="/#keyboard-tools">Keyboard</a>
+      <a href="/#gaming">Gaming</a>
+      <a href="/#guides">Guides</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <article class="article">
+    <div class="kicker">Troubleshooting</div>
+    <h1>Middle Click Not Working in Chrome? Here Is Why</h1>
+    <div class="meta">Updated September 2026 · 5 min read</div>
+
+    <p>Middle click is one of those features you do not think about until it stops, and then you notice you were using it forty times a day. Opening links in background tabs, closing tabs, autoscroll — all gone.</p>
+
+    <p>The first thing to establish is whether the click is reaching the computer. Press the scroll wheel down on the <a href="/mouse-test">mouse test</a>. If the middle button lights up, the hardware is fine and something in software is eating it. If nothing happens, the switch under the wheel is the suspect.</p>
+
+    <h2>When the click registers but nothing happens</h2>
+
+    <h3>Check it in more than one place</h3>
+
+    <p>Try middle-clicking a link in a different browser, and try middle-clicking a taskbar icon (which should open a second window of that application). If it works in Firefox but not Chrome, the problem is Chrome's, not the mouse's.</p>
+
+    <p>In Chrome specifically, an extension is the usual culprit. Extensions that manage tabs, add gesture controls, or modify link behaviour intercept middle click routinely. Open an incognito window — most extensions are disabled there by default — and test. If middle click works in incognito, it is an extension, and disabling them in batches will find which one within a couple of minutes.</p>
+
+    <h3>Check what your mouse software has done with it</h3>
+
+    <p>Vendor utilities reassign the middle button surprisingly often. Logitech G HUB in particular ships some profiles with the wheel click set to a DPI shift or a macro rather than Middle Click.</p>
+
+    <p>Open the software, look at the button map, and set the wheel click explicitly back to <strong>Middle Click</strong> or <strong>Button 3</strong>. Check the active profile too, since per-application profiles can disable it in one program only.</p>
+
+    <h3>Autoscroll is not the same as middle click</h3>
+
+    <p>Worth separating, because people conflate them. If middle-clicking gives you the four-way autoscroll cursor when you wanted to open a link in a tab, middle click is working perfectly — you are clicking on a blank area of the page rather than on a link.</p>
+
+    <p>On a link, middle click opens a tab. On a blank area, it starts autoscroll. Both are correct behaviour.</p>
+
+    <h2>When the click does not register at all</h2>
+
+    <h3>The tilt-wheel problem</h3>
+
+    <p>If your mouse has a wheel that tilts left and right, this is likely your answer. Tilt wheels sit on a more complex mechanism, and the middle click switch underneath needs the wheel pressed straight down. As the mechanism wears, a slightly angled press registers as a tilt instead of a click — or as nothing.</p>
+
+    <p>Test by pressing the wheel very deliberately straight down, with your finger centred. If it works when you are careful and fails when you are not, the mechanism is worn rather than the switch being dead.</p>
+
+    <p>There is no good fix short of replacing the wheel assembly. Remapping a side button to middle click is the practical workaround, and honestly it is what I would do.</p>
+
+    <h3>A worn switch</h3>
+
+    <p>The middle button switch is usually smaller and cheaper than the ones under the main buttons, and it is rated for fewer presses. On a mouse a few years old, a dead middle click is unremarkable.</p>
+
+    <p>Signs it is the switch: the click has lost its tactile snap, or it works intermittently regardless of how carefully you press. Replacement means opening the mouse and soldering, and the switches cost pennies.</p>
+
+    <h3>Debris in the wheel housing</h3>
+
+    <p>Worth trying before anything invasive. Dust and hair pack into the space around the wheel and can physically block the small amount of travel the click needs. Compressed air at an angle into the wheel slot, rotating the wheel as you go, sometimes restores it immediately.</p>
+
+    <h2>The generic driver check</h2>
+
+    <p>If middle click stopped working for no obvious reason, reinstall the driver: Device Manager → <strong>Mice and other pointing devices</strong> → right-click → <strong>Uninstall device</strong> → restart.</p>
+
+    <p>A mouse that has fallen back to a basic driver can lose access to anything beyond left and right click. If Device Manager shows a generic "HID-compliant mouse" where you expected a vendor name, that is worth correcting.</p>
+
+    <div class="cta-box">
+      <p>Confirm whether the wheel click reaches the computer.</p>
+      <a class="btn" href="/mouse-test">Open the mouse test →</a>
+    </div>
+
+    <h2>If the wheel also scrolls badly</h2>
+
+    <p>Middle click failing alongside erratic scrolling points at the wheel encoder assembly rather than the click switch — they share a housing, and debris or wear affects both. <a href="/blog/mouse/mouse-scroll-not-working">Mouse scroll not working</a> covers the encoder side of it.</p>
+
+    <p>That combination is also a reasonable sign the mouse has simply reached the end of its useful life, particularly if the main buttons have started <a href="/blog/mouse/mouse-double-clicking-fix">double-clicking</a> as well.</p>
+
+    <h2>FAQ</h2>
+
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>Why does middle click work on the desktop but not in Chrome?</summary>
+        <div class="faq-answer">
+          <p>Almost always a Chrome extension intercepting it — tab managers, gesture tools and link-modifying extensions all do this.</p>
+          <p>Test in an incognito window, where extensions are disabled by default. If middle click works there, disable your extensions in batches to find the one responsible.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Can I remap another button to middle click?</summary>
+        <div class="faq-answer">
+          <p>Yes, and it is the most practical fix for a worn wheel switch. Any vendor mouse utility will do it, and X-Mouse Button Control works for mice without their own software.</p>
+          <p>A side button is the natural choice, since Forward and Back are used less often than middle click for most people.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Why do tilt-wheel mice lose middle click sooner?</summary>
+        <div class="faq-answer">
+          <p>Because the wheel sits on a mechanism that must distinguish a downward press from a sideways tilt. As it wears, an off-centre press gets interpreted as a tilt, or as nothing at all.</p>
+          <p>Pressing deliberately straight down often still works, which is the giveaway that the mechanism rather than the switch has worn.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Is a dead middle click worth repairing?</summary>
+        <div class="faq-answer">
+          <p>If you solder, yes — the switch costs pennies and the repair is straightforward once the mouse is open.</p>
+          <p>If you do not, remapping a side button takes two minutes and costs nothing. Paying for a repair rarely makes sense against the price of a new mouse.</p>
+        </div>
+      </details>
+    </div>
+
+  </article>
+
+  <section class="help-section">
+    <h2>Related tools and guides</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/mouse-test">
+        <h3>Mouse Test</h3>
+        <p>Check the middle button registers when pressed.</p>
+      </a>
+      <a class="help-card" href="/blog/mouse/mouse-scroll-not-working">
+        <h3>Scroll not working</h3>
+        <p>The encoder that shares a housing with the click switch.</p>
+      </a>
+      <a class="help-card" href="/blog/mouse/mouse-side-buttons-not-working">
+        <h3>Side buttons not working</h3>
+        <p>What to remap middle click onto.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/#mouse">Mouse</a>
+    <a href="/#keyboard-tools">Keyboard</a>
+    <a href="/#gaming">Gaming</a>
+    <a href="/#guides">Guides</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/sitemap">Sitemap</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/cookies-policy">Cookies</a>
+    <a href="/terms-and-conditions">Terms</a>
+    <a href="/disclaimer">Disclaimer</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/cookies-policy">Cookies Policy</a>.</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
+    <button type="button" class="btn" id="cookie-accept">Accept</button>
+  </div>
+</div>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

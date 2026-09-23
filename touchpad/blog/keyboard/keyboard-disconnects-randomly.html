@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="en_US">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Keyboard Disconnects and Reconnects Randomly Over USB? Fix It</title>
+<meta name="description" content="That USB disconnect chime every few minutes is usually power management or a marginal cable, not a failing keyboard. The checks that actually narrow it down.">
+<link rel="canonical" href="https://hardwaretesthub.net/blog/keyboard/keyboard-disconnects-randomly">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hardwaretesthub.net/blog/keyboard/keyboard-disconnects-randomly">
+<meta property="og:title" content="Keyboard Disconnects and Reconnects Randomly Over USB? Fix It">
+<meta property="og:description" content="That USB disconnect chime every few minutes is usually power management or a marginal cable, not a failing keyboard. The checks that actually narrow it down.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<meta name="google-adsense-account" content="ca-pub-1082746041497676">
+<!-- Google Consent Mode v2 defaults. Must run BEFORE the adsbygoogle tag
+     below, so ads and measurement start in the denied state and only move to
+     granted if the visitor accepts in the cookie banner (js/app.js). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500
+});
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://hardwaretesthub.net/blog/keyboard/keyboard-disconnects-randomly#article",
+      "headline": "Keyboard Disconnects and Reconnects Randomly Over USB",
+      "name": "Keyboard Disconnects and Reconnects Randomly Over USB? Fix It",
+      "description": "That USB disconnect chime every few minutes is usually power management or a marginal cable, not a failing keyboard. The checks that actually narrow it down.",
+      "url": "https://hardwaretesthub.net/blog/keyboard/keyboard-disconnects-randomly",
+      "mainEntityOfPage": "https://hardwaretesthub.net/blog/keyboard/keyboard-disconnects-randomly",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23",
+      "image": "https://hardwaretesthub.net/og-image.png",
+      "author": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "publisher": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://hardwaretesthub.net/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hardwaretesthub.net/#guides"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Keyboard Disconnects and Reconnects Randomly Over USB",
+          "item": "https://hardwaretesthub.net/blog/keyboard/keyboard-disconnects-randomly"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/blog/keyboard/keyboard-disconnects-randomly#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/blog/keyboard/keyboard-disconnects-randomly#article"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why does my keyboard disconnect only when gaming?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Two likely reasons. System power draw peaks under load, so a marginal supply or port sags exactly when the GPU ramps up. And you move the keyboard more while gaming, which provokes an intermittent cable. Test by running something GPU-heavy without touching the keyboard. If it still drops, it is power rather than movement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does disabling USB selective suspend hurt anything?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only battery life on a laptop, and only slightly — you are preventing idle USB devices from powering down. On a desktop the impact is negligible. It is a reasonable setting to leave disabled permanently if it solves the problem."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Could a USB hub really cause this?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Very easily, and unpowered hubs are one of the most common causes. A hub shares a single port's power budget across everything connected, and an RGB keyboard is a heavy draw. Plug the keyboard straight into the computer for a few days. If the drops stop, either use a powered hub or keep the keyboard on a direct port."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "My wireless keyboard drops out too. Same causes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Some overlap, but add interference. USB 3.0 ports and drives emit noise in the same 2.4GHz band most wireless keyboards use, and a dongle sitting next to one will drop out regularly. Move the dongle to a USB 2.0 port, or use a short extension cable to get it clear of the machine. Also rule out low batteries, which cause intermittent dropouts long before the keyboard dies completely."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/#mouse">Mouse</a>
+      <a href="/#keyboard-tools">Keyboard</a>
+      <a href="/#gaming">Gaming</a>
+      <a href="/#guides">Guides</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <article class="article">
+    <div class="kicker">Troubleshooting</div>
+    <h1>Keyboard Disconnects and Reconnects Randomly Over USB</h1>
+    <div class="meta">Updated September 2026 · 6 min read</div>
+
+    <p>You know the sound. The descending two-tone USB chime, the keyboard going dead for a second or two, then the ascending chime as it comes back. Sometimes once an hour, sometimes every few minutes, sometimes only when you are in the middle of something.</p>
+
+    <p>The keyboard is rarely the thing at fault. In roughly this order, the causes are: Windows power management suspending the port, a cable that is marginal rather than broken, an overloaded or flaky port, and — a distant fourth — the keyboard itself.</p>
+
+    <h2>A test that saves you an hour</h2>
+
+    <p>Before changing settings, establish whether the disconnects follow the <em>keyboard</em> or the <em>port</em>. Move the keyboard to a different USB port, ideally on a different side of the machine or a different controller, and use it normally for a few hours.</p>
+
+    <p>If the disconnects stop, the original port or its controller is the problem and you can skip most of what follows. If they continue, keep reading — and note which it was, because it changes what is worth trying.</p>
+
+    <p>Where possible, also try the keyboard on a completely different computer. It is the cleanest split between "this keyboard" and "this PC" you can get.</p>
+
+    <h2>1. Stop Windows suspending the port</h2>
+
+    <p>This is the most common cause on desktops and laptops alike, and there are two separate settings that both need changing. People change one, see no improvement, and conclude it was not the cause.</p>
+
+    <p><strong>Device Manager.</strong> Right-click Start → Device Manager → expand <strong>Universal Serial Bus controllers</strong>. For every entry named <em>USB Root Hub</em> or <em>Generic USB Hub</em>, open Properties → <strong>Power Management</strong> tab → untick <strong>Allow the computer to turn off this device to save power</strong>. Do it for all of them, not just one. Then do the same under Keyboards for your keyboard entry.</p>
+
+    <p><strong>Power plan.</strong> Control Panel → Power Options → Change plan settings → Change advanced power settings → <strong>USB settings</strong> → <strong>USB selective suspend setting</strong> → set to <strong>Disabled</strong>. On a laptop, set it for both On battery and Plugged in.</p>
+
+    <p>Restart afterwards. If the disconnects stop, that was it — and note that Windows updates sometimes reset both of these, so if it comes back in six months, check here first.</p>
+
+    <h2>2. Replace the cable — properly</h2>
+
+    <p>If the keyboard has a detachable cable, this is the highest-value thing you can test, because a bad cable produces exactly this symptom and costs nothing to rule out.</p>
+
+    <p>USB-C connectors on keyboards take a lot of abuse. The cable gets yanked, the connector flexes, and eventually one conductor makes intermittent contact — enough to work most of the time, and enough to drop out when the cable moves or warms up.</p>
+
+    <p>Test by swapping in a known-good cable, ideally a short one. Then, with the original cable back in, gently flex it near each end while watching for a disconnect. If you can provoke a dropout by moving the cable, you have found it.</p>
+
+    <p>Where the cable is captive, check the strain relief where it leaves the keyboard body for kinks or a visibly stretched section.</p>
+
+    <h2>3. Deal with the port and the hub</h2>
+
+    <p>Unpowered USB hubs cause an enormous share of these reports. A hub splits one port's power budget among everything plugged into it, and an RGB keyboard is a heavy consumer. Plug the keyboard directly into the computer.</p>
+
+    <p>Front-panel ports are the next suspect. They run through an internal cable to a motherboard header, and a loose header or a cheap case cable produces intermittent drops that rear ports do not have. Use a rear port for a few days as a test.</p>
+
+    <p>Also worth knowing: USB 3.0 ports emit interference in the 2.4GHz band. If your keyboard is wireless with a USB dongle, plugging that dongle into a USB 3.0 port right next to an external drive is a classic cause of dropouts. Move the dongle to a USB 2.0 port, or use an extension cable to get it away from the machine.</p>
+
+    <h2>4. Check what the disconnect actually looks like</h2>
+
+    <p>Windows Event Viewer will tell you more than the chime does. Open it, go to Windows Logs → System, and filter for events around the time of a disconnect. Repeated entries mentioning USB device enumeration failures point to a hardware or power problem; nothing logged at all points more towards a driver.</p>
+
+    <p>It is also worth confirming what state the keyboard is in when it "reconnects". Open the <a href="/keyboard-test">keyboard test</a> and leave it open while you work. After a dropout, check whether every key still registers — a keyboard that comes back with a stuck modifier or dead keys is a different and more serious problem than one that simply reconnects cleanly.</p>
+
+    <div class="cta-box">
+      <p>Confirm the keyboard comes back cleanly after a dropout.</p>
+      <a class="btn" href="/keyboard-test">Open the keyboard test →</a>
+    </div>
+
+    <h2>5. Less common causes worth knowing</h2>
+
+    <p><strong>Insufficient power supply.</strong> On a desktop with a marginal or ageing PSU, USB voltage can dip under load. If the disconnects correlate with the GPU spinning up, this is worth considering.</p>
+
+    <p><strong>Motherboard USB controller driver.</strong> Chipset drivers matter here more than people realise. Get the current chipset package from the motherboard manufacturer rather than relying on what Windows Update supplies.</p>
+
+    <p><strong>A failing keyboard controller.</strong> Real, but rare, and it is where you land after eliminating the rest. If the keyboard disconnects on multiple computers, with multiple cables, on multiple ports, the keyboard is the problem.</p>
+
+    <p><strong>Heat.</strong> If dropouts only start after an hour of use, thermal expansion on a marginal solder joint is a genuine possibility — inside the keyboard, or at the port.</p>
+
+    <h2>FAQ</h2>
+
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>Why does my keyboard disconnect only when gaming?</summary>
+        <div class="faq-answer">
+          <p>Two likely reasons. System power draw peaks under load, so a marginal supply or port sags exactly when the GPU ramps up. And you move the keyboard more while gaming, which provokes an intermittent cable.</p>
+          <p>Test by running something GPU-heavy without touching the keyboard. If it still drops, it is power rather than movement.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Does disabling USB selective suspend hurt anything?</summary>
+        <div class="faq-answer">
+          <p>Only battery life on a laptop, and only slightly — you are preventing idle USB devices from powering down.</p>
+          <p>On a desktop the impact is negligible. It is a reasonable setting to leave disabled permanently if it solves the problem.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Could a USB hub really cause this?</summary>
+        <div class="faq-answer">
+          <p>Very easily, and unpowered hubs are one of the most common causes. A hub shares a single port's power budget across everything connected, and an RGB keyboard is a heavy draw.</p>
+          <p>Plug the keyboard straight into the computer for a few days. If the drops stop, either use a powered hub or keep the keyboard on a direct port.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>My wireless keyboard drops out too. Same causes?</summary>
+        <div class="faq-answer">
+          <p>Some overlap, but add interference. USB 3.0 ports and drives emit noise in the same 2.4GHz band most wireless keyboards use, and a dongle sitting next to one will drop out regularly.</p>
+          <p>Move the dongle to a USB 2.0 port, or use a short extension cable to get it clear of the machine. Also rule out low batteries, which cause intermittent dropouts long before the keyboard dies completely.</p>
+        </div>
+      </details>
+    </div>
+
+  </article>
+
+  <section class="help-section">
+    <h2>Related tools and guides</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/keyboard-test">
+        <h3>Keyboard Test</h3>
+        <p>Check every key still works after a reconnect.</p>
+      </a>
+      <a class="help-card" href="/blog/keyboard/keyboard-rgb-not-working">
+        <h3>RGB flickering or dead</h3>
+        <p>The same power problems, showing up in the lighting.</p>
+      </a>
+      <a class="help-card" href="/blog/mouse/bluetooth-mouse-keeps-disconnecting">
+        <h3>Bluetooth mouse disconnecting</h3>
+        <p>The wireless version of the same power management trap.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/#mouse">Mouse</a>
+    <a href="/#keyboard-tools">Keyboard</a>
+    <a href="/#gaming">Gaming</a>
+    <a href="/#guides">Guides</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/sitemap">Sitemap</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/cookies-policy">Cookies</a>
+    <a href="/terms-and-conditions">Terms</a>
+    <a href="/disclaimer">Disclaimer</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/cookies-policy">Cookies Policy</a>.</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
+    <button type="button" class="btn" id="cookie-accept">Accept</button>
+  </div>
+</div>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

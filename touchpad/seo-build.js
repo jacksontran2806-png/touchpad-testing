@@ -60,6 +60,55 @@ function breadcrumb(trail) {
   }
 }
 
+// The visible FAQ accordion is the single source of truth for FAQ structured
+// data. Posts used to carry a hand-written FAQPage block alongside the markup,
+// which meant every FAQ edit had to be made twice or the two silently drifted
+// apart — exactly the failure Google penalises, since the schema then claims
+// text the page does not show.
+function faqFrom(html) {
+  const items = []
+  const itemRe = /<details class="faq-item">([\s\S]*?)<\/details>/g
+  let m
+  while ((m = itemRe.exec(html))) {
+    const block = m[1]
+    const summary = block.match(/<summary>([\s\S]*?)<\/summary>/)
+    const answerBlock = block.match(/<div class="faq-answer">([\s\S]*?)<\/div>/)
+    if (!summary || !answerBlock) continue
+
+    const paras = []
+    const pRe = /<p>([\s\S]*?)<\/p>/g
+    let pm
+    while ((pm = pRe.exec(answerBlock[1]))) paras.push(stripTags(pm[1]))
+    if (!paras.length) continue
+
+    items.push({
+      "@type": "Question",
+      name: stripTags(summary[1]),
+      acceptedAnswer: { "@type": "Answer", text: paras.join(" ") },
+    })
+  }
+  return items
+}
+
+// Any page carrying a visible FAQ accordion gets FAQPage data — the tool pages
+// have them too, not just the guides.
+function pushFaq(graph, canonical, html, parentId) {
+  const faq = faqFrom(html)
+  if (!faq.length) return
+  graph.push({
+    "@type": "FAQPage",
+    "@id": `${canonical}#faq`,
+    isPartOf: { "@id": parentId },
+    mainEntity: faq,
+  })
+}
+
+// Inline markup (<em>, <code>, <strong>, links) is presentation; structured
+// data wants the plain sentence.
+function stripTags(s) {
+  return decodeEntities(s.replace(/<[^>]+>/g, "")).replace(/\s+/g, " ").trim()
+}
+
 function schemaFor(rel, html) {
   const title = read(html, /<title>([\s\S]*?)<\/title>/)
   const description = read(html, /<meta name="description" content="([\s\S]*?)"\s*\/?>/)
@@ -128,6 +177,8 @@ function schemaFor(rel, html) {
         { name: headline || title, url: canonical },
       ])
     )
+
+    pushFaq(graph, canonical, html, `${canonical}#article`)
     return graph
   }
 
@@ -156,6 +207,7 @@ function schemaFor(rel, html) {
         { name: headline || title, url: canonical },
       ])
     )
+    pushFaq(graph, canonical, html, `${canonical}#app`)
     return graph
   }
 
@@ -172,6 +224,7 @@ function schemaFor(rel, html) {
   graph.push(
     breadcrumb([home, { name: headline || title, url: canonical }])
   )
+  pushFaq(graph, canonical, html, `${canonical}#webpage`)
   return graph
 }
 
@@ -268,4 +321,66 @@ ${body}
   return true
 }
 
-module.exports = { applySchema, buildSitemap }
+// The human-readable sitemap at /sitemap is generated from the same file walk
+// as sitemap.xml, so the two can never disagree and a new page cannot be added
+// to the site and forgotten in the index.
+const HTML_SITEMAP_MARKER = /<!-- SITEMAP_LINKS:START -->[\s\S]*?<!-- SITEMAP_LINKS:END -->/
+
+const SITEMAP_SECTIONS = [
+  { title: "Diagnostic tools", match: (rel) => !!data.tools[rel] },
+  { title: "Keyboard guides", match: (rel) => rel.startsWith("blog/keyboard/") },
+  { title: "Mouse guides", match: (rel) => rel.startsWith("blog/mouse/") },
+  { title: "Trackpad guides", match: (rel) => rel.startsWith("blog/trackpad/") },
+  { title: "Site pages", match: () => true },
+]
+
+function buildHtmlSitemap(files) {
+  const pages = []
+  for (const rel of files) {
+    const norm = rel.split(path.sep).join("/")
+    if (norm === "sitemap.html" || norm === "index.html") continue
+    const html = fs.readFileSync(path.join(ROOT, rel), "utf8")
+    const canonical = read(html, /<link rel="canonical" href="([^"]+)"/)
+    if (!canonical) continue // 404 and the verification stub
+    const h1 = read(html, /<h1[^>]*>([\s\S]*?)<\/h1>/)
+    const title = read(html, /<title>([\s\S]*?)<\/title>/)
+    pages.push({
+      norm,
+      href: canonical.replace(data.siteUrl, ""),
+      label: stripTags(h1 || title || norm),
+    })
+  }
+
+  const used = new Set()
+  let out = ""
+  for (const section of SITEMAP_SECTIONS) {
+    const inSection = pages
+      .filter((p) => !used.has(p.norm) && section.match(p.norm))
+      .sort((a, b) => a.label.localeCompare(b.label))
+    if (!inSection.length) continue
+    inSection.forEach((p) => used.add(p.norm))
+    out += `\n    <h2>${section.title}</h2>\n    <ul>\n`
+    for (const p of inSection) {
+      out += `      <li><a href="${p.href}">${escapeHtml(p.label)}</a></li>\n`
+    }
+    out += "    </ul>\n"
+  }
+
+  const filePath = path.join(ROOT, "sitemap.html")
+  if (!fs.existsSync(filePath)) return false
+  const original = fs.readFileSync(filePath, "utf8")
+  if (!HTML_SITEMAP_MARKER.test(original)) return false
+  const output = original.replace(
+    HTML_SITEMAP_MARKER,
+    `<!-- SITEMAP_LINKS:START -->${out}    <!-- SITEMAP_LINKS:END -->`
+  )
+  if (output === original) return false
+  fs.writeFileSync(filePath, output)
+  return true
+}
+
+function escapeHtml(s) {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+}
+
+module.exports = { applySchema, buildSitemap, buildHtmlSitemap }

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="en_US">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Windows Key Locked or Disabled? How to Turn WinLock Back Off</title>
+<meta name="description" content="The Windows key stops working for four reasons: a keyboard WinLock toggle, gaming mode, a registry scancode map, or Group Policy. How to check each one in order.">
+<link rel="canonical" href="https://hardwaretesthub.net/blog/keyboard/windows-key-disabled-fix">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hardwaretesthub.net/blog/keyboard/windows-key-disabled-fix">
+<meta property="og:title" content="Windows Key Locked or Disabled? How to Turn WinLock Back Off">
+<meta property="og:description" content="The Windows key stops working for four reasons: a keyboard WinLock toggle, gaming mode, a registry scancode map, or Group Policy. How to check each one in order.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<meta name="google-adsense-account" content="ca-pub-1082746041497676">
+<!-- Google Consent Mode v2 defaults. Must run BEFORE the adsbygoogle tag
+     below, so ads and measurement start in the denied state and only move to
+     granted if the visitor accepts in the cookie banner (js/app.js). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500
+});
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://hardwaretesthub.net/blog/keyboard/windows-key-disabled-fix#article",
+      "headline": "Windows Key Locked or Disabled? Turn WinLock Back Off",
+      "name": "Windows Key Locked or Disabled? How to Turn WinLock Back Off",
+      "description": "The Windows key stops working for four reasons: a keyboard WinLock toggle, gaming mode, a registry scancode map, or Group Policy. How to check each one in order.",
+      "url": "https://hardwaretesthub.net/blog/keyboard/windows-key-disabled-fix",
+      "mainEntityOfPage": "https://hardwaretesthub.net/blog/keyboard/windows-key-disabled-fix",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23",
+      "image": "https://hardwaretesthub.net/og-image.png",
+      "author": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "publisher": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://hardwaretesthub.net/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hardwaretesthub.net/#guides"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Windows Key Locked or Disabled? Turn WinLock Back Off",
+          "item": "https://hardwaretesthub.net/blog/keyboard/windows-key-disabled-fix"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/blog/keyboard/windows-key-disabled-fix#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/blog/keyboard/windows-key-disabled-fix#article"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why do gaming keyboards disable the Windows key at all?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because pressing it mid-game minimises you to the desktop, which in a competitive match is worse than a mistyped key. The lock is meant to be switched on before playing and off afterwards. Most of the complaints about it come from people who switched it on without realising."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is editing Scancode Map in the registry safe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Deleting that one value is low risk — it is not a default Windows value, so removing it returns the keyboard to standard behaviour. Export the key first so you can restore it, change nothing else while you are in there, and restart afterwards, since the map is only read at boot."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "My Windows key works but the shortcuts do not. What is different?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "That points at Group Policy or Explorer rather than the keyboard, since the key itself is clearly registering. Check the \"Turn off Windows Key hotkeys\" policy, and try restarting Windows Explorer from Task Manager — a hung Explorer process breaks the shortcuts while leaving the key working."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the lock follow the keyboard to another PC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If it is the keyboard's own hardware WinLock, yes — that state lives on the board. If it is a registry map, gaming software, or policy, no. Testing on a second computer is the quickest way to tell those two categories apart."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/#mouse">Mouse</a>
+      <a href="/#keyboard-tools">Keyboard</a>
+      <a href="/#gaming">Gaming</a>
+      <a href="/#guides">Guides</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <article class="article">
+    <div class="kicker">Troubleshooting</div>
+    <h1>Windows Key Locked or Disabled? Turn WinLock Back Off</h1>
+    <div class="meta">Updated September 2026 · 5 min read</div>
+
+    <p>A Windows key that does nothing is disabled deliberately somewhere — by the keyboard, by gaming software, or by Windows itself. Genuine hardware failure of that specific key is rare, because unlike the spacebar nobody hammers it.</p>
+
+    <p>There are four places it gets switched off, and they are worth checking in this order because that is roughly how likely each one is.</p>
+
+    <h2>Is the key actually dead?</h2>
+
+    <p>Worth thirty seconds, because it changes what you do next. Open the <a href="/keyboard-test">keyboard test</a> and press the Windows key.</p>
+
+    <p>If the key lights up on the tester, the keyboard is sending it and Windows is choosing to ignore it — that is the registry or Group Policy, further down. If nothing registers at all, the signal is being blocked before it reaches the browser, which means the keyboard's own WinLock or its software.</p>
+
+    <h2>1. The keyboard's WinLock toggle</h2>
+
+    <p>Most gaming keyboards have a hardware Windows-key lock, because accidentally hitting Win mid-game minimises you out of it. It is a toggle, it is easy to press by accident, and it is stored on the keyboard.</p>
+
+    <p>Common shortcuts, in rough order of frequency:</p>
+
+    <ul>
+      <li><strong>Fn + Windows key</strong> — the most common by far.</li>
+      <li><strong>Fn + F12</strong>, or another F-key with a small padlock-over-a-Windows-logo icon printed on it.</li>
+      <li><strong>Fn + Esc</strong>, or a dedicated "Game Mode" key near the top right.</li>
+      <li>On Corsair boards, a dedicated button above the F-keys.</li>
+    </ul>
+
+    <p>Look for an indicator light first. Many keyboards light a small padlock LED, or turn the Windows key itself a different colour, when the lock is on. That tells you immediately whether this is your problem.</p>
+
+    <p>If it is locked and the shortcut will not release it, unplug the keyboard for fifteen seconds. Some boards hold the lock state in volatile memory and a full power cycle clears it.</p>
+
+    <h2>2. Gaming mode in vendor software</h2>
+
+    <p>Separately from the hardware toggle, the keyboard's software usually has its own "game mode" that disables the Windows key — sometimes automatically when a game launches, and sometimes it forgets to turn itself back off.</p>
+
+    <p>Open iCUE, Synapse, GHUB, Armoury Crate, or whatever your board uses, and look for Game Mode or Gaming Mode settings. Check which keys it is configured to disable, and check whether it is set to activate per-application.</p>
+
+    <p>The per-application version is the one that confuses people: the Windows key works normally until a specific program is in focus. If your Win key dies only while a particular game or app is open, this is why.</p>
+
+    <h2>3. The registry scancode map</h2>
+
+    <p>Windows has a low-level remapping table that can disable a key outright, below the level anything else can override. Various "disable Windows key" utilities write to it, and plenty of them never clean up after themselves.</p>
+
+    <p>Check <code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout</code> for a value called <strong>Scancode Map</strong>.</p>
+
+    <p>If it is there, it was put there by something — Windows does not create it by default. Deleting that value and restarting restores normal behaviour.</p>
+
+    <p>Two cautions. Take a registry backup first (File → Export on that key). And note the path carefully: there is a similarly named <em>Keyboard Layouts</em> key, plural, which is unrelated and should be left alone.</p>
+
+    <p>This is the cause when the keyboard test shows the key registering fine but Windows ignores it completely, including on the sign-in screen.</p>
+
+    <h2>4. Group Policy or a work machine</h2>
+
+    <p>On a managed computer — anything issued by an employer or a school — the Windows key may be disabled by policy, along with the shortcuts that use it.</p>
+
+    <p>On Windows Pro you can check with <code>gpedit.msc</code>, under User Configuration → Administrative Templates → Windows Components → File Explorer, where there is a "Turn off Windows Key hotkeys" setting. On Home editions there is no policy editor at all.</p>
+
+    <p>If the machine is managed, you will not be able to change this, and working around it is not advisable. Ask whoever administers it.</p>
+
+    <div class="cta-box">
+      <p>Check whether the Windows key is reaching the computer at all.</p>
+      <a class="btn" href="/keyboard-test">Open the keyboard test →</a>
+    </div>
+
+    <h2>If none of that applies</h2>
+
+    <p>Try the key on another computer. It is the fastest way to split hardware from software: if the Windows key works elsewhere, the keyboard is fine and something on your machine is blocking it. If it fails there too, the lock is stored on the keyboard or the key really has failed.</p>
+
+    <p>One more thing worth checking on a laptop: some models swap or repurpose the left Windows key in their own utility, particularly on machines with a fingerprint reader or a Copilot key in that area. Look in the manufacturer's settings app before assuming Windows is at fault.</p>
+
+    <h2>FAQ</h2>
+
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>Why do gaming keyboards disable the Windows key at all?</summary>
+        <div class="faq-answer">
+          <p>Because pressing it mid-game minimises you to the desktop, which in a competitive match is worse than a mistyped key.</p>
+          <p>The lock is meant to be switched on before playing and off afterwards. Most of the complaints about it come from people who switched it on without realising.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Is editing Scancode Map in the registry safe?</summary>
+        <div class="faq-answer">
+          <p>Deleting that one value is low risk — it is not a default Windows value, so removing it returns the keyboard to standard behaviour.</p>
+          <p>Export the key first so you can restore it, change nothing else while you are in there, and restart afterwards, since the map is only read at boot.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>My Windows key works but the shortcuts do not. What is different?</summary>
+        <div class="faq-answer">
+          <p>That points at Group Policy or Explorer rather than the keyboard, since the key itself is clearly registering.</p>
+          <p>Check the "Turn off Windows Key hotkeys" policy, and try restarting Windows Explorer from Task Manager — a hung Explorer process breaks the shortcuts while leaving the key working.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Does the lock follow the keyboard to another PC?</summary>
+        <div class="faq-answer">
+          <p>If it is the keyboard's own hardware WinLock, yes — that state lives on the board.</p>
+          <p>If it is a registry map, gaming software, or policy, no. Testing on a second computer is the quickest way to tell those two categories apart.</p>
+        </div>
+      </details>
+    </div>
+
+  </article>
+
+  <section class="help-section">
+    <h2>Related tools and guides</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/keyboard-test">
+        <h3>Keyboard Test</h3>
+        <p>See whether a key reaches the computer at all.</p>
+      </a>
+      <a class="help-card" href="/blog/keyboard/wasd-arrow-keys-swapped">
+        <h3>WASD swapped with arrows</h3>
+        <p>Another gaming toggle switched on by accident.</p>
+      </a>
+      <a class="help-card" href="/blog/keyboard/shift-key-not-working">
+        <h3>Shift key not working</h3>
+        <p>The other modifier that fails for software reasons.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/#mouse">Mouse</a>
+    <a href="/#keyboard-tools">Keyboard</a>
+    <a href="/#gaming">Gaming</a>
+    <a href="/#guides">Guides</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/sitemap">Sitemap</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/cookies-policy">Cookies</a>
+    <a href="/terms-and-conditions">Terms</a>
+    <a href="/disclaimer">Disclaimer</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/cookies-policy">Cookies Policy</a>.</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
+    <button type="button" class="btn" id="cookie-accept">Accept</button>
+  </div>
+</div>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

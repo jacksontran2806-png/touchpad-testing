@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="en_US">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Mouse DPI Changed on Its Own? How to Reset Pointer Speed</title>
+<meta name="description" content="Cursor suddenly too fast or too slow? A DPI button under your thumb, a profile switch, or a Windows setting. How to find which one moved and set it back.">
+<link rel="canonical" href="https://hardwaretesthub.net/blog/mouse/mouse-dpi-changed-reset">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hardwaretesthub.net/blog/mouse/mouse-dpi-changed-reset">
+<meta property="og:title" content="Mouse DPI Changed on Its Own? How to Reset Pointer Speed">
+<meta property="og:description" content="Cursor suddenly too fast or too slow? A DPI button under your thumb, a profile switch, or a Windows setting. How to find which one moved and set it back.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<meta name="google-adsense-account" content="ca-pub-1082746041497676">
+<!-- Google Consent Mode v2 defaults. Must run BEFORE the adsbygoogle tag
+     below, so ads and measurement start in the denied state and only move to
+     granted if the visitor accepts in the cookie banner (js/app.js). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500
+});
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://hardwaretesthub.net/blog/mouse/mouse-dpi-changed-reset#article",
+      "headline": "Mouse DPI Changed on Its Own? How to Reset Pointer Speed",
+      "name": "Mouse DPI Changed on Its Own? How to Reset Pointer Speed",
+      "description": "Cursor suddenly too fast or too slow? A DPI button under your thumb, a profile switch, or a Windows setting. How to find which one moved and set it back.",
+      "url": "https://hardwaretesthub.net/blog/mouse/mouse-dpi-changed-reset",
+      "mainEntityOfPage": "https://hardwaretesthub.net/blog/mouse/mouse-dpi-changed-reset",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23",
+      "image": "https://hardwaretesthub.net/og-image.png",
+      "author": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "publisher": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://hardwaretesthub.net/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hardwaretesthub.net/#guides"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Mouse DPI Changed on Its Own? How to Reset Pointer Speed",
+          "item": "https://hardwaretesthub.net/blog/mouse/mouse-dpi-changed-reset"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/blog/mouse/mouse-dpi-changed-reset#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/blog/mouse/mouse-dpi-changed-reset#article"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is DPI the same as sensitivity?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Related but not identical. DPI is set on the mouse hardware and determines how much movement the sensor reports per inch. Sensitivity usually refers to the software multiplier applied afterwards, in Windows or in a game. The cleanest setup is to get DPI right on the mouse and leave Windows at its neutral middle setting."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is my cursor fast on the desktop but slow in games?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because many games read raw mouse input and apply their own sensitivity, ignoring Windows pointer speed entirely. That is intentional — it gives games consistent control across different systems. Adjust the in-game sensitivity separately rather than changing DPI to suit one game."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I turn off Enhance pointer precision?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For gaming, definitely — it makes the same physical movement produce different cursor distances depending on speed, which prevents muscle memory forming. For general desktop use it is a preference. Try it off for a few days; most people who switch do not go back."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does higher DPI mean a better mouse?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Maximum DPI is a specification of the sensor, not a measure of quality, and the headline figures on modern mice are far beyond anything usable. Tracking consistency, click latency and build quality matter considerably more than a DPI number nobody will ever select."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/#mouse">Mouse</a>
+      <a href="/#keyboard-tools">Keyboard</a>
+      <a href="/#gaming">Gaming</a>
+      <a href="/#guides">Guides</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <article class="article">
+    <div class="kicker">Troubleshooting</div>
+    <h1>Mouse DPI Changed on Its Own? How to Reset Pointer Speed</h1>
+    <div class="meta">Updated September 2026 · 5 min read</div>
+
+    <p>Your cursor is suddenly flying across the screen, or crawling. Nothing was installed, nothing was changed, and yet the mouse feels completely different from how it did yesterday.</p>
+
+    <p>Three things control cursor speed, and they live in different places. Sorting out which one moved is most of the work.</p>
+
+    <ul>
+      <li><strong>DPI</strong> — set on the mouse itself, in hardware. Changed by a button on the mouse or by its software.</li>
+      <li><strong>Windows pointer speed</strong> — a multiplier applied by the operating system, on top of DPI.</li>
+      <li><strong>Enhance pointer precision</strong> — Windows mouse acceleration, which changes sensitivity dynamically based on how fast you move.</li>
+    </ul>
+
+    <h2>The button you pressed without noticing</h2>
+
+    <p>Start here, because it is the answer most of the time.</p>
+
+    <p>Most gaming mice have a DPI button, and manufacturers love putting it somewhere your hand lands: just behind the scroll wheel, where your index finger rests, or on the underside where you press it picking the mouse up. Some mice have DPI on a side button within thumb reach.</p>
+
+    <p>Press it and watch. Most mice indicate the current DPI stage by flashing an LED a number of times, or by changing colour. Cycle through the stages and you will find the one that feels normal — usually the second or third of five.</p>
+
+    <p>If the mouse was picked up and moved, or if someone else used your desk, this is very likely what happened. It is not a fault and there is nothing to repair.</p>
+
+    <p>To prevent a repeat, most vendor software will let you disable the DPI button entirely or remap it to something harmless. Worth doing if it has caught you twice.</p>
+
+    <h2>Check whether a profile switched</h2>
+
+    <p>If the mouse has onboard profiles, each one carries its own DPI. A profile switch — by a button, by the software, or automatically when an application launches — changes sensitivity instantly.</p>
+
+    <p>Open your mouse software and look at which profile is active and what its DPI is set to. Check for per-application rules while you are there: a profile that activates for a specific game and never deactivates properly explains DPI that seems to change on its own at unpredictable moments.</p>
+
+    <p>Also worth knowing: if the vendor software failed to start after a Windows update, the mouse falls back to whatever is stored on the mouse itself, which may be a factory default rather than your setting. Check the software is actually running.</p>
+
+    <h2>Set Windows back to neutral</h2>
+
+    <p>Once DPI is right, make sure Windows is not adding its own adjustment.</p>
+
+    <p>Go to <strong>Settings → Bluetooth &amp; devices → Mouse</strong>. The <strong>Mouse pointer speed</strong> slider has eleven positions, and the middle one — the sixth — is 1:1, where Windows passes movement through unaltered. Every other position scales it, and the ones below the middle discard information, which makes tracking feel coarse.</p>
+
+    <p>Set it to the middle and adjust DPI on the mouse instead. That gives you a cleaner result than leaving DPI low and compensating in Windows.</p>
+
+    <p>Then click <strong>Additional mouse settings → Pointer Options</strong> and untick <strong>Enhance pointer precision</strong>. This is Windows acceleration: with it on, the same physical movement produces different cursor distances depending on speed, which makes building muscle memory impossible. Most people find it strange for about a day and then prefer it off.</p>
+
+    <p>Note that some games ignore all of this and read raw mouse input directly, which is why your desktop sensitivity and in-game sensitivity can feel unrelated.</p>
+
+    <h2>What DPI should you actually use?</h2>
+
+    <p>There is no correct answer, but there are sensible ranges. For general desktop use on a 1080p or 1440p display, 800 to 1600 suits most people. For 4K, somewhere between 1600 and 3200 is more comfortable simply because there are more pixels to cross.</p>
+
+    <p>For gaming, particularly shooters, lower is the norm — 400 to 800 DPI with a low in-game sensitivity, which gives fine control at the cost of needing more desk space. Very high DPI amplifies both your hand tremor and any sensor irregularity into visible cursor movement.</p>
+
+    <p>Ignore the marketing numbers. A mouse advertising 26000 DPI is not better than one offering 3200; nobody uses those settings, and they exist because the sensor supports them, not because they are useful.</p>
+
+    <div class="cta-box">
+      <p>Check how the cursor actually responds after changing DPI.</p>
+      <a class="btn" href="/mouse-test">Open the mouse test →</a>
+    </div>
+
+    <h2>If DPI genuinely changes at random</h2>
+
+    <p>Not a button press, not a profile — actual random changes while you are using it. Two real causes.</p>
+
+    <p><strong>A failing DPI button.</strong> A switch that has worn can register presses that never happened, which cycles DPI at random. This is the same failure mode as a <a href="/blog/mouse/mouse-double-clicking-fix">double-clicking main button</a>, on a different switch.</p>
+
+    <p><strong>Corrupted onboard memory.</strong> Less common, but it happens after a failed firmware update or a power interruption while saving a profile. Reset the mouse to factory defaults through its software, or with the hardware reset combination in the manual, then reconfigure.</p>
+
+    <p>If neither applies and the mouse is otherwise healthy, test it on another computer for a day. That separates a mouse fault from something on your system doing the changing.</p>
+
+    <h2>FAQ</h2>
+
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>Is DPI the same as sensitivity?</summary>
+        <div class="faq-answer">
+          <p>Related but not identical. DPI is set on the mouse hardware and determines how much movement the sensor reports per inch. Sensitivity usually refers to the software multiplier applied afterwards, in Windows or in a game.</p>
+          <p>The cleanest setup is to get DPI right on the mouse and leave Windows at its neutral middle setting.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Why is my cursor fast on the desktop but slow in games?</summary>
+        <div class="faq-answer">
+          <p>Because many games read raw mouse input and apply their own sensitivity, ignoring Windows pointer speed entirely.</p>
+          <p>That is intentional — it gives games consistent control across different systems. Adjust the in-game sensitivity separately rather than changing DPI to suit one game.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Should I turn off Enhance pointer precision?</summary>
+        <div class="faq-answer">
+          <p>For gaming, definitely — it makes the same physical movement produce different cursor distances depending on speed, which prevents muscle memory forming.</p>
+          <p>For general desktop use it is a preference. Try it off for a few days; most people who switch do not go back.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Does higher DPI mean a better mouse?</summary>
+        <div class="faq-answer">
+          <p>No. Maximum DPI is a specification of the sensor, not a measure of quality, and the headline figures on modern mice are far beyond anything usable.</p>
+          <p>Tracking consistency, click latency and build quality matter considerably more than a DPI number nobody will ever select.</p>
+        </div>
+      </details>
+    </div>
+
+  </article>
+
+  <section class="help-section">
+    <h2>Related tools and guides</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/mouse-test">
+        <h3>Mouse Test</h3>
+        <p>Check cursor response after a DPI change.</p>
+      </a>
+      <a class="help-card" href="/blog/mouse/mouse-polling-rate-test">
+        <h3>Polling rate explained</h3>
+        <p>The other number people confuse with DPI.</p>
+      </a>
+      <a class="help-card" href="/blog/mouse/mouse-cursor-jumping">
+        <h3>Cursor jumping randomly</h3>
+        <p>Why high DPI makes tracking faults more visible.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/#mouse">Mouse</a>
+    <a href="/#keyboard-tools">Keyboard</a>
+    <a href="/#gaming">Gaming</a>
+    <a href="/#guides">Guides</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/sitemap">Sitemap</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/cookies-policy">Cookies</a>
+    <a href="/terms-and-conditions">Terms</a>
+    <a href="/disclaimer">Disclaimer</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/cookies-policy">Cookies Policy</a>.</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
+    <button type="button" class="btn" id="cookie-accept">Accept</button>
+  </div>
+</div>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

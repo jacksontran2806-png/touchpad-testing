@@ -47,46 +47,6 @@ gtag("consent", "default", {
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
 <!-- ADSENSE:END -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Why does Num Lock turn itself on every time I start Windows?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Windows restores the Num Lock state at sign-in from a registry value, and some BIOS or UEFI firmware sets it on at boot as well. To change the Windows side, open the registry editor, go to HKEY_USERS\\.DEFAULT\\Control Panel\\Keyboard and set InitialKeyboardIndicators to 0 for off or 2 for on. If it still comes back, look for a Boot Up NumLock Status option in your BIOS or UEFI setup."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why do laptops without a numeric keypad have Num Lock at all?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "It is a holdover from the era before laptops had wide screens and full-size decks. Manufacturers printed a small numeric keypad onto the right-hand letter keys — usually 7, 8, 9 on U, I, O and 4, 5, 6 on J, K, L — so that data entry was possible without an external keypad. Modern laptops still carry the feature in firmware even when the secondary numbers are no longer printed on the keycaps."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What if my keyboard has no Num Lock key?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Use the Windows On-Screen Keyboard. Press Win + Ctrl + O, click Options, enable Turn on numeric key pad, then click the on-screen NumLock button to toggle the state. The on-screen keyboard sends the same signal as a physical key, so it clears a Num Lock state on any keyboard, including one that has no such key."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do Macs have a Num Lock overlay?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. macOS has no Num Lock overlay for letter keys. If letter keys on a Mac are producing numbers or moving the pointer, the usual cause is Mouse Keys, an accessibility feature that turns part of the keyboard into pointer controls. Turn it off in System Settings, under Accessibility, then Pointer Control."
-      }
-    }
-  ]
-}
-</script>
 <!-- SCHEMA:START -->
 <script type="application/ld+json">
 {
@@ -134,6 +94,55 @@ gtag("consent", "default", {
           "position": 3,
           "name": "Keyboard Typing Numbers Instead of Letters? Turn Off Num Lock",
           "item": "https://hardwaretesthub.net/blog/keyboard/keyboard-typing-numbers-instead-of-letters"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/blog/keyboard/keyboard-typing-numbers-instead-of-letters#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/blog/keyboard/keyboard-typing-numbers-instead-of-letters#article"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why does Num Lock turn itself on every time I start Windows?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows restores the Num Lock state at sign-in from a registry value, and some firmware sets it at boot as well. For the Windows side, open regedit, go to HKEY_USERS\\.DEFAULT\\Control Panel\\Keyboard and set InitialKeyboardIndicators to 0 for off or 2 for on. If it still returns, look for a \"Boot Up NumLock Status\" option in your BIOS or UEFI setup."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do laptops without a number pad have Num Lock at all?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is a holdover from before laptops had room for a full-size deck. Manufacturers printed a compact keypad onto the right-hand letter keys — 7, 8, 9 on U, I, O and 4, 5, 6 on J, K, L — so data entry was possible without an external keypad. Modern laptops still carry the feature in firmware even when the secondary digits are no longer printed on the keycaps, which is exactly why it surprises people when it switches on."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if my keyboard has no Num Lock key?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use the Windows On-Screen Keyboard. Press Win + Ctrl + O, click Options, tick \"Turn on numeric key pad\", then click the on-screen NumLock button to toggle the state. It sends the same signal as a physical key, so it clears the overlay on any keyboard — including one that never had a Num Lock key, or one where the key itself has failed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do Macs have a Num Lock overlay?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. macOS has no Num Lock overlay for letter keys. If letter keys on a Mac produce numbers or move the pointer, the usual cause is Mouse Keys, an accessibility feature that turns part of the keyboard into pointer controls. Turn it off under System Settings → Accessibility → Pointer Control."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Could this be a virus or malware?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Almost never. Letters becoming numbers in one specific cluster on the right-hand side is the exact signature of the embedded keypad, not of malware. Work through the Num Lock toggle, the layout check, and the modifier check first — in practice one of those explains it every time."
+          }
         }
       ]
     }
@@ -359,7 +368,9 @@ gtag("consent", "default", {
     <a href="/#guides">Guides</a>
     <a href="/about">About</a>
     <a href="/contact">Contact</a>
+    <a href="/sitemap">Sitemap</a>
     <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/cookies-policy">Cookies</a>
     <a href="/terms-and-conditions">Terms</a>
     <a href="/disclaimer">Disclaimer</a>
   </div>
@@ -367,7 +378,7 @@ gtag("consent", "default", {
 </footer>
 
 <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
-  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/privacy-policy">Privacy Policy</a>.</p>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/cookies-policy">Cookies Policy</a>.</p>
   <div class="cookie-actions">
     <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
     <button type="button" class="btn" id="cookie-accept">Accept</button>

@@ -17,6 +17,28 @@ module.exports = {
   // loses the age signal it has already earned.
   published: {
     "contact.html": "2026-09-08",
+    "cookies-policy.html": "2026-09-23",
+    "sitemap.html": "2026-09-23",
+    "blog/keyboard/spacebar-stuck-mushy.html": "2026-09-23",
+    "blog/keyboard/spacebar-rattle-fix.html": "2026-09-23",
+    "blog/keyboard/shift-key-not-working.html": "2026-09-23",
+    "blog/keyboard/sticky-mechanical-switch-fix.html": "2026-09-23",
+    "blog/keyboard/mechanical-switch-squeaking.html": "2026-09-23",
+    "blog/keyboard/keyboard-rgb-not-working.html": "2026-09-23",
+    "blog/keyboard/windows-key-disabled-fix.html": "2026-09-23",
+    "blog/keyboard/keyboard-ghosting-rollover-guide.html": "2026-09-23",
+    "blog/keyboard/laptop-keyboard-after-windows-update.html": "2026-09-23",
+    "blog/keyboard/keyboard-disconnects-randomly.html": "2026-09-23",
+    "blog/mouse/mouse-cursor-jumping.html": "2026-09-23",
+    "blog/mouse/clean-mouse-sensor-lens.html": "2026-09-23",
+    "blog/mouse/mouse-side-buttons-not-working.html": "2026-09-23",
+    "blog/mouse/middle-click-not-working.html": "2026-09-23",
+    "blog/mouse/wireless-mouse-stuttering.html": "2026-09-23",
+    "blog/mouse/bluetooth-mouse-keeps-disconnecting.html": "2026-09-23",
+    "blog/mouse/mouse-polling-rate-test.html": "2026-09-23",
+    "blog/mouse/mouse-dpi-changed-reset.html": "2026-09-23",
+    "blog/mouse/mouse-drag-drop-not-working.html": "2026-09-23",
+    "blog/mouse/mouse-sensor-blinking-cursor-frozen.html": "2026-09-23",
     "terms-and-conditions.html": "2026-09-14",
     "disclaimer.html": "2026-09-14",
     "blog/mouse/mouse-double-clicking-single-click.html": "2026-09-03",
@@ -33,7 +55,7 @@ module.exports = {
   // fall back to their published date.
   dates: {
     "contact.html": "2026-09-08",
-    "privacy-policy.html": "2026-09-14",
+    "privacy-policy.html": "2026-09-23",
     "terms-and-conditions.html": "2026-09-14",
     "disclaimer.html": "2026-09-14",
     // The 2026-09-04 entries below were the FAQ-accordion rewrite. They were

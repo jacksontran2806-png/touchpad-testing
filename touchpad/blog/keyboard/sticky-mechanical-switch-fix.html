@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="en_US">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>How to Fix a Sticky Mechanical Keyboard Switch Without Soldering</title>
+<meta name="description" content="A switch that sticks, binds or returns slowly can almost always be fixed in place — no desoldering. Compressed air, an IPA flush, and when to pull the switch instead.">
+<link rel="canonical" href="https://hardwaretesthub.net/blog/keyboard/sticky-mechanical-switch-fix">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hardwaretesthub.net/blog/keyboard/sticky-mechanical-switch-fix">
+<meta property="og:title" content="How to Fix a Sticky Mechanical Keyboard Switch Without Soldering">
+<meta property="og:description" content="A switch that sticks, binds or returns slowly can almost always be fixed in place — no desoldering. Compressed air, an IPA flush, and when to pull the switch instead.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<meta name="google-adsense-account" content="ca-pub-1082746041497676">
+<!-- Google Consent Mode v2 defaults. Must run BEFORE the adsbygoogle tag
+     below, so ads and measurement start in the denied state and only move to
+     granted if the visitor accepts in the cookie banner (js/app.js). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500
+});
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://hardwaretesthub.net/blog/keyboard/sticky-mechanical-switch-fix#article",
+      "headline": "How to Fix a Sticky Mechanical Switch Without Soldering",
+      "name": "How to Fix a Sticky Mechanical Keyboard Switch Without Soldering",
+      "description": "A switch that sticks, binds or returns slowly can almost always be fixed in place — no desoldering. Compressed air, an IPA flush, and when to pull the switch instead.",
+      "url": "https://hardwaretesthub.net/blog/keyboard/sticky-mechanical-switch-fix",
+      "mainEntityOfPage": "https://hardwaretesthub.net/blog/keyboard/sticky-mechanical-switch-fix",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23",
+      "image": "https://hardwaretesthub.net/og-image.png",
+      "author": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "publisher": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://hardwaretesthub.net/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hardwaretesthub.net/#guides"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How to Fix a Sticky Mechanical Switch Without Soldering",
+          "item": "https://hardwaretesthub.net/blog/keyboard/sticky-mechanical-switch-fix"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/blog/keyboard/sticky-mechanical-switch-fix#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/blog/keyboard/sticky-mechanical-switch-fix#article"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I fix a sticky switch on a soldered keyboard?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Everything up to and including the isopropyl flush works with the switch still soldered in place, and that fixes most cases. What you cannot do without desoldering is open the switch up or replace it. If the flush fails, the realistic options are living with it, remapping that key, or learning to desolder."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much isopropyl alcohol is too much?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Two or three drops per switch. You want enough to wet the contacts, not enough to run down through the switch housing onto the PCB. If you see liquid pooling on the plate, you have overdone it — stop, blow it out with air, and leave it considerably longer to dry."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "My key sticks down and has to be pulled back up. Is that fixable?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usually, yes. A key that stays down is either binding on the keycap or plate, or the spring has failed to return it. Pull the cap and test the bare stem first. If the bare stem also stays down, the switch needs opening — the spring is either kinked or has come out of its seat, and neither is fixable from outside the housing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does lubing a switch fix sticking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Generally no, and it often makes things worse. Sticking is caused by contamination, and lubricant gives that contamination something to stick to. Clean first. Lube afterwards only if the switch moves freely but feels scratchy, which is a different complaint entirely."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/#mouse">Mouse</a>
+      <a href="/#keyboard-tools">Keyboard</a>
+      <a href="/#gaming">Gaming</a>
+      <a href="/#guides">Guides</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <article class="article">
+    <div class="kicker">Maintenance</div>
+    <h1>How to Fix a Sticky Mechanical Switch Without Soldering</h1>
+    <div class="meta">Updated September 2026 · 6 min read</div>
+
+    <p>Almost every sticky switch can be fixed with the switch still in the board. Desoldering is a last resort, and in five years of doing this I have needed it maybe twice — both times because the switch had been flooded with something sugary.</p>
+
+    <p>What "sticky" usually means is one of three things, and they need different treatment: the key goes down and comes back slowly, the key binds partway and needs extra force, or the key stays down and has to be flicked back up. Work out which you have before you start.</p>
+
+    <h2>First, is it the switch or the keycap?</h2>
+
+    <p>This catches people out constantly. Pull the keycap off and press the bare switch stem with a fingernail. If it now moves cleanly, the switch was never the problem — the keycap was binding against the one next to it, or against the plate.</p>
+
+    <p>Keycap binding happens after a cap has been pulled and refitted slightly crooked, on cheap caps with inconsistent moulding, and on boards where the plate cutouts are tight. The fix is to reseat the cap, or in stubborn cases to very lightly sand the inside edge of the offending cap.</p>
+
+    <p>If the bare stem still sticks, carry on.</p>
+
+    <h2>The fix, in order</h2>
+
+    <h3>Compressed air</h3>
+
+    <p>Obvious, but do it properly or it does nothing. Hold the switch <em>down</em> with one hand and blow air into the open stem with the other. This matters: the contact area is only exposed while the switch is depressed, and blowing at a closed switch just cleans the outside of the housing.</p>
+
+    <p>Keep the can upright. Tilted cans spit liquid propellant, which is cold enough to crack plastic and leaves a residue that makes the sticking worse.</p>
+
+    <p>Work in short bursts, rotating the angle. A lot of what makes switches sticky is fine dust that has packed into the corners of the housing, and it needs dislodging from more than one direction.</p>
+
+    <h3>The isopropyl flush</h3>
+
+    <p>If air was not enough, this is the step that fixes the large majority of sticky switches, and it takes about two minutes per key.</p>
+
+    <ol>
+      <li>Unplug the keyboard. This is not optional — you are about to put a conductive-ish liquid into live circuitry.</li>
+      <li>Put two or three drops of 99% isopropyl alcohol directly into the switch stem opening.</li>
+      <li>Press the switch thirty to fifty times, fairly briskly. You are using the switch's own mechanism as a pump to work the alcohol across the stem rails and the contact leaves.</li>
+      <li>Blow it out with compressed air, switch held down.</li>
+      <li>Leave it fifteen minutes to dry fully before reconnecting.</li>
+    </ol>
+
+    <p>The purity matters more than people expect. 99% IPA flashes off in minutes and leaves nothing behind. The 70% stuff sold in pharmacies is nearly a third water, plus whatever else is in it, and that water sits in the housing for hours and can leave mineral residue exactly where you were trying to clean.</p>
+
+    <p>If the switch was sticky because of a spilled drink, expect to repeat the flush two or three times. Sugar redissolves and redeposits, and one pass rarely gets it all.</p>
+
+    <h3>Pull and clean the switch (hot-swap boards)</h3>
+
+    <p>On a hot-swap board you have a better option than flushing in place: take the switch out. A switch puller grips the housing top and bottom, and the switch lifts straight up.</p>
+
+    <p>Out of the board you can open it. The housing has four small clips — two per side — and a switch opener, or a small flathead, releases them. Inside you will find the stem, the spring, and two metal leaves. Clean the stem rails with a swab and IPA, check the spring is not kinked, and look at the leaves for green or brown discolouration, which is oxidation.</p>
+
+    <p>Reassembling a switch is fiddly the first time and trivial the fifth. Practise on a switch you do not care about before doing it to your Enter key.</p>
+
+    <h3>Lubricate — carefully, and only sometimes</h3>
+
+    <p>If a switch is clean and moves freely but still feels scratchy, lubricant helps. If a switch is sticking, lubricant will usually make it worse, because you are adding something for the dust to cling to.</p>
+
+    <p>So: clean first, always. Lube only afterwards, only if the feel still bothers you, and only with a proper switch lubricant — Krytox 205g0 for linears, a thinner 105 or a dry lube for tactiles, because thick grease on a tactile switch mutes the bump you paid for.</p>
+
+    <p>A thin film on the stem rails is the whole job. Lubricant on the contact leaves will stop the switch working; lubricant on the spring is a separate technique for a separate problem.</p>
+
+    <h2>Test properly afterwards</h2>
+
+    <p>A switch that has been flushed can feel fine and still misbehave electrically, especially if any moisture remains. Press the repaired key fifty times on the <a href="/keyboard-test">keyboard test</a> and watch for two things: every press registering, and no press registering twice.</p>
+
+    <p>Duplicate registrations after a clean are worth taking seriously — that is <a href="/blog/keyboard/keyboard-typing-multiple-letters">key chatter</a>, and it usually means the contacts are still dirty or have been left damp. Another flush and a longer dry normally clears it.</p>
+
+    <div class="cta-box">
+      <p>Confirm the repaired key registers every press, exactly once.</p>
+      <a class="btn" href="/keyboard-test">Open the keyboard test →</a>
+    </div>
+
+    <h2>When to give up on a switch</h2>
+
+    <p>Replace rather than repair if the stem is visibly cracked, if the spring has taken a set and no longer returns the key fully, or if the contact leaves are corroded to the point of discolouration that will not swab off.</p>
+
+    <p>Switches cost pence in packs of ten. There is a point where cleaning one is false economy, and on a hot-swap board that point comes early — if a flush and a proper clean have not fixed it, put a new switch in and move on.</p>
+
+    <h2>FAQ</h2>
+
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>Can I fix a sticky switch on a soldered keyboard?</summary>
+        <div class="faq-answer">
+          <p>Yes. Everything up to and including the isopropyl flush works with the switch still soldered in place, and that fixes most cases.</p>
+          <p>What you cannot do without desoldering is open the switch up or replace it. If the flush fails, the realistic options are living with it, remapping that key, or learning to desolder.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>How much isopropyl alcohol is too much?</summary>
+        <div class="faq-answer">
+          <p>Two or three drops per switch. You want enough to wet the contacts, not enough to run down through the switch housing onto the PCB.</p>
+          <p>If you see liquid pooling on the plate, you have overdone it — stop, blow it out with air, and leave it considerably longer to dry.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>My key sticks down and has to be pulled back up. Is that fixable?</summary>
+        <div class="faq-answer">
+          <p>Usually, yes. A key that stays down is either binding on the keycap or plate, or the spring has failed to return it.</p>
+          <p>Pull the cap and test the bare stem first. If the bare stem also stays down, the switch needs opening — the spring is either kinked or has come out of its seat, and neither is fixable from outside the housing.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Does lubing a switch fix sticking?</summary>
+        <div class="faq-answer">
+          <p>Generally no, and it often makes things worse. Sticking is caused by contamination, and lubricant gives that contamination something to stick to.</p>
+          <p>Clean first. Lube afterwards only if the switch moves freely but feels scratchy, which is a different complaint entirely.</p>
+        </div>
+      </details>
+    </div>
+
+  </article>
+
+  <section class="help-section">
+    <h2>Related tools and guides</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/keyboard-test">
+        <h3>Keyboard Test</h3>
+        <p>Check a repaired key registers cleanly, every time.</p>
+      </a>
+      <a class="help-card" href="/blog/keyboard/keyboard-typing-multiple-letters">
+        <h3>Key typing multiple letters</h3>
+        <p>What it means if a cleaned switch starts double-firing.</p>
+      </a>
+      <a class="help-card" href="/blog/keyboard/mechanical-switch-squeaking">
+        <h3>Squeaking switches</h3>
+        <p>Spring ping and scratchiness, and how to lube for it.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/#mouse">Mouse</a>
+    <a href="/#keyboard-tools">Keyboard</a>
+    <a href="/#gaming">Gaming</a>
+    <a href="/#guides">Guides</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/sitemap">Sitemap</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/cookies-policy">Cookies</a>
+    <a href="/terms-and-conditions">Terms</a>
+    <a href="/disclaimer">Disclaimer</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/cookies-policy">Cookies Policy</a>.</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
+    <button type="button" class="btn" id="cookie-accept">Accept</button>
+  </div>
+</div>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

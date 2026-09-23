@@ -96,43 +96,44 @@ gtag("consent", "default", {
           "item": "https://hardwaretesthub.net/blog/keyboard/keyboard-not-working"
         }
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/blog/keyboard/keyboard-not-working#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/blog/keyboard/keyboard-not-working#article"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why are some of my keyboard keys typing the wrong letters?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This is almost always a keyboard layout mismatch, not broken keys — the OS thinks you're typing on a different physical layout than the one you actually have. Check Settings → Time & Language → Language & region on Windows, or System Settings → Keyboard → Input Sources on Mac."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Sticky Keys and how do I turn it off?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sticky Keys is an accessibility feature that changes how modifier keys behave, and it toggles on by accident when Shift is pressed 5 times in a row. Turn it off in Ease of Access (Windows) or Accessibility (Mac) settings if typing suddenly feels wrong after normal use."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is a keyboard that won't type anything always broken?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. A completely unresponsive keyboard is more often a connection problem — a USB port losing power, a Bluetooth pairing that dropped, or a dead battery — than a failed circuit board. Confirm the connection before assuming it needs replacing."
+          }
+        }
+      ]
     }
   ]
 }
 </script>
 <!-- SCHEMA:END -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Why are some of my keyboard keys typing the wrong letters?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "This is almost always a keyboard layout mismatch, not broken keys — the OS thinks you're typing on a different physical layout than the one you actually have. Check Settings → Time & Language → Language & region on Windows, or System Settings → Keyboard → Input Sources on Mac."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is Sticky Keys and how do I turn it off?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sticky Keys is an accessibility feature that changes how modifier keys behave, and it toggles on by accident when Shift is pressed 5 times in a row. Turn it off in Ease of Access (Windows) or Accessibility (Mac) settings if typing suddenly feels wrong after normal use."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is a keyboard that won't type anything always broken?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. A completely unresponsive keyboard is more often a connection problem — a USB port losing power, a Bluetooth pairing that dropped, or a dead battery — than a failed circuit board. Confirm the connection before assuming it needs replacing."
-      }
-    }
-  ]
-}
-</script>
 </head>
 <body>
 
@@ -250,7 +251,9 @@ gtag("consent", "default", {
     <a href="/#guides">Guides</a>
     <a href="/about">About</a>
     <a href="/contact">Contact</a>
+    <a href="/sitemap">Sitemap</a>
     <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/cookies-policy">Cookies</a>
     <a href="/terms-and-conditions">Terms</a>
     <a href="/disclaimer">Disclaimer</a>
   </div>
@@ -258,7 +261,7 @@ gtag("consent", "default", {
 </footer>
 
 <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
-  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/privacy-policy">Privacy Policy</a>.</p>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/cookies-policy">Cookies Policy</a>.</p>
   <div class="cookie-actions">
     <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
     <button type="button" class="btn" id="cookie-accept">Accept</button>

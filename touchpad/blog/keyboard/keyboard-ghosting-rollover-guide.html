@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="en_US">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>How to Check for Keyboard Ghosting and Key Rollover Online</title>
+<meta name="description" content="Ghosting, blocking and NKRO explained without the marketing. How to test your keyboard's real rollover limit in a browser, and what the number actually means for gaming.">
+<link rel="canonical" href="https://hardwaretesthub.net/blog/keyboard/keyboard-ghosting-rollover-guide">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hardwaretesthub.net/blog/keyboard/keyboard-ghosting-rollover-guide">
+<meta property="og:title" content="How to Check for Keyboard Ghosting and Key Rollover Online">
+<meta property="og:description" content="Ghosting, blocking and NKRO explained without the marketing. How to test your keyboard's real rollover limit in a browser, and what the number actually means for gaming.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<meta name="google-adsense-account" content="ca-pub-1082746041497676">
+<!-- Google Consent Mode v2 defaults. Must run BEFORE the adsbygoogle tag
+     below, so ads and measurement start in the denied state and only move to
+     granted if the visitor accepts in the cookie banner (js/app.js). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500
+});
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://hardwaretesthub.net/blog/keyboard/keyboard-ghosting-rollover-guide#article",
+      "headline": "How to Check for Keyboard Ghosting and Key Rollover Online",
+      "name": "How to Check for Keyboard Ghosting and Key Rollover Online",
+      "description": "Ghosting, blocking and NKRO explained without the marketing. How to test your keyboard's real rollover limit in a browser, and what the number actually means for gaming.",
+      "url": "https://hardwaretesthub.net/blog/keyboard/keyboard-ghosting-rollover-guide",
+      "mainEntityOfPage": "https://hardwaretesthub.net/blog/keyboard/keyboard-ghosting-rollover-guide",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23",
+      "image": "https://hardwaretesthub.net/og-image.png",
+      "author": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "publisher": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://hardwaretesthub.net/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hardwaretesthub.net/#guides"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How to Check for Keyboard Ghosting and Key Rollover Online",
+          "item": "https://hardwaretesthub.net/blog/keyboard/keyboard-ghosting-rollover-guide"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/blog/keyboard/keyboard-ghosting-rollover-guide#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/blog/keyboard/keyboard-ghosting-rollover-guide#article"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is 6KRO enough for gaming?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For the overwhelming majority of games, yes. Modifiers like Shift and Ctrl are reported outside the six-key limit, so a typical movement-plus-ability combination fits well within it. Rhythm games and fighting games with long simultaneous inputs are the genuine exceptions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does my NKRO keyboard only show six keys?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usually because NKRO is switched off. Many boards ship in 6KRO mode for compatibility with BIOS screens and older systems, and need a Fn shortcut or a setting in the vendor software to enable full rollover. Check the manual for an NKRO toggle before assuming the feature is missing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a browser test really measure this accurately?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For counting simultaneous keys, yes — the browser receives an event for every key the keyboard reports, so if a key is missing from the page it was missing from the keyboard's report too. The caveat is that browsers intercept certain combinations for their own shortcuts, so test with plain letter keys rather than anything involving Ctrl or Alt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is ghosting a sign my keyboard is failing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "True ghosting — a key appearing that you never pressed — is worth investigating on any keyboard made in the last decade, since diodes normally prevent it. A damaged trace or failing diode can cause it. Blocking, where a key you pressed does not appear, is almost always just the design limit of the keyboard rather than a fault."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/#mouse">Mouse</a>
+      <a href="/#keyboard-tools">Keyboard</a>
+      <a href="/#gaming">Gaming</a>
+      <a href="/#guides">Guides</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <article class="article">
+    <div class="kicker">Explainer</div>
+    <h1>How to Check for Keyboard Ghosting and Key Rollover Online</h1>
+    <div class="meta">Updated September 2026 · 6 min read</div>
+
+    <p>If you have ever been sprinting diagonally in a game, tried to reload, and had nothing happen, you have met rollover limits. The keyboard was not ignoring you out of spite — it had run out of keys it could report at once.</p>
+
+    <p>The terms around this get used loosely, including by manufacturers, so it is worth separating them before testing anything.</p>
+
+    <h2>Ghosting versus blocking</h2>
+
+    <p><strong>Ghosting</strong>, properly defined, is when a key you did <em>not</em> press gets reported. Press Q, W and E together on a badly wired membrane keyboard and R might appear out of nowhere. The keys sit on a grid of rows and columns, and three corners of a rectangle being pressed can make the controller believe the fourth corner is pressed too.</p>
+
+    <p><strong>Blocking</strong> is the opposite and far more common: a key you <em>did</em> press is not reported. The controller detects the ambiguity and, rather than inventing a phantom keypress, drops the input entirely.</p>
+
+    <p>Nearly everything people call ghosting today is actually blocking. Genuine phantom keypresses are rare on any keyboard made in the last decade, because manufacturers add diodes specifically to prevent them. Dropped inputs, though, remain extremely common on cheap and laptop keyboards.</p>
+
+    <h2>What rollover means</h2>
+
+    <p>Rollover is the number of simultaneous keys a keyboard can report correctly.</p>
+
+    <ul>
+      <li><strong>2KRO</strong> — two keys plus modifiers. Typical of very cheap membrane keyboards and many laptops. Fine for typing, frustrating for games.</li>
+      <li><strong>6KRO</strong> — six keys plus modifiers, which is the maximum the standard USB keyboard protocol reports in one packet. Most decent keyboards do this, and it is genuinely enough for almost everyone.</li>
+      <li><strong>NKRO</strong> — n-key rollover, meaning every key independently. Achieved by the keyboard presenting itself to the computer differently, so it is not bound by the six-key packet format.</li>
+    </ul>
+
+    <p>Modifiers are reported separately from those six slots, which is why Ctrl+Shift+Alt plus six letters works on a 6KRO board. That detail explains a lot of confusing test results.</p>
+
+    <h2>Testing it in a browser</h2>
+
+    <p>You do not need software for this. The browser receives keydown and keyup events for every key the keyboard reports, so a web page can show exactly how many are being held at once — which is what our <a href="/keyboard-ghosting-test">ghosting and NKRO test</a> does.</p>
+
+    <p>The method:</p>
+
+    <ol>
+      <li>Open the test and click once on the page so it has keyboard focus.</li>
+      <li>Hold down one key. Then add a second, a third, a fourth — without releasing any.</li>
+      <li>Watch the count. Keep adding keys until one stops registering.</li>
+      <li>The number of keys lit when the next one fails to appear is your real rollover.</li>
+    </ol>
+
+    <p>Test with letter keys spread across the board, not clustered. Rollover limits come from the wiring matrix, so results vary depending on which keys you choose. If you care about gaming specifically, test the exact combination you use — usually W, A, S, D plus Shift, Space, Ctrl, R and 1 through 4.</p>
+
+    <p>Two things that will skew your result. Browsers reserve some combinations for themselves (Ctrl+W will close the tab rather than register), so stick to letters and arrows. And a few keyboards behave differently in the BIOS than in Windows, because they fall back to a basic mode before drivers load — that is normal and not a fault.</p>
+
+    <div class="cta-box">
+      <p>Find your keyboard's real simultaneous-key limit.</p>
+      <a class="btn" href="/keyboard-ghosting-test">Open the ghosting / NKRO test →</a>
+    </div>
+
+    <h2>Reading your result honestly</h2>
+
+    <p>If you hit six keys and stop, you have a 6KRO keyboard working exactly as designed. This is not a defect and there is nothing to fix.</p>
+
+    <p>If you stop at two or three, you have a low-rollover membrane keyboard. Also not a defect — it is what that hardware costs. If it is affecting your gaming, the only real fix is a different keyboard.</p>
+
+    <p>If you get past six and keep going, you have NKRO working. Some keyboards ship with NKRO off by default and need a Fn shortcut or a software setting to enable it, so a 6KRO result on a board advertised as NKRO is worth investigating rather than treating as a lie.</p>
+
+    <p>And if a key you did not touch appears on screen — actual ghosting — that is worth pursuing. On a modern keyboard it usually means a fault rather than a design limit: a damaged PCB trace or a failing diode. It is also worth ruling out <a href="/blog/keyboard/keyboard-typing-multiple-letters">key chatter</a>, which can look similar at a glance.</p>
+
+    <h2>Does any of this matter for you?</h2>
+
+    <p>For typing, no. Touch typists rarely hold more than three keys simultaneously and the human hand is the limit long before the keyboard is.</p>
+
+    <p>For most gaming, 6KRO is genuinely sufficient. Moving diagonally while holding Shift to sprint and pressing an ability is four keys with modifiers reported separately — comfortably inside the budget.</p>
+
+    <p>Where it genuinely matters: rhythm games, fighting games with complex inputs, and anything where you hold several movement keys while chording abilities. Those cases do exceed six. For everyone else, NKRO is a feature worth having but not worth buying a keyboard for.</p>
+
+    <p>The more common real-world problem is not rollover at all — it is a keyboard that drops inputs because of <a href="/blog/keyboard/keyboard-disconnects-randomly">connection problems</a>, or a key that has physically worn out. Rule those out before concluding your rollover is too low.</p>
+
+    <h2>FAQ</h2>
+
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>Is 6KRO enough for gaming?</summary>
+        <div class="faq-answer">
+          <p>For the overwhelming majority of games, yes. Modifiers like Shift and Ctrl are reported outside the six-key limit, so a typical movement-plus-ability combination fits well within it.</p>
+          <p>Rhythm games and fighting games with long simultaneous inputs are the genuine exceptions.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Why does my NKRO keyboard only show six keys?</summary>
+        <div class="faq-answer">
+          <p>Usually because NKRO is switched off. Many boards ship in 6KRO mode for compatibility with BIOS screens and older systems, and need a Fn shortcut or a setting in the vendor software to enable full rollover.</p>
+          <p>Check the manual for an NKRO toggle before assuming the feature is missing.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Can a browser test really measure this accurately?</summary>
+        <div class="faq-answer">
+          <p>For counting simultaneous keys, yes — the browser receives an event for every key the keyboard reports, so if a key is missing from the page it was missing from the keyboard's report too.</p>
+          <p>The caveat is that browsers intercept certain combinations for their own shortcuts, so test with plain letter keys rather than anything involving Ctrl or Alt.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Is ghosting a sign my keyboard is failing?</summary>
+        <div class="faq-answer">
+          <p>True ghosting — a key appearing that you never pressed — is worth investigating on any keyboard made in the last decade, since diodes normally prevent it. A damaged trace or failing diode can cause it.</p>
+          <p>Blocking, where a key you pressed does not appear, is almost always just the design limit of the keyboard rather than a fault.</p>
+        </div>
+      </details>
+    </div>
+
+  </article>
+
+  <section class="help-section">
+    <h2>Related tools and guides</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/keyboard-ghosting-test">
+        <h3>Ghosting / NKRO Test</h3>
+        <p>Count how many keys your board reports at once.</p>
+      </a>
+      <a class="help-card" href="/keyboard-test">
+        <h3>Keyboard Test</h3>
+        <p>Check individual keys before blaming rollover.</p>
+      </a>
+      <a class="help-card" href="/blog/keyboard/keyboard-typing-multiple-letters">
+        <h3>Key typing multiple letters</h3>
+        <p>Chatter, which can look like ghosting at first glance.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/#mouse">Mouse</a>
+    <a href="/#keyboard-tools">Keyboard</a>
+    <a href="/#gaming">Gaming</a>
+    <a href="/#guides">Guides</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/sitemap">Sitemap</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/cookies-policy">Cookies</a>
+    <a href="/terms-and-conditions">Terms</a>
+    <a href="/disclaimer">Disclaimer</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/cookies-policy">Cookies Policy</a>.</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
+    <button type="button" class="btn" id="cookie-accept">Accept</button>
+  </div>
+</div>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

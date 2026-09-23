@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="en_US">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Mouse Polling Rate Explained: How to Check Yours (Hz Explained)</title>
+<meta name="description" content="125Hz, 500Hz, 1000Hz, 8000Hz — what polling rate actually changes, how to check what yours is set to, and why the highest setting is not automatically the best.">
+<link rel="canonical" href="https://hardwaretesthub.net/blog/mouse/mouse-polling-rate-test">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hardwaretesthub.net/blog/mouse/mouse-polling-rate-test">
+<meta property="og:title" content="Mouse Polling Rate Explained: How to Check Yours (Hz Explained)">
+<meta property="og:description" content="125Hz, 500Hz, 1000Hz, 8000Hz — what polling rate actually changes, how to check what yours is set to, and why the highest setting is not automatically the best.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<meta name="google-adsense-account" content="ca-pub-1082746041497676">
+<!-- Google Consent Mode v2 defaults. Must run BEFORE the adsbygoogle tag
+     below, so ads and measurement start in the denied state and only move to
+     granted if the visitor accepts in the cookie banner (js/app.js). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500
+});
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://hardwaretesthub.net/blog/mouse/mouse-polling-rate-test#article",
+      "headline": "Mouse Polling Rate Explained (Hz, and What It Changes)",
+      "name": "Mouse Polling Rate Explained: How to Check Yours (Hz Explained)",
+      "description": "125Hz, 500Hz, 1000Hz, 8000Hz — what polling rate actually changes, how to check what yours is set to, and why the highest setting is not automatically the best.",
+      "url": "https://hardwaretesthub.net/blog/mouse/mouse-polling-rate-test",
+      "mainEntityOfPage": "https://hardwaretesthub.net/blog/mouse/mouse-polling-rate-test",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23",
+      "image": "https://hardwaretesthub.net/og-image.png",
+      "author": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "publisher": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://hardwaretesthub.net/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hardwaretesthub.net/#guides"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Mouse Polling Rate Explained (Hz, and What It Changes)",
+          "item": "https://hardwaretesthub.net/blog/mouse/mouse-polling-rate-test"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/blog/mouse/mouse-polling-rate-test#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/blog/mouse/mouse-polling-rate-test#article"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is 1000Hz enough for competitive gaming?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. 1000Hz means a report every millisecond, which is well below the threshold at which people can reliably detect a difference in blind testing. Plenty of professional players run at 1000Hz on mice capable of 8000Hz, because the CPU cost of the higher rate can cost more in frame stability than it gains in latency."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does polling rate affect DPI or sensitivity?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No — they are completely independent. DPI controls how far the cursor travels per inch of hand movement; polling rate controls how often the mouse reports its position. Changing polling rate will not make your cursor faster or slower. If that is what you want, change DPI."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I measure polling rate accurately in a browser?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only approximately. A browser can timestamp pointer events, but it also batches and throttles them, so what you measure includes the browser's own scheduling. For a trustworthy figure, use a dedicated polling rate utility on Windows, or simply read the setting in your mouse's own software."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does my wireless mouse drop to 125Hz on battery?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because a power-saving profile has lowered it deliberately. High polling rates are one of the biggest drains on a wireless mouse's battery. Most vendor software lets you set different polling rates for wired and wireless operation, or disable the power-saving profile entirely if you would rather have the performance."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/#mouse">Mouse</a>
+      <a href="/#keyboard-tools">Keyboard</a>
+      <a href="/#gaming">Gaming</a>
+      <a href="/#guides">Guides</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <article class="article">
+    <div class="kicker">Explainer</div>
+    <h1>Mouse Polling Rate Explained (Hz, and What It Changes)</h1>
+    <div class="meta">Updated September 2026 · 6 min read</div>
+
+    <p>Polling rate is how many times per second your mouse tells the computer where it is. That is the whole concept. A 1000Hz mouse reports a thousand times a second, once every millisecond; a 125Hz mouse reports every eight milliseconds.</p>
+
+    <p>What people get wrong is assuming the number is a quality rating. It is not. It is a trade-off, and past a certain point the returns are small enough to be debatable.</p>
+
+    <h2>What the numbers mean in practice</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Polling rate</th>
+            <th>Report interval</th>
+            <th>Where you find it</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>125Hz</td>
+            <td>8ms</td>
+            <td>Office mice, older hardware, battery-saving wireless modes</td>
+          </tr>
+          <tr>
+            <td>500Hz</td>
+            <td>2ms</td>
+            <td>A common default, and genuinely fine for most people</td>
+          </tr>
+          <tr>
+            <td>1000Hz</td>
+            <td>1ms</td>
+            <td>The standard for gaming mice, and the practical sweet spot</td>
+          </tr>
+          <tr>
+            <td>4000–8000Hz</td>
+            <td>0.25–0.125ms</td>
+            <td>Recent high-end mice; needs a capable CPU to be worth using</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>The jump from 125Hz to 500Hz is the one most people can actually feel — 8ms of delay is perceptible as slight sluggishness when you move quickly. From 500Hz to 1000Hz the difference is subtle. Above 1000Hz, honest testing suggests most people cannot reliably tell in a blind comparison.</p>
+
+    <h2>What polling rate is not</h2>
+
+    <p>It is not DPI. DPI is how far the cursor moves per inch of hand movement — sensitivity. Polling rate is how often the mouse reports. They are independent, and changing one does not affect the other. People conflate them constantly, including in product marketing. If your cursor feels too fast or too slow, you want <a href="/blog/mouse/mouse-dpi-changed-reset">DPI</a>, not polling rate.</p>
+
+    <p>It is not frame rate, either. A 1000Hz mouse on a 60Hz monitor still reports a thousand times a second; the display just cannot show every update. The reports still matter — games sample input independently of when frames are drawn — but the benefit is smaller than the numbers suggest.</p>
+
+    <p>And it is not a fix for stutter. If your mouse is stuttering, polling rate is almost certainly not the cause. Look at <a href="/blog/mouse/wireless-mouse-stuttering">interference</a> or the surface first.</p>
+
+    <h2>How to check what yours is set to</h2>
+
+    <p>Three routes, depending on what you have.</p>
+
+    <p><strong>The mouse's own software</strong> is the most reliable. G HUB, Synapse, iCUE and equivalents all show the current polling rate and let you change it. This tells you what the mouse is configured to do, which is what you usually want to know.</p>
+
+    <p><strong>A hardware button.</strong> Some mice cycle polling rate with a button underneath, often the same one that changes DPI when held. Check the manual — people change this by accident and then wonder why the mouse feels different.</p>
+
+    <p><strong>Measuring it</strong> requires timing the gaps between movement reports, which needs either a dedicated utility or a browser page that timestamps every pointer event. Our <a href="/mouse-test">mouse test</a> shows movement and button behaviour live, which is what you want for diagnosing tracking problems — but for a precise Hz figure, a purpose-built polling rate utility on Windows will give you a more trustworthy number than any browser can, because the browser adds its own timing layer.</p>
+
+    <p>That last point is worth being clear about: any in-browser polling measurement is approximate. The browser batches and throttles events, and what you measure includes the browser's own scheduling, not just the mouse's. Treat browser figures as a rough indication rather than a specification test.</p>
+
+    <h2>Should you turn it up?</h2>
+
+    <p>If you are at 125Hz, yes — move to 500Hz or 1000Hz. That is a real, noticeable improvement and there is no meaningful downside on any computer made this decade.</p>
+
+    <p>If you are at 1000Hz, leave it alone unless you have a specific reason. Going to 4000Hz or 8000Hz has genuine costs:</p>
+
+    <ul>
+      <li><strong>CPU load.</strong> At 8000Hz the system processes eight thousand interrupts per second from the mouse alone. On a mid-range CPU under load in a game, that can cost you more in frame time than it gains in input latency.</li>
+      <li><strong>Battery life.</strong> On a wireless mouse, high polling rates drain the battery dramatically faster — often less than half the runtime.</li>
+      <li><strong>Compatibility.</strong> Some older USB controllers and some motherboards behave badly above 1000Hz, producing stutter rather than smoothness.</li>
+    </ul>
+
+    <p>There is a reason many competitive players stay at 1000Hz on hardware capable of far more.</p>
+
+    <h2>When lowering it is the right answer</h2>
+
+    <p>Counterintuitive but real. If your mouse feels worse at a high polling rate than a low one, drop it and see. Causes include a CPU that cannot keep up, a USB controller struggling, and — on wireless — a link that becomes unstable at high report rates in a congested environment.</p>
+
+    <p>On a laptop running on battery, dropping to 500Hz is a sensible default. You will not notice the difference in a spreadsheet, and you get meaningfully more runtime.</p>
+
+    <div class="cta-box">
+      <p>Check how your mouse actually tracks and clicks.</p>
+      <a class="btn" href="/mouse-test">Open the mouse test →</a>
+    </div>
+
+    <h2>FAQ</h2>
+
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>Is 1000Hz enough for competitive gaming?</summary>
+        <div class="faq-answer">
+          <p>Yes. 1000Hz means a report every millisecond, which is well below the threshold at which people can reliably detect a difference in blind testing.</p>
+          <p>Plenty of professional players run at 1000Hz on mice capable of 8000Hz, because the CPU cost of the higher rate can cost more in frame stability than it gains in latency.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Does polling rate affect DPI or sensitivity?</summary>
+        <div class="faq-answer">
+          <p>No — they are completely independent. DPI controls how far the cursor travels per inch of hand movement; polling rate controls how often the mouse reports its position.</p>
+          <p>Changing polling rate will not make your cursor faster or slower. If that is what you want, change DPI.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Can I measure polling rate accurately in a browser?</summary>
+        <div class="faq-answer">
+          <p>Only approximately. A browser can timestamp pointer events, but it also batches and throttles them, so what you measure includes the browser's own scheduling.</p>
+          <p>For a trustworthy figure, use a dedicated polling rate utility on Windows, or simply read the setting in your mouse's own software.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Why does my wireless mouse drop to 125Hz on battery?</summary>
+        <div class="faq-answer">
+          <p>Because a power-saving profile has lowered it deliberately. High polling rates are one of the biggest drains on a wireless mouse's battery.</p>
+          <p>Most vendor software lets you set different polling rates for wired and wireless operation, or disable the power-saving profile entirely if you would rather have the performance.</p>
+        </div>
+      </details>
+    </div>
+
+  </article>
+
+  <section class="help-section">
+    <h2>Related tools and guides</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/mouse-test">
+        <h3>Mouse Test</h3>
+        <p>Watch movement and button response live.</p>
+      </a>
+      <a class="help-card" href="/blog/mouse/mouse-dpi-changed-reset">
+        <h3>DPI changed on its own</h3>
+        <p>The setting people confuse with polling rate.</p>
+      </a>
+      <a class="help-card" href="/reaction-time-test">
+        <h3>Reaction Time Test</h3>
+        <p>Measure the part of the chain that is actually you.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/#mouse">Mouse</a>
+    <a href="/#keyboard-tools">Keyboard</a>
+    <a href="/#gaming">Gaming</a>
+    <a href="/#guides">Guides</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/sitemap">Sitemap</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/cookies-policy">Cookies</a>
+    <a href="/terms-and-conditions">Terms</a>
+    <a href="/disclaimer">Disclaimer</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/cookies-policy">Cookies Policy</a>.</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
+    <button type="button" class="btn" id="cookie-accept">Accept</button>
+  </div>
+</div>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

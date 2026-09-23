@@ -97,43 +97,44 @@ gtag("consent", "default", {
           "item": "https://hardwaretesthub.net/keyboard-test"
         }
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/keyboard-test#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/keyboard-test#app"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why does a key show the wrong letter when I press it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The physical key position lights up correctly, but the label shown depends on the character layout you've selected (QWERTY, QWERTZ, AZERTY, or Dvorak). If your OS keyboard layout doesn't match what's picked here, the letter printed on your keycap and the letter this tool expects at that position will differ — that's a layout mismatch, not a broken key."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this work with a non-US physical keyboard?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — the tool reads the physical key position (event.code) regardless of your keyboard's printed layout, then relabels each position for whichever character layout you select. Number, punctuation, and a few edge keys can sit in slightly different physical spots on ISO versus ANSI boards, which is why some layouts show minor differences in key shape."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can this test a laptop's built-in keyboard the same way?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, it works identically on a laptop's internal keyboard — the browser receives the same kind of key events either way. The one exception is the Fn key, which most laptop firmware and macOS intercept before it ever reaches the browser, so it's shown dimmed rather than as untestable."
+          }
+        }
+      ]
     }
   ]
 }
 </script>
 <!-- SCHEMA:END -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Why does a key show the wrong letter when I press it?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The physical key position lights up correctly, but the label shown depends on the character layout you've selected (QWERTY, QWERTZ, AZERTY, or Dvorak). If your OS keyboard layout doesn't match what's picked here, the letter printed on your keycap and the letter this tool expects at that position will differ — that's a layout mismatch, not a broken key."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does this work with a non-US physical keyboard?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes — the tool reads the physical key position (event.code) regardless of your keyboard's printed layout, then relabels each position for whichever character layout you select. Number, punctuation, and a few edge keys can sit in slightly different physical spots on ISO versus ANSI boards, which is why some layouts show minor differences in key shape."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can this test a laptop's built-in keyboard the same way?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, it works identically on a laptop's internal keyboard — the browser receives the same kind of key events either way. The one exception is the Fn key, which most laptop firmware and macOS intercept before it ever reaches the browser, so it's shown dimmed rather than as untestable."
-      }
-    }
-  ]
-}
-</script>
 </head>
 <body>
 
@@ -302,7 +303,9 @@ gtag("consent", "default", {
     <a href="/#guides">Guides</a>
     <a href="/about">About</a>
     <a href="/contact">Contact</a>
+    <a href="/sitemap">Sitemap</a>
     <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/cookies-policy">Cookies</a>
     <a href="/terms-and-conditions">Terms</a>
     <a href="/disclaimer">Disclaimer</a>
   </div>
@@ -310,7 +313,7 @@ gtag("consent", "default", {
 </footer>
 
 <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
-  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/privacy-policy">Privacy Policy</a>.</p>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/cookies-policy">Cookies Policy</a>.</p>
   <div class="cookie-actions">
     <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
     <button type="button" class="btn" id="cookie-accept">Accept</button>

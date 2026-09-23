@@ -97,43 +97,44 @@ gtag("consent", "default", {
           "item": "https://hardwaretesthub.net/cps-test"
         }
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/cps-test#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/cps-test#app"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What's a good CPS score?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "4-6 clicks per second with a normal grip is average, 6-9 is fast, and anything past 9-10 with a standard click technique is unusually quick. Scores above roughly 12-14 CPS almost always involve jitter-clicking, butterfly-clicking, or an auto-clicker rather than a single finger moving normally."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is my score lower on a laptop trackpad than a mouse?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A trackpad tap has to travel further per click and often includes built-in debounce delay to avoid registering accidental taps, both of which cap how fast repeated clicks can register compared to a mouse's short, mechanical switch travel."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can this test tell a human from an auto-clicker?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not with certainty, but a strong signal is timing consistency — a real hand's click intervals vary a little from click to click, while software-driven clicks land at near-identical intervals every time. A perfectly even, very high score is the classic tell, even though the test itself only reports the raw count."
+          }
+        }
+      ]
     }
   ]
 }
 </script>
 <!-- SCHEMA:END -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What's a good CPS score?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "4-6 clicks per second with a normal grip is average, 6-9 is fast, and anything past 9-10 with a standard click technique is unusually quick. Scores above roughly 12-14 CPS almost always involve jitter-clicking, butterfly-clicking, or an auto-clicker rather than a single finger moving normally."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why is my score lower on a laptop trackpad than a mouse?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A trackpad tap has to travel further per click and often includes built-in debounce delay to avoid registering accidental taps, both of which cap how fast repeated clicks can register compared to a mouse's short, mechanical switch travel."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can this test tell a human from an auto-clicker?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Not with certainty, but a strong signal is timing consistency — a real hand's click intervals vary a little from click to click, while software-driven clicks land at near-identical intervals every time. A perfectly even, very high score is the classic tell, even though the test itself only reports the raw count."
-      }
-    }
-  ]
-}
-</script>
 </head>
 <body>
 
@@ -277,7 +278,9 @@ gtag("consent", "default", {
     <a href="/#guides">Guides</a>
     <a href="/about">About</a>
     <a href="/contact">Contact</a>
+    <a href="/sitemap">Sitemap</a>
     <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/cookies-policy">Cookies</a>
     <a href="/terms-and-conditions">Terms</a>
     <a href="/disclaimer">Disclaimer</a>
   </div>
@@ -285,7 +288,7 @@ gtag("consent", "default", {
 </footer>
 
 <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
-  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/privacy-policy">Privacy Policy</a>.</p>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/cookies-policy">Cookies Policy</a>.</p>
   <div class="cookie-actions">
     <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
     <button type="button" class="btn" id="cookie-accept">Accept</button>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="en_US">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Mouse Side Buttons (Forward/Back) Not Working on Windows 11</title>
+<meta name="description" content="Side buttons that do nothing are usually unassigned rather than broken. How to check the mouse is sending button 4 and 5 at all, then fix it in software.">
+<link rel="canonical" href="https://hardwaretesthub.net/blog/mouse/mouse-side-buttons-not-working">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hardwaretesthub.net/blog/mouse/mouse-side-buttons-not-working">
+<meta property="og:title" content="Mouse Side Buttons (Forward/Back) Not Working on Windows 11">
+<meta property="og:description" content="Side buttons that do nothing are usually unassigned rather than broken. How to check the mouse is sending button 4 and 5 at all, then fix it in software.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<meta name="google-adsense-account" content="ca-pub-1082746041497676">
+<!-- Google Consent Mode v2 defaults. Must run BEFORE the adsbygoogle tag
+     below, so ads and measurement start in the denied state and only move to
+     granted if the visitor accepts in the cookie banner (js/app.js). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500
+});
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://hardwaretesthub.net/blog/mouse/mouse-side-buttons-not-working#article",
+      "headline": "Mouse Side Buttons Not Working on Windows 11",
+      "name": "Mouse Side Buttons (Forward/Back) Not Working on Windows 11",
+      "description": "Side buttons that do nothing are usually unassigned rather than broken. How to check the mouse is sending button 4 and 5 at all, then fix it in software.",
+      "url": "https://hardwaretesthub.net/blog/mouse/mouse-side-buttons-not-working",
+      "mainEntityOfPage": "https://hardwaretesthub.net/blog/mouse/mouse-side-buttons-not-working",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23",
+      "image": "https://hardwaretesthub.net/og-image.png",
+      "author": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "publisher": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://hardwaretesthub.net/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hardwaretesthub.net/#guides"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Mouse Side Buttons Not Working on Windows 11",
+          "item": "https://hardwaretesthub.net/blog/mouse/mouse-side-buttons-not-working"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/blog/mouse/mouse-side-buttons-not-working#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/blog/mouse/mouse-side-buttons-not-working#article"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do side buttons need special drivers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Buttons 4 and 5 are part of the standard HID mouse specification, and Windows maps them to Back and Forward natively with no software installed. Vendor software is only needed to remap them to something else — and ironically, installing it is what breaks them most often, because its default profile may leave them unassigned."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do my side buttons work in Chrome but not in other apps?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because support is per-application. Browsers and File Explorer handle buttons 4 and 5; plenty of smaller programs never implemented them. Remapping the buttons to Alt+Left and Alt+Right in your mouse software works far more broadly, since almost everything understands those."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I add side button support to a game?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usually. If the game's own bindings will not accept a mouse button, map that button to a keyboard key in your mouse software, then bind that key in the game. Check the game's rules first if it is competitive — some anti-cheat systems treat macro software with suspicion, though simple one-to-one remapping is generally fine."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "My side button feels mushy and has stopped clicking. Fixable?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "That is a failed switch, and it is repairable if you are comfortable soldering — the switches are cheap and standard. Getting in usually means peeling the PTFE feet off to reach the screws underneath, so plan on replacing those afterwards."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/#mouse">Mouse</a>
+      <a href="/#keyboard-tools">Keyboard</a>
+      <a href="/#gaming">Gaming</a>
+      <a href="/#guides">Guides</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <article class="article">
+    <div class="kicker">Troubleshooting</div>
+    <h1>Mouse Side Buttons Not Working on Windows 11</h1>
+    <div class="meta">Updated September 2026 · 5 min read</div>
+
+    <p>There is one question that decides everything here: <strong>is the mouse sending the button press at all?</strong></p>
+
+    <p>Open the <a href="/mouse-test">mouse test</a> and click each side button. The test listens for all five standard buttons, so a side button that registers there is physically fine and electrically connected — which means your problem is entirely about what Windows or an application does with the signal.</p>
+
+    <p>If nothing registers, the signal is not arriving, and that is a smaller and more mechanical set of causes. The two halves of this guide are genuinely different problems.</p>
+
+    <h2>If the buttons register on the test</h2>
+
+    <p>Good news — nothing is broken. Work through these.</p>
+
+    <h3>The buttons are unassigned in the mouse software</h3>
+
+    <p>This is the most common cause by a wide margin, especially after installing a vendor utility for the first time. Logitech G HUB, Razer Synapse, Corsair iCUE and the rest take control of the buttons when installed, and their default profile does not always map buttons 4 and 5 to Forward and Back.</p>
+
+    <p>Open the software, find the button assignment page, and check what side buttons are set to. Look for "Unassigned" or a blank slot. Set them explicitly to <strong>Browser Back</strong> and <strong>Browser Forward</strong>.</p>
+
+    <p>Check which profile is active while you are there. Per-application profiles mean the buttons can work on the desktop and stop working inside a specific program, which is a confusing symptom with a mundane cause.</p>
+
+    <h3>The application does not support them</h3>
+
+    <p>Some programs simply ignore buttons 4 and 5. File Explorer and every mainstream browser support them; a lot of smaller applications, remote desktop clients, and older software do not.</p>
+
+    <p>Test in two or three different applications before concluding anything. Side buttons working in Chrome but not in a particular app is that app's limitation, and the fix is to remap the buttons to keyboard shortcuts — <code>Alt + Left</code> and <code>Alt + Right</code> do the same job and are far more widely supported.</p>
+
+    <h3>Two pieces of software are fighting</h3>
+
+    <p>Running a vendor utility alongside a generic remapper like X-Mouse Button Control, or leaving an old mouse's software installed after switching brands, produces exactly this. One claims the button, the other overrides it, and the result is inconsistent.</p>
+
+    <p>Uninstall what you are not using. Do it properly through Add or Remove Programs rather than just closing the tray icon, since the driver component keeps running either way.</p>
+
+    <h2>If the buttons do not register at all</h2>
+
+    <p>Now you are looking at the mouse itself, or the driver beneath it.</p>
+
+    <h3>Reinstall the mouse driver</h3>
+
+    <p>Device Manager → <strong>Mice and other pointing devices</strong> → right-click your mouse → <strong>Uninstall device</strong> → restart. Windows reinstalls a standard HID driver on boot.</p>
+
+    <p>This matters more than it sounds. A mouse that has fallen back to a basic HID mouse driver often exposes only three buttons, and the extras stay invisible until the proper driver is in place. If the mouse shows as "HID-compliant mouse" and you expected a vendor name, that is a strong clue.</p>
+
+    <h3>Check the mouse on another computer</h3>
+
+    <p>The fastest way to split hardware from software. If the side buttons work elsewhere, the mouse is fine.</p>
+
+    <p>Try a machine with no vendor software installed if you can — Windows handles buttons 4 and 5 natively, so a mouse with working side buttons should do Forward and Back in a browser with nothing installed at all.</p>
+
+    <h3>The switch itself</h3>
+
+    <p>Side buttons use small mechanical switches, and they fail the same way any switch does. Two signs it is physical: the button has lost its click and feels mushy, or it works when pressed at one particular angle.</p>
+
+    <p>The other physical cause, common on mice that have been dropped, is the side button plate coming out of alignment so it no longer reaches the switch beneath. You can sometimes feel this — the button travels but never contacts anything.</p>
+
+    <p>Repair means opening the mouse, which on most models requires peeling off the PTFE feet to reach hidden screws. Budget for replacement feet if you go in.</p>
+
+    <div class="cta-box">
+      <p>Check whether the mouse is sending the side button press at all.</p>
+      <a class="btn" href="/mouse-test">Open the mouse test →</a>
+    </div>
+
+    <h2>A Windows 11 quirk worth knowing</h2>
+
+    <p>Windows 11 handles Back navigation inconsistently across its own apps. Side buttons work in File Explorer and Settings, but several built-in apps ignore them entirely, and that is a Windows limitation rather than a fault with your mouse.</p>
+
+    <p>If you want consistency everywhere, mapping the side buttons to <code>Alt + Left</code> and <code>Alt + Right</code> in your mouse software is more reliable than the native Back and Forward commands. Slightly inelegant, considerably more dependable.</p>
+
+    <h2>FAQ</h2>
+
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>Do side buttons need special drivers?</summary>
+        <div class="faq-answer">
+          <p>No. Buttons 4 and 5 are part of the standard HID mouse specification, and Windows maps them to Back and Forward natively with no software installed.</p>
+          <p>Vendor software is only needed to remap them to something else — and ironically, installing it is what breaks them most often, because its default profile may leave them unassigned.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Why do my side buttons work in Chrome but not in other apps?</summary>
+        <div class="faq-answer">
+          <p>Because support is per-application. Browsers and File Explorer handle buttons 4 and 5; plenty of smaller programs never implemented them.</p>
+          <p>Remapping the buttons to Alt+Left and Alt+Right in your mouse software works far more broadly, since almost everything understands those.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Can I add side button support to a game?</summary>
+        <div class="faq-answer">
+          <p>Usually. If the game's own bindings will not accept a mouse button, map that button to a keyboard key in your mouse software, then bind that key in the game.</p>
+          <p>Check the game's rules first if it is competitive — some anti-cheat systems treat macro software with suspicion, though simple one-to-one remapping is generally fine.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>My side button feels mushy and has stopped clicking. Fixable?</summary>
+        <div class="faq-answer">
+          <p>That is a failed switch, and it is repairable if you are comfortable soldering — the switches are cheap and standard.</p>
+          <p>Getting in usually means peeling the PTFE feet off to reach the screws underneath, so plan on replacing those afterwards.</p>
+        </div>
+      </details>
+    </div>
+
+  </article>
+
+  <section class="help-section">
+    <h2>Related tools and guides</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/mouse-test">
+        <h3>Mouse Test</h3>
+        <p>Check all five buttons, including side buttons.</p>
+      </a>
+      <a class="help-card" href="/blog/mouse/middle-click-not-working">
+        <h3>Middle click not working</h3>
+        <p>The other button that fails for software reasons.</p>
+      </a>
+      <a class="help-card" href="/blog/mouse/mouse-not-working">
+        <h3>Mouse not working</h3>
+        <p>The broader checks when more than one button is dead.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/#mouse">Mouse</a>
+    <a href="/#keyboard-tools">Keyboard</a>
+    <a href="/#gaming">Gaming</a>
+    <a href="/#guides">Guides</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/sitemap">Sitemap</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/cookies-policy">Cookies</a>
+    <a href="/terms-and-conditions">Terms</a>
+    <a href="/disclaimer">Disclaimer</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/cookies-policy">Cookies Policy</a>.</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
+    <button type="button" class="btn" id="cookie-accept">Accept</button>
+  </div>
+</div>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

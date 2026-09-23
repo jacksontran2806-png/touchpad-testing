@@ -96,43 +96,44 @@ gtag("consent", "default", {
           "item": "https://hardwaretesthub.net/blog/trackpad/mac-trackpad-not-working"
         }
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/blog/trackpad/mac-trackpad-not-working#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/blog/trackpad/mac-trackpad-not-working#article"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can a Mac trackpad just wear out?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not in the way a mouse switch does — Apple's trackpads are solid-state with no physical click mechanism, so there's nothing mechanical to wear out from normal use. Almost every \"broken\" Mac trackpad turns out to be a setting, driver hang, or a paired mouse taking priority."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does my Mac trackpad stop working after connecting a mouse?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Check System Settings → Accessibility → Pointer Control → Trackpad Options for \"Ignore built-in trackpad when mouse or wireless trackpad is present.\" If that's checked, macOS disables the built-in trackpad any time another pointing device has ever been paired, even briefly — uncheck it to get it back."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does resetting the SMC fix trackpad problems?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sometimes, since the SMC governs some low-level input handling. On Apple Silicon Macs it's just a full shutdown, a ~20 second wait, and powering back on. Try the settings and restart fixes first — they resolve the majority of cases before an SMC reset is needed."
+          }
+        }
+      ]
     }
   ]
 }
 </script>
 <!-- SCHEMA:END -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Can a Mac trackpad just wear out?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Not in the way a mouse switch does — Apple's trackpads are solid-state with no physical click mechanism, so there's nothing mechanical to wear out from normal use. Almost every \"broken\" Mac trackpad turns out to be a setting, driver hang, or a paired mouse taking priority."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why does my Mac trackpad stop working after connecting a mouse?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Check System Settings → Accessibility → Pointer Control → Trackpad Options for \"Ignore built-in trackpad when mouse or wireless trackpad is present.\" If that's checked, macOS disables the built-in trackpad any time another pointing device has ever been paired, even briefly — uncheck it to get it back."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does resetting the SMC fix trackpad problems?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sometimes, since the SMC governs some low-level input handling. On Apple Silicon Macs it's just a full shutdown, a ~20 second wait, and powering back on. Try the settings and restart fixes first — they resolve the majority of cases before an SMC reset is needed."
-      }
-    }
-  ]
-}
-</script>
 </head>
 <body>
 
@@ -257,7 +258,9 @@ gtag("consent", "default", {
     <a href="/#guides">Guides</a>
     <a href="/about">About</a>
     <a href="/contact">Contact</a>
+    <a href="/sitemap">Sitemap</a>
     <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/cookies-policy">Cookies</a>
     <a href="/terms-and-conditions">Terms</a>
     <a href="/disclaimer">Disclaimer</a>
   </div>
@@ -265,7 +268,7 @@ gtag("consent", "default", {
 </footer>
 
 <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
-  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/privacy-policy">Privacy Policy</a>.</p>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/cookies-policy">Cookies Policy</a>.</p>
   <div class="cookie-actions">
     <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
     <button type="button" class="btn" id="cookie-accept">Accept</button>

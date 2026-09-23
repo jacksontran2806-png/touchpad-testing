@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="en_US">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Mechanical Keyboard Switch Squeaking? Lube It Without Desoldering</title>
+<meta name="description" content="Squeak, scratch and spring ping are three different noises with three different fixes. How to tell them apart, and how to lube switches in place on a hot-swap board.">
+<link rel="canonical" href="https://hardwaretesthub.net/blog/keyboard/mechanical-switch-squeaking">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hardwaretesthub.net/blog/keyboard/mechanical-switch-squeaking">
+<meta property="og:title" content="Mechanical Keyboard Switch Squeaking? Lube It Without Desoldering">
+<meta property="og:description" content="Squeak, scratch and spring ping are three different noises with three different fixes. How to tell them apart, and how to lube switches in place on a hot-swap board.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<meta name="google-adsense-account" content="ca-pub-1082746041497676">
+<!-- Google Consent Mode v2 defaults. Must run BEFORE the adsbygoogle tag
+     below, so ads and measurement start in the denied state and only move to
+     granted if the visitor accepts in the cookie banner (js/app.js). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500
+});
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://hardwaretesthub.net/blog/keyboard/mechanical-switch-squeaking#article",
+      "headline": "Mechanical Switch Squeaking? Lube It Without Desoldering",
+      "name": "Mechanical Keyboard Switch Squeaking? Lube It Without Desoldering",
+      "description": "Squeak, scratch and spring ping are three different noises with three different fixes. How to tell them apart, and how to lube switches in place on a hot-swap board.",
+      "url": "https://hardwaretesthub.net/blog/keyboard/mechanical-switch-squeaking",
+      "mainEntityOfPage": "https://hardwaretesthub.net/blog/keyboard/mechanical-switch-squeaking",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23",
+      "image": "https://hardwaretesthub.net/og-image.png",
+      "author": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "publisher": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://hardwaretesthub.net/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hardwaretesthub.net/#guides"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Mechanical Switch Squeaking? Lube It Without Desoldering",
+          "item": "https://hardwaretesthub.net/blog/keyboard/mechanical-switch-squeaking"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/blog/keyboard/mechanical-switch-squeaking#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/blog/keyboard/mechanical-switch-squeaking#article"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I lube switches without opening them?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Partly. Holding the switch depressed exposes the stem rails, and a fine brush can reach them, which removes a good share of the squeak in about a minute per key. You cannot reach the housing rails or the spring that way, so the result is noticeably less good than opening the switch. It is a reasonable compromise on a soldered board."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does my keyboard still ping after lubing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because spring ping and stem squeak are different problems. Lubricant on the stem rails does nothing for a resonating spring. Lube the springs themselves, replace them, or check whether the ring is actually case resonance by lifting the board off the desk and listening again."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much lube per switch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Far less than feels right. A thin, barely visible film on the rails, applied with a brush wiped almost dry. Over-lubing makes linears feel sluggish and kills the bump on tactiles, and removing excess means opening every switch again and swabbing it out."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will lubing void my keyboard's warranty?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Opening switches almost certainly will, and on many boards so will removing them. Manufacturers treat it as user modification. If the board is new and under warranty and the noise is genuinely defective rather than just unpleasant, contact support before you take anything apart."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/#mouse">Mouse</a>
+      <a href="/#keyboard-tools">Keyboard</a>
+      <a href="/#gaming">Gaming</a>
+      <a href="/#guides">Guides</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <article class="article">
+    <div class="kicker">Maintenance</div>
+    <h1>Mechanical Switch Squeaking? Lube It Without Desoldering</h1>
+    <div class="meta">Updated September 2026 · 6 min read</div>
+
+    <p>People use "squeaking" for three noises that have almost nothing to do with each other. Getting the right one matters, because the fix for one will do nothing for the others.</p>
+
+    <p>Press a noisy key slowly, about half a second on the way down, and listen:</p>
+
+    <ul>
+      <li><strong>A dry squeak or creak on the way down</strong> — plastic rubbing on plastic. The stem is dragging on the housing rails. This is the one lubricant genuinely fixes.</li>
+      <li><strong>A fine metallic <em>ting</em> that rings on for a moment after the press</strong> — spring ping. The spring is vibrating. Lubricant on the rails will not touch it.</li>
+      <li><strong>A gritty, sandy scratch</strong> — contamination, not friction. Clean it first; lubing dirt just makes an expensive mess.</li>
+    </ul>
+
+    <p>Only the first one is a lubrication problem in the straightforward sense. Here is what to do about each.</p>
+
+    <h2>Dry squeak: lube the stem rails</h2>
+
+    <p>On a hot-swap board you do not need to desolder anything, and you do not strictly need to open the switch either — although opening it gives a much better result.</p>
+
+    <p><strong>The quick version, switch left assembled.</strong> Pull the keycap. Hold the switch fully depressed to expose the stem, and use a fine brush to put a very thin film of Krytox 205g0 on the two visible stem rails. Work the switch twenty times to spread it. This takes a minute per key and removes perhaps 70% of the squeak.</p>
+
+    <p><strong>The proper version.</strong> Pull the switch with a switch puller, open the housing with a switch opener (four clips, two per side), and lube the stem rails, the inside of the housing rails, and the base of the stem — leaving the contact leaves strictly alone. Reassemble, refit.</p>
+
+    <p>The proper version is dramatically better and dramatically slower. For a full board you are looking at two to three hours. Most people do the keys they actually notice — spacebar, Enter, the home row — and leave the rest.</p>
+
+    <p>Quantity is the thing beginners get wrong. You want a film so thin it is barely visible, applied with a brush that looks almost dry. Too much lubricant makes a linear switch feel sluggish and mutes a tactile switch's bump into nothing. You cannot easily take it back off.</p>
+
+    <h2>Spring ping: a different fix entirely</h2>
+
+    <p>Spring ping is the spring itself resonating. Putting grease on the stem rails changes nothing, which is why people report "I lubed it and it still pings".</p>
+
+    <p>Two options. The reliable one is to lube the springs: put them in a bag with a few drops of thin oil, shake, and let the excess drain. This is only possible with the switch open, so it is a hot-swap or desoldering job.</p>
+
+    <p>The other is to replace the springs outright. Cheap springs ping; better ones from a reputable vendor largely do not. If you are already opening every switch, swapping springs costs little extra effort.</p>
+
+    <p>One thing that helps more than either and costs nothing: check whether the ping is coming from the switch at all. Press a key with the board held up off the desk. If the ring disappears, you are hearing case resonance rather than spring ping, and the fix is foam in the case, not lubricant in the switches.</p>
+
+    <h2>Gritty scratch: clean, do not lube</h2>
+
+    <p>A sandy, gritty noise means something is in the housing. Adding lubricant traps it against the rails and turns an occasional scratch into a permanent one.</p>
+
+    <p>Flush the switch with isopropyl alcohol first — the full method is in <a href="/blog/keyboard/sticky-mechanical-switch-fix">fixing a sticky switch without soldering</a>. Get it clean and dry, see how it sounds, and only then decide whether it needs lube.</p>
+
+    <h2>What to use, and what not to</h2>
+
+    <p>For linear switches: Krytox 205g0. It is the default recommendation for good reason and a 3ml syringe does a whole keyboard several times over.</p>
+
+    <p>For tactile switches: something thinner, such as Krytox 105, or a dry lube. Thick grease on a tactile switch flattens the bump. Some people deliberately do not lube tactiles at all for this reason.</p>
+
+    <p>For springs: a thin oil, applied by the bag method above.</p>
+
+    <p>Never: WD-40, 3-in-1, sewing machine oil, cooking oil, petroleum jelly, or graphite powder. The petroleum-based ones attack switch housings and keycap plastic over weeks, and graphite is conductive — putting it inside an electrical switch is asking for a short.</p>
+
+    <h2>Test after, not just before</h2>
+
+    <p>Lubricant near the contact leaves is the one genuine risk in all of this, and it presents as a key that has gone quiet and also stopped working. After lubing, run every key you touched through the <a href="/keyboard-test">keyboard test</a> and confirm each registers.</p>
+
+    <p>If a key has gone dead after lubing, do not panic and do not add anything. Pull the switch, open it, and clean the leaves with isopropyl alcohol on a swab. It almost always comes back.</p>
+
+    <div class="cta-box">
+      <p>Confirm every switch you opened still registers properly.</p>
+      <a class="btn" href="/keyboard-test">Open the keyboard test →</a>
+    </div>
+
+    <h2>Is it worth doing?</h2>
+
+    <p>Honestly, it depends what is bothering you. If one or two keys squeak, lubing those keys is twenty minutes well spent. If the whole board sounds scratchy and cheap, lubing all of it is a long evening that produces a genuinely transformed keyboard — people are not exaggerating about that part.</p>
+
+    <p>But if you have a board with soldered switches and no soldering experience, buying a hot-swap board you can maintain is a better use of money than learning to desolder on the keyboard you depend on.</p>
+
+    <h2>FAQ</h2>
+
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>Can I lube switches without opening them?</summary>
+        <div class="faq-answer">
+          <p>Partly. Holding the switch depressed exposes the stem rails, and a fine brush can reach them, which removes a good share of the squeak in about a minute per key.</p>
+          <p>You cannot reach the housing rails or the spring that way, so the result is noticeably less good than opening the switch. It is a reasonable compromise on a soldered board.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Why does my keyboard still ping after lubing?</summary>
+        <div class="faq-answer">
+          <p>Because spring ping and stem squeak are different problems. Lubricant on the stem rails does nothing for a resonating spring.</p>
+          <p>Lube the springs themselves, replace them, or check whether the ring is actually case resonance by lifting the board off the desk and listening again.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>How much lube per switch?</summary>
+        <div class="faq-answer">
+          <p>Far less than feels right. A thin, barely visible film on the rails, applied with a brush wiped almost dry.</p>
+          <p>Over-lubing makes linears feel sluggish and kills the bump on tactiles, and removing excess means opening every switch again and swabbing it out.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Will lubing void my keyboard's warranty?</summary>
+        <div class="faq-answer">
+          <p>Opening switches almost certainly will, and on many boards so will removing them. Manufacturers treat it as user modification.</p>
+          <p>If the board is new and under warranty and the noise is genuinely defective rather than just unpleasant, contact support before you take anything apart.</p>
+        </div>
+      </details>
+    </div>
+
+  </article>
+
+  <section class="help-section">
+    <h2>Related tools and guides</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/keyboard-test">
+        <h3>Keyboard Test</h3>
+        <p>Verify every switch still registers after lubing.</p>
+      </a>
+      <a class="help-card" href="/blog/keyboard/sticky-mechanical-switch-fix">
+        <h3>Sticky switch, no soldering</h3>
+        <p>The clean that has to come before any lubricant.</p>
+      </a>
+      <a class="help-card" href="/blog/keyboard/spacebar-rattle-fix">
+        <h3>Rattling spacebar</h3>
+        <p>Stabilizer noise, which lubricant fixes differently.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/#mouse">Mouse</a>
+    <a href="/#keyboard-tools">Keyboard</a>
+    <a href="/#gaming">Gaming</a>
+    <a href="/#guides">Guides</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/sitemap">Sitemap</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/cookies-policy">Cookies</a>
+    <a href="/terms-and-conditions">Terms</a>
+    <a href="/disclaimer">Disclaimer</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/cookies-policy">Cookies Policy</a>.</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
+    <button type="button" class="btn" id="cookie-accept">Accept</button>
+  </div>
+</div>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

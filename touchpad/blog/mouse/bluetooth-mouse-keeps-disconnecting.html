@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="en_US">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Bluetooth Mouse Keeps Disconnecting on Windows 11 (Power Fix)</title>
+<meta name="description" content="Windows is allowed to switch your Bluetooth adapter off to save power, and it does. The two settings that cause most dropouts, plus the pairing reset that fixes the rest.">
+<link rel="canonical" href="https://hardwaretesthub.net/blog/mouse/bluetooth-mouse-keeps-disconnecting">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hardwaretesthub.net/blog/mouse/bluetooth-mouse-keeps-disconnecting">
+<meta property="og:title" content="Bluetooth Mouse Keeps Disconnecting on Windows 11 (Power Fix)">
+<meta property="og:description" content="Windows is allowed to switch your Bluetooth adapter off to save power, and it does. The two settings that cause most dropouts, plus the pairing reset that fixes the rest.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<meta name="google-adsense-account" content="ca-pub-1082746041497676">
+<!-- Google Consent Mode v2 defaults. Must run BEFORE the adsbygoogle tag
+     below, so ads and measurement start in the denied state and only move to
+     granted if the visitor accepts in the cookie banner (js/app.js). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500
+});
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://hardwaretesthub.net/blog/mouse/bluetooth-mouse-keeps-disconnecting#article",
+      "headline": "Bluetooth Mouse Keeps Disconnecting on Windows 11",
+      "name": "Bluetooth Mouse Keeps Disconnecting on Windows 11 (Power Fix)",
+      "description": "Windows is allowed to switch your Bluetooth adapter off to save power, and it does. The two settings that cause most dropouts, plus the pairing reset that fixes the rest.",
+      "url": "https://hardwaretesthub.net/blog/mouse/bluetooth-mouse-keeps-disconnecting",
+      "mainEntityOfPage": "https://hardwaretesthub.net/blog/mouse/bluetooth-mouse-keeps-disconnecting",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23",
+      "image": "https://hardwaretesthub.net/og-image.png",
+      "author": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "publisher": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://hardwaretesthub.net/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hardwaretesthub.net/#guides"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Bluetooth Mouse Keeps Disconnecting on Windows 11",
+          "item": "https://hardwaretesthub.net/blog/mouse/bluetooth-mouse-keeps-disconnecting"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/blog/mouse/bluetooth-mouse-keeps-disconnecting#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/blog/mouse/bluetooth-mouse-keeps-disconnecting#article"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why does my mouse reconnect as soon as I click it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "That is the signature of idle power saving rather than a fault. Windows suspends the adapter when nothing is happening, and activity wakes it. Untick \"Allow the computer to turn off this device to save power\" on both the Bluetooth adapter and the mouse in Device Manager, then restart."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does disabling Bluetooth power management hurt battery life?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On a laptop, slightly — you are preventing the radio from idling down. In practice the difference is small, usually a few minutes over a full charge. On a desktop it is irrelevant. Either way, a mouse that works is usually worth more than the saving."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "My mouse works on my phone but disconnects on my PC. Why?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "That points firmly at the PC rather than the mouse — most likely power management, the Bluetooth driver, or 2.4GHz interference from USB 3.0 devices nearby. Note that many mice can only hold one active connection, so if the phone is still paired and nearby, the mouse may be reconnecting to it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I use the dongle instead if my mouse came with one?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For gaming or anything latency-sensitive, yes — a dedicated 2.4GHz dongle has lower latency, higher polling rates, and recovers from interference better. For general desktop use Bluetooth is fine, and saves a USB port. If you have exhausted the fixes above, switching to the dongle is a reliable way to end the problem."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/#mouse">Mouse</a>
+      <a href="/#keyboard-tools">Keyboard</a>
+      <a href="/#gaming">Gaming</a>
+      <a href="/#guides">Guides</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <article class="article">
+    <div class="kicker">Troubleshooting</div>
+    <h1>Bluetooth Mouse Keeps Disconnecting on Windows 11</h1>
+    <div class="meta">Updated September 2026 · 5 min read</div>
+
+    <p>If your Bluetooth mouse goes dead after a few minutes of not being touched, and comes back when you click or wiggle it, you are not looking at a fault. You are looking at a Windows power setting doing exactly what it was configured to do.</p>
+
+    <p>There are two separate settings involved, and fixing only one is why people report that "turning off power management didn't work".</p>
+
+    <h2>Fix 1: stop Windows powering down the adapter</h2>
+
+    <p>Open Device Manager (right-click Start), and check <strong>both</strong> of these:</p>
+
+    <p><strong>The Bluetooth adapter.</strong> Expand <strong>Bluetooth</strong>, find the entry that is your adapter — usually something like "Intel Wireless Bluetooth" or "Realtek Bluetooth Adapter", not the individual paired devices. Properties → <strong>Power Management</strong> tab → untick <strong>Allow the computer to turn off this device to save power</strong>.</p>
+
+    <p><strong>The mouse itself.</strong> Still under Bluetooth, find the entry named after your mouse. If it has a Power Management tab, untick the same box there.</p>
+
+    <p>Then restart. This alone fixes the majority of "disconnects when idle" cases.</p>
+
+    <p>If the adapter is a USB Bluetooth dongle rather than built in, also go through <strong>Universal Serial Bus controllers</strong> and untick the same box on every <em>USB Root Hub</em> entry, then set <strong>USB selective suspend</strong> to Disabled under Power Options → advanced settings.</p>
+
+    <h2>Fix 2: check your power plan</h2>
+
+    <p>On a laptop, the Balanced and Power Saver plans are aggressive about switching radios off. Control Panel → Power Options → Change plan settings → Change advanced power settings.</p>
+
+    <p>Set <strong>Wireless Adapter Settings → Power Saving Mode</strong> to <strong>Maximum Performance</strong>, on battery as well as plugged in. That setting nominally covers Wi-Fi, but on combo cards — which is most laptops, where Wi-Fi and Bluetooth share one chip — it affects Bluetooth too.</p>
+
+    <p>Windows 11's "Energy saver" mode does something similar and can re-enable aggressive radio power saving regardless of the plan settings. If dropouts started when the battery got low, that is why.</p>
+
+    <h2>Fix 3: re-pair properly</h2>
+
+    <p>A corrupted pairing produces intermittent disconnects that no amount of power settings will fix. Worth doing if the settings above did not help.</p>
+
+    <p>The important part is doing it thoroughly:</p>
+
+    <ol>
+      <li>Settings → Bluetooth &amp; devices → find the mouse → <strong>Remove device</strong>.</li>
+      <li>Turn the mouse off.</li>
+      <li>Restart the computer. Do not skip this — it clears the Bluetooth stack's cached state.</li>
+      <li>Turn the mouse on and put it into pairing mode (usually holding the connect button until the LED flashes quickly).</li>
+      <li>Pair it fresh.</li>
+    </ol>
+
+    <p>If the mouse supports multiple paired hosts — many do, with 1/2/3 buttons underneath — make sure it is on the right channel. A mouse quietly trying to reconnect to a phone you paired months ago behaves exactly like one with a fault.</p>
+
+    <h2>Fix 4: the boring ones that are often the answer</h2>
+
+    <p><strong>Battery.</strong> A Bluetooth mouse with a weak battery disconnects intermittently well before it stops working. If it has been months, change it first.</p>
+
+    <p><strong>Interference.</strong> Bluetooth shares 2.4GHz with Wi-Fi and USB 3.0 noise. If the mouse drops out when you are copying files to an external SSD, that is not a coincidence — see <a href="/blog/mouse/wireless-mouse-stuttering">wireless mouse stuttering</a>, which applies equally here.</p>
+
+    <p><strong>Driver.</strong> Get the Bluetooth driver from your laptop or motherboard manufacturer rather than letting Windows Update supply a generic one. This matters more for Bluetooth than for most devices — generic Intel drivers on a manufacturer-customised card are a recurring source of dropouts.</p>
+
+    <h2>Confirm the fix rather than hoping</h2>
+
+    <p>The problem with intermittent faults is you never quite know whether they are gone. Give it a deliberate test: after making a change, leave the mouse untouched for ten minutes, then come back and move it.</p>
+
+    <p>If it responds instantly, idle power-down is no longer happening. If there is a half-second lag before it wakes, the adapter is still being suspended and you have missed one of the settings above.</p>
+
+    <p>Then check it is tracking properly rather than just connected — open the <a href="/mouse-test">mouse test</a> and move the mouse in circles, watching for gaps in the trail. A connection that is technically alive but dropping packets shows up there clearly.</p>
+
+    <div class="cta-box">
+      <p>Check the link is clean, not just connected.</p>
+      <a class="btn" href="/mouse-test">Open the mouse test →</a>
+    </div>
+
+    <h2>When Bluetooth is the wrong tool</h2>
+
+    <p>If you have worked through all of this and it still drops, consider whether Bluetooth suits your situation. It is convenient and it uses no USB port, but it has higher latency than a dedicated 2.4GHz dongle, lower polling rates, and less robust recovery from interference.</p>
+
+    <p>Many mice support both. If yours came with a dongle you never plugged in, switching to it will likely end the problem outright.</p>
+
+    <h2>FAQ</h2>
+
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>Why does my mouse reconnect as soon as I click it?</summary>
+        <div class="faq-answer">
+          <p>That is the signature of idle power saving rather than a fault. Windows suspends the adapter when nothing is happening, and activity wakes it.</p>
+          <p>Untick "Allow the computer to turn off this device to save power" on both the Bluetooth adapter and the mouse in Device Manager, then restart.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Does disabling Bluetooth power management hurt battery life?</summary>
+        <div class="faq-answer">
+          <p>On a laptop, slightly — you are preventing the radio from idling down. In practice the difference is small, usually a few minutes over a full charge.</p>
+          <p>On a desktop it is irrelevant. Either way, a mouse that works is usually worth more than the saving.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>My mouse works on my phone but disconnects on my PC. Why?</summary>
+        <div class="faq-answer">
+          <p>That points firmly at the PC rather than the mouse — most likely power management, the Bluetooth driver, or 2.4GHz interference from USB 3.0 devices nearby.</p>
+          <p>Note that many mice can only hold one active connection, so if the phone is still paired and nearby, the mouse may be reconnecting to it.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Should I use the dongle instead if my mouse came with one?</summary>
+        <div class="faq-answer">
+          <p>For gaming or anything latency-sensitive, yes — a dedicated 2.4GHz dongle has lower latency, higher polling rates, and recovers from interference better.</p>
+          <p>For general desktop use Bluetooth is fine, and saves a USB port. If you have exhausted the fixes above, switching to the dongle is a reliable way to end the problem.</p>
+        </div>
+      </details>
+    </div>
+
+  </article>
+
+  <section class="help-section">
+    <h2>Related tools and guides</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/mouse-test">
+        <h3>Mouse Test</h3>
+        <p>Check the link is clean, not just connected.</p>
+      </a>
+      <a class="help-card" href="/blog/mouse/wireless-mouse-stuttering">
+        <h3>Wireless mouse stuttering</h3>
+        <p>2.4GHz interference, which hits Bluetooth too.</p>
+      </a>
+      <a class="help-card" href="/blog/keyboard/keyboard-disconnects-randomly">
+        <h3>Keyboard disconnecting</h3>
+        <p>The same power management trap, over USB.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/#mouse">Mouse</a>
+    <a href="/#keyboard-tools">Keyboard</a>
+    <a href="/#gaming">Gaming</a>
+    <a href="/#guides">Guides</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/sitemap">Sitemap</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/cookies-policy">Cookies</a>
+    <a href="/terms-and-conditions">Terms</a>
+    <a href="/disclaimer">Disclaimer</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/cookies-policy">Cookies Policy</a>.</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
+    <button type="button" class="btn" id="cookie-accept">Accept</button>
+  </div>
+</div>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

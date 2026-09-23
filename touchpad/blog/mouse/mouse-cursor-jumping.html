@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="en_US">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Why Is My Mouse Cursor Jumping Across the Screen Randomly?</title>
+<meta name="description" content="A cursor that teleports, skips or drifts is usually the surface under the sensor — not a failing mouse. How to rule out surface, interference and touchpad in order.">
+<link rel="canonical" href="https://hardwaretesthub.net/blog/mouse/mouse-cursor-jumping">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hardwaretesthub.net/blog/mouse/mouse-cursor-jumping">
+<meta property="og:title" content="Why Is My Mouse Cursor Jumping Across the Screen Randomly?">
+<meta property="og:description" content="A cursor that teleports, skips or drifts is usually the surface under the sensor — not a failing mouse. How to rule out surface, interference and touchpad in order.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<meta name="google-adsense-account" content="ca-pub-1082746041497676">
+<!-- Google Consent Mode v2 defaults. Must run BEFORE the adsbygoogle tag
+     below, so ads and measurement start in the denied state and only move to
+     granted if the visitor accepts in the cookie banner (js/app.js). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500
+});
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://hardwaretesthub.net/blog/mouse/mouse-cursor-jumping#article",
+      "headline": "Why Is My Mouse Cursor Jumping Across the Screen Randomly?",
+      "name": "Why Is My Mouse Cursor Jumping Across the Screen Randomly?",
+      "description": "A cursor that teleports, skips or drifts is usually the surface under the sensor — not a failing mouse. How to rule out surface, interference and touchpad in order.",
+      "url": "https://hardwaretesthub.net/blog/mouse/mouse-cursor-jumping",
+      "mainEntityOfPage": "https://hardwaretesthub.net/blog/mouse/mouse-cursor-jumping",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23",
+      "image": "https://hardwaretesthub.net/og-image.png",
+      "author": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "publisher": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://hardwaretesthub.net/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hardwaretesthub.net/#guides"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Why Is My Mouse Cursor Jumping Across the Screen Randomly?",
+          "item": "https://hardwaretesthub.net/blog/mouse/mouse-cursor-jumping"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/blog/mouse/mouse-cursor-jumping#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/blog/mouse/mouse-cursor-jumping#article"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why does my cursor jump to the corner of the screen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "That is the signature of the sensor losing tracking completely. When it cannot read the surface, it reports a nonsense movement value, and the cursor ends up pinned at a screen edge. Test on a sheet of printer paper. If it stops, your surface was unreadable — glass, gloss, or a mat worn smooth in the middle."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a mouse pad wear out?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, and it is a common cause people rarely suspect. Cloth mats develop a polished patch where the mouse spends most of its time, and that patch loses the texture the sensor needs. The giveaway is jumping that happens in one area of the mat but not at the edges."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does mouse acceleration cause jumping?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It does not cause it, but it makes it considerably more obvious by multiplying fast movements. Turning off \"Enhance pointer precision\" in Pointer Options will not fix a tracking fault, but it makes the underlying behaviour much easier to judge — and most people prefer the mouse without it regardless."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "My cursor moves on its own with no mouse connected. What now?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Something else is acting as a pointing device. On a laptop, the touchpad. On a desktop, a games controller with a drifting stick, a graphics tablet, or a second mouse you have forgotten about. Disconnect input devices one at a time until the drift stops — that identifies the culprit faster than any settings change."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/#mouse">Mouse</a>
+      <a href="/#keyboard-tools">Keyboard</a>
+      <a href="/#gaming">Gaming</a>
+      <a href="/#guides">Guides</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <article class="article">
+    <div class="kicker">Troubleshooting</div>
+    <h1>Why Is My Mouse Cursor Jumping Across the Screen Randomly?</h1>
+    <div class="meta">Updated September 2026 · 6 min read</div>
+
+    <p>Three different faults get described as "jumping", and they have almost nothing in common. Working out which one you have takes a minute and saves you trying fixes that were never going to help.</p>
+
+    <ul>
+      <li><strong>Teleporting</strong> — the cursor vanishes and reappears somewhere else entirely, usually a screen corner. Almost always the sensor losing tracking.</li>
+      <li><strong>Stuttering</strong> — movement is jerky but roughly follows your hand. Usually interference or a polling problem.</li>
+      <li><strong>Drifting</strong> — the cursor moves on its own while you are not touching the mouse. Usually a touchpad, a stuck button, or a second input device.</li>
+    </ul>
+
+    <p>The <a href="/mouse-test">mouse test</a> is useful here because it draws the actual movement path. A teleport shows as a straight line shooting across the canvas; stutter shows as a broken, gappy trail; drift shows as movement recorded when your hand is nowhere near the mouse.</p>
+
+    <h2>Teleporting: look at the surface first</h2>
+
+    <p>Optical and laser sensors work by photographing the surface hundreds or thousands of times a second and comparing frames. When the sensor cannot find a pattern to lock onto, tracking collapses and the cursor lands somewhere arbitrary.</p>
+
+    <p>Surfaces that cause this: glass and high-gloss desks, plain white surfaces with no texture, mirrored or metallic finishes, and — the one that catches people out — a mouse mat that has worn smooth in the middle where it gets used most.</p>
+
+    <p>Test it properly. Put a sheet of ordinary printer paper down and use the mouse on that for a few minutes. Paper has plenty of texture for any sensor. If the teleporting stops, your surface was the problem, and a cheap cloth mat solves it permanently.</p>
+
+    <p>If the surface is fine, look at the sensor lens. Dust, a hair across the lens, or a smear of something sticky all produce exactly this symptom — see <a href="/blog/mouse/clean-mouse-sensor-lens">cleaning the sensor lens</a>, which takes two minutes and needs nothing but a cotton bud.</p>
+
+    <p>One more, easy to miss: a worn PTFE foot. If one of the skates on the base has worn through or fallen off, the mouse sits at a slight angle and the sensor is now further from the surface than it was designed to be. Replacement feet are a few pounds.</p>
+
+    <h2>Stuttering: interference and polling</h2>
+
+    <p>If movement is jerky rather than teleporting, and especially if the mouse is wireless, interference is the first thing to look at. The full treatment is in <a href="/blog/mouse/wireless-mouse-stuttering">wireless mouse stuttering on 2.4GHz</a>, but the headline is that USB 3.0 ports and the devices attached to them radiate noise in exactly the band wireless mice use.</p>
+
+    <p>On a wired mouse, stutter points elsewhere. Check whether it happens only when the CPU is busy — a system under heavy load can starve the USB polling, and the symptom is a cursor that moves in steps. Check the cable for damage by flexing it near the mouse while watching the cursor.</p>
+
+    <p>Also check you are not running two mouse configuration utilities at once. Vendor software from a previous mouse left installed alongside the current one causes genuinely strange movement behaviour.</p>
+
+    <h2>Drift: find the other input device</h2>
+
+    <p>A cursor that moves while your hand is off the mouse is being driven by something. On a laptop, the answer is nearly always the touchpad — a palm resting near it, or a sensitivity setting that picks up a shirt cuff.</p>
+
+    <p>Disable the touchpad temporarily to confirm: <strong>Settings → Bluetooth &amp; devices → Touchpad</strong>, and switch it off. Most laptops also have an Fn shortcut. If the drift stops, adjust the touchpad's palm rejection sensitivity rather than leaving it disabled permanently.</p>
+
+    <p>On a desktop, look for a second device: a games controller with a drifting analogue stick will move the Windows cursor on many systems, a graphics tablet with the pen resting on it will park the cursor, and a second mouse buried under paperwork with something leaning on it does exactly what you would expect.</p>
+
+    <p>Unplug everything except the one mouse and see what happens. It is crude and it works.</p>
+
+    <div class="cta-box">
+      <p>Watch the actual movement path to see which pattern you have.</p>
+      <a class="btn" href="/mouse-test">Open the mouse test →</a>
+    </div>
+
+    <h2>Settings that make all three worse</h2>
+
+    <p><strong>Enhance pointer precision.</strong> This is Windows mouse acceleration, and it is on by default. It scales cursor movement by how fast you move the mouse, which amplifies any tracking irregularity into something much more visible. Turn it off in <strong>Settings → Bluetooth &amp; devices → Mouse → Additional mouse settings → Pointer Options</strong>. Most people prefer it off anyway once they adjust.</p>
+
+    <p><strong>Very high DPI.</strong> At 16000 DPI, a sensor irregularity of a fraction of a millimetre becomes a visible jump on screen. If your mouse is set far higher than you need, drop it — 800 to 1600 suits most people on a 1080p or 1440p display. See <a href="/blog/mouse/mouse-dpi-changed-reset">resetting mouse DPI</a> if you are not sure what yours is set to.</p>
+
+    <p><strong>Angle snapping.</strong> Some vendor software has a "straight line correction" option. It does not cause jumping, but it masks tracking problems, so turn it off while diagnosing.</p>
+
+    <h2>If nothing above fixes it</h2>
+
+    <p>Try the mouse on another computer. That single test separates "this mouse" from "this PC" better than anything else, and it is worth doing before spending money.</p>
+
+    <p>If the mouse jumps on every computer, on paper, with a clean lens and fresh feet, the sensor is failing. That does happen, particularly after a drop — the sensor sits very close to the surface and a hard knock can shift its alignment permanently.</p>
+
+    <p>If it behaves on another machine, you are looking at drivers, interference, or a background utility on your own, and the clean-boot approach will find it faster than guessing.</p>
+
+    <h2>FAQ</h2>
+
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>Why does my cursor jump to the corner of the screen?</summary>
+        <div class="faq-answer">
+          <p>That is the signature of the sensor losing tracking completely. When it cannot read the surface, it reports a nonsense movement value, and the cursor ends up pinned at a screen edge.</p>
+          <p>Test on a sheet of printer paper. If it stops, your surface was unreadable — glass, gloss, or a mat worn smooth in the middle.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Can a mouse pad wear out?</summary>
+        <div class="faq-answer">
+          <p>Yes, and it is a common cause people rarely suspect. Cloth mats develop a polished patch where the mouse spends most of its time, and that patch loses the texture the sensor needs.</p>
+          <p>The giveaway is jumping that happens in one area of the mat but not at the edges.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Does mouse acceleration cause jumping?</summary>
+        <div class="faq-answer">
+          <p>It does not cause it, but it makes it considerably more obvious by multiplying fast movements.</p>
+          <p>Turning off "Enhance pointer precision" in Pointer Options will not fix a tracking fault, but it makes the underlying behaviour much easier to judge — and most people prefer the mouse without it regardless.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>My cursor moves on its own with no mouse connected. What now?</summary>
+        <div class="faq-answer">
+          <p>Something else is acting as a pointing device. On a laptop, the touchpad. On a desktop, a games controller with a drifting stick, a graphics tablet, or a second mouse you have forgotten about.</p>
+          <p>Disconnect input devices one at a time until the drift stops — that identifies the culprit faster than any settings change.</p>
+        </div>
+      </details>
+    </div>
+
+  </article>
+
+  <section class="help-section">
+    <h2>Related tools and guides</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/mouse-test">
+        <h3>Mouse Test</h3>
+        <p>See the real movement path your sensor is reporting.</p>
+      </a>
+      <a class="help-card" href="/blog/mouse/clean-mouse-sensor-lens">
+        <h3>Clean the sensor lens</h3>
+        <p>Two minutes, and it fixes a lot of tracking faults.</p>
+      </a>
+      <a class="help-card" href="/blog/mouse/mouse-light-on-cursor-not-moving">
+        <h3>Light on, cursor frozen</h3>
+        <p>When the cursor stops entirely rather than jumping.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/#mouse">Mouse</a>
+    <a href="/#keyboard-tools">Keyboard</a>
+    <a href="/#gaming">Gaming</a>
+    <a href="/#guides">Guides</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/sitemap">Sitemap</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/cookies-policy">Cookies</a>
+    <a href="/terms-and-conditions">Terms</a>
+    <a href="/disclaimer">Disclaimer</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/cookies-policy">Cookies Policy</a>.</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
+    <button type="button" class="btn" id="cookie-accept">Accept</button>
+  </div>
+</div>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

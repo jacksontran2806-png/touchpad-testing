@@ -97,43 +97,44 @@ gtag("consent", "default", {
           "item": "https://hardwaretesthub.net/mouse-double-click-test"
         }
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/mouse-double-click-test#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/mouse-double-click-test#app"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What sensitivity threshold should I use for this test?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Start with the default 50ms — it's well above the fastest any human can physically release and press a button again, so anything flagged at that threshold is almost certainly a real misfire. Lower it to 30ms only if you want to be extra conservative about false positives, or raise it to 80-120ms if you have unusually fast, deliberate clicks and want to rule those out first."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can software fix a mouse that's double-clicking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sometimes, temporarily. Some manufacturer software and third-party debounce utilities can filter out a second click that arrives within a set time window, which papers over a worn switch without fixing it. It's a reasonable stopgap, but the underlying switch typically keeps degrading and will eventually need a hardware fix."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long do mouse switches usually last before this happens?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most mechanical mouse switches are rated for somewhere around 10-50 million clicks depending on quality, which for typical daily use works out to roughly 1-5 years before chatter starts appearing. Heavy gaming use or a naturally lower-rated switch can bring that timeline forward considerably."
+          }
+        }
+      ]
     }
   ]
 }
 </script>
 <!-- SCHEMA:END -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What sensitivity threshold should I use for this test?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Start with the default 50ms — it's well above the fastest any human can physically release and press a button again, so anything flagged at that threshold is almost certainly a real misfire. Lower it to 30ms only if you want to be extra conservative about false positives, or raise it to 80-120ms if you have unusually fast, deliberate clicks and want to rule those out first."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can software fix a mouse that's double-clicking?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sometimes, temporarily. Some manufacturer software and third-party debounce utilities can filter out a second click that arrives within a set time window, which papers over a worn switch without fixing it. It's a reasonable stopgap, but the underlying switch typically keeps degrading and will eventually need a hardware fix."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long do mouse switches usually last before this happens?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Most mechanical mouse switches are rated for somewhere around 10-50 million clicks depending on quality, which for typical daily use works out to roughly 1-5 years before chatter starts appearing. Heavy gaming use or a naturally lower-rated switch can bring that timeline forward considerably."
-      }
-    }
-  ]
-}
-</script>
 </head>
 <body>
 
@@ -271,7 +272,9 @@ gtag("consent", "default", {
     <a href="/#guides">Guides</a>
     <a href="/about">About</a>
     <a href="/contact">Contact</a>
+    <a href="/sitemap">Sitemap</a>
     <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/cookies-policy">Cookies</a>
     <a href="/terms-and-conditions">Terms</a>
     <a href="/disclaimer">Disclaimer</a>
   </div>
@@ -279,7 +282,7 @@ gtag("consent", "default", {
 </footer>
 
 <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
-  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/privacy-policy">Privacy Policy</a>.</p>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/cookies-policy">Cookies Policy</a>.</p>
   <div class="cookie-actions">
     <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
     <button type="button" class="btn" id="cookie-accept">Accept</button>

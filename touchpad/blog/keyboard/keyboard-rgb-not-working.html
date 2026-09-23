@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="en_US">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Keyboard RGB Lighting Stopped Working or Flickering? Fix Guide</title>
+<meta name="description" content="Dead zones, flickering, or lighting that quit entirely. Why RGB problems are usually power or software rather than dead LEDs, and how to tell which one you have.">
+<link rel="canonical" href="https://hardwaretesthub.net/blog/keyboard/keyboard-rgb-not-working">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hardwaretesthub.net/blog/keyboard/keyboard-rgb-not-working">
+<meta property="og:title" content="Keyboard RGB Lighting Stopped Working or Flickering? Fix Guide">
+<meta property="og:description" content="Dead zones, flickering, or lighting that quit entirely. Why RGB problems are usually power or software rather than dead LEDs, and how to tell which one you have.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<meta name="google-adsense-account" content="ca-pub-1082746041497676">
+<!-- Google Consent Mode v2 defaults. Must run BEFORE the adsbygoogle tag
+     below, so ads and measurement start in the denied state and only move to
+     granted if the visitor accepts in the cookie banner (js/app.js). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500
+});
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://hardwaretesthub.net/blog/keyboard/keyboard-rgb-not-working#article",
+      "headline": "Keyboard RGB Stopped Working or Flickering? Fix Guide",
+      "name": "Keyboard RGB Lighting Stopped Working or Flickering? Fix Guide",
+      "description": "Dead zones, flickering, or lighting that quit entirely. Why RGB problems are usually power or software rather than dead LEDs, and how to tell which one you have.",
+      "url": "https://hardwaretesthub.net/blog/keyboard/keyboard-rgb-not-working",
+      "mainEntityOfPage": "https://hardwaretesthub.net/blog/keyboard/keyboard-rgb-not-working",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23",
+      "image": "https://hardwaretesthub.net/og-image.png",
+      "author": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "publisher": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://hardwaretesthub.net/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://hardwaretesthub.net/#guides"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Keyboard RGB Stopped Working or Flickering? Fix Guide",
+          "item": "https://hardwaretesthub.net/blog/keyboard/keyboard-rgb-not-working"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/blog/keyboard/keyboard-rgb-not-working#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/blog/keyboard/keyboard-rgb-not-working#article"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can RGB lighting drain a laptop battery noticeably?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, more than people expect. A full-brightness RGB keyboard can pull a couple of watts, which on a thin-and-light laptop is a real fraction of idle draw. Most laptops dim or disable keyboard lighting on battery by design, which is also why lighting \"stops working\" the moment you unplug the charger. That is intended behaviour, not a fault."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does my lighting reset every time I restart?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because the profile is being stored in the software rather than on the keyboard, and the software loads after Windows does. There is a gap where the board shows its onboard default. If your keyboard supports onboard memory, save the profile to the board itself. Then it applies the instant it gets power, with no software involved."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is a dead LED worth repairing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On a hot-swap board with LEDs in the switches, yes — swapping the switch swaps the LED and costs pence. On a board with LEDs soldered to the PCB, it is a fine soldering job on a small surface-mount component. Worth it only if you enjoy that sort of thing or the board is expensive."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does turning RGB off make the keyboard perform better?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not in any way you can measure. Lighting is handled separately from key scanning, and switching it off does not reduce input latency or improve polling. It does reduce power draw, which matters on a laptop or on a marginal USB port — and that is the one case where turning it off genuinely helps."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/#mouse">Mouse</a>
+      <a href="/#keyboard-tools">Keyboard</a>
+      <a href="/#gaming">Gaming</a>
+      <a href="/#guides">Guides</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <article class="article">
+    <div class="kicker">Troubleshooting</div>
+    <h1>Keyboard RGB Stopped Working or Flickering? Fix Guide</h1>
+    <div class="meta">Updated September 2026 · 6 min read</div>
+
+    <p>RGB problems feel like hardware failures and usually are not. LEDs are among the most reliable components in a keyboard — they routinely outlast the switches. When lighting misbehaves, the cause is almost always power delivery, software, or a setting, in roughly that order of likelihood.</p>
+
+    <p>The useful first question is whether the keyboard still <em>types</em> correctly. Run it through the <a href="/keyboard-test">keyboard test</a> before you do anything else. Lighting that fails while typing stays perfect is a very different problem from lighting and typing failing together — the second points at the USB connection, and that changes everything below.</p>
+
+    <h2>Start with the shortcut you pressed by accident</h2>
+
+    <p>Before opening any software: nearly every keyboard has a brightness shortcut, and nearly every one of them is two keys apart from something you use constantly.</p>
+
+    <p>Look for <strong>Fn</strong> plus the up or down arrow, or Fn plus a key with a small sun or brightness icon — often on the F-row, or on Page Up and Page Down. Press the "increase" direction five or six times.</p>
+
+    <p>RGB has brightness steps, and the lowest step is usually <em>off</em>, not dim. So a keyboard whose lighting has "died" has very often just been stepped down to zero by someone reaching for Page Down. It costs ten seconds to rule out and it is the answer more often than anything else here.</p>
+
+    <p>While you are there, check the effect too — many boards have a "reactive" mode where keys light only on press, and an idle keyboard in that mode looks broken.</p>
+
+    <h2>If the lighting is flickering</h2>
+
+    <p>Flickering is a power symptom, near enough always. A full RGB keyboard at maximum brightness can draw close to the 500mA a USB 2.0 port is specified to deliver, and the LEDs are the first thing to misbehave when supply sags.</p>
+
+    <p>Things that cause it, in the order worth testing:</p>
+
+    <ul>
+      <li><strong>An unpowered USB hub.</strong> The most common cause by a distance. Plug the keyboard directly into the computer instead. If the flicker stops, the hub was the problem — either use a powered hub or keep the keyboard on a direct port.</li>
+      <li><strong>A front-panel port.</strong> Front and top case ports run through an internal header and a length of thin cable, and they sag under load in a way rear ports do not. Move to a rear port, which connects to the motherboard directly.</li>
+      <li><strong>The cable.</strong> Detachable USB-C cables on keyboards are a weak point, and a partly damaged cable delivers enough power to enumerate but not enough to run LEDs steadily. Swap it for a known-good one — this is worth doing early because it is free.</li>
+      <li><strong>Two high-draw devices on one controller.</strong> A keyboard and an RGB mouse sharing a port cluster can exceed the controller's budget. Move one somewhere else.</li>
+    </ul>
+
+    <p>If you have a keyboard with a second "power" USB plug — some older full-RGB boards ship with a split cable — both need to be connected. People plug in one and wonder why the lighting is unstable.</p>
+
+    <h2>If a section has gone dark</h2>
+
+    <p>A whole block of keys dark while the rest works is one of the few genuinely hardware-shaped RGB faults, but check the boring explanation first: many lighting effects and custom profiles deliberately leave zones unlit. Cycle through the built-in effects with the Fn shortcut. If every effect shows the same dark block, it is not the effect.</p>
+
+    <p>After that, the likely cause is a failed connection on that part of the PCB — often after a liquid spill, or a knock, or a case that was reassembled with a ribbon cable pinched. On a board with a detachable plate assembly, reseating the internal ribbon connector sometimes brings a dead zone back.</p>
+
+    <p>A single dead key LED, as opposed to a zone, does happen and is genuinely a dead LED. On a hot-swap board with per-switch LEDs mounted in the switch (rather than the PCB), swapping the switch swaps the LED. On a board with PCB-mounted LEDs, it is a soldering job for one component.</p>
+
+    <h2>If lighting quit entirely and typing is fine</h2>
+
+    <p>Work through these in order:</p>
+
+    <ol>
+      <li><strong>Brightness shortcut.</strong> Covered above, but worth repeating because people skip it.</li>
+      <li><strong>Unplug for thirty seconds.</strong> Keyboard controllers hold lighting state in volatile memory and can get stuck. A real power cycle — not a reboot, which often keeps USB powered — clears it. On wireless boards, power off and remove the dongle too.</li>
+      <li><strong>Check the software is running.</strong> iCUE, Synapse, GHUB, Armoury Crate and friends push lighting to the keyboard. If the service has crashed or failed to start after an update, lighting can fall to off rather than to the onboard default. Restart the application, then restart its background service.</li>
+      <li><strong>Reinstall that software.</strong> Vendor lighting suites break themselves on update with some regularity. A clean reinstall — uninstall, reboot, install fresh — fixes a surprising proportion of "my RGB died" reports.</li>
+      <li><strong>Factory reset the keyboard.</strong> Usually holding Esc while plugging in, or a documented Fn combination. This clears onboard profiles, including a corrupted lighting profile.</li>
+      <li><strong>Update the firmware.</strong> Last, not first. Firmware updates fix real lighting bugs, but a failed flash creates a much bigger problem than the one you started with. Make sure the keyboard is on a direct rear USB port before you flash anything.</li>
+    </ol>
+
+    <h2>The software conflict nobody expects</h2>
+
+    <p>Running two lighting applications at once causes chaos: each tries to own the device, they fight over it, and the symptom is flickering, colour snapping between profiles, or lighting that works until the other app wakes up.</p>
+
+    <p>This happens more than you would think — OpenRGB alongside a vendor suite, SignalRGB alongside iCUE, or motherboard lighting software that has claimed the keyboard as a generic device. Pick one and uninstall the others properly.</p>
+
+    <div class="cta-box">
+      <p>Check the keyboard still registers every key while you troubleshoot.</p>
+      <a class="btn" href="/keyboard-test">Open the keyboard test →</a>
+    </div>
+
+    <h2>When lighting and typing both fail</h2>
+
+    <p>That is not an RGB problem. Everything stopping at once points to the USB connection, the cable, or the controller — see <a href="/blog/keyboard/keyboard-disconnects-randomly">keyboard disconnecting randomly</a> for the connection-side checks, and <a href="/blog/keyboard/keyboard-not-working">keyboard not working</a> for the broader ones.</p>
+
+    <h2>FAQ</h2>
+
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>Can RGB lighting drain a laptop battery noticeably?</summary>
+        <div class="faq-answer">
+          <p>Yes, more than people expect. A full-brightness RGB keyboard can pull a couple of watts, which on a thin-and-light laptop is a real fraction of idle draw.</p>
+          <p>Most laptops dim or disable keyboard lighting on battery by design, which is also why lighting "stops working" the moment you unplug the charger. That is intended behaviour, not a fault.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Why does my lighting reset every time I restart?</summary>
+        <div class="faq-answer">
+          <p>Because the profile is being stored in the software rather than on the keyboard, and the software loads after Windows does. There is a gap where the board shows its onboard default.</p>
+          <p>If your keyboard supports onboard memory, save the profile to the board itself. Then it applies the instant it gets power, with no software involved.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Is a dead LED worth repairing?</summary>
+        <div class="faq-answer">
+          <p>On a hot-swap board with LEDs in the switches, yes — swapping the switch swaps the LED and costs pence.</p>
+          <p>On a board with LEDs soldered to the PCB, it is a fine soldering job on a small surface-mount component. Worth it only if you enjoy that sort of thing or the board is expensive.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Does turning RGB off make the keyboard perform better?</summary>
+        <div class="faq-answer">
+          <p>Not in any way you can measure. Lighting is handled separately from key scanning, and switching it off does not reduce input latency or improve polling.</p>
+          <p>It does reduce power draw, which matters on a laptop or on a marginal USB port — and that is the one case where turning it off genuinely helps.</p>
+        </div>
+      </details>
+    </div>
+
+  </article>
+
+  <section class="help-section">
+    <h2>Related tools and guides</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/keyboard-test">
+        <h3>Keyboard Test</h3>
+        <p>Check typing still works while you chase lighting faults.</p>
+      </a>
+      <a class="help-card" href="/blog/keyboard/keyboard-disconnects-randomly">
+        <h3>Keyboard disconnecting randomly</h3>
+        <p>When lighting and typing drop out together.</p>
+      </a>
+      <a class="help-card" href="/blog/keyboard/keyboard-not-working">
+        <h3>Keyboard not working</h3>
+        <p>The broader checks for a board the OS barely sees.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/#mouse">Mouse</a>
+    <a href="/#keyboard-tools">Keyboard</a>
+    <a href="/#gaming">Gaming</a>
+    <a href="/#guides">Guides</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/sitemap">Sitemap</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/cookies-policy">Cookies</a>
+    <a href="/terms-and-conditions">Terms</a>
+    <a href="/disclaimer">Disclaimer</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/cookies-policy">Cookies Policy</a>.</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
+    <button type="button" class="btn" id="cookie-accept">Accept</button>
+  </div>
+</div>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

@@ -47,46 +47,6 @@ gtag("consent", "default", {
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
 <!-- ADSENSE:END -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Why do gaming keyboards have a WASD and arrow key swap feature?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "It exists for games that do not let you rebind movement controls, including many older and emulated titles that are hard-wired to the arrow keys. Swapping the two clusters in hardware lets a player use the WASD position their hands already know without touching the game's settings. Left-handed players who prefer the arrow cluster use the same feature in reverse."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I know whether the swap is in the keyboard or in the game?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Open a text editor or a keyboard tester and press W. If it types the letter w, your keyboard is fine and the problem is that game's key bindings. If it moves the cursor up or registers as Arrow Up, the swap is in the keyboard hardware and affects every application."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can the WASD swap turn on by accident?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, and it usually does. The toggle is a two-key Fn combination that sits under the same hand position used for common shortcuts, so it is easy to trigger while reaching for something else. Because most keyboards store the setting in onboard memory, it survives a reboot and follows the keyboard to another computer."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does the swap follow the keyboard to another computer?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "On most keyboards, yes. The swap is handled by the keyboard's own controller rather than by a driver, so the remapping is applied before the signal reaches the computer. Plugging the keyboard into a different machine and finding the same behaviour confirms the fault is in the keyboard, not in Windows or macOS."
-      }
-    }
-  ]
-}
-</script>
 <!-- SCHEMA:START -->
 <script type="application/ld+json">
 {
@@ -134,6 +94,55 @@ gtag("consent", "default", {
           "position": 3,
           "name": "WASD Swapped With Arrow Keys? How to Switch Them Back",
           "item": "https://hardwaretesthub.net/blog/keyboard/wasd-arrow-keys-swapped"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/blog/keyboard/wasd-arrow-keys-swapped#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/blog/keyboard/wasd-arrow-keys-swapped#article"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why do gaming keyboards have this swap feature at all?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It exists for games that do not let you rebind movement controls — a long tail of older titles, emulated games, and browser games hard-wired to the arrow keys. Swapping the clusters in hardware lets a player keep the WASD hand position they already know without touching the game's settings. Left-handed players who prefer the arrow cluster use the same feature in the other direction."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I tell whether the swap is in the keyboard or the game?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Leave the game, open a text editor or a keyboard tester, and press W. If it types w, the keyboard is fine and the game's key bindings are the problem. If it moves the cursor up or registers as Arrow Up, the swap is in the keyboard and applies to everything."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can the swap turn on by accident?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, and that is how it usually happens. The toggle is a two-key Fn combination sitting under the same hand position as common shortcuts, so it is easy to trigger while reaching for something else. Because most keyboards store the setting in onboard memory, it survives a reboot and travels with the keyboard, which makes it feel like a much more serious fault than it is."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the swap follow the keyboard to another computer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On most keyboards, yes. The swap is applied by the keyboard's own controller before the signal reaches the computer, so no driver is involved. That also makes it a useful test: plug the keyboard into a different machine, and if the behaviour follows it, the cause is definitely the keyboard rather than your operating system."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "My keyboard has no Fn key. What now?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Full-size boards without an Fn key rarely have a hardware swap layer, so the cause is almost certainly software: a remapping utility, a game binding, or an onboard profile applied through the manufacturer's software. Close any remapping tools, reset the game's controls, and check the keyboard's configuration software for a custom profile."
+          }
         }
       ]
     }
@@ -356,7 +365,9 @@ gtag("consent", "default", {
     <a href="/#guides">Guides</a>
     <a href="/about">About</a>
     <a href="/contact">Contact</a>
+    <a href="/sitemap">Sitemap</a>
     <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/cookies-policy">Cookies</a>
     <a href="/terms-and-conditions">Terms</a>
     <a href="/disclaimer">Disclaimer</a>
   </div>
@@ -364,7 +375,7 @@ gtag("consent", "default", {
 </footer>
 
 <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
-  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/privacy-policy">Privacy Policy</a>.</p>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/cookies-policy">Cookies Policy</a>.</p>
   <div class="cookie-actions">
     <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
     <button type="button" class="btn" id="cookie-accept">Accept</button>

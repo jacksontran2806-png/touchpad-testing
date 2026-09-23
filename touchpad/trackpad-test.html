@@ -97,43 +97,44 @@ gtag("consent", "default", {
           "item": "https://hardwaretesthub.net/trackpad-test"
         }
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/trackpad-test#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/trackpad-test#app"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why doesn't pinch-to-zoom register even though the trackpad works otherwise?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On Windows, gesture support depends on the trackpad driver and is frequently off by default in precision touchpad settings — check Settings → Bluetooth & devices → Touchpad for gesture toggles before assuming a hardware problem. On Mac it's almost always enabled by default, so a Mac trackpad failing this specifically is worth checking under System Settings → Trackpad → Scroll & Zoom."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is two-finger tap for right-click supported here?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — a two-finger tap (Mac's default) or the equivalent Windows precision-touchpad gesture both arrive at the browser as a standard right-click event, and this tool detects it the same as a physical right-click button press. If it doesn't register, confirm the gesture is enabled in your OS trackpad settings first."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this work with an external trackpad, not just a laptop's built-in one?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — a standalone trackpad like Apple's Magic Trackpad sends the same kind of pointer, wheel, and gesture events as a built-in one, so every check on this page applies equally. The main difference is that Bluetooth external trackpads add a step for pairing and driver issues that built-in ones don't have."
+          }
+        }
+      ]
     }
   ]
 }
 </script>
 <!-- SCHEMA:END -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Why doesn't pinch-to-zoom register even though the trackpad works otherwise?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "On Windows, gesture support depends on the trackpad driver and is frequently off by default in precision touchpad settings — check Settings → Bluetooth & devices → Touchpad for gesture toggles before assuming a hardware problem. On Mac it's almost always enabled by default, so a Mac trackpad failing this specifically is worth checking under System Settings → Trackpad → Scroll & Zoom."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is two-finger tap for right-click supported here?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes — a two-finger tap (Mac's default) or the equivalent Windows precision-touchpad gesture both arrive at the browser as a standard right-click event, and this tool detects it the same as a physical right-click button press. If it doesn't register, confirm the gesture is enabled in your OS trackpad settings first."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does this work with an external trackpad, not just a laptop's built-in one?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes — a standalone trackpad like Apple's Magic Trackpad sends the same kind of pointer, wheel, and gesture events as a built-in one, so every check on this page applies equally. The main difference is that Bluetooth external trackpads add a step for pairing and driver issues that built-in ones don't have."
-      }
-    }
-  ]
-}
-</script>
 </head>
 <body>
 
@@ -302,7 +303,9 @@ gtag("consent", "default", {
     <a href="/#guides">Guides</a>
     <a href="/about">About</a>
     <a href="/contact">Contact</a>
+    <a href="/sitemap">Sitemap</a>
     <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/cookies-policy">Cookies</a>
     <a href="/terms-and-conditions">Terms</a>
     <a href="/disclaimer">Disclaimer</a>
   </div>
@@ -310,7 +313,7 @@ gtag("consent", "default", {
 </footer>
 
 <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
-  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/privacy-policy">Privacy Policy</a>.</p>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/cookies-policy">Cookies Policy</a>.</p>
   <div class="cookie-actions">
     <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
     <button type="button" class="btn" id="cookie-accept">Accept</button>

@@ -97,43 +97,44 @@ gtag("consent", "default", {
           "item": "https://hardwaretesthub.net/mouse-scroll-test"
         }
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/mouse-scroll-test#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/mouse-scroll-test#app"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why does my scroll wheel skip every few notches?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Skipped notches almost always trace back to the mechanical or optical encoder inside the wheel losing contact briefly, usually from dust buildup or wear after a few years of use. Compressed air around the wheel clears the majority of cases; if skipping continues after cleaning, the encoder itself has likely worn out."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's a normal deltaY value per scroll notch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It varies by OS, browser, and mouse — commonly somewhere around 100-120 per notch on Windows or a smaller, smoother value on trackpads and precision mice — so there's no single \"correct\" number. What matters is consistency: the same physical scroll motion should produce roughly the same deltaY each time, not the exact figure itself."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a driver update fix erratic scrolling?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sometimes — a corrupted or outdated mouse driver can misreport wheel events even when the hardware itself is fine, so it's worth ruling out before opening the mouse. If a fresh driver install doesn't change the erratic pattern in the log above, the encoder is the more likely cause."
+          }
+        }
+      ]
     }
   ]
 }
 </script>
 <!-- SCHEMA:END -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Why does my scroll wheel skip every few notches?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Skipped notches almost always trace back to the mechanical or optical encoder inside the wheel losing contact briefly, usually from dust buildup or wear after a few years of use. Compressed air around the wheel clears the majority of cases; if skipping continues after cleaning, the encoder itself has likely worn out."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's a normal deltaY value per scroll notch?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "It varies by OS, browser, and mouse — commonly somewhere around 100-120 per notch on Windows or a smaller, smoother value on trackpads and precision mice — so there's no single \"correct\" number. What matters is consistency: the same physical scroll motion should produce roughly the same deltaY each time, not the exact figure itself."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can a driver update fix erratic scrolling?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sometimes — a corrupted or outdated mouse driver can misreport wheel events even when the hardware itself is fine, so it's worth ruling out before opening the mouse. If a fresh driver install doesn't change the erratic pattern in the log above, the encoder is the more likely cause."
-      }
-    }
-  ]
-}
-</script>
 </head>
 <body>
 
@@ -269,7 +270,9 @@ gtag("consent", "default", {
     <a href="/#guides">Guides</a>
     <a href="/about">About</a>
     <a href="/contact">Contact</a>
+    <a href="/sitemap">Sitemap</a>
     <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/cookies-policy">Cookies</a>
     <a href="/terms-and-conditions">Terms</a>
     <a href="/disclaimer">Disclaimer</a>
   </div>
@@ -277,7 +280,7 @@ gtag("consent", "default", {
 </footer>
 
 <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
-  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/privacy-policy">Privacy Policy</a>.</p>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/cookies-policy">Cookies Policy</a>.</p>
   <div class="cookie-actions">
     <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
     <button type="button" class="btn" id="cookie-accept">Accept</button>

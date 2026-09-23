@@ -96,43 +96,44 @@ gtag("consent", "default", {
           "item": "https://hardwaretesthub.net/blog/mouse/mouse-double-clicking-single-click"
         }
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/blog/mouse/mouse-double-clicking-single-click#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/blog/mouse/mouse-double-clicking-single-click#article"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why does my mouse click twice when I click once?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A worn microswitch bounces on contact and sends two electrical signals within milliseconds of one press. It's mechanical wear, not a software bug — though software debounce can mask it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I stop my mouse from double clicking without buying a new one?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Raise the debounce time in your mouse's software to 8ms–12ms (or use X-Mouse Button Control if it has none). That filters the second signal out without replacing anything."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the Windows double-click speed setting fix this?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only partially — it changes how close two intentional clicks need to be to count as one double-click, not whether the switch itself misfires. A real debounce setting in your mouse software is the more reliable fix."
+          }
+        }
+      ]
     }
   ]
 }
 </script>
 <!-- SCHEMA:END -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Why does my mouse click twice when I click once?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Almost always a worn microswitch: the metal contact inside the left or right click button bounces on contact and sends two electrical signals within milliseconds of each other. It's mechanical wear, not a software bug, though a debounce setting in your mouse's software can mask it."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I stop my mouse from double clicking without buying a new one?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Increase the debounce time in your mouse's software (Logitech G HUB, Razer Synapse) to 8-12ms, or install a third-party tool like X-Mouse Button Control if your mouse has no vendor software. This filters out the second signal without needing to replace anything."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does Windows' double-click speed setting fix a mouse that double-clicks on its own?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Only partially. That setting controls how close together two intentional clicks need to be to count as one double-click — it doesn't stop the switch itself from misfiring. Moving the slider toward Fast can help in some cases, but a real debounce fix in your mouse software is more reliable."
-      }
-    }
-  ]
-}
-</script>
 </head>
 <body>
 
@@ -242,7 +243,9 @@ gtag("consent", "default", {
     <a href="/#guides">Guides</a>
     <a href="/about">About</a>
     <a href="/contact">Contact</a>
+    <a href="/sitemap">Sitemap</a>
     <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/cookies-policy">Cookies</a>
     <a href="/terms-and-conditions">Terms</a>
     <a href="/disclaimer">Disclaimer</a>
   </div>
@@ -250,7 +253,7 @@ gtag("consent", "default", {
 </footer>
 
 <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
-  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/privacy-policy">Privacy Policy</a>.</p>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/cookies-policy">Cookies Policy</a>.</p>
   <div class="cookie-actions">
     <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
     <button type="button" class="btn" id="cookie-accept">Accept</button>
