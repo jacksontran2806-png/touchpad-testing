@@ -15,6 +15,7 @@ touchpad/
   keyboard-ghosting-test.html
   cps-test.html
   reaction-time-test.html
+  screen-test.html                    full-screen colors/patterns; canvas patterns are drawn in device pixels
   about.html
   contact.html
   sitemap.html                        human-readable index; its link list is GENERATED
@@ -38,10 +39,13 @@ touchpad/
   blog/keyboard/wasd-arrow-keys-swapped.html
   blog/trackpad/mac-trackpad-not-working.html
   blog/trackpad/windows-touchpad-not-working.html
+  es/  de/                            Spanish and German copies of the homepage, tools, About and Contact
   partials/                           shared header/footer/head source — see below
+  partials/es/  partials/de/          translated header/footer/head-common
   build.js                            syncs partials/ into every page that has the markers, at any depth
   seo-build.js                        regenerates each page's JSON-LD and the sitemap, called from build.js
-  seo-data.js                         the page metadata that can't be read out of the HTML (dates, sections)
+  seo-data.js                         the page metadata that can't be read out of the HTML (dates, sections, languages)
+  i18n.js                             language-folder path helpers shared by build.js and seo-build.js
   favicon.png / icon-512.png / apple-touch-icon.png / og-image.png
   robots.txt
   sitemap.xml
@@ -70,6 +74,28 @@ node build.js
 It auto-discovers every `.html` file at any depth (root, `blog/`, and topic subfolders like `blog/mouse/`) — a new page just needs the marker comments pasted in, nothing to register. It reports which files it changed (or `already in sync`) and is safe to re-run any time — commit the regenerated pages along with your partial edit. `ADSENSE` is deliberately not in every page's markers: `404.html` has no `ADSENSE:START/END` block, so the ad script never lands on the error page.
 
 Per-page fields — `<title>`, meta description, canonical URL, and Open Graph tags — live outside the markers in each file and aren't touched by the build.
+
+## Languages
+
+English lives at the root. Spanish and German are full copies of a page in `es/` and `de/`, served at `/es/<page>` and `/de/<page>` (`es/index.html` is `/es`). Each translation is its own static, crawlable HTML file — no runtime translation, no `?lang=` parameter.
+
+**A translation is paired with its original by file name.** `es/mouse-test.html` is the Spanish version of `mouse-test.html` because the path after the language folder matches. Keep the English slug in translated URLs; renaming the file breaks the pairing.
+
+`node build.js` does the rest from those file names:
+
+- **hreflang tags** go in every page's `<head>` between `<!-- HREFLANG:START/END -->`, listing each language the page exists in plus `x-default` (English). A page with no translations gets none.
+- **The language switcher** (EN · ES · DE) is generated into the header between `<!-- LANG_SWITCH:START/END -->`. When the current page has no translation in a language, that link goes to the language's homepage instead of a 404.
+- **sitemap.xml** carries the same hreflang set as `<xhtml:link>` entries, and `sitemap.html` lists the translations under their own headings.
+- **JSON-LD** gets `inLanguage` and translated breadcrumb labels (`home` and `sections` in `seo-data.js`).
+- **Partials**: a page in `es/` gets `partials/es/*.html`, falling back to `partials/*.html` for anything not translated (`adsense.html`). So nav/footer edits must be made in each language's copy.
+
+To translate another page: copy the English file into `es/` (or `de/`), set `<html lang="es">`, update the canonical and `og:url` to the `/es/...` URL, translate the content, point internal links at `/es/...` versions where they exist, add a `published` date in `seo-data.js`, and run the build. Links to content that only exists in English (the blog, the legal pages) carry `hreflang="en"` and, on cards, a `<span class="lang-tag">EN</span>` badge.
+
+To add a language: add it to `languages` (and `sections`) in `seo-data.js`, create `partials/<lang>/` with a translated header, footer and head-common (`og:locale`), add the runtime strings to `STRINGS` in `js/app.js`, and add its two cache rules to `_headers`.
+
+**Runtime text** (statuses like "Detected", CPS tiers, reaction-test prompts, copied share text) lives in `STRINGS` at the top of `js/app.js`, keyed by the English string and picked by `<html lang>`. A string missing from a table falls back to English.
+
+The blog and the legal pages (privacy, cookies, terms, disclaimer) are English only for now.
 
 ## Cookie consent
 
@@ -108,7 +134,7 @@ So **to change an FAQ, edit only the visible accordion.** Never add a standalone
 
 A page with no `published` entry falls back to `defaultDate`; a page with no `dates` entry falls back to its own published date. Both maps are keyed by path relative to this folder, with the `.html` extension.
 
-**Homepage anchor IDs matter**: the nav links to `/#mouse`, `/#keyboard-tools`, `/#gaming`, `/#guides` — those are section IDs on `index.html`. `#keyboard-tools` (not `#keyboard`) is deliberate: `js/app.js` looks up `document.getElementById("keyboard")` for the actual on-screen keyboard board, and an id collision there previously caused the homepage's Keyboard section to be silently wiped and replaced with a live keyboard test. If you rename a homepage section id, grep `js/app.js` for `getElementById` first.
+**Homepage anchor IDs matter**: the nav links to `/#mouse`, `/#keyboard-tools`, `/#gaming`, `/#guides` (`/#display` holds the screen test, linked from the footer) — those are section IDs on `index.html`. `#keyboard-tools` (not `#keyboard`) is deliberate: `js/app.js` looks up `document.getElementById("keyboard")` for the actual on-screen keyboard board, and an id collision there previously caused the homepage's Keyboard section to be silently wiped and replaced with a live keyboard test. If you rename a homepage section id, grep `js/app.js` for `getElementById` first.
 
 ## Routes
 

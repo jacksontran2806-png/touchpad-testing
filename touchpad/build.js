@@ -5,14 +5,31 @@
 const fs = require("fs");
 const path = require("path");
 const { applySchema, buildSitemap, buildHtmlSitemap } = require("./seo-build.js");
+const i18n = require("./i18n.js");
+const data = require("./seo-data.js");
 
 const ROOT = __dirname;
 const PARTIALS_DIR = path.join(ROOT, "partials");
 
+// partials/*.html is the English set. partials/<lang>/*.html overrides any of
+// them for pages in that language's folder; a partial with no translation
+// (adsense.html) falls through to the English one.
+function readPartials(dir) {
+  const out = {};
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (!entry.isFile() || !entry.name.endsWith(".html")) continue;
+    const name = path.basename(entry.name, ".html").toUpperCase().replace(/-/g, "_");
+    out[name] = fs.readFileSync(path.join(dir, entry.name), "utf8").trim();
+  }
+  return out;
+}
+
 const PARTIALS = {};
-for (const file of fs.readdirSync(PARTIALS_DIR)) {
-  const name = path.basename(file, ".html").toUpperCase().replace(/-/g, "_");
-  PARTIALS[name] = fs.readFileSync(path.join(PARTIALS_DIR, file), "utf8").trim();
+for (const lang of i18n.LANGS) {
+  const dir = path.join(PARTIALS_DIR, data.languages[lang].prefix);
+  PARTIALS[lang] = lang === "en" || !fs.existsSync(dir)
+    ? readPartials(PARTIALS_DIR)
+    : Object.assign(readPartials(PARTIALS_DIR), readPartials(dir));
 }
 
 // Every .html file in the site, at any depth (root, blog/, and blog's topic
@@ -32,6 +49,51 @@ function walk(dir) {
 }
 walk(ROOT);
 
+// The language switcher (inside the header partial) and the hreflang tags
+// (in <head>) both list the same thing: this page in every language it
+// exists in. They are generated per page because the header partial is
+// shared — only the build knows which translations a given page has.
+const SWITCH_MARKER = /<!-- LANG_SWITCH:START -->[\s\S]*?<!-- LANG_SWITCH:END -->/;
+const HREFLANG_MARKER = /\n?<!-- HREFLANG:START -->[\s\S]*?<!-- HREFLANG:END -->/;
+
+function applyLanguageLinks(rel, html) {
+  const lang = i18n.langOf(rel);
+  const base = i18n.basePath(rel);
+  const available = i18n.translationsOf(base);
+
+  if (SWITCH_MARKER.test(html)) {
+    // A language with no translation of this page links to its homepage
+    // instead, so the switcher never points at a 404.
+    const links = i18n.LANGS.map((l) => {
+      const conf = data.languages[l];
+      const href = available.includes(l) ? i18n.pathFor(l, base) : i18n.pathFor(l, "index.html");
+      const current = l === lang ? ' aria-current="true"' : "";
+      return `        <a href="${href}" hreflang="${conf.hreflang}" lang="${conf.hreflang}" title="${conf.label}"${current}>${conf.short}</a>`;
+    });
+    html = html.replace(
+      SWITCH_MARKER,
+      `<!-- LANG_SWITCH:START -->\n      <div class="lang-switch">\n${links.join("\n")}\n      </div>\n      <!-- LANG_SWITCH:END -->`
+    );
+  }
+
+  // hreflang only for indexable pages (they carry a canonical) that actually
+  // have another language. Every member of the set lists all the others and
+  // itself, and English is the x-default.
+  const indexable = /<link rel="canonical"/.test(html);
+  if (!indexable || available.length < 2) return html.replace(HREFLANG_MARKER, "");
+
+  const tags = available.map(
+    (l) => `<link rel="alternate" hreflang="${data.languages[l].hreflang}" href="${i18n.urlFor(l, base)}">`
+  );
+  if (available.includes("en")) {
+    tags.push(`<link rel="alternate" hreflang="x-default" href="${i18n.urlFor("en", base)}">`);
+  }
+  const block = `<!-- HREFLANG:START -->\n${tags.join("\n")}\n<!-- HREFLANG:END -->`;
+  if (HREFLANG_MARKER.test(html)) return html.replace(HREFLANG_MARKER, "\n" + block);
+  // First run on this page: right after the canonical, which it extends.
+  return html.replace(/(<link rel="canonical"[^>]*>)/, `$1\n${block}`);
+}
+
 let changedCount = 0;
 
 for (const rel of TARGET_GLOBS) {
@@ -39,7 +101,8 @@ for (const rel of TARGET_GLOBS) {
   const original = fs.readFileSync(filePath, "utf8");
   let output = original;
 
-  for (const [name, content] of Object.entries(PARTIALS)) {
+  const lang = i18n.langOf(rel);
+  for (const [name, content] of Object.entries(PARTIALS[lang])) {
     const marker = new RegExp(
       `<!-- ${name}:START -->[\\s\\S]*?<!-- ${name}:END -->`
     );
@@ -49,6 +112,8 @@ for (const rel of TARGET_GLOBS) {
       `<!-- ${name}:START -->\n${content}\n<!-- ${name}:END -->`
     );
   }
+
+  output = applyLanguageLinks(rel, output);
 
   if (output !== original) {
     fs.writeFileSync(filePath, output);

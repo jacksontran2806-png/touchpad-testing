@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="de_DE">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Maustest Online — Linke, Rechte, Mittlere &amp; Seitentasten prüfen</title>
+<meta name="description" content="Kostenloser Online-Maustest. Prüfe Links-, Rechts- und Mittelklick, Seitentasten, Mausrad und Ziehen – sofort im Browser, ohne Download.">
+<link rel="canonical" href="https://hardwaretesthub.net/de/mouse-test">
+<!-- HREFLANG:START -->
+<link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/mouse-test">
+<link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/mouse-test">
+<link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/mouse-test">
+<link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/mouse-test">
+<!-- HREFLANG:END -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hardwaretesthub.net/de/mouse-test">
+<meta property="og:title" content="Maustest Online — Linke, Rechte, Mittlere &amp; Seitentasten prüfen">
+<meta property="og:description" content="Kostenloser Online-Maustest. Prüfe Links-, Rechts- und Mittelklick, Seitentasten, Mausrad und Ziehen – sofort im Browser, ohne Download.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<meta name="google-adsense-account" content="ca-pub-1082746041497676">
+<!-- Google Consent Mode v2 defaults. Must run BEFORE the adsbygoogle tag
+     below, so ads and measurement start in the denied state and only move to
+     granted if the visitor accepts in the cookie banner (js/app.js). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500
+});
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://hardwaretesthub.net/de/mouse-test#app",
+      "name": "Maustest",
+      "description": "Kostenloser Online-Maustest. Prüfe Links-, Rechts- und Mittelklick, Seitentasten, Mausrad und Ziehen – sofort im Browser, ohne Download.",
+      "url": "https://hardwaretesthub.net/de/mouse-test",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires JavaScript",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "de"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Startseite",
+          "item": "https://hardwaretesthub.net/de"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Maus & Touchpad",
+          "item": "https://hardwaretesthub.net/de"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Maustest",
+          "item": "https://hardwaretesthub.net/de/mouse-test"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/de/mouse-test#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/de/mouse-test#app"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Meine Maus funktioniert in manchen Programmen, aber hier leuchten die Tasten nicht – warum?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Manche Launcher- oder Makro-Programme fangen Tasten ab, bevor der Browser sie sieht, und machen aus einem Klick ein Tastenkürzel oder eine App-Aktion statt eines echten Klick-Events. Schließ Hersteller-Software wie Logitech Options oder Razer Synapse und versuch es erneut – leuchtet die Taste dann auf, liegt es an der Neubelegung, nicht an einem Hardwaredefekt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Funktionieren Seitentasten bei jeder Maus?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nein – nur Mäuse, die tatsächlich Daumentasten haben, registrieren etwas bei Zurück/Vorwärts, und selbst dann verdrahten manche günstige Mäuse sie als Tastenkürzel statt als echte Maustasten, sodass sie hier gar nicht auftauchen. Das ist bei dieser Hardware normal und kein Defekt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kann dieser Test einen defekten Sensor erkennen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Indirekt. Wenn Bewegung unabhängig von Untergrund, Kabel oder USB-Port nie registriert wird, deutet das eher auf den Sensor oder seine Verbindung als auf eine Einstellung hin. Ein Sensor, der meistens funktioniert, aber gelegentlich springt oder aussetzt, braucht zuerst die Untergrund- und Verbindungschecks aus den Ratgebern, bevor du ihn als Hardwaredefekt abschreibst."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/de"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menü">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/de#mouse">Maus</a>
+      <a href="/de#keyboard-tools">Tastatur</a>
+      <a href="/de#gaming">Gaming</a>
+      <a href="/de#guides">Ratgeber</a>
+      <a href="/de/about">Über uns</a>
+      <!-- LANG_SWITCH:START -->
+      <div class="lang-switch">
+        <a href="/mouse-test" hreflang="en" lang="en" title="English">EN</a>
+        <a href="/es/mouse-test" hreflang="es" lang="es" title="Español">ES</a>
+        <a href="/de/mouse-test" hreflang="de" lang="de" title="Deutsch" aria-current="true">DE</a>
+      </div>
+      <!-- LANG_SWITCH:END -->
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <div class="tool-head">
+    <div class="kicker">Maus &amp; Touchpad</div>
+    <h1>Maustest</h1>
+    <p>Drück jede Taste deiner Maus. Jede leuchtet unten auf, sobald der Browser sie empfängt – leuchtet eine Taste nie auf, kommt das Signal gar nicht erst im Browser an.</p>
+  </div>
+
+  <div class="tool-wrap">
+    <div class="test-wrap">
+      <div class="canvas-card">
+        <div class="canvas-toolbar">
+          <h2>Testbereich</h2>
+          <button class="reset-btn" id="reset-mouse">Zurücksetzen</button>
+        </div>
+        <div class="mouse-surface" id="mouse-surface">
+          <div class="mouse-diagram">
+            <div class="mouse-body"></div>
+            <div class="mouse-divider"></div>
+            <div class="mouse-zone zone-left" data-zone="left">L</div>
+            <div class="mouse-zone zone-right" data-zone="right">R</div>
+            <div class="mouse-zone zone-wheel" data-zone="middle">●</div>
+            <div class="mouse-zone zone-side zone-back" data-zone="back">Zur.</div>
+            <div class="mouse-zone zone-side zone-forward" data-zone="forward">Vor</div>
+          </div>
+          <p class="mouse-hint">Klick irgendwo in diesen Bereich mit linker, rechter und mittlerer Taste, dreh am Mausrad, zieh etwas und drück – falls vorhanden – die Daumentasten an der Seite.</p>
+        </div>
+        <div class="hint-bar">
+          Seitentasten funktionieren nur bei Mäusen, die welche haben (häufig bei Gaming- und Office-Mäusen).
+        </div>
+      </div>
+
+      <aside class="results-panel">
+        <h2>Bisher erkannt</h2>
+        <div class="check-list">
+          <div class="check-item" data-check="m-move">
+            <span class="label"><span class="check-icon"></span>Bewegung</span>
+            <span class="status">Warten</span>
+          </div>
+          <div class="check-item" data-check="m-left">
+            <span class="label"><span class="check-icon"></span>Linksklick</span>
+            <span class="status">Warten</span>
+          </div>
+          <div class="check-item" data-check="m-right">
+            <span class="label"><span class="check-icon"></span>Rechtsklick</span>
+            <span class="status">Warten</span>
+          </div>
+          <div class="check-item" data-check="m-middle">
+            <span class="label"><span class="check-icon"></span>Mittelklick (Mausrad)</span>
+            <span class="status">Warten</span>
+          </div>
+          <div class="check-item" data-check="m-double">
+            <span class="label"><span class="check-icon"></span>Doppelklick</span>
+            <span class="status">Warten</span>
+          </div>
+          <div class="check-item" data-check="m-drag">
+            <span class="label"><span class="check-icon"></span>Klicken &amp; Ziehen</span>
+            <span class="status">Warten</span>
+          </div>
+          <div class="check-item" data-check="m-scroll">
+            <span class="label"><span class="check-icon"></span>Mausrad</span>
+            <span class="status">Warten</span>
+          </div>
+          <div class="check-item" data-check="m-back">
+            <span class="label"><span class="check-icon"></span>Seitentaste Zurück</span>
+            <span class="status">Warten</span>
+          </div>
+          <div class="check-item" data-check="m-forward">
+            <span class="label"><span class="check-icon"></span>Seitentaste Vorwärts</span>
+            <span class="status">Warten</span>
+          </div>
+        </div>
+
+        <div class="live-readout">
+          <div>Position: <code id="mo-coords">–</code></div>
+          <div>Letzte Taste: <code id="mo-button">–</code></div>
+          <div>Scroll-Delta: <code id="mo-wheel">–</code></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="article">
+    <h2>Was hier wirklich getestet wird</h2>
+    <p>Der Browser sieht Maustasten als nummerierte Eingaben, nicht als Bauteile: Taste 0 ist links, 2 rechts, 1 das Mausrad und 3/4 die Daumentasten. Diese Seite zeigt, was genau auf dieser Ebene ankommt. Eine Taste, die hier nie registriert wird, ist also irgendwo zwischen Schalter und Treiber ausgefallen – nicht in deiner Software.</p>
+
+    <h2>Wenn eine Taste nicht reagiert</h2>
+    <ol>
+      <li>Probier einen anderen USB-Port und – falls abnehmbar – ein anderes Kabel.</li>
+      <li>Teste an einem anderen Computer – so trennst du die Maus vom Treiber.</li>
+      <li>Prüf die Hersteller-Software. Seitentasten sind oft standardmäßig mit nichts belegt.</li>
+      <li>Installier den Treiber neu und wiederhole diesen Test, bevor du eine neue Maus kaufst.</li>
+    </ol>
+
+    <div class="cta-box">
+      <p>Klickt die Maus doppelt, obwohl du einmal klickst?</p>
+      <a class="btn" href="/de/mouse-double-click-test">Doppelklick-Test</a>
+    </div>
+
+    <h2>Häufige Fragen</h2>
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>Meine Maus funktioniert in manchen Programmen, aber hier leuchten die Tasten nicht – warum?</summary>
+        <div class="faq-answer">
+          <p>Manche Launcher- oder Makro-Programme fangen Tasten ab, bevor der Browser sie sieht, und machen aus einem Klick ein Tastenkürzel oder eine App-Aktion statt eines echten Klick-Events. Schließ Hersteller-Software wie Logitech Options oder Razer Synapse und versuch es erneut – leuchtet die Taste dann auf, liegt es an der Neubelegung, nicht an einem Hardwaredefekt.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Funktionieren Seitentasten bei jeder Maus?</summary>
+        <div class="faq-answer">
+          <p>Nein – nur Mäuse, die tatsächlich Daumentasten haben, registrieren etwas bei Zurück/Vorwärts, und selbst dann verdrahten manche günstige Mäuse sie als Tastenkürzel statt als echte Maustasten, sodass sie hier gar nicht auftauchen. Das ist bei dieser Hardware normal und kein Defekt.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Kann dieser Test einen defekten Sensor erkennen?</summary>
+        <div class="faq-answer">
+          <p>Indirekt. Wenn Bewegung unabhängig von Untergrund, Kabel oder USB-Port nie registriert wird, deutet das eher auf den Sensor oder seine Verbindung als auf eine Einstellung hin. Ein Sensor, der meistens funktioniert, aber gelegentlich springt oder aussetzt, braucht zuerst die Untergrund- und Verbindungschecks aus den Ratgebern, bevor du ihn als Hardwaredefekt abschreibst.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <section class="help-section">
+    <h2>Verwandte Tools</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/de/mouse-double-click-test">
+        <h3>Doppelklick-Test</h3>
+        <p>Erkennt einen verschlissenen Schalter, der bei einem Klick doppelt auslöst.</p>
+      </a>
+      <a class="help-card" href="/de/mouse-scroll-test">
+        <h3>Scroll-Test</h3>
+        <p>Prüft Richtung und Gleichmäßigkeit des Mausrads.</p>
+      </a>
+      <a class="help-card" href="/de/cps-test">
+        <h3>CPS-Test</h3>
+        <p>Miss deine Klicks pro Sekunde.</p>
+      </a>
+      <a class="help-card" href="/blog/mouse/mouse-not-working" hreflang="en">
+        <h3>Maus funktioniert nicht<span class="lang-tag">EN</span></h3>
+        <p>Untergrund, Verbindung, Einstellungen oder Schmutz.</p>
+      </a>
+      <a class="help-card" href="/blog/mouse/mouse-double-clicking-fix" hreflang="en">
+        <h3>Maus macht Doppelklick bei einem Klick<span class="lang-tag">EN</span></h3>
+        <p>Warum Schalter verschleißen und was wirklich hilft.</p>
+      </a>
+      <a class="help-card" href="/blog/mouse/mouse-light-on-cursor-not-moving" hreflang="en">
+        <h3>Licht an, aber Zeiger bewegt sich nicht<span class="lang-tag">EN</span></h3>
+        <p>Checks für Sensor, Untergrund und Verbindung.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/de">Startseite</a>
+    <a href="/de#mouse">Maus</a>
+    <a href="/de#keyboard-tools">Tastatur</a>
+    <a href="/de#gaming">Gaming</a>
+    <a href="/de/screen-test">Bildschirmtest</a>
+    <a href="/de#guides">Ratgeber</a>
+    <a href="/de/about">Über uns</a>
+    <a href="/de/contact">Kontakt</a>
+    <a href="/sitemap">Sitemap</a>
+    <a href="/privacy-policy">Datenschutz</a>
+    <a href="/cookies-policy">Cookies</a>
+    <a href="/terms-and-conditions">Nutzungsbedingungen</a>
+    <a href="/disclaimer">Haftungsausschluss</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie-Einwilligung" hidden>
+  <p>Wir verwenden Cookies für eine einfache Reichweitenmessung und um über Google AdSense Werbung anzuzeigen. Die Tests selbst laufen in deinem Browser und senden nichts irgendwohin. Mehr dazu in unserer <a href="/cookies-policy">Cookie-Richtlinie</a> (auf Englisch).</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Ablehnen</button>
+    <button type="button" class="btn" id="cookie-accept">Akzeptieren</button>
+  </div>
+</div>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

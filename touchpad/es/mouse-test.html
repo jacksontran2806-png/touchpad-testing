@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="es_ES">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Test de Mouse Online — Comprueba los Botones y Clics del Ratón</title>
+<meta name="description" content="Test de mouse online gratis. Comprueba el clic izquierdo, derecho y central, los botones laterales, la rueda y el arrastre de tu ratón, al instante en el navegador y sin descargas.">
+<link rel="canonical" href="https://hardwaretesthub.net/es/mouse-test">
+<!-- HREFLANG:START -->
+<link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/mouse-test">
+<link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/mouse-test">
+<link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/mouse-test">
+<link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/mouse-test">
+<!-- HREFLANG:END -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hardwaretesthub.net/es/mouse-test">
+<meta property="og:title" content="Test de Mouse Online — Comprueba los Botones y Clics del Ratón">
+<meta property="og:description" content="Test de mouse online gratis. Comprueba el clic izquierdo, derecho y central, los botones laterales, la rueda y el arrastre de tu ratón, al instante en el navegador y sin descargas.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<meta name="google-adsense-account" content="ca-pub-1082746041497676">
+<!-- Google Consent Mode v2 defaults. Must run BEFORE the adsbygoogle tag
+     below, so ads and measurement start in the denied state and only move to
+     granted if the visitor accepts in the cookie banner (js/app.js). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500
+});
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://hardwaretesthub.net/es/mouse-test#app",
+      "name": "Test de mouse",
+      "description": "Test de mouse online gratis. Comprueba el clic izquierdo, derecho y central, los botones laterales, la rueda y el arrastre de tu ratón, al instante en el navegador y sin descargas.",
+      "url": "https://hardwaretesthub.net/es/mouse-test",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires JavaScript",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "es"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://hardwaretesthub.net/es"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Mouse y touchpad",
+          "item": "https://hardwaretesthub.net/es"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Test de mouse",
+          "item": "https://hardwaretesthub.net/es/mouse-test"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/es/mouse-test#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/es/mouse-test#app"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Mi mouse funciona en algunas aplicaciones, pero aquí los botones no se iluminan. ¿Por qué?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Algunos programas de macros o lanzadores interceptan los botones antes de que el navegador los vea y convierten el clic en un atajo de teclado o una acción de la aplicación en lugar de un clic real. Cierra el software del fabricante, como Logitech Options o Razer Synapse, y vuelve a probar: si el botón se ilumina con ese software cerrado, la causa es la reasignación, no un fallo de hardware."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Los botones laterales funcionan en todos los mouses?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Solo los mouses que tienen físicamente botones para el pulgar registrarán algo en Atrás/Adelante, e incluso así algunos modelos económicos los conectan como atajos de teclado en lugar de botones reales, por lo que aquí no aparecerán. Es normal en ese hardware, no un defecto."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Esta prueba puede detectar un sensor que está fallando?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "De forma indirecta. Si el movimiento nunca se registra, sea cual sea la superficie, el cable o el puerto USB, apunta al sensor o a su conexión más que a un ajuste. Pero un sensor que casi siempre funciona con saltos o cortes ocasionales necesita antes las comprobaciones de superficie y conexión de las guías, antes de darlo por averiado."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/es"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menú">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/es#mouse">Mouse</a>
+      <a href="/es#keyboard-tools">Teclado</a>
+      <a href="/es#gaming">Gaming</a>
+      <a href="/es#guides">Guías</a>
+      <a href="/es/about">Acerca de</a>
+      <!-- LANG_SWITCH:START -->
+      <div class="lang-switch">
+        <a href="/mouse-test" hreflang="en" lang="en" title="English">EN</a>
+        <a href="/es/mouse-test" hreflang="es" lang="es" title="Español" aria-current="true">ES</a>
+        <a href="/de/mouse-test" hreflang="de" lang="de" title="Deutsch">DE</a>
+      </div>
+      <!-- LANG_SWITCH:END -->
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <div class="tool-head">
+    <div class="kicker">Mouse y touchpad</div>
+    <h1>Test de mouse</h1>
+    <p>Pulsa cada botón de tu mouse. Cada uno se ilumina abajo en cuanto el navegador lo recibe: si un botón nunca se ilumina, la señal ni siquiera llega al navegador.</p>
+  </div>
+
+  <div class="tool-wrap">
+    <div class="test-wrap">
+      <div class="canvas-card">
+        <div class="canvas-toolbar">
+          <h2>Zona de prueba</h2>
+          <button class="reset-btn" id="reset-mouse">Reiniciar</button>
+        </div>
+        <div class="mouse-surface" id="mouse-surface">
+          <div class="mouse-diagram">
+            <div class="mouse-body"></div>
+            <div class="mouse-divider"></div>
+            <div class="mouse-zone zone-left" data-zone="left">I</div>
+            <div class="mouse-zone zone-right" data-zone="right">D</div>
+            <div class="mouse-zone zone-wheel" data-zone="middle">●</div>
+            <div class="mouse-zone zone-side zone-back" data-zone="back">Atrás</div>
+            <div class="mouse-zone zone-side zone-forward" data-zone="forward">Adel.</div>
+          </div>
+          <p class="mouse-hint">Haz clic en cualquier parte de esta zona con los botones izquierdo, derecho y central, gira la rueda, arrastra y, si tu mouse los tiene, pulsa los botones laterales del pulgar.</p>
+        </div>
+        <div class="hint-bar">
+          Los botones laterales solo funcionan en mouses que los tienen (habituales en modelos gaming y de productividad).
+        </div>
+      </div>
+
+      <aside class="results-panel">
+        <h2>Detectado hasta ahora</h2>
+        <div class="check-list">
+          <div class="check-item" data-check="m-move">
+            <span class="label"><span class="check-icon"></span>Movimiento</span>
+            <span class="status">Esperando</span>
+          </div>
+          <div class="check-item" data-check="m-left">
+            <span class="label"><span class="check-icon"></span>Clic izquierdo</span>
+            <span class="status">Esperando</span>
+          </div>
+          <div class="check-item" data-check="m-right">
+            <span class="label"><span class="check-icon"></span>Clic derecho</span>
+            <span class="status">Esperando</span>
+          </div>
+          <div class="check-item" data-check="m-middle">
+            <span class="label"><span class="check-icon"></span>Clic central (rueda)</span>
+            <span class="status">Esperando</span>
+          </div>
+          <div class="check-item" data-check="m-double">
+            <span class="label"><span class="check-icon"></span>Doble clic</span>
+            <span class="status">Esperando</span>
+          </div>
+          <div class="check-item" data-check="m-drag">
+            <span class="label"><span class="check-icon"></span>Clic y arrastrar</span>
+            <span class="status">Esperando</span>
+          </div>
+          <div class="check-item" data-check="m-scroll">
+            <span class="label"><span class="check-icon"></span>Rueda de scroll</span>
+            <span class="status">Esperando</span>
+          </div>
+          <div class="check-item" data-check="m-back">
+            <span class="label"><span class="check-icon"></span>Botón lateral Atrás</span>
+            <span class="status">Esperando</span>
+          </div>
+          <div class="check-item" data-check="m-forward">
+            <span class="label"><span class="check-icon"></span>Botón lateral Adelante</span>
+            <span class="status">Esperando</span>
+          </div>
+        </div>
+
+        <div class="live-readout">
+          <div>Posición: <code id="mo-coords">–</code></div>
+          <div>Último botón: <code id="mo-button">–</code></div>
+          <div>Delta de scroll: <code id="mo-wheel">–</code></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="article">
+    <h2>Qué comprueba realmente</h2>
+    <p>El navegador ve los botones del mouse como entradas numeradas, no como piezas físicas: el botón 0 es el izquierdo, el 2 el derecho, el 1 la rueda y el 3/4 los botones del pulgar. Esta página muestra lo que llega exactamente a ese nivel, así que un botón que nunca se registra aquí ha fallado en algún punto entre el interruptor y el controlador, no en tu software.</p>
+
+    <h2>Si un botón no responde</h2>
+    <ol>
+      <li>Prueba otro puerto USB y, si tiene cable desmontable, otro cable.</li>
+      <li>Pruébalo en otro ordenador: así separas el mouse del controlador.</li>
+      <li>Revisa el software del fabricante. Los botones laterales a menudo vienen sin ninguna función asignada.</li>
+      <li>Reinstala el controlador y repite esta prueba antes de comprar uno nuevo.</li>
+    </ol>
+
+    <div class="cta-box">
+      <p>¿Hace dos clics cuando haces uno?</p>
+      <a class="btn" href="/es/mouse-double-click-test">Test de doble clic</a>
+    </div>
+
+    <h2>Preguntas frecuentes</h2>
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>Mi mouse funciona en algunas aplicaciones, pero aquí los botones no se iluminan. ¿Por qué?</summary>
+        <div class="faq-answer">
+          <p>Algunos programas de macros o lanzadores interceptan los botones antes de que el navegador los vea y convierten el clic en un atajo de teclado o una acción de la aplicación en lugar de un clic real. Cierra el software del fabricante, como Logitech Options o Razer Synapse, y vuelve a probar: si el botón se ilumina con ese software cerrado, la causa es la reasignación, no un fallo de hardware.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Los botones laterales funcionan en todos los mouses?</summary>
+        <div class="faq-answer">
+          <p>No. Solo los mouses que tienen físicamente botones para el pulgar registrarán algo en Atrás/Adelante, e incluso así algunos modelos económicos los conectan como atajos de teclado en lugar de botones reales, por lo que aquí no aparecerán. Es normal en ese hardware, no un defecto.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Esta prueba puede detectar un sensor que está fallando?</summary>
+        <div class="faq-answer">
+          <p>De forma indirecta. Si el movimiento nunca se registra, sea cual sea la superficie, el cable o el puerto USB, apunta al sensor o a su conexión más que a un ajuste. Pero un sensor que casi siempre funciona con saltos o cortes ocasionales necesita antes las comprobaciones de superficie y conexión de las guías, antes de darlo por averiado.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <section class="help-section">
+    <h2>Herramientas relacionadas</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/es/mouse-double-click-test">
+        <h3>Test de doble clic</h3>
+        <p>Detecta un interruptor desgastado que dispara dos veces con un solo clic.</p>
+      </a>
+      <a class="help-card" href="/es/mouse-scroll-test">
+        <h3>Test de scroll</h3>
+        <p>Comprueba la dirección y la regularidad de la rueda.</p>
+      </a>
+      <a class="help-card" href="/es/cps-test">
+        <h3>Test de CPS</h3>
+        <p>Mide tus clics por segundo.</p>
+      </a>
+      <a class="help-card" href="/blog/mouse/mouse-not-working" hreflang="en">
+        <h3>El mouse no funciona<span class="lang-tag">EN</span></h3>
+        <p>Superficie, conexión, ajustes o suciedad.</p>
+      </a>
+      <a class="help-card" href="/blog/mouse/mouse-double-clicking-fix" hreflang="en">
+        <h3>El mouse hace doble clic con un solo clic<span class="lang-tag">EN</span></h3>
+        <p>Por qué se desgastan los interruptores y qué lo arregla de verdad.</p>
+      </a>
+      <a class="help-card" href="/blog/mouse/mouse-light-on-cursor-not-moving" hreflang="en">
+        <h3>Luz encendida pero el cursor no se mueve<span class="lang-tag">EN</span></h3>
+        <p>Comprobaciones de sensor, superficie y conexión.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/es">Inicio</a>
+    <a href="/es#mouse">Mouse</a>
+    <a href="/es#keyboard-tools">Teclado</a>
+    <a href="/es#gaming">Gaming</a>
+    <a href="/es/screen-test">Test de pantalla</a>
+    <a href="/es#guides">Guías</a>
+    <a href="/es/about">Acerca de</a>
+    <a href="/es/contact">Contacto</a>
+    <a href="/sitemap">Mapa del sitio</a>
+    <a href="/privacy-policy">Privacidad</a>
+    <a href="/cookies-policy">Cookies</a>
+    <a href="/terms-and-conditions">Términos</a>
+    <a href="/disclaimer">Aviso legal</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Consentimiento de cookies" hidden>
+  <p>Usamos cookies para medir el tráfico de forma básica y para mostrar anuncios a través de Google AdSense. Las pruebas se ejecutan en tu navegador y no envían nada a ningún sitio. Consulta nuestra <a href="/cookies-policy">Política de cookies</a> (en inglés).</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Rechazar</button>
+    <button type="button" class="btn" id="cookie-accept">Aceptar</button>
+  </div>
+</div>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

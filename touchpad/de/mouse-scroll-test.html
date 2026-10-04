@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="de_DE">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Mausrad-Test — Scrollrichtung &amp; Gleichmäßigkeit prüfen | Hardware Test Hub</title>
+<meta name="description" content="Teste das Scrollrad deiner Maus – Richtung, Schrittweite und ob es Schritte überspringt oder springt. Kostenloser Online-Scroll-Test, ohne Download.">
+<link rel="canonical" href="https://hardwaretesthub.net/de/mouse-scroll-test">
+<!-- HREFLANG:START -->
+<link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/mouse-scroll-test">
+<link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/mouse-scroll-test">
+<link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/mouse-scroll-test">
+<link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/mouse-scroll-test">
+<!-- HREFLANG:END -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hardwaretesthub.net/de/mouse-scroll-test">
+<meta property="og:title" content="Mausrad-Test — Scrollrichtung &amp; Gleichmäßigkeit prüfen">
+<meta property="og:description" content="Teste das Scrollrad deiner Maus – Richtung, Schrittweite und ob es Schritte überspringt oder springt. Kostenloser Online-Scroll-Test, ohne Download.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<meta name="google-adsense-account" content="ca-pub-1082746041497676">
+<!-- Google Consent Mode v2 defaults. Must run BEFORE the adsbygoogle tag
+     below, so ads and measurement start in the denied state and only move to
+     granted if the visitor accepts in the cookie banner (js/app.js). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500
+});
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://hardwaretesthub.net/de/mouse-scroll-test#app",
+      "name": "Mausrad-Test",
+      "description": "Teste das Scrollrad deiner Maus – Richtung, Schrittweite und ob es Schritte überspringt oder springt. Kostenloser Online-Scroll-Test, ohne Download.",
+      "url": "https://hardwaretesthub.net/de/mouse-scroll-test",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires JavaScript",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "de"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Startseite",
+          "item": "https://hardwaretesthub.net/de"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Maus & Touchpad",
+          "item": "https://hardwaretesthub.net/de"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Mausrad-Test",
+          "item": "https://hardwaretesthub.net/de/mouse-scroll-test"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/de/mouse-scroll-test#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/de/mouse-scroll-test#app"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Warum überspringt mein Mausrad alle paar Rasten einen Schritt?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Übersprungene Rasten gehen fast immer darauf zurück, dass der mechanische oder optische Encoder im Rad kurz den Kontakt verliert – meist durch Staubablagerungen oder Verschleiß nach ein paar Jahren Nutzung. Druckluft rund um das Rad löst die meisten Fälle; springt es nach der Reinigung weiter, ist der Encoder wahrscheinlich verschlissen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Welcher deltaY-Wert pro Raste ist normal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Das hängt von System, Browser und Maus ab – unter Windows häufig etwa 100–120 pro Raste, bei Touchpads und Präzisionsmäusen ein kleinerer, feinerer Wert. Einen einzigen „richtigen“ Wert gibt es also nicht. Entscheidend ist die Gleichmäßigkeit: Dieselbe Bewegung sollte jedes Mal ungefähr dasselbe deltaY liefern, nicht eine bestimmte Zahl."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kann ein Treiber-Update unregelmäßiges Scrollen beheben?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Manchmal – ein beschädigter oder veralteter Maustreiber kann Wheel-Events falsch melden, obwohl die Hardware in Ordnung ist. Es lohnt sich also, das auszuschließen, bevor du die Maus öffnest. Ändert eine frische Treiberinstallation nichts am unregelmäßigen Muster im Protokoll, ist der Encoder die wahrscheinlichere Ursache."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/de"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menü">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/de#mouse">Maus</a>
+      <a href="/de#keyboard-tools">Tastatur</a>
+      <a href="/de#gaming">Gaming</a>
+      <a href="/de#guides">Ratgeber</a>
+      <a href="/de/about">Über uns</a>
+      <!-- LANG_SWITCH:START -->
+      <div class="lang-switch">
+        <a href="/mouse-scroll-test" hreflang="en" lang="en" title="English">EN</a>
+        <a href="/es/mouse-scroll-test" hreflang="es" lang="es" title="Español">ES</a>
+        <a href="/de/mouse-scroll-test" hreflang="de" lang="de" title="Deutsch" aria-current="true">DE</a>
+      </div>
+      <!-- LANG_SWITCH:END -->
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <div class="tool-head">
+    <div class="kicker">Maus &amp; Touchpad</div>
+    <h1>Mausrad-Test</h1>
+    <p>Scroll im Feld unten nach oben und unten. Der Anzeiger folgt deiner Scrollrichtung, und jedes rohe Wheel-Event wird protokolliert – so siehst du die Schrittweite und erkennst Aussetzer selbst.</p>
+  </div>
+
+  <div class="tool-wrap">
+    <div class="test-wrap">
+      <div class="canvas-card">
+        <div class="canvas-toolbar">
+          <h2>Testbereich</h2>
+          <button class="reset-btn" id="reset-scroll">Zurücksetzen</button>
+        </div>
+        <div class="scroll-zone" id="scroll-zone">
+          <div class="scroll-track" id="scroll-track">
+            <div class="scroll-indicator" id="scroll-indicator"></div>
+          </div>
+          <p class="scroll-hint">Scroll mit dem Mausrad oder wisch mit zwei Fingern. Der Punkt wandert nach oben, wenn du nach oben scrollst, und nach unten, wenn du nach unten scrollst.</p>
+        </div>
+        <div class="hint-bar">
+          Ein intaktes Mausrad erzeugt gleichmäßig große Schritte. Stark schwankende Werte oder plötzliche große Sprünge im Protokoll können auf einen verschmutzten oder defekten Encoder hindeuten.
+        </div>
+      </div>
+
+      <aside class="results-panel">
+        <h2>Live-Anzeige</h2>
+        <div class="keyboard-readout">
+          <div class="kv"><span class="k">Scroll-Events</span><span class="v" id="scroll-total">0</span></div>
+          <div class="kv"><span class="k">Letztes deltaY</span><span class="v" id="scroll-last-dy">–</span></div>
+          <div class="kv"><span class="k">Letztes deltaX</span><span class="v" id="scroll-last-dx">–</span></div>
+        </div>
+        <div class="live-readout">
+          <div style="margin-bottom:8px;">Event-Protokoll</div>
+          <div class="scroll-log" id="scroll-log"></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="article">
+    <h2>Was hier wirklich getestet wird</h2>
+    <p>Scrollen erreicht den Browser als <code>wheel</code>-Events, die pro Raste oder Wischbewegung einen <code>deltaY</code>- (vertikal) und <code>deltaX</code>-Wert (horizontal) mitliefern. Ein gesundes Mausrad liefert bei gleicher Bewegung ungefähr gleiche Deltas; ein Rad mit verschlissenem Encoder erzeugt eher unregelmäßige Werte, übersprungene Schritte oder gelegentlich große, unerwartete Sprünge – alles im Protokoll oben sichtbar.</p>
+
+    <h2>Wenn sich das Scrollen falsch anfühlt</h2>
+    <ol>
+      <li>Achte auf das Vorzeichen von deltaY: Beim Hochscrollen sollte es durchgehend negativ sein (oder durchgehend positiv – die Konvention hängt vom System ab, sollte aber immer gleich bleiben).</li>
+      <li>Such nach großen, einzelnen Sprüngen im Protokoll – das klassische Zeichen für einen Encoder, der zu versagen beginnt.</li>
+      <li>Reinige den Bereich um das Mausrad mit Druckluft; Staub ist eine häufige Ursache für übersprungene Schritte.</li>
+      <li>Prüf in den Mauseinstellungen deines Systems die Option „Scrollrichtung umkehren“, die manchmal versehentlich aktiviert wird.</li>
+    </ol>
+
+    <div class="cta-box">
+      <p>Das Mausrad reagiert überhaupt nicht?</p>
+      <a class="btn" href="/blog/mouse/mouse-scroll-not-working" hreflang="en">Zum Ratgeber (Englisch)</a>
+    </div>
+
+    <h2>Häufige Fragen</h2>
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>Warum überspringt mein Mausrad alle paar Rasten einen Schritt?</summary>
+        <div class="faq-answer">
+          <p>Übersprungene Rasten gehen fast immer darauf zurück, dass der mechanische oder optische Encoder im Rad kurz den Kontakt verliert – meist durch Staubablagerungen oder Verschleiß nach ein paar Jahren Nutzung. Druckluft rund um das Rad löst die meisten Fälle; springt es nach der Reinigung weiter, ist der Encoder wahrscheinlich verschlissen.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Welcher deltaY-Wert pro Raste ist normal?</summary>
+        <div class="faq-answer">
+          <p>Das hängt von System, Browser und Maus ab – unter Windows häufig etwa 100–120 pro Raste, bei Touchpads und Präzisionsmäusen ein kleinerer, feinerer Wert. Einen einzigen „richtigen“ Wert gibt es also nicht. Entscheidend ist die Gleichmäßigkeit: Dieselbe Bewegung sollte jedes Mal ungefähr dasselbe deltaY liefern, nicht eine bestimmte Zahl.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Kann ein Treiber-Update unregelmäßiges Scrollen beheben?</summary>
+        <div class="faq-answer">
+          <p>Manchmal – ein beschädigter oder veralteter Maustreiber kann Wheel-Events falsch melden, obwohl die Hardware in Ordnung ist. Es lohnt sich also, das auszuschließen, bevor du die Maus öffnest. Ändert eine frische Treiberinstallation nichts am unregelmäßigen Muster im Protokoll, ist der Encoder die wahrscheinlichere Ursache.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <section class="help-section">
+    <h2>Verwandte Tools</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/de/mouse-test">
+        <h3>Maustest</h3>
+        <p>Prüf auch gleich jede Taste.</p>
+      </a>
+      <a class="help-card" href="/de/trackpad-test">
+        <h3>Touchpad-Test</h3>
+        <p>Mit Zwei-Finger-Scrollen und Zoomen per Fingerbewegung.</p>
+      </a>
+      <a class="help-card" href="/blog/mouse/mouse-scroll-not-working" hreflang="en">
+        <h3>Mausrad scrollt nicht richtig<span class="lang-tag">EN</span></h3>
+        <p>Springen, Ruckeln und umgekehrtes Scrollen – behoben.</p>
+      </a>
+      <a class="help-card" href="/blog/mouse/mouse-scrolling-wrong-direction" hreflang="en">
+        <h3>Scrollen in die falsche Richtung<span class="lang-tag">EN</span></h3>
+        <p>In den Einstellungen umkehren oder einen verschmutzten Encoder reinigen.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/de">Startseite</a>
+    <a href="/de#mouse">Maus</a>
+    <a href="/de#keyboard-tools">Tastatur</a>
+    <a href="/de#gaming">Gaming</a>
+    <a href="/de/screen-test">Bildschirmtest</a>
+    <a href="/de#guides">Ratgeber</a>
+    <a href="/de/about">Über uns</a>
+    <a href="/de/contact">Kontakt</a>
+    <a href="/sitemap">Sitemap</a>
+    <a href="/privacy-policy">Datenschutz</a>
+    <a href="/cookies-policy">Cookies</a>
+    <a href="/terms-and-conditions">Nutzungsbedingungen</a>
+    <a href="/disclaimer">Haftungsausschluss</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie-Einwilligung" hidden>
+  <p>Wir verwenden Cookies für eine einfache Reichweitenmessung und um über Google AdSense Werbung anzuzeigen. Die Tests selbst laufen in deinem Browser und senden nichts irgendwohin. Mehr dazu in unserer <a href="/cookies-policy">Cookie-Richtlinie</a> (auf Englisch).</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Ablehnen</button>
+    <button type="button" class="btn" id="cookie-accept">Akzeptieren</button>
+  </div>
+</div>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

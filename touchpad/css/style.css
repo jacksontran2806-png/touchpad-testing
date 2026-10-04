@@ -105,7 +105,9 @@ nav.site-nav a {
 nav.site-nav a:hover { color: var(--text); }
 
 /* Mobile nav — checkbox-driven disclosure, no JS. Hidden entirely above the
-   breakpoint, where nav.site-nav shows inline as before. */
+   breakpoint, where nav.site-nav shows inline as before. The breakpoint is
+   set by the widest translated nav (German, plus the language switcher),
+   which needs ~740px inline — below that the header wraps onto two lines. */
 .nav-toggle-input { display: none; }
 
 .nav-toggle {
@@ -122,7 +124,7 @@ nav.site-nav a:hover { color: var(--text); }
 
 .nav-toggle:hover { background: var(--surface-2); }
 
-@media (max-width: 640px) {
+@media (max-width: 760px) {
   .nav-toggle { display: flex; }
 
   nav.site-nav {
@@ -149,6 +151,56 @@ nav.site-nav a:hover { color: var(--text); }
   }
 
   nav.site-nav a:hover { background: var(--surface-2); }
+}
+
+/* Language switcher — generated into the header by build.js. Sits inline at
+   the end of the nav on desktop and as its own row in the mobile menu. */
+.lang-switch {
+  display: inline-flex;
+  gap: 2px;
+  margin-left: 22px;
+  padding: 2px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  vertical-align: middle;
+}
+
+nav.site-nav .lang-switch a {
+  margin-left: 0;
+  padding: 3px 7px;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+nav.site-nav .lang-switch a[aria-current="true"] {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+@media (max-width: 760px) {
+  .lang-switch {
+    align-self: flex-start;
+    margin: 8px 0 0;
+  }
+
+  nav.site-nav .lang-switch a { padding: 6px 12px; font-size: 0.85rem; }
+}
+
+/* Marks a link from a translated page to content only available in English. */
+.lang-tag {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 5px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--text-dim);
+  vertical-align: middle;
+  letter-spacing: 0.04em;
 }
 
 main { flex: 1; }
@@ -1325,4 +1377,185 @@ a.tool-card:hover { border-color: var(--accent); transform: translateY(-1px); }
   .cookie-banner { padding: 14px; }
   .cookie-actions { width: 100%; }
   .cookie-actions .btn { flex: 1; text-align: center; }
+}
+
+/* ---------- Screen test ----------
+   The swatch grid is the launcher; .screen-stage is the full-screen surface
+   the colors and patterns actually render on. */
+.screen-launch {
+  padding: 16px;
+}
+
+.screen-launch h3 {
+  margin: 0 0 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.screen-launch h3 + .swatch-grid { margin-bottom: 20px; }
+
+.swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
+  gap: 8px;
+}
+
+button.swatch {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 72px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  overflow: hidden;
+  cursor: pointer;
+  font-family: var(--font-body);
+  text-align: left;
+}
+
+button.swatch:hover { border-color: var(--accent); }
+button.swatch:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.swatch-fill {
+  flex: 1;
+  background: var(--fill);
+}
+
+.swatch-label {
+  padding: 5px 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.screen-start-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.screen-start-row .btn,
+.screen-cycle-row .btn {
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+
+.screen-start-row .btn { padding: 11px 22px; font-size: 0.95rem; }
+.screen-start-row p { margin: 0; font-size: 0.82rem; color: var(--text-dim); }
+
+.screen-cycle-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.screen-cycle-warning {
+  margin: 10px 0 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--warn-bg);
+  color: #7a4a00;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+/* The stage covers the whole viewport even when the Fullscreen API is
+   unavailable (iPhone Safari), so the test still works there — just with
+   browser chrome visible. */
+.screen-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: #000;
+  cursor: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.screen-stage[hidden] { display: none; }
+.screen-stage.show-cursor { cursor: default; }
+
+.screen-stage canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.screen-text {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-family: var(--font-body);
+}
+
+.screen-text > div {
+  padding: 4vh 4vw;
+  overflow: hidden;
+  line-height: 1.45;
+}
+
+.screen-text > div:first-child { background: #fff; color: #000; }
+.screen-text > div:last-child { background: #000; color: #fff; }
+.screen-text p { margin: 0 0 0.6em; }
+
+.screen-hud {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: calc(100% - 32px);
+  padding: 8px 8px 8px 16px;
+  border-radius: 999px;
+  background: rgba(20, 22, 28, 0.86);
+  color: #fff;
+  font-size: 0.82rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+  transition: opacity 0.35s ease;
+  pointer-events: auto;
+}
+
+/* Fully gone, not just dim: any lit pixel would spoil the black test. */
+.screen-hud.is-hidden { opacity: 0; pointer-events: none; }
+
+.screen-hud-label { font-weight: 600; white-space: nowrap; }
+.screen-hud-hint { color: rgba(255, 255, 255, 0.65); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.screen-hud button {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.screen-hud button:hover { background: rgba(255, 255, 255, 0.26); }
+
+@media (max-width: 560px) {
+  .screen-hud-hint { display: none; }
+  .screen-text { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; }
 }

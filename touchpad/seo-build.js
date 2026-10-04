@@ -8,6 +8,7 @@
 const fs = require("fs")
 const path = require("path")
 const data = require("./seo-data.js")
+const i18n = require("./i18n.js")
 
 const ROOT = __dirname
 
@@ -110,6 +111,13 @@ function stripTags(s) {
 }
 
 function schemaFor(rel, html) {
+  // Page type is decided by the English path, so es/mouse-test.html is a tool
+  // page exactly like mouse-test.html — only the language fields differ.
+  const lang = i18n.langOf(rel)
+  const base = i18n.basePath(rel)
+  const conf = data.languages[lang]
+  const inLanguage = conf.inLanguage
+
   const title = read(html, /<title>([\s\S]*?)<\/title>/)
   const description = read(html, /<meta name="description" content="([\s\S]*?)"\s*\/?>/)
   const canonical = read(html, /<link rel="canonical" href="([^"]+)"/)
@@ -118,7 +126,7 @@ function schemaFor(rel, html) {
   // No canonical means the page is not meant to be indexed (404). Skip it.
   if (!canonical) return null
 
-  const home = { name: "Home", url: `${data.siteUrl}/` }
+  const home = { name: conf.home, url: i18n.urlFor(lang, "index.html") }
   // Published is set once and frozen; modified moves when a page is rewritten.
   // Falling back to published (not defaultDate) keeps a brand-new page from
   // claiming it was modified before it existed.
@@ -126,7 +134,7 @@ function schemaFor(rel, html) {
   const modified = data.dates[rel] || published
   const graph = []
 
-  if (rel === "index.html") {
+  if (base === "index.html") {
     graph.push(publisher, website, {
       "@type": "WebPage",
       "@id": `${canonical}#webpage`,
@@ -135,7 +143,7 @@ function schemaFor(rel, html) {
       description,
       isPartOf: { "@id": `${data.siteUrl}/#website` },
       about: { "@id": `${data.siteUrl}/#organization` },
-      inLanguage: "en-US",
+      inLanguage,
     })
 
     // The tool list is the substance of the homepage — spell it out rather
@@ -147,13 +155,13 @@ function schemaFor(rel, html) {
       itemListElement: data.homepageTools.map((slug, i) => ({
         "@type": "ListItem",
         position: i + 1,
-        url: `${data.siteUrl}/${slug}`,
+        url: i18n.urlFor(lang, `${slug}.html`),
       })),
     })
     return graph
   }
 
-  if (rel.startsWith("blog/") || rel.startsWith("blog\\")) {
+  if (base.startsWith("blog/")) {
     graph.push({
       "@type": "BlogPosting",
       "@id": `${canonical}#article`,
@@ -168,12 +176,12 @@ function schemaFor(rel, html) {
       author: { "@id": `${data.siteUrl}/#organization` },
       publisher: { "@id": `${data.siteUrl}/#organization` },
       isPartOf: { "@id": `${data.siteUrl}/#website` },
-      inLanguage: "en-US",
+      inLanguage,
     })
     graph.push(
       breadcrumb([
         home,
-        { name: "Guides", url: `${data.siteUrl}/#guides` },
+        { name: "Guides", url: `${home.url}#guides` },
         { name: headline || title, url: canonical },
       ])
     )
@@ -182,8 +190,9 @@ function schemaFor(rel, html) {
     return graph
   }
 
-  const tool = data.tools[rel]
+  const tool = data.tools[base]
   if (tool) {
+    const section = lang === "en" ? tool.section : data.sections[tool.section][lang]
     graph.push({
       "@type": "WebApplication",
       "@id": `${canonical}#app`,
@@ -198,12 +207,12 @@ function schemaFor(rel, html) {
       offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
       publisher: { "@id": `${data.siteUrl}/#organization` },
       isPartOf: { "@id": `${data.siteUrl}/#website` },
-      inLanguage: "en-US",
+      inLanguage,
     })
     graph.push(
       breadcrumb([
         home,
-        { name: tool.section, url: `${data.siteUrl}/` },
+        { name: section, url: home.url },
         { name: headline || title, url: canonical },
       ])
     )
@@ -219,7 +228,7 @@ function schemaFor(rel, html) {
     name: title,
     description,
     isPartOf: { "@id": `${data.siteUrl}/#website` },
-    inLanguage: "en-US",
+    inLanguage,
   })
   graph.push(
     breadcrumb([home, { name: headline || title, url: canonical }])
@@ -273,22 +282,35 @@ function buildSitemap(files) {
     const canonical = read(html, /<link rel="canonical" href="([^"]+)"/)
     if (!canonical) continue
 
+    // Priority follows the page type, so a translation ranks like its original.
+    const base = i18n.basePath(norm)
     let priority = "0.5"
-    if (norm === "index.html") priority = "1.0"
-    else if (data.tools[norm]) priority = "0.9"
-    else if (norm.startsWith("blog/")) priority = "0.8"
-    else if (norm === "about.html") priority = "0.4"
+    if (base === "index.html") priority = "1.0"
+    else if (data.tools[base]) priority = "0.9"
+    else if (base.startsWith("blog/")) priority = "0.8"
+    else if (base === "about.html") priority = "0.4"
     else if (
-      norm === "privacy-policy.html" ||
-      norm === "terms-and-conditions.html" ||
-      norm === "disclaimer.html"
+      base === "privacy-policy.html" ||
+      base === "terms-and-conditions.html" ||
+      base === "disclaimer.html"
     )
       priority = "0.3"
+
+    // The same hreflang set the page's <head> carries (build.js), repeated
+    // here as Google's sitemap form of it.
+    const available = i18n.translationsOf(base)
+    const alternates =
+      available.length < 2
+        ? []
+        : available
+            .map((l) => ({ hreflang: data.languages[l].hreflang, href: i18n.urlFor(l, base) }))
+            .concat(available.includes("en") ? [{ hreflang: "x-default", href: i18n.urlFor("en", base) }] : [])
 
     entries.push({
       loc: canonical,
       lastmod: data.dates[norm] || data.published[norm] || data.defaultDate,
       priority,
+      alternates,
       sort: Number(priority),
     })
   }
@@ -302,12 +324,12 @@ function buildSitemap(files) {
     <loc>${e.loc}</loc>
     <lastmod>${e.lastmod}</lastmod>
     <priority>${e.priority}</priority>
-  </url>`
+${e.alternates.map((a) => `    <xhtml:link rel="alternate" hreflang="${a.hreflang}" href="${a.href}"/>\n`).join("")}  </url>`
     )
     .join("\n")
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${body}
 </urlset>
 `
@@ -331,6 +353,12 @@ const SITEMAP_SECTIONS = [
   { title: "Keyboard guides", match: (rel) => rel.startsWith("blog/keyboard/") },
   { title: "Mouse guides", match: (rel) => rel.startsWith("blog/mouse/") },
   { title: "Trackpad guides", match: (rel) => rel.startsWith("blog/trackpad/") },
+  // Translations get their own section each, listed under their own titles.
+  ...i18n.LANGS.filter((l) => l !== "en").map((l) => ({
+    title: data.languages[l].sitemapTitle,
+    lang: l,
+    match: (rel) => i18n.langOf(rel) === l,
+  })),
   { title: "Site pages", match: () => true },
 ]
 
@@ -359,7 +387,8 @@ function buildHtmlSitemap(files) {
       .sort((a, b) => a.label.localeCompare(b.label))
     if (!inSection.length) continue
     inSection.forEach((p) => used.add(p.norm))
-    out += `\n    <h2>${section.title}</h2>\n    <ul>\n`
+    const langAttr = section.lang ? ` lang="${data.languages[section.lang].hreflang}"` : ""
+    out += `\n    <h2${langAttr}>${section.title}</h2>\n    <ul${langAttr}>\n`
     for (const p of inSection) {
       out += `      <li><a href="${p.href}">${escapeHtml(p.label)}</a></li>\n`
     }

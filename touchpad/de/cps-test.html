@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="de_DE">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>CPS-Test — Klicks pro Sekunde messen | Hardware Test Hub</title>
+<meta name="description" content="Miss deine Klickgeschwindigkeit über 5 oder 10 Sekunden und erhalte deinen Wert in Klicks pro Sekunde (CPS) – kostenlos und sofort im Browser.">
+<link rel="canonical" href="https://hardwaretesthub.net/de/cps-test">
+<!-- HREFLANG:START -->
+<link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/cps-test">
+<link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/cps-test">
+<link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/cps-test">
+<link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/cps-test">
+<!-- HREFLANG:END -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hardwaretesthub.net/de/cps-test">
+<meta property="og:title" content="CPS-Test — Klicks pro Sekunde messen">
+<meta property="og:description" content="Miss deine Klickgeschwindigkeit über 5 oder 10 Sekunden und erhalte deinen Wert in Klicks pro Sekunde (CPS) – kostenlos und sofort im Browser.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<meta name="google-adsense-account" content="ca-pub-1082746041497676">
+<!-- Google Consent Mode v2 defaults. Must run BEFORE the adsbygoogle tag
+     below, so ads and measurement start in the denied state and only move to
+     granted if the visitor accepts in the cookie banner (js/app.js). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500
+});
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://hardwaretesthub.net/de/cps-test#app",
+      "name": "CPS-Test — Klicks pro Sekunde",
+      "description": "Miss deine Klickgeschwindigkeit über 5 oder 10 Sekunden und erhalte deinen Wert in Klicks pro Sekunde (CPS) – kostenlos und sofort im Browser.",
+      "url": "https://hardwaretesthub.net/de/cps-test",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires JavaScript",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "de"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Startseite",
+          "item": "https://hardwaretesthub.net/de"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Gaming",
+          "item": "https://hardwaretesthub.net/de"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "CPS-Test — Klicks pro Sekunde",
+          "item": "https://hardwaretesthub.net/de/cps-test"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/de/cps-test#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/de/cps-test#app"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Was ist ein guter CPS-Wert?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "4–6 Klicks pro Sekunde mit normalem Griff sind Durchschnitt, 6–9 sind schnell, und alles über 9–10 mit normaler Klicktechnik ist ungewöhnlich schnell. Werte über etwa 12–14 CPS bedeuten fast immer Jitter-Clicking, Butterfly-Clicking oder einen Autoklicker – nicht einen einzelnen Finger in normaler Bewegung."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Warum ist mein Wert auf dem Laptop-Touchpad niedriger als mit einer Maus?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ein Tippen auf dem Touchpad hat pro Klick einen längeren Weg und enthält oft eine eingebaute Entprellverzögerung, damit versehentliche Berührungen nicht zählen. Beides begrenzt, wie schnell wiederholte Klicks erkannt werden, im Vergleich zum kurzen mechanischen Schaltweg einer Maus."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kann dieser Test einen Menschen von einem Autoklicker unterscheiden?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nicht mit Sicherheit, aber ein starkes Indiz ist die Gleichmäßigkeit: Die Klickabstände einer echten Hand schwanken von Klick zu Klick ein wenig, während softwaregesteuerte Klicks jedes Mal in nahezu identischen Abständen kommen. Ein perfekt gleichmäßiger, sehr hoher Wert ist das klassische Zeichen – auch wenn der Test selbst nur die reine Anzahl meldet."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/de"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menü">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/de#mouse">Maus</a>
+      <a href="/de#keyboard-tools">Tastatur</a>
+      <a href="/de#gaming">Gaming</a>
+      <a href="/de#guides">Ratgeber</a>
+      <a href="/de/about">Über uns</a>
+      <!-- LANG_SWITCH:START -->
+      <div class="lang-switch">
+        <a href="/cps-test" hreflang="en" lang="en" title="English">EN</a>
+        <a href="/es/cps-test" hreflang="es" lang="es" title="Español">ES</a>
+        <a href="/de/cps-test" hreflang="de" lang="de" title="Deutsch" aria-current="true">DE</a>
+      </div>
+      <!-- LANG_SWITCH:END -->
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <div class="tool-head">
+    <div class="kicker">Gaming</div>
+    <h1>CPS-Test — Klicks pro Sekunde</h1>
+    <p>Klick die gesamte Zeit über so schnell du kannst auf das Feld. Dein Ergebnis sind die Klicks geteilt durch die Sekunden, präzise im Browser gemessen.</p>
+  </div>
+
+  <div class="tool-wrap">
+    <div class="test-wrap">
+      <div class="canvas-card">
+        <div class="canvas-toolbar">
+          <h2>Testbereich</h2>
+          <div class="toolbar-controls">
+            <select class="layout-select" id="cps-duration" aria-label="Testdauer">
+              <option value="5" selected>5 Sekunden</option>
+              <option value="10">10 Sekunden</option>
+              <option value="20">20 Sekunden</option>
+              <option value="60">1 Minute</option>
+            </select>
+          </div>
+        </div>
+        <button type="button" class="cps-button" id="cps-button">
+          <span class="cps-timer" id="cps-timer">5.0s</span>
+          <span class="cps-live-count" id="cps-count">0 Klicks</span>
+          <span id="cps-label">Zum Starten klicken</span>
+        </button>
+        <div class="cps-result" id="cps-result" hidden>
+          <div>
+            <div class="cps-result-score" id="cps-score">0.00</div>
+            <div class="cps-result-tier" id="cps-tier"></div>
+          </div>
+          <div class="cps-result-actions">
+            <button class="btn btn-secondary" id="cps-copy">Ergebnis kopieren</button>
+            <button class="btn" id="cps-again">Nochmal</button>
+          </div>
+        </div>
+        <div class="hint-bar">
+          Der Timer startet erst, wenn du auf das Feld klickst – nimm dir also Zeit, dich bereit zu machen.
+        </div>
+      </div>
+
+      <aside class="results-panel">
+        <h2>So funktionieren die Stufen</h2>
+        <div class="live-readout" style="margin-top:0; padding-top:0; border-top:none;">
+          <div>Unter 4 CPS: unter dem Durchschnitt</div>
+          <div>4–6 CPS: Durchschnitt</div>
+          <div>6–9 CPS: schnell</div>
+          <div>9–12 CPS: sehr schnell</div>
+          <div>12+ CPS: außergewöhnlich</div>
+        </div>
+        <div id="cps-history-wrap" hidden style="margin-top:16px; padding-top:16px; border-top:1px solid var(--border);">
+          <h2>Diese Sitzung</h2>
+          <div class="click-log" id="cps-history"></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="article">
+    <h2>Was hier wirklich getestet wird</h2>
+    <p>Gemessen wird der reine Klickdurchsatz in einem festen Zeitfenster – wie viele Klick-Events dein Browser empfängt, geteilt durch die vergangenen Sekunden. Das ist ein guter Anhaltspunkt für das Ansprechverhalten der Maus und deine Klicktechnik (Jitter-Clicking, Butterfly-Clicking oder normales Klicken), kann aber einen schnellen Menschen nicht von Software unterscheiden, die Klicks automatisiert – ein verdächtig hoher, perfekt gleichmäßiger Wert verrät das meist.</p>
+
+    <h2>So bekommst du ein genaueres Ergebnis</h2>
+    <ol>
+      <li>Nutz deinen normalen Griff und deine übliche Klicktechnik – Jitter-Clicking erzielt deutlich mehr als ein normaler Klick.</li>
+      <li>Mach den Test 3–4 Mal; der erste Versuch fällt oft niedriger aus, bis du deinen Rhythmus gefunden hast.</li>
+      <li>Eine kabelgebundene Maus und ein Browser ohne viele schwere Hintergrund-Tabs messen etwas genauer als ein träges Setup.</li>
+    </ol>
+
+    <h2>Häufige Fragen</h2>
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>Was ist ein guter CPS-Wert?</summary>
+        <div class="faq-answer">
+          <p>4–6 Klicks pro Sekunde mit normalem Griff sind Durchschnitt, 6–9 sind schnell, und alles über 9–10 mit normaler Klicktechnik ist ungewöhnlich schnell. Werte über etwa 12–14 CPS bedeuten fast immer Jitter-Clicking, Butterfly-Clicking oder einen Autoklicker – nicht einen einzelnen Finger in normaler Bewegung.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Warum ist mein Wert auf dem Laptop-Touchpad niedriger als mit einer Maus?</summary>
+        <div class="faq-answer">
+          <p>Ein Tippen auf dem Touchpad hat pro Klick einen längeren Weg und enthält oft eine eingebaute Entprellverzögerung, damit versehentliche Berührungen nicht zählen. Beides begrenzt, wie schnell wiederholte Klicks erkannt werden, im Vergleich zum kurzen mechanischen Schaltweg einer Maus.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Kann dieser Test einen Menschen von einem Autoklicker unterscheiden?</summary>
+        <div class="faq-answer">
+          <p>Nicht mit Sicherheit, aber ein starkes Indiz ist die Gleichmäßigkeit: Die Klickabstände einer echten Hand schwanken von Klick zu Klick ein wenig, während softwaregesteuerte Klicks jedes Mal in nahezu identischen Abständen kommen. Ein perfekt gleichmäßiger, sehr hoher Wert ist das klassische Zeichen – auch wenn der Test selbst nur die reine Anzahl meldet.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <section class="help-section">
+    <h2>Verwandte Tools</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/de/mouse-double-click-test">
+        <h3>Doppelklick-Test</h3>
+        <p>Auf ungewollte Doppelauslösungen prüfen.</p>
+      </a>
+      <a class="help-card" href="/de/reaction-time-test">
+        <h3>Reaktionstest</h3>
+        <p>Klick, sobald sich die Farbe ändert.</p>
+      </a>
+      <a class="help-card" href="/de/mouse-test">
+        <h3>Maustest</h3>
+        <p>Prüf jede Taste und das Mausrad.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/de">Startseite</a>
+    <a href="/de#mouse">Maus</a>
+    <a href="/de#keyboard-tools">Tastatur</a>
+    <a href="/de#gaming">Gaming</a>
+    <a href="/de/screen-test">Bildschirmtest</a>
+    <a href="/de#guides">Ratgeber</a>
+    <a href="/de/about">Über uns</a>
+    <a href="/de/contact">Kontakt</a>
+    <a href="/sitemap">Sitemap</a>
+    <a href="/privacy-policy">Datenschutz</a>
+    <a href="/cookies-policy">Cookies</a>
+    <a href="/terms-and-conditions">Nutzungsbedingungen</a>
+    <a href="/disclaimer">Haftungsausschluss</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie-Einwilligung" hidden>
+  <p>Wir verwenden Cookies für eine einfache Reichweitenmessung und um über Google AdSense Werbung anzuzeigen. Die Tests selbst laufen in deinem Browser und senden nichts irgendwohin. Mehr dazu in unserer <a href="/cookies-policy">Cookie-Richtlinie</a> (auf Englisch).</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Ablehnen</button>
+    <button type="button" class="btn" id="cookie-accept">Akzeptieren</button>
+  </div>
+</div>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="de_DE">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Tastatur-Ghosting-Test — N-Key-Rollover (NKRO) Test | Hardware Test Hub</title>
+<meta name="description" content="Teste, wie viele Tasten deine Tastatur gleichzeitig erkennt. Kostenloser Online-Test für Ghosting und N-Key-Rollover (NKRO) – Tasten gedrückt halten und sehen, was ankommt.">
+<link rel="canonical" href="https://hardwaretesthub.net/de/keyboard-ghosting-test">
+<!-- HREFLANG:START -->
+<link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/keyboard-ghosting-test">
+<link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/keyboard-ghosting-test">
+<link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/keyboard-ghosting-test">
+<link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/keyboard-ghosting-test">
+<!-- HREFLANG:END -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hardwaretesthub.net/de/keyboard-ghosting-test">
+<meta property="og:title" content="Tastatur-Ghosting-Test — N-Key-Rollover (NKRO) Test">
+<meta property="og:description" content="Teste, wie viele Tasten deine Tastatur gleichzeitig erkennt. Kostenloser Online-Test für Ghosting und N-Key-Rollover (NKRO) – Tasten gedrückt halten und sehen, was ankommt.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<meta name="google-adsense-account" content="ca-pub-1082746041497676">
+<!-- Google Consent Mode v2 defaults. Must run BEFORE the adsbygoogle tag
+     below, so ads and measurement start in the denied state and only move to
+     granted if the visitor accepts in the cookie banner (js/app.js). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500
+});
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://hardwaretesthub.net/de/keyboard-ghosting-test#app",
+      "name": "Tastatur-Ghosting- / N-Key-Rollover-Test",
+      "description": "Teste, wie viele Tasten deine Tastatur gleichzeitig erkennt. Kostenloser Online-Test für Ghosting und N-Key-Rollover (NKRO) – Tasten gedrückt halten und sehen, was ankommt.",
+      "url": "https://hardwaretesthub.net/de/keyboard-ghosting-test",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires JavaScript",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "de"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Startseite",
+          "item": "https://hardwaretesthub.net/de"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tastatur",
+          "item": "https://hardwaretesthub.net/de"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Tastatur-Ghosting- / N-Key-Rollover-Test",
+          "item": "https://hardwaretesthub.net/de/keyboard-ghosting-test"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/de/keyboard-ghosting-test#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/de/keyboard-ghosting-test#app"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Ist Ghosting ein Hardwaredefekt, für den ich die Tastatur zurückgeben sollte?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nein – es ist eine grundsätzliche Einschränkung der Art, wie die meisten Tastaturen ihre Tasten verdrahten, kein Herstellungsfehler, und betrifft die große Mehrheit der Einsteiger- und Mittelklasse-Tastaturen in gewissem Maß. Zum echten Problem wird es nur, wenn deine konkrete Tastenkombination (etwa WASD plus Modifikatoren beim Zocken) auf eine blockierte oder Geister-Kombination trifft."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Warum werben Gaming-Tastaturen ausdrücklich mit NKRO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Beim Zocken hält man oft mehrere Tasten gleichzeitig – Bewegung, Modifikatoren und eine Fähigkeitstaste –, und ein verschluckter Tastendruck mitten in einer Kombo ist ein echtes, sofortiges Problem. N-Key-Rollover garantiert, dass jede gedrückte Taste gemeldet wird. Beim Tippen ist das viel weniger wichtig, weil man selten mehr als 2–3 Tasten auf einmal drückt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Beeinflusst USB statt Funkverbindung das Rollover?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Das kann es. Volles NKRO braucht in der Regel USB mit einem tastaturspezifischen Übertragungsmodus statt des Standard-Boot-Protokolls, und Bluetooth- oder 2,4-GHz-Funkverbindungen können dieses Protokoll oft nicht zuverlässig übertragen. Dadurch sind weniger gleichzeitige Tasten möglich, als dieselbe Tastatur per Kabel schaffen würde."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/de"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menü">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/de#mouse">Maus</a>
+      <a href="/de#keyboard-tools">Tastatur</a>
+      <a href="/de#gaming">Gaming</a>
+      <a href="/de#guides">Ratgeber</a>
+      <a href="/de/about">Über uns</a>
+      <!-- LANG_SWITCH:START -->
+      <div class="lang-switch">
+        <a href="/keyboard-ghosting-test" hreflang="en" lang="en" title="English">EN</a>
+        <a href="/es/keyboard-ghosting-test" hreflang="es" lang="es" title="Español">ES</a>
+        <a href="/de/keyboard-ghosting-test" hreflang="de" lang="de" title="Deutsch" aria-current="true">DE</a>
+      </div>
+      <!-- LANG_SWITCH:END -->
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <div class="tool-head">
+    <div class="kicker">Tastatur</div>
+    <h1>Tastatur-Ghosting- / N-Key-Rollover-Test</h1>
+    <p>Halte so viele Tasten wie möglich gleichzeitig gedrückt und beobachte den Zähler unten. Steigt er nicht mehr, obwohl du weitere Finger dazunimmst, hast du das Limit gleichzeitiger Tasten deiner Tastatur gefunden.</p>
+  </div>
+
+  <div class="tool-wrap">
+    <div class="test-wrap">
+      <div class="canvas-card">
+        <div class="canvas-toolbar">
+          <h2>Testbereich</h2>
+          <button class="reset-btn" id="reset-ghosting">Maximum zurücksetzen</button>
+        </div>
+        <div class="ghost-readout">
+          <div class="ghost-stat">
+            <span class="k">Gerade gedrückte Tasten</span>
+            <span class="v" id="ghost-current">0</span>
+          </div>
+          <div class="ghost-stat">
+            <span class="k">Höchste Zahl gleichzeitiger Tasten</span>
+            <span class="v" id="ghost-max">0</span>
+          </div>
+        </div>
+        <div class="keyboard-wrap">
+          <div class="keyboard" id="ghost-keyboard" aria-label="Rollover-Test der Tastatur"></div>
+        </div>
+        <div class="hint-bar">
+          Probier zuerst WASD + Shift + Leertaste und nimm dann weitere Finger dazu. Die meisten Tastaturen schaffen zwischen 2 und 6 Tasten, sofern sie nicht ausdrücklich für vollständiges N-Key-Rollover gebaut sind.
+        </div>
+      </div>
+
+      <aside class="results-panel">
+        <h2>Warum das nicht komplett automatisch geht</h2>
+        <div class="live-readout" style="margin-top:0; padding-top:0; border-top:none;">
+          Ein Browser erfährt von einem Tastendruck nur, wenn die Tastatur ihn <em>sendet</em>. Wird eine Taste stillschweigend verschluckt, gibt es kein Event – also nichts zu erkennen. Dieses Tool zeigt dir deshalb ehrlich, wie viele der Tasten, die du tatsächlich gedrückt hältst, auch ankommen. Die Differenz beurteilst du selbst.
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="article">
+    <h2>Was „Ghosting“ eigentlich bedeutet</h2>
+    <p>Die meisten Tastaturen verdrahten ihre Tasten in einer Matrix, damit wenige Leitungen über hundert Tasten abdecken. Drückst du drei Tasten, die sich dieselben Zeilen und Spalten teilen, kann die Elektronik sie nicht von einer vierten Taste unterscheiden, die nie gedrückt wurde – dieser Phantom-Tastendruck ist eine „Geistertaste“ (Ghost Key). Günstigere Tastaturen verhindern das mit einer kleinen Sperrliste bekannter Problemkombinationen (<strong>Key Blocking</strong>): sicherer, aber eine Taste, die du wirklich drückst, wird dann einfach nicht erkannt. Tastaturen mit vollem <strong>N-Key-Rollover (NKRO)</strong> umgehen das Problem komplett, meist per USB mit einem anderen Übertragungsprotokoll.</p>
+
+    <h2>Was du mit deinem Ergebnis anfängst</h2>
+    <ol>
+      <li>2–6 Tasten Rollover sind bei einer normalen Rubberdome-Tastatur üblich – reicht zum Tippen, ist beim Zocken aber begrenzt.</li>
+      <li>Wenn WASD plus ein paar Modifikatortasten nicht zuverlässig zusammen erkannt werden, such nach einem „NKRO-Modus“ – viele mechanische Tastaturen laufen ab Werk im 6-Tasten-Modus.</li>
+      <li>Für volles Rollover such im Datenblatt gezielt nach „NKRO“ – selbst bei mechanischen Tastaturen ist das nicht selbstverständlich.</li>
+    </ol>
+
+    <h2>Häufige Fragen</h2>
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>Ist Ghosting ein Hardwaredefekt, für den ich die Tastatur zurückgeben sollte?</summary>
+        <div class="faq-answer">
+          <p>Nein – es ist eine grundsätzliche Einschränkung der Art, wie die meisten Tastaturen ihre Tasten verdrahten, kein Herstellungsfehler, und betrifft die große Mehrheit der Einsteiger- und Mittelklasse-Tastaturen in gewissem Maß. Zum echten Problem wird es nur, wenn deine konkrete Tastenkombination (etwa WASD plus Modifikatoren beim Zocken) auf eine blockierte oder Geister-Kombination trifft.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Warum werben Gaming-Tastaturen ausdrücklich mit NKRO?</summary>
+        <div class="faq-answer">
+          <p>Beim Zocken hält man oft mehrere Tasten gleichzeitig – Bewegung, Modifikatoren und eine Fähigkeitstaste –, und ein verschluckter Tastendruck mitten in einer Kombo ist ein echtes, sofortiges Problem. N-Key-Rollover garantiert, dass jede gedrückte Taste gemeldet wird. Beim Tippen ist das viel weniger wichtig, weil man selten mehr als 2–3 Tasten auf einmal drückt.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Beeinflusst USB statt Funkverbindung das Rollover?</summary>
+        <div class="faq-answer">
+          <p>Das kann es. Volles NKRO braucht in der Regel USB mit einem tastaturspezifischen Übertragungsmodus statt des Standard-Boot-Protokolls, und Bluetooth- oder 2,4-GHz-Funkverbindungen können dieses Protokoll oft nicht zuverlässig übertragen. Dadurch sind weniger gleichzeitige Tasten möglich, als dieselbe Tastatur per Kabel schaffen würde.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <section class="help-section">
+    <h2>Verwandte Tools</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/de/keyboard-test">
+        <h3>Tastaturtest</h3>
+        <p>Prüf jede einzelne Taste.</p>
+      </a>
+      <a class="help-card" href="/de/reaction-time-test">
+        <h3>Reaktionstest</h3>
+        <p>Klick, sobald sich die Farbe ändert.</p>
+      </a>
+      <a class="help-card" href="/blog/keyboard/keyboard-key-not-working" hreflang="en">
+        <h3>Eine Taste funktioniert nicht<span class="lang-tag">EN</span></h3>
+        <p>Schmutz, verschlissene Membran und Schaltertausch.</p>
+      </a>
+      <a class="help-card" href="/blog/keyboard/wasd-arrow-keys-swapped" hreflang="en">
+        <h3>WASD mit Pfeiltasten vertauscht<span class="lang-tag">EN</span></h3>
+        <p>Einen versehentlichen Tastentausch rückgängig machen.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/de">Startseite</a>
+    <a href="/de#mouse">Maus</a>
+    <a href="/de#keyboard-tools">Tastatur</a>
+    <a href="/de#gaming">Gaming</a>
+    <a href="/de/screen-test">Bildschirmtest</a>
+    <a href="/de#guides">Ratgeber</a>
+    <a href="/de/about">Über uns</a>
+    <a href="/de/contact">Kontakt</a>
+    <a href="/sitemap">Sitemap</a>
+    <a href="/privacy-policy">Datenschutz</a>
+    <a href="/cookies-policy">Cookies</a>
+    <a href="/terms-and-conditions">Nutzungsbedingungen</a>
+    <a href="/disclaimer">Haftungsausschluss</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie-Einwilligung" hidden>
+  <p>Wir verwenden Cookies für eine einfache Reichweitenmessung und um über Google AdSense Werbung anzuzeigen. Die Tests selbst laufen in deinem Browser und senden nichts irgendwohin. Mehr dazu in unserer <a href="/cookies-policy">Cookie-Richtlinie</a> (auf Englisch).</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Ablehnen</button>
+    <button type="button" class="btn" id="cookie-accept">Akzeptieren</button>
+  </div>
+</div>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="es_ES">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Test de Touchpad Online — Comprueba Clics, Scroll y Gestos</title>
+<meta name="description" content="Test de touchpad y trackpad online gratis. Comprueba el clic, el clic derecho, el scroll con dos dedos y el zoom con pellizco, al instante en tu navegador y sin descargas.">
+<link rel="canonical" href="https://hardwaretesthub.net/es/trackpad-test">
+<!-- HREFLANG:START -->
+<link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/trackpad-test">
+<link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/trackpad-test">
+<link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/trackpad-test">
+<link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/trackpad-test">
+<!-- HREFLANG:END -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hardwaretesthub.net/es/trackpad-test">
+<meta property="og:title" content="Test de Touchpad Online — Comprueba Clics, Scroll y Gestos">
+<meta property="og:description" content="Test de touchpad y trackpad online gratis. Comprueba el clic, el clic derecho, el scroll con dos dedos y el zoom con pellizco, al instante en tu navegador y sin descargas.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<meta name="google-adsense-account" content="ca-pub-1082746041497676">
+<!-- Google Consent Mode v2 defaults. Must run BEFORE the adsbygoogle tag
+     below, so ads and measurement start in the denied state and only move to
+     granted if the visitor accepts in the cookie banner (js/app.js). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500
+});
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://hardwaretesthub.net/es/trackpad-test#app",
+      "name": "Test de touchpad",
+      "description": "Test de touchpad y trackpad online gratis. Comprueba el clic, el clic derecho, el scroll con dos dedos y el zoom con pellizco, al instante en tu navegador y sin descargas.",
+      "url": "https://hardwaretesthub.net/es/trackpad-test",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires JavaScript",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "es"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://hardwaretesthub.net/es"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Mouse y touchpad",
+          "item": "https://hardwaretesthub.net/es"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Test de touchpad",
+          "item": "https://hardwaretesthub.net/es/trackpad-test"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/es/trackpad-test#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/es/trackpad-test#app"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Por qué no se registra el zoom con pellizco si el resto del touchpad funciona?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En Windows, los gestos dependen del controlador del touchpad y con frecuencia vienen desactivados en los ajustes del panel táctil de precisión: revisa Configuración → Bluetooth y dispositivos → Panel táctil antes de pensar en un fallo de hardware. En Mac casi siempre está activado de serie, así que si falla justo esto, revisa Ajustes del Sistema → Trackpad → Desplazar y acercar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Se admite aquí el toque con dos dedos como clic derecho?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Un toque con dos dedos (lo predeterminado en Mac) o el gesto equivalente de los paneles táctiles de precisión de Windows llegan al navegador como un clic derecho normal, y esta herramienta lo detecta igual que si pulsaras un botón derecho físico. Si no se registra, confirma primero que el gesto esté activado en los ajustes del touchpad de tu sistema."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Funciona con un trackpad externo y no solo con el integrado del portátil?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Un trackpad independiente, como el Magic Trackpad de Apple, envía el mismo tipo de eventos de puntero, rueda y gestos que uno integrado, así que todas las comprobaciones de esta página valen igual. La principal diferencia es que los trackpads externos Bluetooth añaden posibles problemas de emparejamiento y controladores que los integrados no tienen."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/es"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menú">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/es#mouse">Mouse</a>
+      <a href="/es#keyboard-tools">Teclado</a>
+      <a href="/es#gaming">Gaming</a>
+      <a href="/es#guides">Guías</a>
+      <a href="/es/about">Acerca de</a>
+      <!-- LANG_SWITCH:START -->
+      <div class="lang-switch">
+        <a href="/trackpad-test" hreflang="en" lang="en" title="English">EN</a>
+        <a href="/es/trackpad-test" hreflang="es" lang="es" title="Español" aria-current="true">ES</a>
+        <a href="/de/trackpad-test" hreflang="de" lang="de" title="Deutsch">DE</a>
+      </div>
+      <!-- LANG_SWITCH:END -->
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <div class="tool-head">
+    <div class="kicker">Mouse y touchpad</div>
+    <h1>Test de touchpad</h1>
+    <p>Mueve, haz clic, desplázate y pellizca en tu touchpad. Cada gesto se ilumina abajo en cuanto el navegador lo recibe, para que distingas un fallo real de hardware de un problema de configuración.</p>
+  </div>
+
+  <div class="tool-wrap">
+    <div class="test-wrap">
+      <div class="canvas-card">
+        <div class="canvas-toolbar">
+          <h2>Zona de prueba</h2>
+          <button class="reset-btn" id="reset-touchpad">Reiniciar</button>
+        </div>
+        <div class="canvas-stage">
+          <canvas id="test-canvas" aria-label="Superficie de prueba del touchpad"></canvas>
+          <div class="canvas-empty-state" id="canvas-empty-state">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M12 2c-2.5 0-4 1.8-4 4v7a5 5 0 0 0 10 0V9"></path><path d="M12 12v3"></path></svg>
+            <p>Mueve el cursor o toca aquí para empezar</p>
+          </div>
+        </div>
+        <div class="hint-bar">
+          Prueba: mover el cursor · clic · clic derecho (toque con dos dedos en Mac) · doble clic · clic y arrastrar · scroll con dos dedos · pellizcar para hacer zoom
+        </div>
+      </div>
+
+      <aside class="results-panel">
+        <h2>Detectado hasta ahora</h2>
+        <div class="check-list">
+          <div class="check-item" data-check="move">
+            <span class="label"><span class="check-icon"></span>Movimiento del cursor</span>
+            <span class="status">Esperando</span>
+          </div>
+          <div class="check-item" data-check="click">
+            <span class="label"><span class="check-icon"></span>Clic</span>
+            <span class="status">Esperando</span>
+          </div>
+          <div class="check-item" data-check="rightClick">
+            <span class="label"><span class="check-icon"></span>Clic derecho</span>
+            <span class="status">Esperando</span>
+          </div>
+          <div class="check-item" data-check="doubleClick">
+            <span class="label"><span class="check-icon"></span>Doble clic</span>
+            <span class="status">Esperando</span>
+          </div>
+          <div class="check-item" data-check="drag">
+            <span class="label"><span class="check-icon"></span>Clic y arrastrar</span>
+            <span class="status">Esperando</span>
+          </div>
+          <div class="check-item" data-check="scrollV">
+            <span class="label"><span class="check-icon"></span>Scroll vertical</span>
+            <span class="status">Esperando</span>
+          </div>
+          <div class="check-item" data-check="scrollH">
+            <span class="label"><span class="check-icon"></span>Scroll horizontal</span>
+            <span class="status">Esperando</span>
+          </div>
+          <div class="check-item" data-check="pinch">
+            <span class="label"><span class="check-icon"></span>Pellizcar para zoom</span>
+            <span class="status">Esperando</span>
+          </div>
+        </div>
+
+        <div class="live-readout">
+          <div>Posición: <code id="ro-coords">–</code></div>
+          <div>Tipo de puntero: <code id="ro-pointertype">–</code></div>
+          <div>Puntos activos: <code id="ro-active">0</code></div>
+          <div>Rueda: <code id="ro-wheel">–</code></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="article">
+    <h2>Qué comprueba realmente</h2>
+    <p>Tu touchpad no envía «gestos» al navegador: envía movimiento del cursor más eventos de scroll de rueda, igual que un mouse. El scroll con dos dedos y el zoom con pellizco son el sistema operativo traduciendo la entrada multitáctil a esas mismas señales antes de que el navegador vea ningún dato táctil. Esta herramienta muestra exactamente lo que llega a ese nivel, así que un gesto que nunca se ilumina aquí ha fallado antes de llegar al navegador.</p>
+
+    <h2>Si algo no se registra</h2>
+    <ol>
+      <li>Confirma que el touchpad está activado y que no lo desactiva un ajuste para cuando hay un mouse externo conectado.</li>
+      <li>Actualiza o reinstala el controlador del touchpad (Windows) o restablece los ajustes del trackpad (Mac).</li>
+      <li>Comprueba que gestos como el zoom con pellizco estén realmente activados en los ajustes del sistema: en Windows muchos vienen desactivados.</li>
+      <li>Si puedes, pruébalo en otro ordenador para distinguir un fallo de hardware de un problema de software o controlador.</li>
+    </ol>
+
+    <div class="cta-box">
+      <p>¿Necesitas la guía completa para tu sistema?</p>
+      <a class="btn" href="/blog/trackpad/mac-trackpad-not-working" hreflang="en">Soluciones para Mac (en inglés)</a>
+    </div>
+
+    <h2>Preguntas frecuentes</h2>
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>¿Por qué no se registra el zoom con pellizco si el resto del touchpad funciona?</summary>
+        <div class="faq-answer">
+          <p>En Windows, los gestos dependen del controlador del touchpad y con frecuencia vienen desactivados en los ajustes del panel táctil de precisión: revisa Configuración → Bluetooth y dispositivos → Panel táctil antes de pensar en un fallo de hardware. En Mac casi siempre está activado de serie, así que si falla justo esto, revisa Ajustes del Sistema → Trackpad → Desplazar y acercar.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Se admite aquí el toque con dos dedos como clic derecho?</summary>
+        <div class="faq-answer">
+          <p>Sí. Un toque con dos dedos (lo predeterminado en Mac) o el gesto equivalente de los paneles táctiles de precisión de Windows llegan al navegador como un clic derecho normal, y esta herramienta lo detecta igual que si pulsaras un botón derecho físico. Si no se registra, confirma primero que el gesto esté activado en los ajustes del touchpad de tu sistema.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Funciona con un trackpad externo y no solo con el integrado del portátil?</summary>
+        <div class="faq-answer">
+          <p>Sí. Un trackpad independiente, como el Magic Trackpad de Apple, envía el mismo tipo de eventos de puntero, rueda y gestos que uno integrado, así que todas las comprobaciones de esta página valen igual. La principal diferencia es que los trackpads externos Bluetooth añaden posibles problemas de emparejamiento y controladores que los integrados no tienen.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <section class="help-section">
+    <h2>Herramientas relacionadas</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/es/mouse-test">
+        <h3>Test de mouse</h3>
+        <p>Comprueba todos los botones del mouse, incluidos los laterales.</p>
+      </a>
+      <a class="help-card" href="/es/keyboard-test">
+        <h3>Test de teclado</h3>
+        <p>Mira cómo se ilumina cada tecla, etiquetada según tu distribución.</p>
+      </a>
+      <a class="help-card" href="/blog/trackpad/mac-trackpad-not-working" hreflang="en">
+        <h3>El trackpad del Mac no funciona<span class="lang-tag">EN</span></h3>
+        <p>8 soluciones para un trackpad de Mac que no hace clic, no desplaza o no responde.</p>
+      </a>
+      <a class="help-card" href="/blog/trackpad/windows-touchpad-not-working" hreflang="en">
+        <h3>El touchpad de Windows no funciona<span class="lang-tag">EN</span></h3>
+        <p>Controladores, BIOS y ajustes para touchpads de precisión.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/es">Inicio</a>
+    <a href="/es#mouse">Mouse</a>
+    <a href="/es#keyboard-tools">Teclado</a>
+    <a href="/es#gaming">Gaming</a>
+    <a href="/es/screen-test">Test de pantalla</a>
+    <a href="/es#guides">Guías</a>
+    <a href="/es/about">Acerca de</a>
+    <a href="/es/contact">Contacto</a>
+    <a href="/sitemap">Mapa del sitio</a>
+    <a href="/privacy-policy">Privacidad</a>
+    <a href="/cookies-policy">Cookies</a>
+    <a href="/terms-and-conditions">Términos</a>
+    <a href="/disclaimer">Aviso legal</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Consentimiento de cookies" hidden>
+  <p>Usamos cookies para medir el tráfico de forma básica y para mostrar anuncios a través de Google AdSense. Las pruebas se ejecutan en tu navegador y no envían nada a ningún sitio. Consulta nuestra <a href="/cookies-policy">Política de cookies</a> (en inglés).</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Rechazar</button>
+    <button type="button" class="btn" id="cookie-accept">Aceptar</button>
+  </div>
+</div>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

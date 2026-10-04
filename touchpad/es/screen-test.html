@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="es_ES">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Test de Pantalla — Píxeles Muertos y Fugas de Luz en Monitor, Mac y PC</title>
+<meta name="description" content="Test de pantalla gratis a pantalla completa para Mac, MacBook y monitores de PC. Detecta píxeles muertos o atascados, fugas de luz (backlight bleed), banding y brillo desigual con colores, degradados y patrones.">
+<link rel="canonical" href="https://hardwaretesthub.net/es/screen-test">
+<!-- HREFLANG:START -->
+<link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/screen-test">
+<link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/screen-test">
+<link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/screen-test">
+<link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/screen-test">
+<!-- HREFLANG:END -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hardwaretesthub.net/es/screen-test">
+<meta property="og:title" content="Test de Pantalla — Píxeles Muertos y Fugas de Luz en Monitor, Mac y PC">
+<meta property="og:description" content="Test de pantalla gratis a pantalla completa para Mac, MacBook y monitores de PC. Detecta píxeles muertos o atascados, fugas de luz (backlight bleed), banding y brillo desigual con colores, degradados y patrones.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<meta name="google-adsense-account" content="ca-pub-1082746041497676">
+<!-- Google Consent Mode v2 defaults. Must run BEFORE the adsbygoogle tag
+     below, so ads and measurement start in the denied state and only move to
+     granted if the visitor accepts in the cookie banner (js/app.js). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500
+});
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://hardwaretesthub.net/es/screen-test#app",
+      "name": "Test de pantalla",
+      "description": "Test de pantalla gratis a pantalla completa para Mac, MacBook y monitores de PC. Detecta píxeles muertos o atascados, fugas de luz (backlight bleed), banding y brillo desigual con colores, degradados y patrones.",
+      "url": "https://hardwaretesthub.net/es/screen-test",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires JavaScript",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "es"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://hardwaretesthub.net/es"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Pantalla",
+          "item": "https://hardwaretesthub.net/es"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Test de pantalla",
+          "item": "https://hardwaretesthub.net/es/screen-test"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/es/screen-test#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/es/screen-test#app"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué diferencia hay entre un píxel muerto y uno atascado?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un píxel muerto no recibe corriente y se queda negro en todos los colores, así que se ve mejor en la pantalla blanca. Un píxel atascado tiene uno o más subpíxeles siempre encendidos, por lo que aparece como un punto rojo, verde, azul o blanco brillante, más visible en la pantalla negra."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Se puede arreglar un píxel atascado?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A veces un píxel atascado se arregla solo, y hay quien dice haberlo conseguido con una presión suave a través de un paño o con largos ciclos de colores rápidos, pero ninguno de estos métodos es fiable. Un píxel muerto no se arregla por software. Si la pantalla es nueva, revisa antes la política de píxeles del fabricante y el plazo de devolución."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánta fuga de luz es normal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La mayoría de pantallas LCD dejan ver algo de luz en los bordes con la pantalla negra en una habitación oscura, sobre todo los paneles IPS, que además tienen un brillo grisáceo que cambia con el ángulo de visión. Las manchas claras que se ven con brillo normal, con la luz encendida o en escenas oscuras de películas merecen una reclamación al vendedor. Las pantallas OLED no deberían mostrar ninguna luz sobre negro."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué la frecuencia indica 60 Hz en mi monitor de 120 o 144 Hz?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Comprueba primero la frecuencia configurada en los ajustes de pantalla de tu sistema: muchos monitores de alta frecuencia vienen a 60 Hz de serie o funcionan a 60 Hz con un cable antiguo. Los modos de ahorro de batería y algunos navegadores (sobre todo Safari) también limitan la animación de las páginas a 60 fotogramas por segundo, y esta medición lo refleja."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/es"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menú">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/es#mouse">Mouse</a>
+      <a href="/es#keyboard-tools">Teclado</a>
+      <a href="/es#gaming">Gaming</a>
+      <a href="/es#guides">Guías</a>
+      <a href="/es/about">Acerca de</a>
+      <!-- LANG_SWITCH:START -->
+      <div class="lang-switch">
+        <a href="/screen-test" hreflang="en" lang="en" title="English">EN</a>
+        <a href="/es/screen-test" hreflang="es" lang="es" title="Español" aria-current="true">ES</a>
+        <a href="/de/screen-test" hreflang="de" lang="de" title="Deutsch">DE</a>
+      </div>
+      <!-- LANG_SWITCH:END -->
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <div class="tool-head">
+    <div class="kicker">Pantalla</div>
+    <h1>Test de pantalla</h1>
+    <p>Llena toda la pantalla con colores sólidos, degradados y patrones de píxeles para buscar píxeles muertos o atascados, fugas de luz, banding y brillo desigual. Funciona en cualquier Mac, MacBook, monitor de PC o pantalla de portátil, sin instalar nada.</p>
+  </div>
+
+  <div class="tool-wrap">
+    <div class="test-wrap">
+      <div class="canvas-card">
+        <div class="canvas-toolbar">
+          <h2>Pantallas de prueba</h2>
+        </div>
+        <div class="screen-launch">
+          <div class="screen-start-row">
+            <button type="button" class="btn" id="screen-start">Empezar a pantalla completa</button>
+            <p>17 pantallas. Haz clic o pulsa → para la siguiente, ← para volver y Esc para salir.</p>
+          </div>
+
+          <h3>Colores sólidos</h3>
+          <div class="swatch-grid">
+            <button type="button" class="swatch" data-screen-item="white" style="--fill:#ffffff"><span class="swatch-fill"></span><span class="swatch-label">Blanco</span></button>
+            <button type="button" class="swatch" data-screen-item="black" style="--fill:#000000"><span class="swatch-fill"></span><span class="swatch-label">Negro</span></button>
+            <button type="button" class="swatch" data-screen-item="red" style="--fill:#ff0000"><span class="swatch-fill"></span><span class="swatch-label">Rojo</span></button>
+            <button type="button" class="swatch" data-screen-item="green" style="--fill:#00ff00"><span class="swatch-fill"></span><span class="swatch-label">Verde</span></button>
+            <button type="button" class="swatch" data-screen-item="blue" style="--fill:#0000ff"><span class="swatch-fill"></span><span class="swatch-label">Azul</span></button>
+            <button type="button" class="swatch" data-screen-item="cyan" style="--fill:#00ffff"><span class="swatch-fill"></span><span class="swatch-label">Cian</span></button>
+            <button type="button" class="swatch" data-screen-item="magenta" style="--fill:#ff00ff"><span class="swatch-fill"></span><span class="swatch-label">Magenta</span></button>
+            <button type="button" class="swatch" data-screen-item="yellow" style="--fill:#ffff00"><span class="swatch-fill"></span><span class="swatch-label">Amarillo</span></button>
+            <button type="button" class="swatch" data-screen-item="gray25" style="--fill:#404040"><span class="swatch-fill"></span><span class="swatch-label">Gris 25 %</span></button>
+            <button type="button" class="swatch" data-screen-item="gray50" style="--fill:#808080"><span class="swatch-fill"></span><span class="swatch-label">Gris 50 %</span></button>
+            <button type="button" class="swatch" data-screen-item="gray75" style="--fill:#bfbfbf"><span class="swatch-fill"></span><span class="swatch-label">Gris 75 %</span></button>
+          </div>
+
+          <h3>Patrones</h3>
+          <div class="swatch-grid">
+            <button type="button" class="swatch" data-screen-item="gradient" style="--fill:linear-gradient(to right,#000,#fff)"><span class="swatch-fill"></span><span class="swatch-label">Degradado</span></button>
+            <button type="button" class="swatch" data-screen-item="gradient-rgb" style="--fill:linear-gradient(to right,#000,#fff) 0 0/100% 25% no-repeat,linear-gradient(to right,#000,#f00) 0 33.3%/100% 25% no-repeat,linear-gradient(to right,#000,#0f0) 0 66.7%/100% 25% no-repeat,linear-gradient(to right,#000,#00f) 0 100%/100% 25% no-repeat"><span class="swatch-fill"></span><span class="swatch-label">Degradados RGB</span></button>
+            <button type="button" class="swatch" data-screen-item="steps" style="--fill:linear-gradient(to right,#000 0 12.5%,#242424 0 25%,#494949 0 37.5%,#6d6d6d 0 50%,#929292 0 62.5%,#b6b6b6 0 75%,#dbdbdb 0 87.5%,#fff 0)"><span class="swatch-fill"></span><span class="swatch-label">Escala de grises</span></button>
+            <button type="button" class="swatch" data-screen-item="grid" style="--fill:repeating-linear-gradient(to right,#666 0 1px,transparent 1px 12px),repeating-linear-gradient(to bottom,#666 0 1px,#000 1px 12px)"><span class="swatch-fill"></span><span class="swatch-label">Cuadrícula</span></button>
+            <button type="button" class="swatch" data-screen-item="pixels" style="--fill:repeating-conic-gradient(#fff 0 25%,#000 0 50%) 0 0/4px 4px"><span class="swatch-fill"></span><span class="swatch-label">Píxeles</span></button>
+            <button type="button" class="swatch" data-screen-item="text" style="--fill:linear-gradient(to right,#fff 50%,#000 50%)"><span class="swatch-fill"></span><span class="swatch-label">Nitidez del texto</span></button>
+          </div>
+
+          <h3>Ciclo de colores</h3>
+          <div class="screen-cycle-row">
+            <select class="layout-select" id="screen-cycle-speed" aria-label="Velocidad del ciclo">
+              <option value="1" selected>1 cambio por segundo</option>
+              <option value="2">2 cambios por segundo</option>
+              <option value="3">3 cambios por segundo</option>
+            </select>
+            <button type="button" class="btn btn-secondary" id="screen-cycle">Empezar el ciclo</button>
+          </div>
+          <p class="screen-cycle-warning">Aviso de destellos: el ciclo alterna toda la pantalla entre rojo, verde, azul, blanco y negro. Sáltalo si eres sensible a las luces intermitentes. Está limitado a 3 cambios por segundo.</p>
+        </div>
+        <div class="hint-bar">
+          En un Mac, desactiva True Tone y Night Shift (Ajustes del Sistema → Pantallas) antes de valorar los colores: ambos tiñen a propósito toda la pantalla.
+        </div>
+      </div>
+
+      <aside class="results-panel">
+        <h2>Tu pantalla</h2>
+        <div class="keyboard-readout">
+          <div class="kv"><span class="k">Tamaño de pantalla</span><span class="v" id="si-screen">–</span></div>
+          <div class="kv"><span class="k">Densidad de píxeles</span><span class="v" id="si-dpr">–</span></div>
+          <div class="kv"><span class="k">Píxeles reales</span><span class="v" id="si-pixels">–</span></div>
+          <div class="kv"><span class="k">Ventana del navegador</span><span class="v" id="si-window">–</span></div>
+          <div class="kv"><span class="k">Frecuencia</span><span class="v" id="si-hz">–</span></div>
+          <div class="kv"><span class="k">Gama de color</span><span class="v" id="si-gamut">–</span></div>
+          <div class="kv"><span class="k">HDR</span><span class="v" id="si-hdr">–</span></div>
+          <div class="kv"><span class="k">Profundidad de color</span><span class="v" id="si-depth">–</span></div>
+        </div>
+        <div class="live-readout">
+          Una densidad de 2× indica una pantalla Retina u otra de alta densidad. La frecuencia se estima a partir del ritmo de animación — <button type="button" class="reset-btn" id="si-remeasure">Medir de nuevo</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="screen-stage" id="screen-stage" tabindex="-1" role="dialog" aria-label="Test de pantalla" hidden>
+    <canvas hidden></canvas>
+    <div class="screen-text" hidden></div>
+    <div class="screen-hud">
+      <span class="screen-hud-label"></span>
+      <span class="screen-hud-hint"></span>
+      <button type="button" class="screen-hud-close">&times;</button>
+    </div>
+  </div>
+
+  <div class="article">
+    <h2>Qué muestra cada pantalla</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Pantalla</th><th>Qué buscar</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Blanco</td><td>Píxeles muertos (puntos negros), polvo o suciedad bajo el cristal, grietas finas y si el brillo es uniforme de borde a borde.</td></tr>
+          <tr><td>Negro</td><td>Píxeles atascados (puntos brillantes), fugas de luz que entran por bordes o esquinas, y el brillo grisáceo de los paneles IPS. En una OLED, cualquier luz es un fallo.</td></tr>
+          <tr><td>Rojo, verde, azul</td><td>Cada uno enciende un solo color de subpíxel. Un punto que queda oscuro en uno de ellos pero no en los demás es un subpíxel muerto.</td></tr>
+          <tr><td>Cian, magenta, amarillo</td><td>Dos subpíxeles a la vez. El cian delata un subpíxel rojo atascado, el magenta uno verde y el amarillo uno azul.</td></tr>
+          <tr><td>Grises</td><td>El gris al 50 % muestra el «efecto pantalla sucia» (DSE), las bandas verticales y las diferencias de tono en el panel. El 25 % y el 75 % muestran lo mismo en tonos más oscuros y más claros.</td></tr>
+          <tr><td>Degradados</td><td>Deben verse suaves. Las franjas visibles son banding de color, habitual en paneles de 6 bits y tras correcciones de color agresivas.</td></tr>
+          <tr><td>Escala de grises</td><td>Las dos filas inferiores avanzan de nivel en nivel. Si las primeras barras casi negras parecen negro puro, las sombras se están aplastando; lo mismo a la derecha con las luces.</td></tr>
+          <tr><td>Cuadrícula y círculos</td><td>Los círculos deben ser redondos, no ovalados, y el borde blanco debe verse en los cuatro lados. Si falta una línea de borde, la imagen está recortada (overscan).</td></tr>
+          <tr><td>Patrones de píxeles</td><td>Líneas y tableros de ajedrez de un solo píxel. A la resolución nativa parecen una textura plana y uniforme. El efecto moiré, el parpadeo o el desenfoque indican que la imagen se está escalando.</td></tr>
+          <tr><td>Nitidez del texto</td><td>Texto pequeño sobre blanco y sobre negro, para comparar la claridad y los bordes de color.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Cómo buscar píxeles muertos y atascados</h2>
+    <ol>
+      <li>Limpia antes la pantalla: una mota de polvo parece exactamente un píxel muerto hasta que la quitas.</li>
+      <li>Inicia la prueba a pantalla completa y recorre todos los colores sólidos con calma, mirando todo el panel desde una distancia normal.</li>
+      <li>Un punto negro en todos los colores es un <strong>píxel muerto</strong>. Un punto que sigue encendido en un color (a menudo visible sobre negro) es un <strong>píxel atascado</strong>.</li>
+      <li>Anota dónde está y en qué colores aparece. La mayoría de garantías y políticas de devolución cuentan los fallos de píxel por número y posición, así que una foto ayuda.</li>
+    </ol>
+
+    <h2>Probar la pantalla de un Mac o MacBook</h2>
+    <p><strong>Escalado Retina.</strong> Los Mac suelen funcionar con una resolución «aparente» escalada a partir de la real del panel. En esos modos los patrones de píxeles mostrarán moiré: es el escalado, no un fallo. Para ver la nitidez real del panel, elige el tamaño «Por omisión» en Ajustes del Sistema → Pantallas antes de usar los patrones de píxeles.</p>
+    <p><strong>True Tone y Night Shift.</strong> Ambos calientan los tonos de toda la pantalla. Desactívalos antes de valorar el blanco, el gris o el tono del color, o cualquier Mac parecerá algo amarillento.</p>
+    <p><strong>ProMotion (120 Hz).</strong> La lectura de frecuencia mide cada cuánto dibuja el navegador. Safari suele limitar las páginas a 60 fotogramas por segundo, así que un MacBook Pro de 120 Hz puede mostrar 60 Hz ahí; Chrome indica la frecuencia completa.</p>
+    <p><strong>Daños en el recubrimiento.</strong> En algunos modelos de MacBook la capa antirreflejos se desgasta en manchas irregulares. Se ven mejor en las pantallas blanca y gris al 50 % con el brillo alto, y no se parecen a los píxeles muertos: son manchas irregulares que no se van al limpiar.</p>
+
+    <div class="cta-box">
+      <p>¿Revisando un portátil? Prueba también el touchpad y el teclado.</p>
+      <a class="btn" href="/es/trackpad-test">Test de touchpad</a>
+    </div>
+
+    <h2>Preguntas frecuentes</h2>
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>¿Qué diferencia hay entre un píxel muerto y uno atascado?</summary>
+        <div class="faq-answer">
+          <p>Un píxel muerto no recibe corriente y se queda negro en todos los colores, así que se ve mejor en la pantalla blanca. Un píxel atascado tiene uno o más subpíxeles siempre encendidos, por lo que aparece como un punto rojo, verde, azul o blanco brillante, más visible en la pantalla negra.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Se puede arreglar un píxel atascado?</summary>
+        <div class="faq-answer">
+          <p>A veces un píxel atascado se arregla solo, y hay quien dice haberlo conseguido con una presión suave a través de un paño o con largos ciclos de colores rápidos, pero ninguno de estos métodos es fiable. Un píxel muerto no se arregla por software. Si la pantalla es nueva, revisa antes la política de píxeles del fabricante y el plazo de devolución.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cuánta fuga de luz es normal?</summary>
+        <div class="faq-answer">
+          <p>La mayoría de pantallas LCD dejan ver algo de luz en los bordes con la pantalla negra en una habitación oscura, sobre todo los paneles IPS, que además tienen un brillo grisáceo que cambia con el ángulo de visión. Las manchas claras que se ven con brillo normal, con la luz encendida o en escenas oscuras de películas merecen una reclamación al vendedor. Las pantallas OLED no deberían mostrar ninguna luz sobre negro.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Por qué la frecuencia indica 60 Hz en mi monitor de 120 o 144 Hz?</summary>
+        <div class="faq-answer">
+          <p>Comprueba primero la frecuencia configurada en los ajustes de pantalla de tu sistema: muchos monitores de alta frecuencia vienen a 60 Hz de serie o funcionan a 60 Hz con un cable antiguo. Los modos de ahorro de batería y algunos navegadores (sobre todo Safari) también limitan la animación de las páginas a 60 fotogramas por segundo, y esta medición lo refleja.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <section class="help-section">
+    <h2>Herramientas relacionadas</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/es/trackpad-test">
+        <h3>Test de touchpad</h3>
+        <p>Clics, scroll con dos dedos y zoom con pellizco.</p>
+      </a>
+      <a class="help-card" href="/es/keyboard-test">
+        <h3>Test de teclado</h3>
+        <p>Cada tecla se ilumina al pulsarla.</p>
+      </a>
+      <a class="help-card" href="/es/reaction-time-test">
+        <h3>Test de tiempo de reacción</h3>
+        <p>El retraso de la pantalla también cuenta en tu resultado.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/es">Inicio</a>
+    <a href="/es#mouse">Mouse</a>
+    <a href="/es#keyboard-tools">Teclado</a>
+    <a href="/es#gaming">Gaming</a>
+    <a href="/es/screen-test">Test de pantalla</a>
+    <a href="/es#guides">Guías</a>
+    <a href="/es/about">Acerca de</a>
+    <a href="/es/contact">Contacto</a>
+    <a href="/sitemap">Mapa del sitio</a>
+    <a href="/privacy-policy">Privacidad</a>
+    <a href="/cookies-policy">Cookies</a>
+    <a href="/terms-and-conditions">Términos</a>
+    <a href="/disclaimer">Aviso legal</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Consentimiento de cookies" hidden>
+  <p>Usamos cookies para medir el tráfico de forma básica y para mostrar anuncios a través de Google AdSense. Las pruebas se ejecutan en tu navegador y no envían nada a ningún sitio. Consulta nuestra <a href="/cookies-policy">Política de cookies</a> (en inglés).</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Rechazar</button>
+    <button type="button" class="btn" id="cookie-accept">Aceptar</button>
+  </div>
+</div>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

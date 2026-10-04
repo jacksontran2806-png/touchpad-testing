@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="en_US">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Screen Test — Dead Pixel, Backlight Bleed &amp; Monitor Test for Mac and PC</title>
+<meta name="description" content="Free full-screen monitor test for Mac, MacBook and PC displays. Find dead or stuck pixels, backlight bleed, banding and uniformity problems with solid colors, gradients and pixel patterns.">
+<link rel="canonical" href="https://hardwaretesthub.net/screen-test">
+<!-- HREFLANG:START -->
+<link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/screen-test">
+<link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/screen-test">
+<link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/screen-test">
+<link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/screen-test">
+<!-- HREFLANG:END -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hardwaretesthub.net/screen-test">
+<meta property="og:title" content="Screen Test — Dead Pixel, Backlight Bleed &amp; Monitor Test for Mac and PC">
+<meta property="og:description" content="Free full-screen monitor test for Mac, MacBook and PC displays. Find dead or stuck pixels, backlight bleed, banding and uniformity problems with solid colors, gradients and pixel patterns.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<meta name="google-adsense-account" content="ca-pub-1082746041497676">
+<!-- Google Consent Mode v2 defaults. Must run BEFORE the adsbygoogle tag
+     below, so ads and measurement start in the denied state and only move to
+     granted if the visitor accepts in the cookie banner (js/app.js). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500
+});
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://hardwaretesthub.net/screen-test#app",
+      "name": "Screen Test",
+      "description": "Free full-screen monitor test for Mac, MacBook and PC displays. Find dead or stuck pixels, backlight bleed, banding and uniformity problems with solid colors, gradients and pixel patterns.",
+      "url": "https://hardwaretesthub.net/screen-test",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires JavaScript",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://hardwaretesthub.net/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Display",
+          "item": "https://hardwaretesthub.net/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Screen Test",
+          "item": "https://hardwaretesthub.net/screen-test"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/screen-test#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/screen-test#app"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the difference between a dead pixel and a stuck pixel?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A dead pixel gets no power and stays black on every color, so it is easiest to see on the white screen. A stuck pixel has one or more subpixels permanently on, so it shows as a bright red, green, blue or white dot — most visible on the black screen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a stuck pixel be fixed?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sometimes a stuck pixel clears on its own, and some people report success with gentle pressure through a soft cloth or long runs of rapidly changing colors, but none of these is reliable. A dead pixel cannot be fixed by software. If the screen is new, check the manufacturer's pixel policy and return window first."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much backlight bleed is normal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most LCD screens show a little light at the edges on a black screen in a dark room, especially IPS panels, which also have a gray \"glow\" that changes with viewing angle. Bright patches you can see at normal brightness, in a lit room, or during dark movie scenes are worth raising with the seller. OLED screens should show no light on black at all."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does the refresh rate show 60 Hz on my 120 Hz or 144 Hz monitor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Check the refresh rate set in your operating system's display settings first — many high-refresh monitors default to 60 Hz, or run at 60 Hz over an older cable. Battery-saving modes and some browsers (Safari in particular) also cap page animation at 60 frames per second, which this measurement reflects."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/#mouse">Mouse</a>
+      <a href="/#keyboard-tools">Keyboard</a>
+      <a href="/#gaming">Gaming</a>
+      <a href="/#guides">Guides</a>
+      <a href="/about">About</a>
+      <!-- LANG_SWITCH:START -->
+      <div class="lang-switch">
+        <a href="/screen-test" hreflang="en" lang="en" title="English" aria-current="true">EN</a>
+        <a href="/es/screen-test" hreflang="es" lang="es" title="Español">ES</a>
+        <a href="/de/screen-test" hreflang="de" lang="de" title="Deutsch">DE</a>
+      </div>
+      <!-- LANG_SWITCH:END -->
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <div class="tool-head">
+    <div class="kicker">Display</div>
+    <h1>Screen Test</h1>
+    <p>Fill your whole screen with solid colors, gradients and pixel patterns to check for dead or stuck pixels, backlight bleed, banding and uneven brightness. Works on any Mac, MacBook, PC monitor or laptop screen — nothing to install.</p>
+  </div>
+
+  <div class="tool-wrap">
+    <div class="test-wrap">
+      <div class="canvas-card">
+        <div class="canvas-toolbar">
+          <h2>Test screens</h2>
+        </div>
+        <div class="screen-launch">
+          <div class="screen-start-row">
+            <button type="button" class="btn" id="screen-start">Start full-screen test</button>
+            <p>17 screens. Click or press → for the next one, ← to go back, Esc to exit.</p>
+          </div>
+
+          <h3>Solid colors</h3>
+          <div class="swatch-grid">
+            <button type="button" class="swatch" data-screen-item="white" style="--fill:#ffffff"><span class="swatch-fill"></span><span class="swatch-label">White</span></button>
+            <button type="button" class="swatch" data-screen-item="black" style="--fill:#000000"><span class="swatch-fill"></span><span class="swatch-label">Black</span></button>
+            <button type="button" class="swatch" data-screen-item="red" style="--fill:#ff0000"><span class="swatch-fill"></span><span class="swatch-label">Red</span></button>
+            <button type="button" class="swatch" data-screen-item="green" style="--fill:#00ff00"><span class="swatch-fill"></span><span class="swatch-label">Green</span></button>
+            <button type="button" class="swatch" data-screen-item="blue" style="--fill:#0000ff"><span class="swatch-fill"></span><span class="swatch-label">Blue</span></button>
+            <button type="button" class="swatch" data-screen-item="cyan" style="--fill:#00ffff"><span class="swatch-fill"></span><span class="swatch-label">Cyan</span></button>
+            <button type="button" class="swatch" data-screen-item="magenta" style="--fill:#ff00ff"><span class="swatch-fill"></span><span class="swatch-label">Magenta</span></button>
+            <button type="button" class="swatch" data-screen-item="yellow" style="--fill:#ffff00"><span class="swatch-fill"></span><span class="swatch-label">Yellow</span></button>
+            <button type="button" class="swatch" data-screen-item="gray25" style="--fill:#404040"><span class="swatch-fill"></span><span class="swatch-label">Gray 25%</span></button>
+            <button type="button" class="swatch" data-screen-item="gray50" style="--fill:#808080"><span class="swatch-fill"></span><span class="swatch-label">Gray 50%</span></button>
+            <button type="button" class="swatch" data-screen-item="gray75" style="--fill:#bfbfbf"><span class="swatch-fill"></span><span class="swatch-label">Gray 75%</span></button>
+          </div>
+
+          <h3>Patterns</h3>
+          <div class="swatch-grid">
+            <button type="button" class="swatch" data-screen-item="gradient" style="--fill:linear-gradient(to right,#000,#fff)"><span class="swatch-fill"></span><span class="swatch-label">Gradient</span></button>
+            <button type="button" class="swatch" data-screen-item="gradient-rgb" style="--fill:linear-gradient(to right,#000,#fff) 0 0/100% 25% no-repeat,linear-gradient(to right,#000,#f00) 0 33.3%/100% 25% no-repeat,linear-gradient(to right,#000,#0f0) 0 66.7%/100% 25% no-repeat,linear-gradient(to right,#000,#00f) 0 100%/100% 25% no-repeat"><span class="swatch-fill"></span><span class="swatch-label">RGB gradients</span></button>
+            <button type="button" class="swatch" data-screen-item="steps" style="--fill:linear-gradient(to right,#000 0 12.5%,#242424 0 25%,#494949 0 37.5%,#6d6d6d 0 50%,#929292 0 62.5%,#b6b6b6 0 75%,#dbdbdb 0 87.5%,#fff 0)"><span class="swatch-fill"></span><span class="swatch-label">Gray steps</span></button>
+            <button type="button" class="swatch" data-screen-item="grid" style="--fill:repeating-linear-gradient(to right,#666 0 1px,transparent 1px 12px),repeating-linear-gradient(to bottom,#666 0 1px,#000 1px 12px)"><span class="swatch-fill"></span><span class="swatch-label">Grid &amp; circles</span></button>
+            <button type="button" class="swatch" data-screen-item="pixels" style="--fill:repeating-conic-gradient(#fff 0 25%,#000 0 50%) 0 0/4px 4px"><span class="swatch-fill"></span><span class="swatch-label">Pixel patterns</span></button>
+            <button type="button" class="swatch" data-screen-item="text" style="--fill:linear-gradient(to right,#fff 50%,#000 50%)"><span class="swatch-fill"></span><span class="swatch-label">Text sharpness</span></button>
+          </div>
+
+          <h3>Color cycle</h3>
+          <div class="screen-cycle-row">
+            <select class="layout-select" id="screen-cycle-speed" aria-label="Cycle speed">
+              <option value="1" selected>1 change per second</option>
+              <option value="2">2 changes per second</option>
+              <option value="3">3 changes per second</option>
+            </select>
+            <button type="button" class="btn btn-secondary" id="screen-cycle">Start color cycle</button>
+          </div>
+          <p class="screen-cycle-warning">Flashing warning: the cycle switches the whole screen between red, green, blue, white and black. Skip it if you are sensitive to flashing light. It is capped at 3 changes per second.</p>
+        </div>
+        <div class="hint-bar">
+          On a Mac, turn off True Tone and Night Shift (System Settings → Displays) before judging colors — both deliberately tint the whole screen.
+        </div>
+      </div>
+
+      <aside class="results-panel">
+        <h2>Your display</h2>
+        <div class="keyboard-readout">
+          <div class="kv"><span class="k">Screen size</span><span class="v" id="si-screen">–</span></div>
+          <div class="kv"><span class="k">Pixel ratio</span><span class="v" id="si-dpr">–</span></div>
+          <div class="kv"><span class="k">Rendered pixels</span><span class="v" id="si-pixels">–</span></div>
+          <div class="kv"><span class="k">Browser window</span><span class="v" id="si-window">–</span></div>
+          <div class="kv"><span class="k">Refresh rate</span><span class="v" id="si-hz">–</span></div>
+          <div class="kv"><span class="k">Color gamut</span><span class="v" id="si-gamut">–</span></div>
+          <div class="kv"><span class="k">HDR</span><span class="v" id="si-hdr">–</span></div>
+          <div class="kv"><span class="k">Color depth</span><span class="v" id="si-depth">–</span></div>
+        </div>
+        <div class="live-readout">
+          A pixel ratio of 2× is a Retina or other high-density display. The refresh rate is estimated from animation timing — <button type="button" class="reset-btn" id="si-remeasure">Measure again</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="screen-stage" id="screen-stage" tabindex="-1" role="dialog" aria-label="Screen test" hidden>
+    <canvas hidden></canvas>
+    <div class="screen-text" hidden></div>
+    <div class="screen-hud">
+      <span class="screen-hud-label"></span>
+      <span class="screen-hud-hint"></span>
+      <button type="button" class="screen-hud-close">&times;</button>
+    </div>
+  </div>
+
+  <div class="article">
+    <h2>What each screen shows</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Screen</th><th>What to look for</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>White</td><td>Dead pixels (black dots), dust or debris under the glass, hairline cracks, and whether brightness is even from edge to edge.</td></tr>
+          <tr><td>Black</td><td>Stuck pixels (bright dots), backlight bleed glowing in from the edges or corners, and IPS glow. On an OLED, any light at all is a fault.</td></tr>
+          <tr><td>Red, green, blue</td><td>Each one lights a single subpixel color. A dot that stays dark on one of them but not the others is a single dead subpixel.</td></tr>
+          <tr><td>Cyan, magenta, yellow</td><td>Two subpixels at once. Cyan exposes a stuck red subpixel, magenta a stuck green, yellow a stuck blue.</td></tr>
+          <tr><td>Grays</td><td>50% gray shows the "dirty screen effect", vertical banding and tint differences across the panel. 25% and 75% show the same in darker and brighter tones.</td></tr>
+          <tr><td>Gradients</td><td>Should be smooth. Visible stripes mean color banding — common on 6-bit panels and after heavy color correction.</td></tr>
+          <tr><td>Gray steps</td><td>The bottom two rows step one level at a time. If the first several near-black bars all look like pure black, shadows are being crushed; the same on the right for highlights.</td></tr>
+          <tr><td>Grid &amp; circles</td><td>Circles should be round, not oval, and the white border should be visible on all four edges. A missing edge line means the picture is cropped (overscan).</td></tr>
+          <tr><td>Pixel patterns</td><td>Single-pixel lines and checkerboards. At native resolution they look like a flat, even texture. Moiré, shimmer or blur means the image is being scaled.</td></tr>
+          <tr><td>Text sharpness</td><td>Small text on white and on black, for comparing clarity and color fringing.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>How to check for dead and stuck pixels</h2>
+    <ol>
+      <li>Clean the screen first — a speck of dust looks exactly like a dead pixel until you wipe it.</li>
+      <li>Start the full-screen test and go through every solid color slowly, looking at the whole panel from a normal viewing distance.</li>
+      <li>A dot that is black on every color is a <strong>dead pixel</strong>. A dot that stays lit in one color (often visible on black) is a <strong>stuck pixel</strong>.</li>
+      <li>Note where it is and which colors it shows on. Most warranty and return policies count pixel faults by number and position, so a photo helps.</li>
+    </ol>
+
+    <h2>Testing a Mac or MacBook screen</h2>
+    <p><strong>Retina scaling.</strong> Macs usually run at a "looks like" resolution that is scaled from the panel's real one. The pixel patterns will show moiré in those modes — that is the scaling, not a fault. To see the panel's true sharpness, pick the "Default" size in System Settings → Displays before running the pixel patterns.</p>
+    <p><strong>True Tone and Night Shift.</strong> Both shift the whole screen warmer. Turn them off before judging white, gray or color tint, or every Mac will look slightly yellow.</p>
+    <p><strong>ProMotion (120 Hz).</strong> The refresh-rate readout measures how often the browser draws. Safari usually limits pages to 60 frames per second, so a 120 Hz MacBook Pro can read as 60 Hz there; Chrome reports the full rate.</p>
+    <p><strong>Coating damage.</strong> On some MacBook models the anti-reflective coating wears into blotchy patches. These show best on the white and 50% gray screens with the brightness up, and look different from dead pixels: irregular smudges that do not wipe off.</p>
+
+    <div class="cta-box">
+      <p>Checking a laptop? Test its trackpad and keyboard too.</p>
+      <a class="btn" href="/trackpad-test">Trackpad test</a>
+    </div>
+
+    <h2>FAQ</h2>
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>What is the difference between a dead pixel and a stuck pixel?</summary>
+        <div class="faq-answer">
+          <p>A dead pixel gets no power and stays black on every color, so it is easiest to see on the white screen. A stuck pixel has one or more subpixels permanently on, so it shows as a bright red, green, blue or white dot — most visible on the black screen.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Can a stuck pixel be fixed?</summary>
+        <div class="faq-answer">
+          <p>Sometimes a stuck pixel clears on its own, and some people report success with gentle pressure through a soft cloth or long runs of rapidly changing colors, but none of these is reliable. A dead pixel cannot be fixed by software. If the screen is new, check the manufacturer's pixel policy and return window first.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>How much backlight bleed is normal?</summary>
+        <div class="faq-answer">
+          <p>Most LCD screens show a little light at the edges on a black screen in a dark room, especially IPS panels, which also have a gray "glow" that changes with viewing angle. Bright patches you can see at normal brightness, in a lit room, or during dark movie scenes are worth raising with the seller. OLED screens should show no light on black at all.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Why does the refresh rate show 60 Hz on my 120 Hz or 144 Hz monitor?</summary>
+        <div class="faq-answer">
+          <p>Check the refresh rate set in your operating system's display settings first — many high-refresh monitors default to 60 Hz, or run at 60 Hz over an older cable. Battery-saving modes and some browsers (Safari in particular) also cap page animation at 60 frames per second, which this measurement reflects.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <section class="help-section">
+    <h2>Related tools</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/trackpad-test">
+        <h3>Trackpad Test</h3>
+        <p>Clicks, two-finger scroll and pinch zoom.</p>
+      </a>
+      <a class="help-card" href="/keyboard-test">
+        <h3>Keyboard Test</h3>
+        <p>Every key lights up as you press it.</p>
+      </a>
+      <a class="help-card" href="/reaction-time-test">
+        <h3>Reaction Time Test</h3>
+        <p>Display lag counts toward your score.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/">Home</a>
+    <a href="/#mouse">Mouse</a>
+    <a href="/#keyboard-tools">Keyboard</a>
+    <a href="/#gaming">Gaming</a>
+    <a href="/screen-test">Screen Test</a>
+    <a href="/#guides">Guides</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/sitemap">Sitemap</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/cookies-policy">Cookies</a>
+    <a href="/terms-and-conditions">Terms</a>
+    <a href="/disclaimer">Disclaimer</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+  <p>We use cookies for basic traffic measurement and to serve ads through Google AdSense. The tests themselves run in your browser and send nothing anywhere. See our <a href="/cookies-policy">Cookies Policy</a>.</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Decline</button>
+    <button type="button" class="btn" id="cookie-accept">Accept</button>
+  </div>
+</div>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

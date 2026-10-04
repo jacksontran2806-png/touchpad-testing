@@ -8,6 +8,24 @@ module.exports = {
   siteName: "Hardware Test Hub",
   ogImage: "/og-image.png",
 
+  // Every language the site is published in. English lives at the root; each
+  // other language is a full copy of a page under its own subdirectory
+  // (es/mouse-test.html -> /es/mouse-test), with the same file name as the
+  // English original — that shared name is how build.js pairs translations
+  // for hreflang. A page with no translation simply has no file there.
+  // `home` and `sections` are the breadcrumb labels in the JSON-LD.
+  languages: {
+    en: { prefix: "", hreflang: "en", inLanguage: "en-US", label: "English", short: "EN", home: "Home" },
+    es: { prefix: "es", hreflang: "es", inLanguage: "es", label: "Español", short: "ES", home: "Inicio", sitemapTitle: "En español" },
+    de: { prefix: "de", hreflang: "de", inLanguage: "de", label: "Deutsch", short: "DE", home: "Startseite", sitemapTitle: "Auf Deutsch" },
+  },
+  sections: {
+    "Mouse & Trackpad": { es: "Mouse y touchpad", de: "Maus & Touchpad" },
+    Keyboard: { es: "Teclado", de: "Tastatur" },
+    Gaming: { es: "Gaming", de: "Gaming" },
+    Display: { es: "Pantalla", de: "Bildschirm" },
+  },
+
   // The date the site's original pages went live. Anything added later needs
   // a `published` entry below; everything falls back to this.
   defaultDate: "2026-08-27",
@@ -47,6 +65,32 @@ module.exports = {
     "blog/keyboard/keyboard-typing-multiple-letters.html": "2026-09-14",
     "blog/keyboard/wasd-arrow-keys-swapped.html": "2026-09-14",
     "blog/keyboard/keyboard-typing-numbers-instead-of-letters.html": "2026-09-14",
+    // Spanish and German launch.
+    "es/index.html": "2026-10-04",
+    "es/mouse-test.html": "2026-10-04",
+    "es/mouse-double-click-test.html": "2026-10-04",
+    "es/mouse-scroll-test.html": "2026-10-04",
+    "es/trackpad-test.html": "2026-10-04",
+    "es/keyboard-test.html": "2026-10-04",
+    "es/keyboard-ghosting-test.html": "2026-10-04",
+    "es/cps-test.html": "2026-10-04",
+    "es/reaction-time-test.html": "2026-10-04",
+    "es/about.html": "2026-10-04",
+    "es/contact.html": "2026-10-04",
+    "de/index.html": "2026-10-04",
+    "de/mouse-test.html": "2026-10-04",
+    "de/mouse-double-click-test.html": "2026-10-04",
+    "de/mouse-scroll-test.html": "2026-10-04",
+    "de/trackpad-test.html": "2026-10-04",
+    "de/keyboard-test.html": "2026-10-04",
+    "de/keyboard-ghosting-test.html": "2026-10-04",
+    "de/cps-test.html": "2026-10-04",
+    "de/reaction-time-test.html": "2026-10-04",
+    "de/about.html": "2026-10-04",
+    "de/contact.html": "2026-10-04",
+    "screen-test.html": "2026-10-04",
+    "es/screen-test.html": "2026-10-04",
+    "de/screen-test.html": "2026-10-04",
   },
 
   // dateModified — and the sitemap's lastmod. Bump the entry for a page when
@@ -86,6 +130,7 @@ module.exports = {
     "keyboard-ghosting-test.html": { section: "Keyboard" },
     "cps-test.html": { section: "Gaming" },
     "reaction-time-test.html": { section: "Gaming" },
+    "screen-test.html": { section: "Display" },
   },
 
   // Ordered as they appear on the homepage, for the ItemList on `/`.
@@ -98,5 +143,6 @@ module.exports = {
     "keyboard-ghosting-test",
     "cps-test",
     "reaction-time-test",
+    "screen-test",
   ],
 }

@@ -12,6 +12,14 @@
   Cache-Control: public, max-age=0, must-revalidate
 /blog/*
   Cache-Control: public, max-age=0, must-revalidate
+/es
+  Cache-Control: public, max-age=0, must-revalidate
+/es/*
+  Cache-Control: public, max-age=0, must-revalidate
+/de
+  Cache-Control: public, max-age=0, must-revalidate
+/de/*
+  Cache-Control: public, max-age=0, must-revalidate
 
 # CSS/JS: cached for a day, then served stale for a week while revalidating in
 # the background. NOT `immutable` — these filenames carry no content hash, so a

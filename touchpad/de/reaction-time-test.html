@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="de_DE">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Reaktionstest — Wie schnell sind deine Reflexe? | Hardware Test Hub</title>
+<meta name="description" content="Miss deine Reaktionszeit in Millisekunden. Klick, sobald das Feld grün wird – fünf Runden, kostenlos und sofort im Browser.">
+<link rel="canonical" href="https://hardwaretesthub.net/de/reaction-time-test">
+<!-- HREFLANG:START -->
+<link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/reaction-time-test">
+<link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/reaction-time-test">
+<link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/reaction-time-test">
+<link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/reaction-time-test">
+<!-- HREFLANG:END -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hardwaretesthub.net/de/reaction-time-test">
+<meta property="og:title" content="Reaktionstest — Wie schnell sind deine Reflexe?">
+<meta property="og:description" content="Miss deine Reaktionszeit in Millisekunden. Klick, sobald das Feld grün wird – fünf Runden, kostenlos und sofort im Browser.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<meta name="google-adsense-account" content="ca-pub-1082746041497676">
+<!-- Google Consent Mode v2 defaults. Must run BEFORE the adsbygoogle tag
+     below, so ads and measurement start in the denied state and only move to
+     granted if the visitor accepts in the cookie banner (js/app.js). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500
+});
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://hardwaretesthub.net/de/reaction-time-test#app",
+      "name": "Reaktionstest",
+      "description": "Miss deine Reaktionszeit in Millisekunden. Klick, sobald das Feld grün wird – fünf Runden, kostenlos und sofort im Browser.",
+      "url": "https://hardwaretesthub.net/de/reaction-time-test",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires JavaScript",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "de"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Startseite",
+          "item": "https://hardwaretesthub.net/de"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Gaming",
+          "item": "https://hardwaretesthub.net/de"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Reaktionstest",
+          "item": "https://hardwaretesthub.net/de/reaction-time-test"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/de/reaction-time-test#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/de/reaction-time-test#app"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Was ist eine durchschnittliche menschliche Reaktionszeit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Etwa 200–250 Millisekunden auf einen einfachen visuellen Reiz wie einen Farbwechsel. Trainierte kompetitive Gamer kommen im Schnitt oft auf 150–200 ms, und wer dauerhaft unter etwa 150 ms liegt, hat den Wechsel meist vorweggenommen statt darauf zu reagieren."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Warum schwankt mein Ergebnis so stark zwischen den Runden?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Die Reaktionszeit schwankt mit Aufmerksamkeit und Müdigkeit ganz natürlich, sogar innerhalb desselben Tests – eine einzelne Runde kann rein zufällig 30–50 ms von deinem Durchschnitt abweichen. Deshalb läuft dieses Tool über fünf Runden und zeigt Durchschnitt und Bestwert statt einer einzelnen Zahl."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Verbessert eine Gaming-Maus wirklich die Reaktionszeit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Eine kabelgebundene Maus mit geringer Latenz und ein Bildschirm mit hoher Bildwiederholrate sparen ein paar Millisekunden Eingabe- und Anzeigeverzögerung gegenüber einem trägen Funk-Setup, aber das ist wenig im Vergleich zur natürlichen menschlichen Schwankung. Dein gemessener Wert verschiebt sich etwas – deine echten Reflexe ändern sich nicht."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/de"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menü">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/de#mouse">Maus</a>
+      <a href="/de#keyboard-tools">Tastatur</a>
+      <a href="/de#gaming">Gaming</a>
+      <a href="/de#guides">Ratgeber</a>
+      <a href="/de/about">Über uns</a>
+      <!-- LANG_SWITCH:START -->
+      <div class="lang-switch">
+        <a href="/reaction-time-test" hreflang="en" lang="en" title="English">EN</a>
+        <a href="/es/reaction-time-test" hreflang="es" lang="es" title="Español">ES</a>
+        <a href="/de/reaction-time-test" hreflang="de" lang="de" title="Deutsch" aria-current="true">DE</a>
+      </div>
+      <!-- LANG_SWITCH:END -->
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <div class="tool-head">
+    <div class="kicker">Gaming</div>
+    <h1>Reaktionstest</h1>
+    <p>Klick auf das Feld, warte, bis es grün wird, und klick dann so schnell du kannst erneut. Fünf Runden, auf die Millisekunde gemessen.</p>
+  </div>
+
+  <div class="tool-wrap">
+    <div class="test-wrap" style="grid-template-columns: 1fr;">
+      <div class="canvas-card">
+        <div class="canvas-toolbar">
+          <h2>Testbereich</h2>
+          <span id="reaction-round" style="font-size:0.85rem;color:var(--text-dim);font-family:var(--font-mono);"></span>
+        </div>
+        <button type="button" class="reaction-box state-idle" id="reaction-box">
+          <span id="reaction-status">Zum Starten klicken</span>
+        </button>
+        <div class="reaction-result" id="reaction-result" hidden>
+          <div class="reaction-result-stats">
+            <div>
+              <div class="k">Durchschnitt</div>
+              <div class="v" id="reaction-avg">–</div>
+            </div>
+            <div>
+              <div class="k">Bestwert</div>
+              <div class="v" id="reaction-best">–</div>
+            </div>
+          </div>
+          <div class="reaction-result-actions">
+            <button class="btn btn-secondary" id="reaction-copy">Ergebnis kopieren</button>
+            <button class="btn" id="reaction-again">Nochmal</button>
+          </div>
+        </div>
+        <div class="hint-bar">
+          Klickst du, während das Feld noch rot/gelb ist, zählt das als zu früh und die Runde beginnt neu – auf deinen Durchschnitt wirkt sich das nicht aus.
+        </div>
+      </div>
+      <div id="reaction-list" style="padding: 4px 4px 0;"></div>
+    </div>
+  </div>
+
+  <div class="article">
+    <h2>Was hier wirklich getestet wird</h2>
+    <p>Gemessen wird die Zeit zwischen einer optischen Änderung (das Feld wird grün) und dem Moment, in dem dein Klick im Browser ankommt – ein grober Anhaltspunkt für die einfache visuelle Reaktionszeit. Typisch für Menschen sind etwa 200–250 ms auf einen visuellen Reiz; kompetitive Gamer liegen oft bei 150–200 ms. Bildschirmverzögerung, Eingabeverzögerung einer Funkmaus und die Browserleistung kommen jeweils ein wenig zu deinen eigentlichen Reflexen hinzu – nutz den Test also als gleichbleibendes Vergleichswerkzeug, nicht als Labormessung.</p>
+
+    <h2>So bekommst du einen fairen Messwert</h2>
+    <ol>
+      <li>Leg die Hand vor dem Start auf die Maus – die erste Runde misst oft das „Bereitmachen“, nicht die Reflexe.</li>
+      <li>Mach den Test mehrmals; die Reaktionszeit schwankt von Runde zu Runde ganz natürlich.</li>
+      <li>Eine kabelgebundene Maus und ein Bildschirm mit geringer Latenz messen schneller als ein träges Funk-Setup – unabhängig von deinen tatsächlichen Reflexen.</li>
+    </ol>
+
+    <h2>Häufige Fragen</h2>
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>Was ist eine durchschnittliche menschliche Reaktionszeit?</summary>
+        <div class="faq-answer">
+          <p>Etwa 200–250 Millisekunden auf einen einfachen visuellen Reiz wie einen Farbwechsel. Trainierte kompetitive Gamer kommen im Schnitt oft auf 150–200 ms, und wer dauerhaft unter etwa 150 ms liegt, hat den Wechsel meist vorweggenommen statt darauf zu reagieren.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Warum schwankt mein Ergebnis so stark zwischen den Runden?</summary>
+        <div class="faq-answer">
+          <p>Die Reaktionszeit schwankt mit Aufmerksamkeit und Müdigkeit ganz natürlich, sogar innerhalb desselben Tests – eine einzelne Runde kann rein zufällig 30–50 ms von deinem Durchschnitt abweichen. Deshalb läuft dieses Tool über fünf Runden und zeigt Durchschnitt und Bestwert statt einer einzelnen Zahl.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Verbessert eine Gaming-Maus wirklich die Reaktionszeit?</summary>
+        <div class="faq-answer">
+          <p>Eine kabelgebundene Maus mit geringer Latenz und ein Bildschirm mit hoher Bildwiederholrate sparen ein paar Millisekunden Eingabe- und Anzeigeverzögerung gegenüber einem trägen Funk-Setup, aber das ist wenig im Vergleich zur natürlichen menschlichen Schwankung. Dein gemessener Wert verschiebt sich etwas – deine echten Reflexe ändern sich nicht.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <section class="help-section">
+    <h2>Verwandte Tools</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/de/cps-test">
+        <h3>CPS-Test</h3>
+        <p>Miss deine Klicks pro Sekunde.</p>
+      </a>
+      <a class="help-card" href="/de/keyboard-ghosting-test">
+        <h3>Ghosting- / NKRO-Test</h3>
+        <p>Wie viele Tasten gleichzeitig erkannt werden.</p>
+      </a>
+      <a class="help-card" href="/de/keyboard-test">
+        <h3>Tastaturtest</h3>
+        <p>Prüf jede einzelne Taste.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/de">Startseite</a>
+    <a href="/de#mouse">Maus</a>
+    <a href="/de#keyboard-tools">Tastatur</a>
+    <a href="/de#gaming">Gaming</a>
+    <a href="/de/screen-test">Bildschirmtest</a>
+    <a href="/de#guides">Ratgeber</a>
+    <a href="/de/about">Über uns</a>
+    <a href="/de/contact">Kontakt</a>
+    <a href="/sitemap">Sitemap</a>
+    <a href="/privacy-policy">Datenschutz</a>
+    <a href="/cookies-policy">Cookies</a>
+    <a href="/terms-and-conditions">Nutzungsbedingungen</a>
+    <a href="/disclaimer">Haftungsausschluss</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie-Einwilligung" hidden>
+  <p>Wir verwenden Cookies für eine einfache Reichweitenmessung und um über Google AdSense Werbung anzuzeigen. Die Tests selbst laufen in deinem Browser und senden nichts irgendwohin. Mehr dazu in unserer <a href="/cookies-policy">Cookie-Richtlinie</a> (auf Englisch).</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Ablehnen</button>
+    <button type="button" class="btn" id="cookie-accept">Akzeptieren</button>
+  </div>
+</div>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="es_ES">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Test de Scroll del Mouse — Comprueba la Rueda del Ratón | Hardware Test Hub</title>
+<meta name="description" content="Prueba la rueda de scroll de tu mouse: dirección, tamaño del paso y si se salta pasos o da saltos. Test de scroll online y gratis, sin descargas.">
+<link rel="canonical" href="https://hardwaretesthub.net/es/mouse-scroll-test">
+<!-- HREFLANG:START -->
+<link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/mouse-scroll-test">
+<link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/mouse-scroll-test">
+<link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/mouse-scroll-test">
+<link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/mouse-scroll-test">
+<!-- HREFLANG:END -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hardwaretesthub.net/es/mouse-scroll-test">
+<meta property="og:title" content="Test de Scroll del Mouse — Comprueba la Rueda del Ratón">
+<meta property="og:description" content="Prueba la rueda de scroll de tu mouse: dirección, tamaño del paso y si se salta pasos o da saltos. Test de scroll online y gratis, sin descargas.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<meta name="google-adsense-account" content="ca-pub-1082746041497676">
+<!-- Google Consent Mode v2 defaults. Must run BEFORE the adsbygoogle tag
+     below, so ads and measurement start in the denied state and only move to
+     granted if the visitor accepts in the cookie banner (js/app.js). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500
+});
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://hardwaretesthub.net/es/mouse-scroll-test#app",
+      "name": "Test de scroll del mouse",
+      "description": "Prueba la rueda de scroll de tu mouse: dirección, tamaño del paso y si se salta pasos o da saltos. Test de scroll online y gratis, sin descargas.",
+      "url": "https://hardwaretesthub.net/es/mouse-scroll-test",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires JavaScript",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "es"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://hardwaretesthub.net/es"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Mouse y touchpad",
+          "item": "https://hardwaretesthub.net/es"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Test de scroll del mouse",
+          "item": "https://hardwaretesthub.net/es/mouse-scroll-test"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/es/mouse-scroll-test#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/es/mouse-scroll-test#app"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Por qué la rueda de mi mouse se salta pasos cada pocas muescas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Los pasos perdidos casi siempre se deben a que el encoder mecánico u óptico de la rueda pierde el contacto un instante, normalmente por acumulación de polvo o por desgaste tras unos años de uso. El aire comprimido alrededor de la rueda resuelve la mayoría de los casos; si sigue saltándose pasos después de limpiarla, lo más probable es que el encoder esté gastado."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué valor de deltaY es normal por cada muesca?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depende del sistema, el navegador y el mouse: suele rondar 100-120 por muesca en Windows, o un valor más pequeño y suave en touchpads y mouses de precisión, así que no hay un número «correcto». Lo que importa es la constancia: el mismo movimiento físico debería producir más o menos el mismo deltaY cada vez, no la cifra exacta."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Actualizar el controlador puede arreglar un scroll errático?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A veces. Un controlador dañado o desactualizado puede informar mal de los eventos de rueda aunque el hardware esté bien, así que vale la pena descartarlo antes de abrir el mouse. Si una instalación limpia del controlador no cambia el patrón errático del registro, la causa más probable es el encoder."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/es"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menú">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/es#mouse">Mouse</a>
+      <a href="/es#keyboard-tools">Teclado</a>
+      <a href="/es#gaming">Gaming</a>
+      <a href="/es#guides">Guías</a>
+      <a href="/es/about">Acerca de</a>
+      <!-- LANG_SWITCH:START -->
+      <div class="lang-switch">
+        <a href="/mouse-scroll-test" hreflang="en" lang="en" title="English">EN</a>
+        <a href="/es/mouse-scroll-test" hreflang="es" lang="es" title="Español" aria-current="true">ES</a>
+        <a href="/de/mouse-scroll-test" hreflang="de" lang="de" title="Deutsch">DE</a>
+      </div>
+      <!-- LANG_SWITCH:END -->
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <div class="tool-head">
+    <div class="kicker">Mouse y touchpad</div>
+    <h1>Test de scroll del mouse</h1>
+    <p>Desplázate hacia arriba y hacia abajo en la caja de abajo. El indicador se mueve en la dirección del scroll y cada evento de rueda queda registrado, para que veas el tamaño de cada paso y detectes los saltos por ti mismo.</p>
+  </div>
+
+  <div class="tool-wrap">
+    <div class="test-wrap">
+      <div class="canvas-card">
+        <div class="canvas-toolbar">
+          <h2>Zona de prueba</h2>
+          <button class="reset-btn" id="reset-scroll">Reiniciar</button>
+        </div>
+        <div class="scroll-zone" id="scroll-zone">
+          <div class="scroll-track" id="scroll-track">
+            <div class="scroll-indicator" id="scroll-indicator"></div>
+          </div>
+          <p class="scroll-hint">Desplázate con la rueda o deslizando dos dedos. El punto sube cuando haces scroll hacia arriba y baja cuando lo haces hacia abajo.</p>
+        </div>
+        <div class="hint-bar">
+          Una rueda en buen estado produce pasos de tamaño uniforme. Números muy irregulares o saltos grandes y repentinos en el registro pueden indicar un encoder sucio o averiado.
+        </div>
+      </div>
+
+      <aside class="results-panel">
+        <h2>Lectura en directo</h2>
+        <div class="keyboard-readout">
+          <div class="kv"><span class="k">Eventos de scroll</span><span class="v" id="scroll-total">0</span></div>
+          <div class="kv"><span class="k">Último deltaY</span><span class="v" id="scroll-last-dy">–</span></div>
+          <div class="kv"><span class="k">Último deltaX</span><span class="v" id="scroll-last-dx">–</span></div>
+        </div>
+        <div class="live-readout">
+          <div style="margin-bottom:8px;">Registro de eventos</div>
+          <div class="scroll-log" id="scroll-log"></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="article">
+    <h2>Qué comprueba realmente</h2>
+    <p>El scroll llega al navegador como eventos <code>wheel</code> que llevan un valor <code>deltaY</code> (vertical) y <code>deltaX</code> (horizontal) por cada muesca o deslizamiento. Una rueda sana produce deltas más o menos constantes para un mismo movimiento; una rueda con el encoder desgastado tiende a dar valores erráticos, pasos perdidos o saltos grandes e inesperados, todo ello visible en el registro de arriba.</p>
+
+    <h2>Si el scroll no va bien</h2>
+    <ol>
+      <li>Fíjate en el signo de deltaY: al desplazarte hacia arriba debería ser siempre negativo (o siempre positivo; la convención cambia según el sistema, pero debe ser constante).</li>
+      <li>Busca saltos grandes y aislados en el registro: es el síntoma clásico de un encoder de rueda que empieza a fallar.</li>
+      <li>Limpia alrededor de la rueda con aire comprimido; el polvo es una causa habitual de pasos perdidos.</li>
+      <li>Revisa en los ajustes del mouse de tu sistema la opción de «invertir la dirección del desplazamiento», que a veces se activa sin querer.</li>
+    </ol>
+
+    <div class="cta-box">
+      <p>¿La rueda no responde en absoluto?</p>
+      <a class="btn" href="/blog/mouse/mouse-scroll-not-working" hreflang="en">Leer la guía (en inglés)</a>
+    </div>
+
+    <h2>Preguntas frecuentes</h2>
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>¿Por qué la rueda de mi mouse se salta pasos cada pocas muescas?</summary>
+        <div class="faq-answer">
+          <p>Los pasos perdidos casi siempre se deben a que el encoder mecánico u óptico de la rueda pierde el contacto un instante, normalmente por acumulación de polvo o por desgaste tras unos años de uso. El aire comprimido alrededor de la rueda resuelve la mayoría de los casos; si sigue saltándose pasos después de limpiarla, lo más probable es que el encoder esté gastado.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Qué valor de deltaY es normal por cada muesca?</summary>
+        <div class="faq-answer">
+          <p>Depende del sistema, el navegador y el mouse: suele rondar 100-120 por muesca en Windows, o un valor más pequeño y suave en touchpads y mouses de precisión, así que no hay un número «correcto». Lo que importa es la constancia: el mismo movimiento físico debería producir más o menos el mismo deltaY cada vez, no la cifra exacta.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Actualizar el controlador puede arreglar un scroll errático?</summary>
+        <div class="faq-answer">
+          <p>A veces. Un controlador dañado o desactualizado puede informar mal de los eventos de rueda aunque el hardware esté bien, así que vale la pena descartarlo antes de abrir el mouse. Si una instalación limpia del controlador no cambia el patrón errático del registro, la causa más probable es el encoder.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <section class="help-section">
+    <h2>Herramientas relacionadas</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/es/mouse-test">
+        <h3>Test de mouse</h3>
+        <p>Comprueba también todos los botones.</p>
+      </a>
+      <a class="help-card" href="/es/trackpad-test">
+        <h3>Test de touchpad</h3>
+        <p>Incluye scroll con dos dedos y zoom con pellizco.</p>
+      </a>
+      <a class="help-card" href="/blog/mouse/mouse-scroll-not-working" hreflang="en">
+        <h3>El scroll del mouse no funciona<span class="lang-tag">EN</span></h3>
+        <p>Saltos, tirones y scroll invertido, resueltos.</p>
+      </a>
+      <a class="help-card" href="/blog/mouse/mouse-scrolling-wrong-direction" hreflang="en">
+        <h3>Scroll en la dirección equivocada<span class="lang-tag">EN</span></h3>
+        <p>Inviértelo en los ajustes o limpia un encoder sucio.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/es">Inicio</a>
+    <a href="/es#mouse">Mouse</a>
+    <a href="/es#keyboard-tools">Teclado</a>
+    <a href="/es#gaming">Gaming</a>
+    <a href="/es/screen-test">Test de pantalla</a>
+    <a href="/es#guides">Guías</a>
+    <a href="/es/about">Acerca de</a>
+    <a href="/es/contact">Contacto</a>
+    <a href="/sitemap">Mapa del sitio</a>
+    <a href="/privacy-policy">Privacidad</a>
+    <a href="/cookies-policy">Cookies</a>
+    <a href="/terms-and-conditions">Términos</a>
+    <a href="/disclaimer">Aviso legal</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Consentimiento de cookies" hidden>
+  <p>Usamos cookies para medir el tráfico de forma básica y para mostrar anuncios a través de Google AdSense. Las pruebas se ejecutan en tu navegador y no envían nada a ningún sitio. Consulta nuestra <a href="/cookies-policy">Política de cookies</a> (en inglés).</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Rechazar</button>
+    <button type="button" class="btn" id="cookie-accept">Aceptar</button>
+  </div>
+</div>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

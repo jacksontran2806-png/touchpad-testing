@@ -1,6 +1,165 @@
 (function () {
   "use strict";
 
+  /* ---------- Translations ----------
+     Pages under /es/ and /de/ are translated in their HTML; this covers the
+     text the tools write at runtime. Strings are keyed by their English text,
+     so English needs no table and a missing translation falls back to
+     English rather than to a blank. `{name}` placeholders are filled from
+     `vars`. The page's <html lang> picks the table. */
+  const STRINGS = {
+    es: {
+      "macOS detected": "macOS detectado",
+      "Windows detected": "Windows detectado",
+      "iOS device detected": "Dispositivo iOS detectado",
+      "Android device detected": "Dispositivo Android detectado",
+      "Linux detected": "Linux detectado",
+      "Detected": "Detectado",
+      "Waiting": "Esperando",
+      "Start typing — what the browser receives shows up here.": "Empieza a escribir: lo que recibe el navegador aparece aquí.",
+      "Space": "Espacio",
+      "Left": "Izquierdo",
+      "Middle": "Central",
+      "Right": "Derecho",
+      "Back": "Atrás",
+      "Forward": "Adelante",
+      "Misfire — {ms}ms after the previous click": "Fallo — {ms} ms después del clic anterior",
+      "Click — first click": "Clic — primer clic",
+      "Click — {ms}ms gap": "Clic — {ms} ms de separación",
+      "Below average — most people land higher with practice.": "Por debajo de la media: con práctica, la mayoría consigue más.",
+      "Average — right around where most visitors score.": "Promedio: justo donde puntúa la mayoría de visitantes.",
+      "Fast — solidly above average clicking speed.": "Rápido: claramente por encima de la media.",
+      "Very fast — competitive-gaming territory.": "Muy rápido: nivel de gaming competitivo.",
+      "Exceptional — verify it's really a finger, not a macro.": "Excepcional: comprueba que sea un dedo y no una macro.",
+      "{cps} CPS — {s}s run": "{cps} CPS — prueba de {s} s",
+      "{n} clicks": "{n} clics",
+      "Click as fast as you can!": "¡Haz clic lo más rápido que puedas!",
+      "Press “Try again” to retry": "Pulsa «Repetir» para intentarlo de nuevo",
+      "Click to start": "Haz clic para empezar",
+      "Copied!": "¡Copiado!",
+      "I scored {cps} CPS on the {s}-second Click Speed Test! Test yours: {url}": "¡He conseguido {cps} CPS en el test de clics de {s} segundos! Prueba el tuyo: {url}",
+      "large jump": "salto grande",
+      "Round {n} of {total}": "Ronda {n} de {total}",
+      "Wait for green…": "Espera al verde…",
+      "Click now!": "¡Clic ahora!",
+      "Click to test again": "Haz clic para repetir la prueba",
+      "Too soon! Click to try this round again": "¡Demasiado pronto! Haz clic para repetir esta ronda",
+      "Round {n}: {ms}ms": "Ronda {n}: {ms} ms",
+      "Nice — click for the next round": "Bien: haz clic para la siguiente ronda",
+      "My reaction time: {ms}ms average over {n} rounds. Test yours: {url}": "Mi tiempo de reacción: {ms} ms de media en {n} rondas. Prueba el tuyo: {url}",
+      "White": "Blanco",
+      "Black": "Negro",
+      "Red": "Rojo",
+      "Green": "Verde",
+      "Blue": "Azul",
+      "Cyan": "Cian",
+      "Magenta": "Magenta",
+      "Yellow": "Amarillo",
+      "Gray 25%": "Gris 25 %",
+      "Gray 50%": "Gris 50 %",
+      "Gray 75%": "Gris 75 %",
+      "Black-to-white gradient": "Degradado de negro a blanco",
+      "Color gradients": "Degradados de color",
+      "Gray steps": "Escala de grises",
+      "Grid & circles": "Cuadrícula y círculos",
+      "Pixel patterns": "Patrones de píxeles",
+      "Text sharpness": "Nitidez del texto",
+      "Color cycle": "Ciclo de colores",
+      "Click or → next · ← back · Esc exit": "Clic o → siguiente · ← atrás · Esc salir",
+      "Click or Esc to stop": "Clic o Esc para parar",
+      "Exit full screen": "Salir de pantalla completa",
+      "The quick brown fox jumps over the lazy dog": "El veloz murciélago hindú comía feliz cardillo y kiwi",
+      "Rec. 2020 (wide)": "Rec. 2020 (amplia)",
+      "Display P3 (wide)": "Display P3 (amplia)",
+      "sRGB (standard)": "sRGB (estándar)",
+      "Supported": "Compatible",
+      "Not reported": "No indicado",
+      "Measuring…": "Midiendo…",
+      "{hz} Hz": "{hz} Hz"
+    },
+    de: {
+      "macOS detected": "macOS erkannt",
+      "Windows detected": "Windows erkannt",
+      "iOS device detected": "iOS-Gerät erkannt",
+      "Android device detected": "Android-Gerät erkannt",
+      "Linux detected": "Linux erkannt",
+      "Detected": "Erkannt",
+      "Waiting": "Warten",
+      "Start typing — what the browser receives shows up here.": "Fang an zu tippen – was der Browser empfängt, erscheint hier.",
+      "Space": "Leertaste",
+      "Left": "Links",
+      "Middle": "Mitte",
+      "Right": "Rechts",
+      "Back": "Zurück",
+      "Forward": "Vorwärts",
+      "Misfire — {ms}ms after the previous click": "Fehlauslösung – {ms} ms nach dem vorherigen Klick",
+      "Click — first click": "Klick – erster Klick",
+      "Click — {ms}ms gap": "Klick – {ms} ms Abstand",
+      "Below average — most people land higher with practice.": "Unter dem Durchschnitt – mit etwas Übung schaffen die meisten mehr.",
+      "Average — right around where most visitors score.": "Durchschnitt – genau dort, wo die meisten Besucher landen.",
+      "Fast — solidly above average clicking speed.": "Schnell – deutlich über dem Durchschnitt.",
+      "Very fast — competitive-gaming territory.": "Sehr schnell – Niveau von kompetitivem Gaming.",
+      "Exceptional — verify it's really a finger, not a macro.": "Außergewöhnlich – prüf mal, ob das wirklich ein Finger war und kein Makro.",
+      "{cps} CPS — {s}s run": "{cps} CPS – {s}-Sekunden-Durchgang",
+      "{n} clicks": "{n} Klicks",
+      "Click as fast as you can!": "Klick so schnell du kannst!",
+      "Press “Try again” to retry": "Für einen neuen Versuch auf „Nochmal“ drücken",
+      "Click to start": "Zum Starten klicken",
+      "Copied!": "Kopiert!",
+      "I scored {cps} CPS on the {s}-second Click Speed Test! Test yours: {url}": "Ich habe {cps} CPS im {s}-Sekunden-Klicktest geschafft! Teste dich selbst: {url}",
+      "large jump": "großer Sprung",
+      "Round {n} of {total}": "Runde {n} von {total}",
+      "Wait for green…": "Warte auf Grün …",
+      "Click now!": "Jetzt klicken!",
+      "Click to test again": "Klicken, um erneut zu testen",
+      "Too soon! Click to try this round again": "Zu früh! Klicken, um diese Runde zu wiederholen",
+      "Round {n}: {ms}ms": "Runde {n}: {ms} ms",
+      "Nice — click for the next round": "Gut – klicken für die nächste Runde",
+      "My reaction time: {ms}ms average over {n} rounds. Test yours: {url}": "Meine Reaktionszeit: {ms} ms im Schnitt über {n} Runden. Teste dich selbst: {url}",
+      "White": "Weiß",
+      "Black": "Schwarz",
+      "Red": "Rot",
+      "Green": "Grün",
+      "Blue": "Blau",
+      "Cyan": "Cyan",
+      "Magenta": "Magenta",
+      "Yellow": "Gelb",
+      "Gray 25%": "Grau 25 %",
+      "Gray 50%": "Grau 50 %",
+      "Gray 75%": "Grau 75 %",
+      "Black-to-white gradient": "Verlauf Schwarz–Weiß",
+      "Color gradients": "Farbverläufe",
+      "Gray steps": "Graustufen",
+      "Grid & circles": "Raster & Kreise",
+      "Pixel patterns": "Pixelmuster",
+      "Text sharpness": "Textschärfe",
+      "Color cycle": "Farbwechsel",
+      "Click or → next · ← back · Esc exit": "Klick oder → weiter · ← zurück · Esc beenden",
+      "Click or Esc to stop": "Klick oder Esc zum Stoppen",
+      "Exit full screen": "Vollbild beenden",
+      "The quick brown fox jumps over the lazy dog": "Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich",
+      "Rec. 2020 (wide)": "Rec. 2020 (erweitert)",
+      "Display P3 (wide)": "Display P3 (erweitert)",
+      "sRGB (standard)": "sRGB (Standard)",
+      "Supported": "Unterstützt",
+      "Not reported": "Nicht gemeldet",
+      "Measuring…": "Wird gemessen …",
+      "{hz} Hz": "{hz} Hz"
+    }
+  };
+  const LANG = (document.documentElement.lang || "en").slice(0, 2).toLowerCase();
+
+  function t(text, vars) {
+    const table = STRINGS[LANG];
+    let out = (table && table[text]) || text;
+    if (vars) {
+      Object.keys(vars).forEach(function (name) {
+        out = out.split("{" + name + "}").join(vars[name]);
+      });
+    }
+    return out;
+  }
+
   /* ---------- OS auto-detect ---------- */
   function detectOS() {
     const platform = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || "";
@@ -25,7 +184,7 @@
   const os = detectOS();
   const osBanner = document.getElementById("os-banner");
   if (osBanner && OS_LABEL[os]) {
-    osBanner.textContent = OS_LABEL[os];
+    osBanner.textContent = t(OS_LABEL[os]);
     osBanner.hidden = false;
   }
 
@@ -72,7 +231,7 @@
       if (item) {
         item.classList.add("detected");
         const status = item.querySelector(".status");
-        if (status) status.textContent = "Detected";
+        if (status) status.textContent = t("Detected");
       }
     }
 
@@ -187,7 +346,7 @@
         document.querySelectorAll(".check-item.detected").forEach(function (el) {
           el.classList.remove("detected");
           const status = el.querySelector(".status");
-          if (status) status.textContent = "Waiting";
+          if (status) status.textContent = t("Waiting");
         });
         pointers.clear();
         const rect = canvas.getBoundingClientRect();
@@ -534,7 +693,7 @@
     function renderTyped() {
       if (!typedEl) return;
       typedEl.classList.toggle("is-empty", typed === "");
-      typedEl.textContent = typed === "" ? "Start typing — what the browser receives shows up here." : typed;
+      typedEl.textContent = typed === "" ? t("Start typing — what the browser receives shows up here.") : typed;
       typedEl.scrollTop = typedEl.scrollHeight;
     }
 
@@ -586,7 +745,7 @@
           count += 1;
           if (countEl) countEl.textContent = String(count);
         }
-        if (lastKeyEl) lastKeyEl.textContent = e.key === " " ? "Space" : e.key;
+        if (lastKeyEl) lastKeyEl.textContent = e.key === " " ? t("Space") : e.key;
         if (lastCodeEl) lastCodeEl.textContent = e.code;
       }
       mods.forEach(function (pill) {
@@ -636,7 +795,7 @@
       if (item) {
         item.classList.add("detected");
         const status = item.querySelector(".status");
-        if (status) status.textContent = "Detected";
+        if (status) status.textContent = t("Detected");
       }
     }
 
@@ -667,7 +826,7 @@
       flashZone(e.button);
       const check = BUTTON_CHECK[e.button];
       if (check) markDetected(check);
-      setReadout("mo-button", BUTTON_NAME[e.button] || String(e.button));
+      setReadout("mo-button", BUTTON_NAME[e.button] ? t(BUTTON_NAME[e.button]) : String(e.button));
     });
 
     surface.addEventListener("pointermove", function (e) {
@@ -703,7 +862,7 @@
         document.querySelectorAll(".check-item.detected").forEach(function (el) {
           el.classList.remove("detected");
           const status = el.querySelector(".status");
-          if (status) status.textContent = "Waiting";
+          if (status) status.textContent = t("Waiting");
         });
         setReadout("mo-coords", "–");
         setReadout("mo-button", "–");
@@ -738,8 +897,8 @@
       const row = document.createElement("div");
       row.className = "click-log-row" + (isMisfire ? " is-misfire" : "");
       row.textContent = isMisfire
-        ? "Misfire — " + gapMs.toFixed(1) + "ms after the previous click"
-        : "Click — " + (lastClickTime === 0 ? "first click" : gapMs.toFixed(1) + "ms gap");
+        ? t("Misfire — {ms}ms after the previous click", { ms: gapMs.toFixed(1) })
+        : lastClickTime === 0 ? t("Click — first click") : t("Click — {ms}ms gap", { ms: gapMs.toFixed(1) });
       logEl.prepend(row);
       while (logEl.children.length > LOG_MAX) logEl.removeChild(logEl.lastChild);
     }
@@ -806,7 +965,7 @@
       { max: Infinity, label: "Exceptional — verify it's really a finger, not a macro." }
     ];
     function tierFor(cps) {
-      return TIERS.find(function (t) { return cps <= t.max; }).label;
+      return t(TIERS.find(function (tier) { return cps <= tier.max; }).label);
     }
 
     let state = "idle"; // idle | running | finished — box clicks only start a run from idle
@@ -832,7 +991,7 @@
       for (let i = history.length - 1; i >= 0; i--) {
         const row = document.createElement("div");
         row.className = "click-log-row";
-        row.textContent = history[i].cps.toFixed(2) + " CPS — " + history[i].duration + "s run";
+        row.textContent = t("{cps} CPS — {s}s run", { cps: history[i].cps.toFixed(2), s: history[i].duration });
         historyEl.appendChild(row);
       }
       if (historyWrap) historyWrap.hidden = history.length === 0;
@@ -843,9 +1002,9 @@
       clicks = 0;
       const duration = durationSelect ? Number(durationSelect.value) : 5;
       endAt = performance.now() + duration * 1000;
-      if (liveCountEl) liveCountEl.textContent = "0 clicks";
+      if (liveCountEl) liveCountEl.textContent = t("{n} clicks", { n: 0 });
       if (resultPanel) resultPanel.hidden = true;
-      if (labelEl) labelEl.textContent = "Click as fast as you can!";
+      if (labelEl) labelEl.textContent = t("Click as fast as you can!");
       button.classList.add("is-running");
       rafId = requestAnimationFrame(tick);
     }
@@ -858,7 +1017,7 @@
       lastResult = cps;
       history.push({ cps: cps, duration: duration });
       renderHistory();
-      if (labelEl) labelEl.textContent = "Press “Try again” to retry";
+      if (labelEl) labelEl.textContent = t("Press “Try again” to retry");
       button.classList.remove("is-running");
       if (timerEl) timerEl.textContent = "0.0s";
       if (resultPanel) resultPanel.hidden = false;
@@ -873,14 +1032,14 @@
         return;
       }
       clicks += 1;
-      if (liveCountEl) liveCountEl.textContent = clicks + " clicks";
+      if (liveCountEl) liveCountEl.textContent = t("{n} clicks", { n: clicks });
     });
 
     if (againBtn) {
       againBtn.addEventListener("click", function () {
         state = "idle";
         if (resultPanel) resultPanel.hidden = true;
-        if (labelEl) labelEl.textContent = "Click to start";
+        if (labelEl) labelEl.textContent = t("Click to start");
       });
     }
 
@@ -888,11 +1047,11 @@
       copyBtn.addEventListener("click", function () {
         if (lastResult === null) return;
         const duration = durationSelect ? Number(durationSelect.value) : 5;
-        const text = "I scored " + lastResult.toFixed(2) + " CPS on the " + duration + "-second Click Speed Test! Test yours: " + location.href;
+        const text = t("I scored {cps} CPS on the {s}-second Click Speed Test! Test yours: {url}", { cps: lastResult.toFixed(2), s: duration, url: location.href });
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(text).then(function () {
             const original = copyBtn.textContent;
-            copyBtn.textContent = "Copied!";
+            copyBtn.textContent = t("Copied!");
             setTimeout(function () { copyBtn.textContent = original; }, 1500);
           });
         }
@@ -1006,7 +1165,7 @@
         row.className = "scroll-log-row";
         const big = Math.abs(e.deltaY) > 150 || Math.abs(e.deltaX) > 150;
         if (big) row.classList.add("is-flagged");
-        row.textContent = "dy " + e.deltaY.toFixed(1) + " / dx " + e.deltaX.toFixed(1) + (big ? "  — large jump" : "");
+        row.textContent = "dy " + e.deltaY.toFixed(1) + " / dx " + e.deltaX.toFixed(1) + (big ? "  — " + t("large jump") : "");
         logEl.prepend(row);
         while (logEl.children.length > LOG_MAX) logEl.removeChild(logEl.lastChild);
       }
@@ -1061,13 +1220,13 @@
 
     function startRound() {
       phase = "waiting";
-      if (roundEl) roundEl.textContent = "Round " + (round + 1) + " of " + TOTAL_ROUNDS;
-      setVisual("waiting", "Wait for green…");
+      if (roundEl) roundEl.textContent = t("Round {n} of {total}", { n: round + 1, total: TOTAL_ROUNDS });
+      setVisual("waiting", t("Wait for green…"));
       const delay = 1500 + Math.random() * 3000;
       waitTimer = setTimeout(function () {
         phase = "ready";
         readyAt = performance.now();
-        setVisual("ready", "Click now!");
+        setVisual("ready", t("Click now!"));
       }, delay);
     }
 
@@ -1075,7 +1234,7 @@
       phase = "idle";
       const avg = times.reduce(function (a, b) { return a + b; }, 0) / times.length;
       const best = Math.min.apply(null, times);
-      setVisual("idle", "Click to test again");
+      setVisual("idle", t("Click to test again"));
       if (roundEl) roundEl.textContent = "";
       if (resultPanel) resultPanel.hidden = false;
       if (avgEl) avgEl.textContent = Math.round(avg) + "ms";
@@ -1094,7 +1253,7 @@
       if (phase === "waiting") {
         clearTimeout(waitTimer);
         phase = "early";
-        setVisual("early", "Too soon! Click to try this round again");
+        setVisual("early", t("Too soon! Click to try this round again"));
         return;
       }
       if (phase === "early") {
@@ -1107,7 +1266,7 @@
         if (listEl) {
           const row = document.createElement("div");
           row.className = "reaction-round-row";
-          row.textContent = "Round " + (round + 1) + ": " + Math.round(ms) + "ms";
+          row.textContent = t("Round {n}: {ms}ms", { n: round + 1, ms: Math.round(ms) });
           listEl.appendChild(row);
         }
         round += 1;
@@ -1115,7 +1274,7 @@
           finishAll();
         } else {
           phase = "between";
-          setVisual("idle", "Nice — click for the next round");
+          setVisual("idle", t("Nice — click for the next round"));
         }
         return;
       }
@@ -1128,7 +1287,7 @@
       againBtn.addEventListener("click", function () {
         phase = "idle";
         if (resultPanel) resultPanel.hidden = true;
-        setVisual("idle", "Click to start");
+        setVisual("idle", t("Click to start"));
       });
     }
 
@@ -1136,18 +1295,384 @@
       copyBtn.addEventListener("click", function () {
         if (!times.length) return;
         const avg = times.reduce(function (a, b) { return a + b; }, 0) / times.length;
-        const text = "My reaction time: " + Math.round(avg) + "ms average over " + TOTAL_ROUNDS + " rounds. Test yours: " + location.href;
+        const text = t("My reaction time: {ms}ms average over {n} rounds. Test yours: {url}", { ms: Math.round(avg), n: TOTAL_ROUNDS, url: location.href });
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(text).then(function () {
             const original = copyBtn.textContent;
-            copyBtn.textContent = "Copied!";
+            copyBtn.textContent = t("Copied!");
             setTimeout(function () { copyBtn.textContent = original; }, 1500);
           });
         }
       });
     }
 
-    setVisual("idle", "Click to start");
+    setVisual("idle", t("Click to start"));
+  })();
+
+  /* ============================================================
+     SCREEN TEST
+     Solid colors and patterns shown on a full-screen stage. Patterns
+     that depend on exact pixels (grid, pixel patterns, gray steps) are
+     drawn on a canvas sized in device pixels, so on a Retina display a
+     1px line is one physical pixel rather than two.
+     ============================================================ */
+  (function screenTest() {
+    const stage = document.getElementById("screen-stage");
+    if (!stage) return;
+
+    const canvas = stage.querySelector("canvas");
+    const ctx = canvas.getContext("2d");
+    const textLayer = stage.querySelector(".screen-text");
+    const hud = stage.querySelector(".screen-hud");
+    const hudLabel = stage.querySelector(".screen-hud-label");
+    const hudHint = stage.querySelector(".screen-hud-hint");
+    const closeBtn = stage.querySelector(".screen-hud-close");
+    const startBtn = document.getElementById("screen-start");
+    const cycleBtn = document.getElementById("screen-cycle");
+    const cycleSpeed = document.getElementById("screen-cycle-speed");
+
+    const SOLID = function (fill) { return { css: fill }; };
+    const ITEMS = [
+      { id: "white", name: "White", show: SOLID("#ffffff") },
+      { id: "black", name: "Black", show: SOLID("#000000") },
+      { id: "red", name: "Red", show: SOLID("#ff0000") },
+      { id: "green", name: "Green", show: SOLID("#00ff00") },
+      { id: "blue", name: "Blue", show: SOLID("#0000ff") },
+      { id: "cyan", name: "Cyan", show: SOLID("#00ffff") },
+      { id: "magenta", name: "Magenta", show: SOLID("#ff00ff") },
+      { id: "yellow", name: "Yellow", show: SOLID("#ffff00") },
+      { id: "gray25", name: "Gray 25%", show: SOLID("#404040") },
+      { id: "gray50", name: "Gray 50%", show: SOLID("#808080") },
+      { id: "gray75", name: "Gray 75%", show: SOLID("#bfbfbf") },
+      { id: "gradient", name: "Black-to-white gradient", show: { css: "linear-gradient(to right, #000, #fff)" } },
+      { id: "gradient-rgb", name: "Color gradients", show: {
+        css: "linear-gradient(to right, #000, #fff) 0 0 / 100% 25% no-repeat," +
+             "linear-gradient(to right, #000, #f00) 0 33.333% / 100% 25% no-repeat," +
+             "linear-gradient(to right, #000, #0f0) 0 66.667% / 100% 25% no-repeat," +
+             "linear-gradient(to right, #000, #00f) 0 100% / 100% 25% no-repeat #000"
+      } },
+      { id: "steps", name: "Gray steps", show: { draw: drawSteps } },
+      { id: "grid", name: "Grid & circles", show: { draw: drawGrid } },
+      { id: "pixels", name: "Pixel patterns", show: { draw: drawPixels } },
+      { id: "text", name: "Text sharpness", show: { text: true } }
+    ];
+    const CYCLE = ["#ff0000", "#00ff00", "#0000ff", "#ffffff", "#000000"];
+
+    let index = 0;
+    let open = false;
+    let cycleTimer = null;
+    let cycleStep = 0;
+    let hudTimer = null;
+    let returnFocus = null;
+
+    /* ---------- drawing ---------- */
+    function sizeCanvas() {
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.max(1, Math.round(stage.clientWidth * dpr));
+      canvas.height = Math.max(1, Math.round(stage.clientHeight * dpr));
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      return dpr;
+    }
+
+    // Three rows: the full range in 16 steps, then the darkest and brightest
+    // 16 values one level apart. On a well-set-up screen the first few
+    // near-black bars are distinguishable from pure black; if they all merge,
+    // shadows are being crushed (and the same for highlights on the right).
+    function drawSteps() {
+      const dpr = sizeCanvas();
+      const w = canvas.width, h = canvas.height;
+      const rows = [
+        { values: range(16, function (i) { return Math.round(i * 255 / 15); }) },
+        { values: range(16, function (i) { return i; }) },
+        { values: range(16, function (i) { return 240 + i; }) }
+      ];
+      const rowH = h / rows.length;
+      ctx.font = Math.round(11 * dpr) + "px " + getComputedStyle(document.body).fontFamily;
+      ctx.textAlign = "center";
+      rows.forEach(function (row, r) {
+        const barW = w / row.values.length;
+        row.values.forEach(function (v, i) {
+          ctx.fillStyle = "rgb(" + v + "," + v + "," + v + ")";
+          ctx.fillRect(Math.round(i * barW), Math.round(r * rowH), Math.ceil(barW), Math.ceil(rowH));
+          ctx.fillStyle = v > 128 ? "rgba(0,0,0,0.5)" : "rgba(255,255,255,0.5)";
+          ctx.fillText(String(v), i * barW + barW / 2, (r + 1) * rowH - 10 * dpr);
+        });
+      });
+    }
+
+    // Lines one device pixel wide on a black field, a border on the outermost
+    // pixels (cropped edges show as a missing line), and circles that should
+    // look perfectly round — an oval means the image is being stretched.
+    function drawGrid() {
+      const dpr = sizeCanvas();
+      const w = canvas.width, h = canvas.height;
+      const step = Math.round(40 * dpr);
+      ctx.fillStyle = "#000";
+      ctx.fillRect(0, 0, w, h);
+      ctx.fillStyle = "#6b6b6b";
+      for (let x = (w / 2) % step; x < w; x += step) ctx.fillRect(Math.floor(x), 0, 1, h);
+      for (let y = (h / 2) % step; y < h; y += step) ctx.fillRect(0, Math.floor(y), w, 1);
+      ctx.fillStyle = "#fff";
+      ctx.fillRect(0, 0, w, 1); ctx.fillRect(0, h - 1, w, 1);
+      ctx.fillRect(0, 0, 1, h); ctx.fillRect(w - 1, 0, 1, h);
+      ctx.fillRect(Math.floor(w / 2), 0, 1, h); ctx.fillRect(0, Math.floor(h / 2), w, 1);
+      ctx.strokeStyle = "#fff";
+      ctx.lineWidth = Math.max(1, Math.round(dpr));
+      const r = Math.min(w, h) / 2 - 2;
+      circle(w / 2, h / 2, r);
+      const cr = Math.min(w, h) / 6;
+      circle(cr + 2, cr + 2, cr); circle(w - cr - 2, cr + 2, cr);
+      circle(cr + 2, h - cr - 2, cr); circle(w - cr - 2, h - cr - 2, cr);
+    }
+
+    function circle(x, y, r) {
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+
+    // Four single-pixel patterns. At the display's native resolution each one
+    // looks like an even, flat texture; scaling (an OS "looks like" setting,
+    // or a non-native monitor resolution) turns them into moiré or blur.
+    function drawPixels() {
+      sizeCanvas();
+      const w = canvas.width, h = canvas.height;
+      const halfW = Math.floor(w / 4) * 2, halfH = Math.floor(h / 4) * 2;
+      const tiles = [
+        [[1, 0], [0, 1]],                                   // 1px checkerboard
+        [[1, 0], [1, 0]],                                   // 1px vertical lines
+        [[1, 1], [0, 0]],                                   // 1px horizontal lines
+        [[1, 1, 0, 0], [1, 1, 0, 0], [0, 0, 1, 1], [0, 0, 1, 1]] // 2px checkerboard
+      ];
+      const areas = [[0, 0, halfW, halfH], [halfW, 0, w - halfW, halfH], [0, halfH, halfW, h - halfH], [halfW, halfH, w - halfW, h - halfH]];
+      tiles.forEach(function (tile, i) {
+        const tc = document.createElement("canvas");
+        tc.width = tile[0].length; tc.height = tile.length;
+        const tctx = tc.getContext("2d");
+        tile.forEach(function (row, y) {
+          row.forEach(function (on, x) {
+            tctx.fillStyle = on ? "#fff" : "#000";
+            tctx.fillRect(x, y, 1, 1);
+          });
+        });
+        ctx.fillStyle = ctx.createPattern(tc, "repeat");
+        ctx.fillRect.apply(ctx, areas[i]);
+      });
+    }
+
+    function range(n, fn) {
+      const out = [];
+      for (let i = 0; i < n; i++) out.push(fn(i));
+      return out;
+    }
+
+    function buildText() {
+      if (textLayer.childElementCount) return;
+      const sample = t("The quick brown fox jumps over the lazy dog");
+      [0, 1].forEach(function () {
+        const col = document.createElement("div");
+        [9, 11, 13, 16, 20, 28].forEach(function (size) {
+          const p = document.createElement("p");
+          p.style.fontSize = size + "px";
+          p.textContent = size + "px — " + sample + " 0123456789";
+          col.appendChild(p);
+        });
+        textLayer.appendChild(col);
+      });
+    }
+
+    function render() {
+      const item = ITEMS[index];
+      const show = item.show;
+      stage.style.background = show.css || "#000";
+      canvas.hidden = !show.draw;
+      textLayer.hidden = !show.text;
+      if (show.draw) show.draw();
+      if (show.text) buildText();
+      hudLabel.textContent = t(item.name) + " · " + (index + 1) + "/" + ITEMS.length;
+    }
+
+    /* ---------- HUD ---------- */
+    // The HUD fades out completely after a moment and on every color change,
+    // so nothing but the test color is lit while you inspect the screen.
+    function showHud() {
+      hud.classList.remove("is-hidden");
+      stage.classList.add("show-cursor");
+      clearTimeout(hudTimer);
+      hudTimer = setTimeout(hideHud, 2200);
+    }
+    function hideHud() {
+      hud.classList.add("is-hidden");
+      stage.classList.remove("show-cursor");
+    }
+
+    /* ---------- open / close ---------- */
+    function enterFullscreen() {
+      const req = stage.requestFullscreen || stage.webkitRequestFullscreen;
+      if (!req) return;
+      try {
+        const p = req.call(stage);
+        if (p && p.catch) p.catch(function () { /* overlay mode still works */ });
+      } catch (e) { /* overlay mode still works */ }
+    }
+
+    function fullscreenElement() {
+      return document.fullscreenElement || document.webkitFullscreenElement || null;
+    }
+
+    function openStage(startIndex, cycle) {
+      returnFocus = document.activeElement;
+      open = true;
+      stage.hidden = false;
+      document.documentElement.style.overflow = "hidden";
+      enterFullscreen();
+      stage.focus();
+      if (cycle) {
+        startCycle();
+      } else {
+        index = startIndex;
+        hudHint.textContent = t("Click or → next · ← back · Esc exit");
+        render();
+      }
+      showHud();
+    }
+
+    function closeStage() {
+      if (!open) return;
+      open = false;
+      stopCycle();
+      stage.hidden = true;
+      document.documentElement.style.overflow = "";
+      clearTimeout(hudTimer);
+      if (fullscreenElement()) {
+        const exit = document.exitFullscreen || document.webkitExitFullscreen;
+        if (exit) exit.call(document);
+      }
+      if (returnFocus && returnFocus.focus) returnFocus.focus();
+    }
+
+    function go(delta) {
+      if (cycleTimer) return;
+      index = (index + delta + ITEMS.length) % ITEMS.length;
+      render();
+      hideHud();
+    }
+
+    /* ---------- color cycle ---------- */
+    // Capped at 3 changes per second: WCAG's general flash threshold. Faster
+    // "pixel fixer" strobes are a seizure risk and have no reliable record of
+    // actually fixing stuck pixels.
+    function startCycle() {
+      const perSecond = Math.min(3, Number(cycleSpeed ? cycleSpeed.value : 1) || 1);
+      cycleStep = 0;
+      canvas.hidden = true;
+      textLayer.hidden = true;
+      hudLabel.textContent = t("Color cycle");
+      hudHint.textContent = t("Click or Esc to stop");
+      function tick() {
+        stage.style.background = CYCLE[cycleStep % CYCLE.length];
+        cycleStep += 1;
+      }
+      tick();
+      cycleTimer = setInterval(tick, 1000 / perSecond);
+    }
+
+    function stopCycle() {
+      clearInterval(cycleTimer);
+      cycleTimer = null;
+    }
+
+    /* ---------- wiring ---------- */
+    document.querySelectorAll("[data-screen-item]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        const i = ITEMS.findIndex(function (it) { return it.id === btn.getAttribute("data-screen-item"); });
+        openStage(Math.max(0, i), false);
+      });
+    });
+    if (startBtn) startBtn.addEventListener("click", function () { openStage(0, false); });
+    if (cycleBtn) cycleBtn.addEventListener("click", function () { openStage(0, true); });
+    if (closeBtn) closeBtn.addEventListener("click", function (e) { e.stopPropagation(); closeStage(); });
+    if (closeBtn) closeBtn.setAttribute("aria-label", t("Exit full screen"));
+
+    stage.addEventListener("click", function (e) {
+      if (hud.contains(e.target)) return;
+      if (cycleTimer) { closeStage(); return; }
+      go(1);
+    });
+    stage.addEventListener("mousemove", showHud);
+
+    document.addEventListener("keydown", function (e) {
+      if (!open) return;
+      if (e.key === "Escape") { closeStage(); return; }
+      if (e.key === "ArrowRight" || e.key === " " || e.key === "PageDown" || e.key === "Enter") {
+        e.preventDefault();
+        if (cycleTimer) { closeStage(); return; }
+        go(1);
+      } else if (e.key === "ArrowLeft" || e.key === "PageUp" || e.key === "Backspace") {
+        e.preventDefault();
+        go(-1);
+      }
+    });
+
+    // Leaving full screen with the browser's own Esc handling closes the test
+    // too, rather than stranding the visitor on a page-sized color overlay.
+    function onFullscreenChange() {
+      if (open && !fullscreenElement()) closeStage();
+    }
+    document.addEventListener("fullscreenchange", onFullscreenChange);
+    document.addEventListener("webkitfullscreenchange", onFullscreenChange);
+
+    // Canvas patterns are drawn for an exact pixel size; entering full screen
+    // resizes the stage, so redraw once it settles.
+    window.addEventListener("resize", function () {
+      if (open && !cycleTimer) render();
+    });
+
+    /* ---------- display info ---------- */
+    function setInfo(id, value) {
+      const el = document.getElementById(id);
+      if (el) el.textContent = value;
+    }
+
+    function updateInfo() {
+      const dpr = window.devicePixelRatio || 1;
+      setInfo("si-screen", screen.width + " × " + screen.height);
+      setInfo("si-dpr", (Math.round(dpr * 100) / 100) + "×");
+      setInfo("si-pixels", Math.round(screen.width * dpr) + " × " + Math.round(screen.height * dpr));
+      setInfo("si-window", window.innerWidth + " × " + window.innerHeight);
+      setInfo("si-depth", screen.colorDepth + "-bit");
+      const mq = function (q) { return window.matchMedia && window.matchMedia(q).matches; };
+      setInfo("si-gamut",
+        mq("(color-gamut: rec2020)") ? t("Rec. 2020 (wide)") :
+        mq("(color-gamut: p3)") ? t("Display P3 (wide)") : t("sRGB (standard)"));
+      setInfo("si-hdr", mq("(dynamic-range: high)") ? t("Supported") : t("Not reported"));
+    }
+
+    // Refresh rate is estimated from requestAnimationFrame timing: the median
+    // frame interval over ~1 second, snapped to a common rate when close.
+    function measureRefresh() {
+      if (document.hidden) return;
+      setInfo("si-hz", t("Measuring…"));
+      const stamps = [];
+      function frame(ts) {
+        stamps.push(ts);
+        if (stamps.length < 90) { requestAnimationFrame(frame); return; }
+        const gaps = [];
+        for (let i = 1; i < stamps.length; i++) gaps.push(stamps[i] - stamps[i - 1]);
+        gaps.sort(function (a, b) { return a - b; });
+        const hz = 1000 / gaps[Math.floor(gaps.length / 2)];
+        const common = [30, 50, 60, 75, 90, 100, 120, 144, 165, 175, 200, 240, 360];
+        const snap = common.find(function (c) { return Math.abs(c - hz) / c < 0.04; });
+        setInfo("si-hz", t("{hz} Hz", { hz: snap || Math.round(hz) }));
+      }
+      requestAnimationFrame(frame);
+    }
+
+    updateInfo();
+    measureRefresh();
+    window.addEventListener("resize", updateInfo);
+    const remeasure = document.getElementById("si-remeasure");
+    if (remeasure) remeasure.addEventListener("click", measureRefresh);
   })();
 
   /* ============================================================

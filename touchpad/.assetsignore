@@ -7,4 +7,7 @@ wrangler.jsonc
 README.md
 DEPLOYMENT.md
 build.js
+seo-build.js
+seo-data.js
+i18n.js
 partials

@@ -1,49 +1,274 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://hardwaretesthub.net/</loc>
     <lastmod>2026-08-27</lastmod>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/"/>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/de</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/"/>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/es</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/"/>
   </url>
   <url>
     <loc>https://hardwaretesthub.net/cps-test</loc>
     <lastmod>2026-08-27</lastmod>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/cps-test"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/cps-test"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/cps-test"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/cps-test"/>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/de/cps-test</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/cps-test"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/cps-test"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/cps-test"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/cps-test"/>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/de/keyboard-ghosting-test</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/keyboard-ghosting-test"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/keyboard-ghosting-test"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/keyboard-ghosting-test"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/keyboard-ghosting-test"/>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/de/keyboard-test</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/keyboard-test"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/keyboard-test"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/keyboard-test"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/keyboard-test"/>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/de/mouse-double-click-test</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/mouse-double-click-test"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/mouse-double-click-test"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/mouse-double-click-test"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/mouse-double-click-test"/>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/de/mouse-scroll-test</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/mouse-scroll-test"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/mouse-scroll-test"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/mouse-scroll-test"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/mouse-scroll-test"/>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/de/mouse-test</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/mouse-test"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/mouse-test"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/mouse-test"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/mouse-test"/>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/de/reaction-time-test</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/reaction-time-test"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/reaction-time-test"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/reaction-time-test"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/reaction-time-test"/>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/de/screen-test</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/screen-test"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/screen-test"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/screen-test"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/screen-test"/>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/de/trackpad-test</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/trackpad-test"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/trackpad-test"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/trackpad-test"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/trackpad-test"/>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/es/cps-test</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/cps-test"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/cps-test"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/cps-test"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/cps-test"/>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/es/keyboard-ghosting-test</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/keyboard-ghosting-test"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/keyboard-ghosting-test"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/keyboard-ghosting-test"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/keyboard-ghosting-test"/>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/es/keyboard-test</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/keyboard-test"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/keyboard-test"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/keyboard-test"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/keyboard-test"/>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/es/mouse-double-click-test</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/mouse-double-click-test"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/mouse-double-click-test"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/mouse-double-click-test"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/mouse-double-click-test"/>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/es/mouse-scroll-test</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/mouse-scroll-test"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/mouse-scroll-test"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/mouse-scroll-test"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/mouse-scroll-test"/>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/es/mouse-test</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/mouse-test"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/mouse-test"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/mouse-test"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/mouse-test"/>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/es/reaction-time-test</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/reaction-time-test"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/reaction-time-test"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/reaction-time-test"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/reaction-time-test"/>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/es/screen-test</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/screen-test"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/screen-test"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/screen-test"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/screen-test"/>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/es/trackpad-test</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/trackpad-test"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/trackpad-test"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/trackpad-test"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/trackpad-test"/>
   </url>
   <url>
     <loc>https://hardwaretesthub.net/keyboard-ghosting-test</loc>
     <lastmod>2026-08-27</lastmod>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/keyboard-ghosting-test"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/keyboard-ghosting-test"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/keyboard-ghosting-test"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/keyboard-ghosting-test"/>
   </url>
   <url>
     <loc>https://hardwaretesthub.net/keyboard-test</loc>
     <lastmod>2026-08-27</lastmod>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/keyboard-test"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/keyboard-test"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/keyboard-test"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/keyboard-test"/>
   </url>
   <url>
     <loc>https://hardwaretesthub.net/mouse-double-click-test</loc>
     <lastmod>2026-08-27</lastmod>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/mouse-double-click-test"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/mouse-double-click-test"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/mouse-double-click-test"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/mouse-double-click-test"/>
   </url>
   <url>
     <loc>https://hardwaretesthub.net/mouse-scroll-test</loc>
     <lastmod>2026-08-27</lastmod>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/mouse-scroll-test"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/mouse-scroll-test"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/mouse-scroll-test"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/mouse-scroll-test"/>
   </url>
   <url>
     <loc>https://hardwaretesthub.net/mouse-test</loc>
     <lastmod>2026-08-27</lastmod>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/mouse-test"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/mouse-test"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/mouse-test"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/mouse-test"/>
   </url>
   <url>
     <loc>https://hardwaretesthub.net/reaction-time-test</loc>
     <lastmod>2026-08-27</lastmod>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/reaction-time-test"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/reaction-time-test"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/reaction-time-test"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/reaction-time-test"/>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/screen-test</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/screen-test"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/screen-test"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/screen-test"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/screen-test"/>
   </url>
   <url>
     <loc>https://hardwaretesthub.net/trackpad-test</loc>
     <lastmod>2026-08-27</lastmod>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/trackpad-test"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/trackpad-test"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/trackpad-test"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/trackpad-test"/>
   </url>
   <url>
     <loc>https://hardwaretesthub.net/blog/keyboard/keyboard-disconnects-randomly</loc>
@@ -214,11 +439,33 @@
     <loc>https://hardwaretesthub.net/contact</loc>
     <lastmod>2026-09-08</lastmod>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/contact"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/contact"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/contact"/>
   </url>
   <url>
     <loc>https://hardwaretesthub.net/cookies-policy</loc>
     <lastmod>2026-09-23</lastmod>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/de/contact</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/contact"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/contact"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/contact"/>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/es/contact</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/contact"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/contact"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/contact"/>
   </url>
   <url>
     <loc>https://hardwaretesthub.net/sitemap</loc>
@@ -229,6 +476,28 @@
     <loc>https://hardwaretesthub.net/about</loc>
     <lastmod>2026-08-27</lastmod>
     <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/about"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/about"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/about"/>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/de/about</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/about"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/about"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/about"/>
+  </url>
+  <url>
+    <loc>https://hardwaretesthub.net/es/about</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/about"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/about"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/about"/>
   </url>
   <url>
     <loc>https://hardwaretesthub.net/disclaimer</loc>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="es_ES">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Test de Doble Clic — ¿Tu Mouse Hace Doble Clic Solo? | Hardware Test Hub</title>
+<meta name="description" content="Comprueba si tu mouse falla y hace dos clics cuando pulsas una vez. Test de doble clic online y gratis, sin descargas.">
+<link rel="canonical" href="https://hardwaretesthub.net/es/mouse-double-click-test">
+<!-- HREFLANG:START -->
+<link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/mouse-double-click-test">
+<link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/mouse-double-click-test">
+<link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/mouse-double-click-test">
+<link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/mouse-double-click-test">
+<!-- HREFLANG:END -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hardwaretesthub.net/es/mouse-double-click-test">
+<meta property="og:title" content="Test de Doble Clic — ¿Tu Mouse Hace Doble Clic Solo?">
+<meta property="og:description" content="Comprueba si tu mouse falla y hace dos clics cuando pulsas una vez. Test de doble clic online y gratis, sin descargas.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<meta name="google-adsense-account" content="ca-pub-1082746041497676">
+<!-- Google Consent Mode v2 defaults. Must run BEFORE the adsbygoogle tag
+     below, so ads and measurement start in the denied state and only move to
+     granted if the visitor accepts in the cookie banner (js/app.js). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500
+});
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://hardwaretesthub.net/es/mouse-double-click-test#app",
+      "name": "Test de doble clic del mouse",
+      "description": "Comprueba si tu mouse falla y hace dos clics cuando pulsas una vez. Test de doble clic online y gratis, sin descargas.",
+      "url": "https://hardwaretesthub.net/es/mouse-double-click-test",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires JavaScript",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "es"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://hardwaretesthub.net/es"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Mouse y touchpad",
+          "item": "https://hardwaretesthub.net/es"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Test de doble clic del mouse",
+          "item": "https://hardwaretesthub.net/es/mouse-double-click-test"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/es/mouse-double-click-test#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/es/mouse-double-click-test#app"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué umbral de sensibilidad debo usar en esta prueba?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Empieza con los 50 ms predeterminados: están muy por encima de lo más rápido que una persona puede soltar y volver a pulsar un botón, así que todo lo marcado con ese umbral es casi seguro un fallo real. Bájalo a 30 ms solo si quieres ser muy prudente con los falsos positivos, o súbelo a 80-120 ms si tus clics son especialmente rápidos y quieres descartarlos primero."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Un programa puede arreglar un mouse que hace doble clic?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A veces, de forma temporal. Algunos programas del fabricante y utilidades de debounce de terceros filtran un segundo clic que llega dentro de un intervalo determinado, lo que disimula un interruptor gastado sin arreglarlo. Es un parche razonable, pero el interruptor suele seguir degradándose y acabará necesitando una solución de hardware."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto suelen durar los interruptores del mouse antes de que pase esto?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La mayoría de interruptores mecánicos de mouse están clasificados para entre 10 y 50 millones de clics según su calidad, lo que con un uso diario normal equivale aproximadamente a 1-5 años antes de que aparezca el rebote. Un uso intensivo para jugar o un interruptor de menor calidad pueden adelantar bastante ese plazo."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/es"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menú">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/es#mouse">Mouse</a>
+      <a href="/es#keyboard-tools">Teclado</a>
+      <a href="/es#gaming">Gaming</a>
+      <a href="/es#guides">Guías</a>
+      <a href="/es/about">Acerca de</a>
+      <!-- LANG_SWITCH:START -->
+      <div class="lang-switch">
+        <a href="/mouse-double-click-test" hreflang="en" lang="en" title="English">EN</a>
+        <a href="/es/mouse-double-click-test" hreflang="es" lang="es" title="Español" aria-current="true">ES</a>
+        <a href="/de/mouse-double-click-test" hreflang="de" lang="de" title="Deutsch">DE</a>
+      </div>
+      <!-- LANG_SWITCH:END -->
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <div class="tool-head">
+    <div class="kicker">Mouse y touchpad</div>
+    <h1>Test de doble clic del mouse</h1>
+    <p>Haz clic en la caja de abajo de uno en uno, a ritmo normal. Un interruptor desgastado dispara un segundo clic con una sola pulsación física: esta prueba lo detecta y muestra exactamente cuántos milisegundos separan los dos clics.</p>
+  </div>
+
+  <div class="tool-wrap">
+    <div class="test-wrap">
+      <div class="canvas-card">
+        <div class="canvas-toolbar">
+          <h2>Zona de prueba</h2>
+          <div class="toolbar-controls">
+            <select class="layout-select" id="dc-threshold" aria-label="Umbral de fallo">
+              <option value="30">Sensibilidad: 30 ms</option>
+              <option value="50" selected>Sensibilidad: 50 ms (predeterminada)</option>
+              <option value="80">Sensibilidad: 80 ms</option>
+              <option value="120">Sensibilidad: 120 ms</option>
+            </select>
+            <button class="reset-btn" id="reset-dblclick">Reiniciar</button>
+          </div>
+        </div>
+        <button type="button" class="click-zone" id="dc-zone">Haz clic aquí, de uno en uno</button>
+        <div class="hint-bar">
+          Haz clic a un ritmo normal y pausado, no rápido. Dos clics separados por menos del umbral significan casi con seguridad que el interruptor se disparó dos veces por sí solo.
+        </div>
+      </div>
+
+      <aside class="results-panel">
+        <h2>Resultados</h2>
+        <div class="keyboard-readout">
+          <div class="kv"><span class="k">Clics totales</span><span class="v" id="dc-total">0</span></div>
+          <div class="kv"><span class="k">Fallos</span><span class="v" id="dc-misfires">0</span></div>
+        </div>
+        <div class="live-readout">
+          <div style="margin-bottom:8px;">Registro de clics</div>
+          <div class="click-log" id="dc-log"></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="article">
+    <h2>Qué comprueba realmente</h2>
+    <p>Una persona no puede físicamente soltar y volver a pulsar un botón del mouse en menos de unos 30-50 ms: es más rápido que los jugadores competitivos más rápidos. Así que cuando llegan dos eventos de clic tan seguidos a partir de una sola pulsación, la causa casi siempre es un microinterruptor desgastado o sucio dentro del mouse que hace un contacto breve y no deseado («rebote» del interruptor), no algo que hayas hecho tú.</p>
+
+    <h2>Si ves fallos</h2>
+    <ol>
+      <li>Prueba primero con la sensibilidad predeterminada de 50 ms: deja un margen seguro por encima de cualquier intervalo humano real entre clics.</li>
+      <li>Limpia alrededor del interruptor con aire comprimido; el polvo a veces provoca contactos intermitentes.</li>
+      <li>Busca una actualización de firmware del fabricante: algunos mouses permiten ajustar el tiempo de debounce.</li>
+      <li>Si los fallos son frecuentes y constantes, lo más probable es que el interruptor esté gastado. Es normal tras 1-5 años de uso intenso y suele implicar reparar o sustituir el mouse.</li>
+    </ol>
+
+    <div class="cta-box">
+      <p>¿Quieres saber si conviene reparar o cambiar?</p>
+      <a class="btn" href="/blog/mouse/mouse-double-clicking-fix" hreflang="en">Leer la guía (en inglés)</a>
+    </div>
+
+    <h2>Preguntas frecuentes</h2>
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>¿Qué umbral de sensibilidad debo usar en esta prueba?</summary>
+        <div class="faq-answer">
+          <p>Empieza con los 50 ms predeterminados: están muy por encima de lo más rápido que una persona puede soltar y volver a pulsar un botón, así que todo lo marcado con ese umbral es casi seguro un fallo real. Bájalo a 30 ms solo si quieres ser muy prudente con los falsos positivos, o súbelo a 80-120 ms si tus clics son especialmente rápidos y quieres descartarlos primero.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Un programa puede arreglar un mouse que hace doble clic?</summary>
+        <div class="faq-answer">
+          <p>A veces, de forma temporal. Algunos programas del fabricante y utilidades de debounce de terceros filtran un segundo clic que llega dentro de un intervalo determinado, lo que disimula un interruptor gastado sin arreglarlo. Es un parche razonable, pero el interruptor suele seguir degradándose y acabará necesitando una solución de hardware.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cuánto suelen durar los interruptores del mouse antes de que pase esto?</summary>
+        <div class="faq-answer">
+          <p>La mayoría de interruptores mecánicos de mouse están clasificados para entre 10 y 50 millones de clics según su calidad, lo que con un uso diario normal equivale aproximadamente a 1-5 años antes de que aparezca el rebote. Un uso intensivo para jugar o un interruptor de menor calidad pueden adelantar bastante ese plazo.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <section class="help-section">
+    <h2>Herramientas relacionadas</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/es/mouse-test">
+        <h3>Test de mouse</h3>
+        <p>Comprueba todos los botones, no solo el clic.</p>
+      </a>
+      <a class="help-card" href="/es/cps-test">
+        <h3>Test de CPS</h3>
+        <p>Mide tus clics por segundo.</p>
+      </a>
+      <a class="help-card" href="/blog/mouse/mouse-double-clicking-fix" hreflang="en">
+        <h3>El mouse hace doble clic con un solo clic<span class="lang-tag">EN</span></h3>
+        <p>Por qué se desgastan los interruptores y qué lo arregla de verdad.</p>
+      </a>
+      <a class="help-card" href="/blog/mouse/mouse-double-clicking-single-click" hreflang="en">
+        <h3>Soluciones rápidas para el doble clic<span class="lang-tag">EN</span></h3>
+        <p>Ajustes de debounce, polvo y actualizaciones de controladores.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/es">Inicio</a>
+    <a href="/es#mouse">Mouse</a>
+    <a href="/es#keyboard-tools">Teclado</a>
+    <a href="/es#gaming">Gaming</a>
+    <a href="/es/screen-test">Test de pantalla</a>
+    <a href="/es#guides">Guías</a>
+    <a href="/es/about">Acerca de</a>
+    <a href="/es/contact">Contacto</a>
+    <a href="/sitemap">Mapa del sitio</a>
+    <a href="/privacy-policy">Privacidad</a>
+    <a href="/cookies-policy">Cookies</a>
+    <a href="/terms-and-conditions">Términos</a>
+    <a href="/disclaimer">Aviso legal</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Consentimiento de cookies" hidden>
+  <p>Usamos cookies para medir el tráfico de forma básica y para mostrar anuncios a través de Google AdSense. Las pruebas se ejecutan en tu navegador y no envían nada a ningún sitio. Consulta nuestra <a href="/cookies-policy">Política de cookies</a> (en inglés).</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Rechazar</button>
+    <button type="button" class="btn" id="cookie-accept">Aceptar</button>
+  </div>
+</div>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

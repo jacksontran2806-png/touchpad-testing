@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="es_ES">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Test de Ghosting de Teclado — Test de N-Key Rollover (NKRO) | Hardware Test Hub</title>
+<meta name="description" content="Comprueba cuántas teclas puede registrar tu teclado a la vez. Test de ghosting y N-key rollover (NKRO) online y gratis: mantén pulsadas varias teclas y mira qué se registra.">
+<link rel="canonical" href="https://hardwaretesthub.net/es/keyboard-ghosting-test">
+<!-- HREFLANG:START -->
+<link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/keyboard-ghosting-test">
+<link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/keyboard-ghosting-test">
+<link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/keyboard-ghosting-test">
+<link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/keyboard-ghosting-test">
+<!-- HREFLANG:END -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hardwaretesthub.net/es/keyboard-ghosting-test">
+<meta property="og:title" content="Test de Ghosting de Teclado — Test de N-Key Rollover (NKRO)">
+<meta property="og:description" content="Comprueba cuántas teclas puede registrar tu teclado a la vez. Test de ghosting y N-key rollover (NKRO) online y gratis: mantén pulsadas varias teclas y mira qué se registra.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<meta name="google-adsense-account" content="ca-pub-1082746041497676">
+<!-- Google Consent Mode v2 defaults. Must run BEFORE the adsbygoogle tag
+     below, so ads and measurement start in the denied state and only move to
+     granted if the visitor accepts in the cookie banner (js/app.js). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500
+});
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://hardwaretesthub.net/es/keyboard-ghosting-test#app",
+      "name": "Test de ghosting / N-key rollover del teclado",
+      "description": "Comprueba cuántas teclas puede registrar tu teclado a la vez. Test de ghosting y N-key rollover (NKRO) online y gratis: mantén pulsadas varias teclas y mira qué se registra.",
+      "url": "https://hardwaretesthub.net/es/keyboard-ghosting-test",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires JavaScript",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "es"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://hardwaretesthub.net/es"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Teclado",
+          "item": "https://hardwaretesthub.net/es"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Test de ghosting / N-key rollover del teclado",
+          "item": "https://hardwaretesthub.net/es/keyboard-ghosting-test"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/es/keyboard-ghosting-test#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/es/keyboard-ghosting-test#app"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿El ghosting es un defecto de hardware por el que debería devolver el teclado?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Es una limitación inherente a cómo la mayoría de teclados conectan sus teclas, no un defecto de fabricación, y afecta en mayor o menor medida a la gran mayoría de teclados económicos y de gama media. Solo se convierte en un problema real si tu combinación concreta de teclas (como WASD más modificadores al jugar) cae en una combinación bloqueada o fantasma."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué los teclados gaming anuncian NKRO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Jugar suele exigir mantener varias teclas a la vez (movimiento, modificadores y una tecla de habilidad), y perder una pulsación a mitad de combo es un problema real e inmediato. El N-key rollover garantiza que se envíe cada tecla que mantienes pulsada, algo que importa mucho menos al escribir, cuando rara vez pulsas más de 2-3 teclas a la vez."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Usar USB en lugar de una conexión inalámbrica afecta al rollover?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Puede. El NKRO completo suele requerir USB con un modo de envío específico del teclado en lugar del protocolo de arranque estándar, y las conexiones Bluetooth o inalámbricas de 2,4 GHz a menudo no pueden transmitir ese mismo protocolo de forma fiable, por lo que limitan las teclas simultáneas por debajo de lo que el mismo teclado admitiría con cable."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/es"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menú">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/es#mouse">Mouse</a>
+      <a href="/es#keyboard-tools">Teclado</a>
+      <a href="/es#gaming">Gaming</a>
+      <a href="/es#guides">Guías</a>
+      <a href="/es/about">Acerca de</a>
+      <!-- LANG_SWITCH:START -->
+      <div class="lang-switch">
+        <a href="/keyboard-ghosting-test" hreflang="en" lang="en" title="English">EN</a>
+        <a href="/es/keyboard-ghosting-test" hreflang="es" lang="es" title="Español" aria-current="true">ES</a>
+        <a href="/de/keyboard-ghosting-test" hreflang="de" lang="de" title="Deutsch">DE</a>
+      </div>
+      <!-- LANG_SWITCH:END -->
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <div class="tool-head">
+    <div class="kicker">Teclado</div>
+    <h1>Test de ghosting / N-key rollover del teclado</h1>
+    <p>Mantén pulsadas todas las teclas que puedas a la vez y mira el contador de abajo. Si deja de subir mientras sigues añadiendo dedos, has encontrado el límite de teclas simultáneas de tu teclado.</p>
+  </div>
+
+  <div class="tool-wrap">
+    <div class="test-wrap">
+      <div class="canvas-card">
+        <div class="canvas-toolbar">
+          <h2>Zona de prueba</h2>
+          <button class="reset-btn" id="reset-ghosting">Reiniciar máximo</button>
+        </div>
+        <div class="ghost-readout">
+          <div class="ghost-stat">
+            <span class="k">Teclas pulsadas ahora</span>
+            <span class="v" id="ghost-current">0</span>
+          </div>
+          <div class="ghost-stat">
+            <span class="k">Máximo de teclas simultáneas</span>
+            <span class="v" id="ghost-max">0</span>
+          </div>
+        </div>
+        <div class="keyboard-wrap">
+          <div class="keyboard" id="ghost-keyboard" aria-label="Prueba de rollover del teclado"></div>
+        </div>
+        <div class="hint-bar">
+          Empieza con WASD + Shift + Espacio y luego añade más dedos. La mayoría de teclados se quedan entre 2 y 6 teclas, salvo que estén diseñados específicamente para N-key rollover completo.
+        </div>
+      </div>
+
+      <aside class="results-panel">
+        <h2>Por qué no puede ser totalmente automático</h2>
+        <div class="live-readout" style="margin-top:0; padding-top:0; border-top:none;">
+          Un navegador solo se entera de una pulsación cuando el teclado la <em>envía</em>. Si una tecla se pierde en silencio, no se dispara ningún evento: no hay nada que detectar. Así que esta herramienta te muestra la verdad tal cual: cuántas de las teclas que mantienes pulsadas se registran de verdad. La diferencia la juzgas tú.
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="article">
+    <h2>Qué significa realmente el «ghosting»</h2>
+    <p>La mayoría de teclados conectan las teclas en una matriz para que unos pocos cables cubran más de cien teclas. Si pulsas tres teclas que comparten las mismas filas y columnas, la electrónica no puede distinguirlas de una cuarta tecla que nunca se pulsó: esa cuarta pulsación fantasma es una «tecla fantasma» (ghost key). Los teclados más baratos lo evitan con una pequeña lista de combinaciones problemáticas (<strong>bloqueo</strong> de teclas): más seguro, pero significa que una tecla que de verdad estás pulsando simplemente no se registra. Los teclados con <strong>N-key rollover (NKRO)</strong> completo evitan el problema por completo, normalmente por USB con un protocolo de envío distinto.</p>
+
+    <h2>Qué hacer con tu resultado</h2>
+    <ol>
+      <li>Un rollover de 2-6 teclas es normal en un teclado de membrana estándar: suficiente para escribir, limitado para jugar.</li>
+      <li>Si WASD más un par de modificadores no se registran juntos de forma fiable, busca un modo «NKRO»: muchos teclados mecánicos vienen en modo de 6 teclas de fábrica.</li>
+      <li>Para un rollover completo, busca específicamente «NKRO» en las especificaciones del teclado: no es universal ni siquiera en los mecánicos.</li>
+    </ol>
+
+    <h2>Preguntas frecuentes</h2>
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>¿El ghosting es un defecto de hardware por el que debería devolver el teclado?</summary>
+        <div class="faq-answer">
+          <p>No. Es una limitación inherente a cómo la mayoría de teclados conectan sus teclas, no un defecto de fabricación, y afecta en mayor o menor medida a la gran mayoría de teclados económicos y de gama media. Solo se convierte en un problema real si tu combinación concreta de teclas (como WASD más modificadores al jugar) cae en una combinación bloqueada o fantasma.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Por qué los teclados gaming anuncian NKRO?</summary>
+        <div class="faq-answer">
+          <p>Jugar suele exigir mantener varias teclas a la vez (movimiento, modificadores y una tecla de habilidad), y perder una pulsación a mitad de combo es un problema real e inmediato. El N-key rollover garantiza que se envíe cada tecla que mantienes pulsada, algo que importa mucho menos al escribir, cuando rara vez pulsas más de 2-3 teclas a la vez.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Usar USB en lugar de una conexión inalámbrica afecta al rollover?</summary>
+        <div class="faq-answer">
+          <p>Puede. El NKRO completo suele requerir USB con un modo de envío específico del teclado en lugar del protocolo de arranque estándar, y las conexiones Bluetooth o inalámbricas de 2,4 GHz a menudo no pueden transmitir ese mismo protocolo de forma fiable, por lo que limitan las teclas simultáneas por debajo de lo que el mismo teclado admitiría con cable.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <section class="help-section">
+    <h2>Herramientas relacionadas</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/es/keyboard-test">
+        <h3>Test de teclado</h3>
+        <p>Comprueba cada tecla por separado.</p>
+      </a>
+      <a class="help-card" href="/es/reaction-time-test">
+        <h3>Test de tiempo de reacción</h3>
+        <p>Haz clic en cuanto veas cambiar el color.</p>
+      </a>
+      <a class="help-card" href="/blog/keyboard/keyboard-key-not-working" hreflang="en">
+        <h3>Una tecla no funciona<span class="lang-tag">EN</span></h3>
+        <p>Suciedad, membrana desgastada y cambio de interruptor.</p>
+      </a>
+      <a class="help-card" href="/blog/keyboard/wasd-arrow-keys-swapped" hreflang="en">
+        <h3>WASD intercambiado con las flechas<span class="lang-tag">EN</span></h3>
+        <p>Deshaz un intercambio de teclas accidental.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/es">Inicio</a>
+    <a href="/es#mouse">Mouse</a>
+    <a href="/es#keyboard-tools">Teclado</a>
+    <a href="/es#gaming">Gaming</a>
+    <a href="/es/screen-test">Test de pantalla</a>
+    <a href="/es#guides">Guías</a>
+    <a href="/es/about">Acerca de</a>
+    <a href="/es/contact">Contacto</a>
+    <a href="/sitemap">Mapa del sitio</a>
+    <a href="/privacy-policy">Privacidad</a>
+    <a href="/cookies-policy">Cookies</a>
+    <a href="/terms-and-conditions">Términos</a>
+    <a href="/disclaimer">Aviso legal</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Consentimiento de cookies" hidden>
+  <p>Usamos cookies para medir el tráfico de forma básica y para mostrar anuncios a través de Google AdSense. Las pruebas se ejecutan en tu navegador y no envían nada a ningún sitio. Consulta nuestra <a href="/cookies-policy">Política de cookies</a> (en inglés).</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Rechazar</button>
+    <button type="button" class="btn" id="cookie-accept">Aceptar</button>
+  </div>
+</div>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>

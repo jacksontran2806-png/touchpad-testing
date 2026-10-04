@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<!-- HEAD_COMMON:START -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e0f13">
+<meta property="og:site_name" content="Hardware Test Hub">
+<meta property="og:locale" content="de_DE">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts load without blocking first paint: fetched as a non-applying
+     print stylesheet, then switched to all once it arrives. The noscript
+     copy keeps them working with JS disabled. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" media="print" onload="this.media='all';this.onload=null">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/style.css">
+<!-- HEAD_COMMON:END -->
+<title>Tastaturtest Online — Jede Taste prüfen, jedes Layout</title>
+<meta name="description" content="Kostenloser Online-Tastaturtest für Windows und Mac. Sieh jeden Tastendruck live aufleuchten – in QWERTZ, QWERTY, AZERTY oder Dvorak, inklusive Vollformat mit Ziffernblock.">
+<link rel="canonical" href="https://hardwaretesthub.net/de/keyboard-test">
+<!-- HREFLANG:START -->
+<link rel="alternate" hreflang="en" href="https://hardwaretesthub.net/keyboard-test">
+<link rel="alternate" hreflang="es" href="https://hardwaretesthub.net/es/keyboard-test">
+<link rel="alternate" hreflang="de" href="https://hardwaretesthub.net/de/keyboard-test">
+<link rel="alternate" hreflang="x-default" href="https://hardwaretesthub.net/keyboard-test">
+<!-- HREFLANG:END -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hardwaretesthub.net/de/keyboard-test">
+<meta property="og:title" content="Tastaturtest Online — Jede Taste prüfen, jedes Layout">
+<meta property="og:description" content="Kostenloser Online-Tastaturtest für Windows und Mac. Sieh jeden Tastendruck live aufleuchten – in QWERTZ, QWERTY, AZERTY oder Dvorak, inklusive Vollformat mit Ziffernblock.">
+<meta property="og:image" content="https://hardwaretesthub.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ADSENSE:START -->
+<meta name="google-adsense-account" content="ca-pub-1082746041497676">
+<!-- Google Consent Mode v2 defaults. Must run BEFORE the adsbygoogle tag
+     below, so ads and measurement start in the denied state and only move to
+     granted if the visitor accepts in the cookie banner (js/app.js). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag("consent", "default", {
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+  analytics_storage: "denied",
+  wait_for_update: 500
+});
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1082746041497676" crossorigin="anonymous"></script>
+<!-- ADSENSE:END -->
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://hardwaretesthub.net/de/keyboard-test#app",
+      "name": "Tastaturtest",
+      "description": "Kostenloser Online-Tastaturtest für Windows und Mac. Sieh jeden Tastendruck live aufleuchten – in QWERTZ, QWERTY, AZERTY oder Dvorak, inklusive Vollformat mit Ziffernblock.",
+      "url": "https://hardwaretesthub.net/de/keyboard-test",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires JavaScript",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@id": "https://hardwaretesthub.net/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/#website"
+      },
+      "inLanguage": "de"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Startseite",
+          "item": "https://hardwaretesthub.net/de"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tastatur",
+          "item": "https://hardwaretesthub.net/de"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Tastaturtest",
+          "item": "https://hardwaretesthub.net/de/keyboard-test"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hardwaretesthub.net/de/keyboard-test#faq",
+      "isPartOf": {
+        "@id": "https://hardwaretesthub.net/de/keyboard-test#app"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Warum zeigt eine Taste beim Drücken den falschen Buchstaben an?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Die physische Position leuchtet korrekt auf, aber die angezeigte Beschriftung hängt vom gewählten Zeichenlayout ab (QWERTZ, QWERTY, AZERTY oder Dvorak). Passt das Layout deines Systems nicht zu dem hier gewählten, unterscheiden sich der Buchstabe auf deiner Tastenkappe und der, den dieses Tool an dieser Position erwartet – das ist ein Layout-Unterschied, keine kaputte Taste."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Funktioniert das mit einer deutschen (nicht US-)Tastatur?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja – das Tool liest die physische Tastenposition (event.code), unabhängig davon, was auf deiner Tastatur aufgedruckt ist, und beschriftet jede Position nach dem gewählten Layout neu. Auf dieser Seite ist QWERTZ voreingestellt. Einige Zahlen-, Satzzeichen- und Randtasten sitzen auf ISO-Tastaturen (wie der deutschen) physisch etwas anders als auf ANSI-Tastaturen, deshalb zeigen manche Layouts kleine Unterschiede in der Tastenform."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kann ich die eingebaute Tastatur eines Laptops genauso testen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja, das funktioniert mit der internen Laptop-Tastatur genauso – der Browser erhält in beiden Fällen dieselben Tasten-Events. Die einzige Ausnahme ist die Fn-Taste, die die meisten Laptop-Firmwares und macOS abfangen, bevor sie den Browser erreicht. Deshalb wird sie abgeblendet statt als nicht testbar angezeigt."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- SCHEMA:END -->
+</head>
+<body>
+
+<!-- HEADER:START -->
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/de"><span class="dot"></span>Hardware Test Hub</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menü">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </label>
+    <nav class="site-nav">
+      <a href="/de#mouse">Maus</a>
+      <a href="/de#keyboard-tools">Tastatur</a>
+      <a href="/de#gaming">Gaming</a>
+      <a href="/de#guides">Ratgeber</a>
+      <a href="/de/about">Über uns</a>
+      <!-- LANG_SWITCH:START -->
+      <div class="lang-switch">
+        <a href="/keyboard-test" hreflang="en" lang="en" title="English">EN</a>
+        <a href="/es/keyboard-test" hreflang="es" lang="es" title="Español">ES</a>
+        <a href="/de/keyboard-test" hreflang="de" lang="de" title="Deutsch" aria-current="true">DE</a>
+      </div>
+      <!-- LANG_SWITCH:END -->
+    </nav>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main>
+  <div class="tool-head">
+    <div class="kicker">Tastatur</div>
+    <h1>Tastaturtest</h1>
+    <p>Drück eine beliebige Taste auf deiner Tastatur – sie leuchtet hier auf, beschriftet nach dem gewählten Layout, damit du prüfen kannst, ob das richtige Zeichen im Browser ankommt. Getestete Tasten bleiben grün, so siehst du, was noch fehlt.</p>
+  </div>
+
+  <div class="tool-wrap">
+    <div class="test-wrap">
+      <div class="canvas-card">
+        <div class="canvas-toolbar">
+          <h2>Testbereich</h2>
+          <div class="toolbar-controls">
+            <select class="layout-select" id="kb-os" aria-label="Tastaturtyp">
+              <option value="windows">Windows</option>
+              <option value="mac">macOS</option>
+            </select>
+            <select class="layout-select" id="kb-size" aria-label="Tastaturgröße">
+              <option value="full">Vollformat – mit Ziffernblock</option>
+              <option value="compact">Kompakt – ohne Ziffernblock</option>
+            </select>
+            <select class="layout-select" id="layout-select" aria-label="Zeichenlayout">
+              <option value="qwertz" selected>QWERTZ (DE)</option>
+              <option value="qwerty">QWERTY (US)</option>
+              <option value="azerty">AZERTY (FR)</option>
+              <option value="dvorak">Dvorak</option>
+            </select>
+            <button class="reset-btn" id="reset-keyboard">Zurücksetzen</button>
+          </div>
+        </div>
+        <div class="keyboard-wrap">
+          <div class="keyboard" id="keyboard" aria-label="Bildschirmtastatur"></div>
+        </div>
+        <div class="type-output">
+          <div class="type-output-head">
+            <span>Was du getippt hast</span>
+            <button class="reset-btn" id="clear-typed">Leeren</button>
+          </div>
+          <div class="typed-text is-empty" id="typed-text" aria-live="polite"></div>
+        </div>
+        <div class="hint-bar">
+          Die <strong>Fn</strong>-Taste ist abgeblendet, weil macOS und die meisten Laptop-Firmwares sie verarbeiten, bevor der Browser sie überhaupt sieht.
+        </div>
+      </div>
+
+      <aside class="results-panel">
+        <h2>Live-Anzeige</h2>
+        <div class="keyboard-readout">
+          <div class="kv"><span class="k">Gedrückte Tasten</span><span class="v" id="kb-count">0</span></div>
+          <div class="kv"><span class="k">Letzte Taste</span><span class="v" id="kb-lastkey">–</span></div>
+          <div class="kv"><span class="k">event.code</span><span class="v" id="kb-lastcode">–</span></div>
+        </div>
+        <div class="mod-row" id="kb-mods">
+          <span class="mod-pill" data-mod="Shift">Shift</span>
+          <span class="mod-pill" data-mod="Control">Strg</span>
+          <span class="mod-pill" data-mod="Alt">Alt</span>
+          <span class="mod-pill" data-mod="Meta">Meta</span>
+        </div>
+        <div class="live-readout">
+          Es leuchtet die physische Position der Taste auf. Buchstaben werden je nach Layout neu beschriftet; Zahlen- und Satzzeichentasten bleiben zur Orientierung an ihrer US-Position.
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="article">
+    <h2>Was hier wirklich getestet wird</h2>
+    <p>Jede Taste sendet eine physische Position (<code>event.code</code>, z. B. <code>KeyQ</code>) und getrennt davon das Zeichen, dem dein Systemlayout sie zuordnet (<code>event.key</code>). Dieses Tool lässt die physische Position aufleuchten und beschriftet sie nach dem gewählten Layout neu. So kannst du eine wirklich tote Taste von einem falschen Layout unterscheiden – dem mit Abstand häufigsten Grund, warum „die halbe Tastatur“ kaputt zu sein scheint. Ein typisches Beispiel: Y und Z sind vertauscht, weil das System auf US-Layout steht.</p>
+
+    <h2>Wenn eine Taste nicht reagiert</h2>
+    <ol>
+      <li>Prüf, ob das Tastaturlayout deines Systems zu deiner physischen Tastatur passt – meist ist ein falsches Layout schuld, keine tote Taste.</li>
+      <li>Schau nach Schmutz unter der Tastenkappe; Druckluft entfernt das meiste.</li>
+      <li>Teste an einem anderen Computer oder mit einer USB-Tastatur, um Port oder Treiber auszuschließen.</li>
+      <li>Bei einer mechanischen Tastatur mit eigener Firmware: Setz sie auf Werkseinstellungen zurück, bevor du von einem Hardwaredefekt ausgehst.</li>
+    </ol>
+
+    <div class="cta-box">
+      <p>Willst du das Rollover-Limit deiner Tastatur kennen?</p>
+      <a class="btn" href="/de/keyboard-ghosting-test">Ghosting- / NKRO-Test</a>
+    </div>
+
+    <h2>Häufige Fragen</h2>
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>Warum zeigt eine Taste beim Drücken den falschen Buchstaben an?</summary>
+        <div class="faq-answer">
+          <p>Die physische Position leuchtet korrekt auf, aber die angezeigte Beschriftung hängt vom gewählten Zeichenlayout ab (QWERTZ, QWERTY, AZERTY oder Dvorak). Passt das Layout deines Systems nicht zu dem hier gewählten, unterscheiden sich der Buchstabe auf deiner Tastenkappe und der, den dieses Tool an dieser Position erwartet – das ist ein Layout-Unterschied, keine kaputte Taste.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Funktioniert das mit einer deutschen (nicht US-)Tastatur?</summary>
+        <div class="faq-answer">
+          <p>Ja – das Tool liest die physische Tastenposition (event.code), unabhängig davon, was auf deiner Tastatur aufgedruckt ist, und beschriftet jede Position nach dem gewählten Layout neu. Auf dieser Seite ist QWERTZ voreingestellt. Einige Zahlen-, Satzzeichen- und Randtasten sitzen auf ISO-Tastaturen (wie der deutschen) physisch etwas anders als auf ANSI-Tastaturen, deshalb zeigen manche Layouts kleine Unterschiede in der Tastenform.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Kann ich die eingebaute Tastatur eines Laptops genauso testen?</summary>
+        <div class="faq-answer">
+          <p>Ja, das funktioniert mit der internen Laptop-Tastatur genauso – der Browser erhält in beiden Fällen dieselben Tasten-Events. Die einzige Ausnahme ist die Fn-Taste, die die meisten Laptop-Firmwares und macOS abfangen, bevor sie den Browser erreicht. Deshalb wird sie abgeblendet statt als nicht testbar angezeigt.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <section class="help-section">
+    <h2>Verwandte Tools</h2>
+    <div class="help-cards">
+      <a class="help-card" href="/de/keyboard-ghosting-test">
+        <h3>Ghosting- / NKRO-Test</h3>
+        <p>Wie viele Tasten gleichzeitig erkannt werden.</p>
+      </a>
+      <a class="help-card" href="/de/reaction-time-test">
+        <h3>Reaktionstest</h3>
+        <p>Klick, sobald sich die Farbe ändert.</p>
+      </a>
+      <a class="help-card" href="/blog/keyboard/keyboard-not-working" hreflang="en">
+        <h3>Tastatur funktioniert nicht<span class="lang-tag">EN</span></h3>
+        <p>Schnelle Checks bei toten Tasten oder einer hängenden Modifikatortaste.</p>
+      </a>
+      <a class="help-card" href="/blog/keyboard/keyboard-key-not-working" hreflang="en">
+        <h3>Eine Taste funktioniert nicht<span class="lang-tag">EN</span></h3>
+        <p>Schmutz, verschlissene Membran und Schaltertausch – nach Aufwand sortiert.</p>
+      </a>
+      <a class="help-card" href="/blog/keyboard/keyboard-typing-multiple-letters" hreflang="en">
+        <h3>Taste schreibt doppelt<span class="lang-tag">EN</span></h3>
+        <p>Tastenprellen – und wie du es reinigst oder herausfilterst.</p>
+      </a>
+      <a class="help-card" href="/blog/keyboard/keyboard-typing-numbers-instead-of-letters" hreflang="en">
+        <h3>Zahlen statt Buchstaben<span class="lang-tag">EN</span></h3>
+        <p>Den versteckten Num-Block ausschalten.</p>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER:START -->
+<footer class="site-footer">
+  <div>
+    <a href="/de">Startseite</a>
+    <a href="/de#mouse">Maus</a>
+    <a href="/de#keyboard-tools">Tastatur</a>
+    <a href="/de#gaming">Gaming</a>
+    <a href="/de/screen-test">Bildschirmtest</a>
+    <a href="/de#guides">Ratgeber</a>
+    <a href="/de/about">Über uns</a>
+    <a href="/de/contact">Kontakt</a>
+    <a href="/sitemap">Sitemap</a>
+    <a href="/privacy-policy">Datenschutz</a>
+    <a href="/cookies-policy">Cookies</a>
+    <a href="/terms-and-conditions">Nutzungsbedingungen</a>
+    <a href="/disclaimer">Haftungsausschluss</a>
+  </div>
+  <div style="margin-top:8px;">&copy; <span id="year"></span> Hardware Test Hub</div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie-Einwilligung" hidden>
+  <p>Wir verwenden Cookies für eine einfache Reichweitenmessung und um über Google AdSense Werbung anzuzeigen. Die Tests selbst laufen in deinem Browser und senden nichts irgendwohin. Mehr dazu in unserer <a href="/cookies-policy">Cookie-Richtlinie</a> (auf Englisch).</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-secondary" id="cookie-decline">Ablehnen</button>
+    <button type="button" class="btn" id="cookie-accept">Akzeptieren</button>
+  </div>
+</div>
+<!-- FOOTER:END -->
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/js/app.js"></script>
+</body>
+</html>
