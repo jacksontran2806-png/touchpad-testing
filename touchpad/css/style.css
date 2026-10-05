@@ -1487,7 +1487,11 @@ button.swatch:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   touch-action: manipulation;
 }
 
-.screen-stage[hidden] { display: none; }
+/* The stage's layers set their own display, which would otherwise beat the
+   [hidden] attribute — and a layer left showing covers every later screen. */
+.screen-stage[hidden],
+.screen-stage canvas[hidden],
+.screen-text[hidden] { display: none; }
 .screen-stage.show-cursor { cursor: default; }
 
 .screen-stage canvas {
